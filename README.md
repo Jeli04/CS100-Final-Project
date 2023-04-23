@@ -19,15 +19,19 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
- The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
+
+The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
  > * What languages/tools/technologies do you plan to use? 
- We will be using C++ and the GTK+ library to build our desktop application. We will be building our backend functionality with C++ and our Graphical User Interface using GTK+. GTK+ allows us to use C++ and potentially some other languages to build a polished user interface. 
+
+We will be using C++ and the GTK+ library to build our desktop application. We will be building our backend functionality with C++ and our Graphical User Interface using GTK+. GTK+ allows us to use C++ and potentially some other languages to build a polished user interface. 
  > * What will be the input/output of your project?
- The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
+
+The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
 The output of our project will be a calendar that displays upcoming or current tasks, reminders, and events in a month/week/day format. 
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- This application will enable users to create a schedule of their day and layout their tasks in a way that is efficient to them. When they input the tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application will also send users reminders of their pending tasks on that certain day.  
+
+This application will enable users to create a schedule of their day and layout their tasks in a way that is efficient to them. When they input the tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application will also send users reminders of their pending tasks on that certain day.  
 
  > You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
  > ## Phase II
