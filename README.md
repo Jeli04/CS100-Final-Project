@@ -35,28 +35,24 @@ This navigation diagram depicts how a user would navigate through the terminal t
 
 ### Screen Layouts
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-1.png?raw=true)<br/>
-
 This is the home menu selection screen which allows users to go into the calendar, task list, or course list.
 
 
 
 
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-2.png?raw=true)
-
 If a user chooses to open the calendar screen this is the calendar that appear. The user will also be given the option to go to a specific day.
 
 
 
 
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-3.png?raw=true)
-
 If a user chooses to open the course list this is what is displayed. Each item that is a couse type is only displayed with the name of the course, the date, and its prioirty compared to other classes.
 
 
 
 
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-4.png?raw=true)
-
 If a user chooses to open the task list this is the task list that appears. The list shows what tasks they have including its date, description, and prioirty, and if its finished or not.
 
 
