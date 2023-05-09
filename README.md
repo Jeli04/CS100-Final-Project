@@ -15,7 +15,6 @@ The output of our project will be a calendar that displays upcoming or current t
 This application will enable users to create a schedule of their day and layout their tasks in a way that is efficient to them. When they input the tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application will also send users reminders of their pending tasks on that certain day. 
 
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/navigation-diagram-project.drawio.png?raw=true)
