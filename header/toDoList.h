@@ -4,14 +4,15 @@
 #include "../header/item.h"
 #include <list> 
 #include <iterator>
+#include <queue>
 
 using namespace std;
 
 class ToDoList{
 private:
-    list<Item*> AllItems;
-    list<Item*> CompletedItems;
-    list<Item*> IncompletedItems;
+    priority_queue<Item*> AllItems;
+    priority_queue<Item*> CompletedItems;
+    priority_queue<Item*> IncompletedItems;
     int ItemCount; 
 public:
     ToDoList();
