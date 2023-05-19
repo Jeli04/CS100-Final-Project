@@ -1,10 +1,18 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+cmake_minimum_required(VERSION 3.2)
+project(PrioirtyFlow)
 
-ADD_SUBDIRECTORY(googletest)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 
-ADD_EXECUTABLE(runItems
-    item.cpp
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
+
+include_directories(${CMAKE_SOURCE_DIR}/header)
+link_directories(${LIBRARY_OUTPUT_PATH})
+
+include_directories(
+  ${CMAKE_SOURCE_DIR}/tests/lib/googletest/include/
 )
 
-TARGET_LINK_LIBRARIES(test gtest)
-TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
+add_subdirectory(src)
+add_subdirectory(tests)

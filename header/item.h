@@ -3,26 +3,34 @@
 
 class Items {
     protected:
+
         string itemName_;
         string itemTime_;
         string itemLocation_;
         string itemDescrip_;
         int itemPriority_;
-        string itemType_;
         bool itemCompletion;
-        
+
     public:
 
-        string getName();
-        string getTime();
-        string getLocation();
-        string getDescription();
-        int getPriority();
-        string getItemType();
-        bool getStatus();
-        Items();
-        Items(string, string, string, string, int, string, bool);
-        virtual void printItem() = 0;
+        //Setters of Item    
+        void setName(const string&);
+        void setTime(const string&);
+        void setLocation(const string&);
+        void setDescription(const string&);
+        void setPriority(int);
+        void setItemCompletion(bool);
+
+        //Getters of Item
+        string getName() const;
+        string getTime() const;
+        string getLocation() const;
+        string getDescription() const;
+        int getPriority() const;
+        bool getStatus() const;
+
+        //Making class abstract
+        virtual void item() = 0;
 
 }
 
