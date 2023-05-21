@@ -1,5 +1,9 @@
 add_library(simpleLibrary
-    item.cpp
+    display.cc
+)
+
+add_executable(runDisplay
+    display.cc
 )
 
 find_library(M_LIB m)

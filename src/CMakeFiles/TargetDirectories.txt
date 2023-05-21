@@ -1,0 +1,4 @@
+/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles/rebuild_cache.dir
+/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles/edit_cache.dir
+/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles/simpleLibrary.dir
+/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles/runDisplay.dir

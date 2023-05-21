@@ -1,52 +1,50 @@
 #include "../header/item.h"
+using namespace std;
 
-string Items::getName() const {
+string Item::getName() const {
     return this->itemName_;
 }
 
-string Items::getTime() const {
+string Item::getTime() const {
     return this->itemTime_;
 }
 
-string Items::getLocation() const {
+string Item::getLocation() const {
     return this->itemLocation_;
 }
 
-string Items::getDescription() const {
+string Item::getDescription() const {
     return this->itemDescrip_;
 }
 
-int Items::getPriority() const {
+int Item::getPriority() const {
     return this->itemPriority_;
 }
 
-bool Items::getStatus() const {
+bool Item::getStatus() const {
     return this->itemCompletion_;
 }
 
-void Items::setName(const string& name) {
+void Item::setName(const string& name) {
     this->itemName_ = name;
 }
 
-void Items::setTime(const string& time) {
+void Item::setTime(const string& time) {
     this->itemTime_ = time;
 }
 
-void Items::setLocation(const string& location) {
+void Item::setLocation(const string& location) {
     this->itemLocation_ = location;
 }
 
-void Items::setDescripion(const string& description) {
+void Item::setDescripion(const string& description) {
     this->itemDescrip_ = description;
 }
 
-void Items::setPriority(int priority) {
+void Item::setPriority(int priority) {
     this->itemPriority_ = itemPriority_;
 }
 
 void Items::setItemCompletion(bool status) {
     this->itemCompletion_ = status;
 }
-
-
-

@@ -1,6 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Items {
     protected:
 
@@ -32,6 +37,6 @@ class Items {
         //Making class abstract
         virtual void item() = 0;
 
-}
+};
 
 #endif

@@ -3,17 +3,22 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include "task.h"
 
-class Course : public Item {
+using namespace std;
+
+
+class Course : public Items {
     private:
-        String InstructorName;
-        vector<String> OccuringDays;
-        list<Task> ListOfAssignments;
+        string InstructorName;
+        vector<string> OccuringDays;
+        //list<Task> ListOfAssignments;
     public:
-        Course(vector<String> days, String instructorName);
+        Course(vector<string> days, string instructorName);
         void Edit();
         void DisplayCourseInfo();
+        void getOccuringDays();
         
-}
+};
 #endif
