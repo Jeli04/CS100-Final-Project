@@ -3,14 +3,18 @@
 #ifndef COURSES_H
 #define COURSES_H
 
-Course::Course(){
-    
-}
-Course::Course(String[] days, String instructor){
-    OccuringDays = days;
-    InstructorName = instructor
+Course::Course(String[] days, String instructor) : Item() {
+    occuringDays = days;
+    instructorName = instructor;
 }
 
+String Course::getInstructorName(){
+    return this->instructorName;
+}
+
+String[] Course::getOccuringDays(){
+    return this->occuringDays;
+}
 void Course::Edit(){
     int userInput = 0;
 

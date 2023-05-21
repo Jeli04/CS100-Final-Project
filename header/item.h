@@ -1,6 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Item {
     protected:
 
@@ -13,7 +18,8 @@ class Item {
 
     public:
 
-        //Setters of Item    
+        //Setters of Item  
+        Item();  
         void setName(const string&);
         void setTime(const string&);
         void setLocation(const string&);
@@ -31,6 +37,7 @@ class Item {
 
         //Making class abstract
         virtual void item() = 0;
-}
+
+};
 
 #endif

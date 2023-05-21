@@ -1,6 +1,15 @@
 #include "../header/item.h"
+using namespace std;
 
-Item::Item()
+Item::Item(){
+    itemName = "";
+    itemTime = "";
+    itemLocation = "";
+    itemDescription = "";
+    itemPriority = "";
+    itemCompletion = false;
+}
+
 string Item::getName() const {
     return this->itemName;
 }
@@ -14,7 +23,7 @@ string Item::getLocation() const {
 }
 
 string Item::getDescription() const {
-    return this->itemDescrip;
+    return this->itemDescription;
 }
 
 int Item::getPriority() const {
@@ -38,13 +47,13 @@ void Item::setLocation(const string& location) {
 }
 
 void Item::setDescripion(const string& description) {
-    this->itemDescrip = description;
+    this->itemDescription = description;
 }
 
 void Item::setPriority(int priority) {
-    this->itemPriority = priority;
+    this->itemPriority = itemPriority_;
 }
 
-void Item::setItemCompletion(bool status) {
+void Items::setItemCompletion(bool status) {
     this->itemCompletion = status;
 }
