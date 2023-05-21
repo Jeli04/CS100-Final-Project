@@ -9,11 +9,11 @@ using namespace std;
 class Items {
     protected:
 
-        string itemName_;
-        string itemTime_;
-        string itemLocation_;
-        string itemDescrip_;
-        int itemPriority_;
+        string itemName;
+        string itemTime;
+        string itemLocation;
+        string itemDescription;
+        int itemPriority;
         bool itemCompletion;
 
     public:

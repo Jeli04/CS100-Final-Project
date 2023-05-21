@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Course::Course(vector<string>& days, string instructor){
+Course::Course(vector<string> days, string instructorName){
     this->OccuringDays = days;
     this->InstructorName = instructor;
 }
