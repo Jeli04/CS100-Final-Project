@@ -1,11 +1,12 @@
-#include "../header/course.h"
-
 #ifndef COURSES_H
 #define COURSES_H
+#include <vector>
 
-Course::Course(String[] days, String instructor){
-    OccuringDays = days;
-    InstructorName = instructor
+using namespace std;
+
+Course::Course(vector<string> days, string instructorName){
+    this->OccuringDays = days;
+    this->InstructorName = instructor;
 }
 
 void Course::Edit(){
@@ -105,6 +106,12 @@ void Course::Edit(){
             cin >> inputAgain;
         }
         // set new days
+    }
+}
+
+void Course::getOccuringDays() {
+    for (int i = 0; i < this->OccuringDays.size(); ++i) {
+        cout << OccuringDays.at(i) <<  ", " << endl;
     }
 }
 
