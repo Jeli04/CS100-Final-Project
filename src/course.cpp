@@ -3,6 +3,9 @@
 #ifndef COURSES_H
 #define COURSES_H
 
+Course::Course(){
+    
+}
 Course::Course(String[] days, String instructor){
     OccuringDays = days;
     InstructorName = instructor

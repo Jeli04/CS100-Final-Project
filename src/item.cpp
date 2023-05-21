@@ -1,5 +1,6 @@
 #include "../header/item.h"
 
+Item::Item()
 string Item::getName() const {
     return this->itemName;
 }
