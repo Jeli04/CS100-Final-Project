@@ -15,5 +15,8 @@ void displayCourse::displayCourses(Course& classes) {
     cout << endl;
     cout << "Priority: " << classes.getPriority() << endl;
     cout << "Completion Status: " << classes.getStatus() << endl;
+    cout << "---------------------------------------" << endl;
+    cout << "\t\tList of Assignments:" << endl;
+    
 }
 
