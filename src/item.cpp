@@ -1,52 +1,49 @@
 #include "../header/item.h"
 
-string Items::getName() const {
-    return this->itemName_;
+string Item::getName() const {
+    return this->itemName;
 }
 
-string Items::getTime() const {
-    return this->itemTime_;
+string Item::getTime() const {
+    return this->itemTime;
 }
 
-string Items::getLocation() const {
-    return this->itemLocation_;
+string Item::getLocation() const {
+    return this->itemLocation;
 }
 
-string Items::getDescription() const {
-    return this->itemDescrip_;
+string Item::getDescription() const {
+    return this->itemDescrip;
 }
 
-int Items::getPriority() const {
-    return this->itemPriority_;
+int Item::getPriority() const {
+    return this->itemPriority;
 }
 
-bool Items::getStatus() const {
-    return this->itemCompletion_;
+bool Item::getStatus() const {
+    return this->itemCompletion;
 }
 
-void Items::setName(const string& name) {
-    this->itemName_ = name;
+void Item::setName(const string& name) {
+    this->itemName = name;
 }
 
-void Items::setTime(const string& time) {
-    this->itemTime_ = time;
+void Item::setTime(const string& time) {
+    this->itemTime = time;
 }
 
-void Items::setLocation(const string& location) {
-    this->itemLocation_ = location;
+void Item::setLocation(const string& location) {
+    this->itemLocation = location;
 }
 
-void Items::setDescripion(const string& description) {
-    this->itemDescrip_ = description;
+void Item::setDescripion(const string& description) {
+    this->itemDescrip = description;
 }
 
-void Items::setPriority(int priority) {
-    this->itemPriority_ = itemPriority_;
+void Item::setPriority(int priority) {
+    this->itemPriority = priority;
 }
 
-void Items::setItemCompletion(bool status) {
-    this->itemCompletion_ = status;
+void Item::setItemCompletion(bool status) {
+    this->itemCompletion = status;
 }
-
-
-

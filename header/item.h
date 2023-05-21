@@ -1,14 +1,14 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-class Items {
+class Item {
     protected:
 
-        string itemName_;
-        string itemTime_;
-        string itemLocation_;
-        string itemDescrip_;
-        int itemPriority_;
+        string itemName;
+        string itemTime;
+        string itemLocation;
+        string itemDescription;
+        int itemPriority;
         bool itemCompletion;
 
     public:
@@ -31,7 +31,6 @@ class Items {
 
         //Making class abstract
         virtual void item() = 0;
-
 }
 
 #endif
