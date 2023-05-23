@@ -10,17 +10,19 @@ using namespace std;
 
 class ToDoList{
 private:
-    priority_queue<Item*> AllItems;
-    priority_queue<Item*> CompletedItems;
-    priority_queue<Item*> IncompletedItems;
-    int ItemCount; 
+    list<Item*> AllItems;
+    list<Item*> CompletedItems;
+    list<Item*> IncompletedItems;
+
+    int ItemCount = 0; 
 public:
     ToDoList();
-    void Add();
+    void Add(Item*);
     void DisplayAll() const;
     void DisplayCompleted() const;
     void DisplayIncompleted() const;
     int GetItemCount() const {return ItemCount;}
+    list<Item*> GetAllItems() const;
 };
 
 #endif

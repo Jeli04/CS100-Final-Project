@@ -18,9 +18,12 @@ protected:
 
 public:
     Item();
+    Item(string, string, string, string, int, string);
     void Delete();
     //void Add();
     void Edit();
+    int getPriority();
+    string getName();
 };
 
 
