@@ -11,12 +11,17 @@ list<Item*> ToDoList::GetAllItems() const
 }
 
 void ToDoList::Add(Item* newItem) {
-    if (AllItems.empty()) {
+    if (AllItems.empty()) 
+    {
         AllItems.push_back(newItem);
-    } else {
+    } 
+    else 
+    {
         auto itr = AllItems.begin();
-        while (itr != AllItems.end() && newItem->getPriority() >= (*itr)->getPriority()) {
-            if (newItem->getPriority() == (*itr)->getPriority()) {
+        while (itr != AllItems.end() && newItem->getPriority() >= (*itr)->getPriority()) 
+        {
+            if (newItem->getPriority() == (*itr)->getPriority()) 
+            {
                 AllItems.insert(itr, newItem);
                 return;
             }
