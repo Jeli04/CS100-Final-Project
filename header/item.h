@@ -32,6 +32,14 @@ public:
     void setPriority(int p){Priority = p;}
     void setCompletion(bool c){Completed = c;}
 
+    /*
+    getNmae
+    getTime
+    getLocation
+    getDescription
+    getPrioirty
+    getStatus
+
 };
 
 
