@@ -1,74 +1,74 @@
 #include "../header/toDoList.h"
 
 ToDoList::ToDoList(){
-    ItemCount = 0;
+    itemCount = 0;
 }
 
-// Add stub function
-void ToDoList::Add(Item* NewItem) {
-    AllItems.push_back(NewItem);
-    if(NewItem->GetCompletion()){CompletedItems.push_back(NewItem);}
-    else{IncompletedItems.push_back(NewItem);}
-    ItemCount++;
+// add stub function
+void ToDoList::add(Item* newItem) {
+    AllItems.push_back(newItem);
+    if(newItem->GetCompletion()){CompletedItems.push_back(newItem);}
+    else{incompletedItems.push_back(newItem);}
+    itemCount++;
 }
 
-void ToDoList::DisplayAll(ostream& ss) const {
+void ToDoList::displayAll(ostream& ss) const {
     printTitle(ss);
     printBody(ss, AllItems);
 }
 
-void ToDoList::DisplayCompleted(ostream& ss) const {
+void ToDoList::displayCompleted(ostream& ss) const {
     printTitle(ss);
-    printBody(ss, CompletedItems);
+    printBody(ss, completedItems);
 }
 
-void ToDoList::DisplayIncompleted(ostream& ss) const {
+void ToDoList::displayIncompleted(ostream& ss) const {
     printTitle(ss);
-    printBody(ss, IncompletedItems);
+    printBody(ss, incompletedItems);
 }
 
 void ToDoList::printTitle(ostream& ss) const{
     // prints the title 
     ss << "Completion | Name";
-    PrintSpaces(ss, 16);
+    printSpaces(ss, 16);
     ss << "| Priority | Time" << endl;
     printDashes(ss, 52);
 }
 
 void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     // prints the body
-    for(Item* ListItem : toDoListType){
-        PrintSpaces(ss, 4);
+    for(Item* listItem : toDoListType){
+        printSpaces(ss, 4);
         ss << "[";
-        if(ListItem->GetCompletion()){ss << "X";}
+        if(listItem->GetCompletion()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
-        PrintSpaces(ss, 3);
+        printSpaces(ss, 3);
 
         ss << "| ";
 
-        ss << ListItem->GetName();
+        ss << listItem->GetName();
         
-        printPadding(ss, ListItem->GetName());
+        printPadding(ss, listItem->GetName());
 
-        //PrintSpaces(ss, 16);
-
-        ss << "| ";
-
-        PrintSpaces(ss, 4);
-
-        ss << ListItem->GetPriority();
-
-        PrintSpaces(ss, 4);
+        //printSpaces(ss, 16);
 
         ss << "| ";
 
-        ss << ListItem->GetTime() << endl;
+        printSpaces(ss, 4);
+
+        ss << listItem->GetPriority();
+
+        printSpaces(ss, 4);
+
+        ss << "| ";
+
+        ss << listItem->GetTime() << endl;
     }
 }
 
-void ToDoList::PrintSpaces(ostream& ss, int SpaceCount) const{
-    for(unsigned i = 0; i < SpaceCount; i++){
+void ToDoList::printSpaces(ostream& ss, int spaceCount) const{
+    for(unsigned i = 0; i < spaceCount; i++){
         ss << " ";
     }
 }
