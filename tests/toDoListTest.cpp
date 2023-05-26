@@ -27,6 +27,32 @@ TEST(ToDoList, addToList)
 
 }
 
+TEST(ToDoList, deleteFromList)
+{
+    ToDoList testList;
+    list<Item*> expectedList;
+
+    Item *testItem1 = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Item *testItem2 = new Item("project", "today", "there", "finish on gradescope", 1, "task", true);
+    Item *testItem3 = new Item(false);;
+
+    Item *expected1 = new Item(false);;
+    Item *expected2 = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+
+    expectedList.push_back(expected1);
+    expectedList.push_back(expected2);
+
+    testList.add(testItem1);
+    testList.add(testItem2);
+    testList.add(testItem3);
+
+    testList.deleteItem("project");
+    ASSERT_EQ(testList.getAllItems().size(), expectedList.size());
+    list<Item*>::iterator it1 = testList.getAllItems().begin();
+    list<Item*>::iterator it2 = expectedList.begin();
+    ASSERT_EQ((*it1)->getName(), (*it2)->getName());
+}
+
 
 TEST(ToDoList, ItemCount){
     ToDoList testList = ToDoList();
