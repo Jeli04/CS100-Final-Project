@@ -14,8 +14,6 @@ using namespace std;
 class ToDoList{
 private:
     list<Item*> allItems;
-    list<Item*> completedItems;
-    list<Item*> incompletedItems;
     int itemCount = 0; 
   
     // helper functions
@@ -27,6 +25,7 @@ private:
 public:
     ToDoList();
     void add(Item* NewItem);
+    void deleteItem(string itemName);
     void displayAll(ostream& ss) const;
     void displayCompleted(ostream& ss);
     void displayIncompleted(ostream& ss);

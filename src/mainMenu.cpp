@@ -21,6 +21,12 @@ int main()
     newList.add(fifthItem);
     newList.displayAll(cout);
     newList.displayCompleted(cout);
-    newList.DisplayIncompleted(cout);
+    newList.displayIncompleted(cout);
+
+    newList.deleteItem("homework");
+    newList.deleteItem("project");
+    newList.displayAll(cout);
+    newList.displayCompleted(cout);
+    newList.displayIncompleted(cout);
     return 0;
 }
