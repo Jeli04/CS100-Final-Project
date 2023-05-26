@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Items {
+class Item {
     protected:
 
         string itemName;

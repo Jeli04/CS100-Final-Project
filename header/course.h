@@ -12,8 +12,8 @@ using namespace std;
 
 class Course : public Items {
     private:
-        string InstructorName;
-        vector<string> OccuringDays;
+        String instructorName;
+        String[] occuringDays;
         //list<Task> ListOfAssignments;
     public:
         Course(vector<string> days, string instructorName);
@@ -21,6 +21,7 @@ class Course : public Items {
         void Edit();
         void DisplayCourseInfo();
         void getOccuringDays();
+        void getInstructorName()
         
 };
 #endif
