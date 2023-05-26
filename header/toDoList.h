@@ -30,6 +30,10 @@ public:
     void displayCompleted(ostream& ss) const;
     void displayIncompleted(ostream& ss) const;
     int getitemCount() const {return itemCount;}
+
+    friend class Day;
+    friend class Calendar;
+    friend class CourseList;
 };
 
 #endif

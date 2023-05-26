@@ -6,15 +6,15 @@ ToDoList::ToDoList(){
 
 // add stub function
 void ToDoList::add(Item* newItem) {
-    AllItems.push_back(newItem);
-    if(newItem->GetCompletion()){CompletedItems.push_back(newItem);}
+    allItems.push_back(newItem);
+    if(newItem->getCompletion()){completedItems.push_back(newItem);}
     else{incompletedItems.push_back(newItem);}
     itemCount++;
 }
 
 void ToDoList::displayAll(ostream& ss) const {
     printTitle(ss);
-    printBody(ss, AllItems);
+    printBody(ss, allItems);
 }
 
 void ToDoList::displayCompleted(ostream& ss) const {
@@ -40,16 +40,16 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
         ss << "[";
-        if(listItem->GetCompletion()){ss << "X";}
+        if(listItem->getCompletion()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
         printSpaces(ss, 3);
 
         ss << "| ";
 
-        ss << listItem->GetName();
+        ss << listItem->getName();
         
-        printPadding(ss, listItem->GetName());
+        printPadding(ss, listItem->getName());
 
         //printSpaces(ss, 16);
 
@@ -57,13 +57,13 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
 
         printSpaces(ss, 4);
 
-        ss << listItem->GetPriority();
+        ss << listItem->getPrioirty();
 
         printSpaces(ss, 4);
 
         ss << "| ";
 
-        ss << listItem->GetTime() << endl;
+        ss << listItem->getTime() << endl;
     }
 }
 
