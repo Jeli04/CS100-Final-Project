@@ -7,64 +7,64 @@ ToDoList::ToDoList(){
     ItemCount = 0;
 }
 
-list<Item*> ToDoList::GetAllItems() const
+list<Item*> ToDoList::getAllItems() const
 {
-    return AllItems;
+    return allItems;
 }
 
 void ToDoList::add(Item* newItem) {
-    if (AllItems.empty()) 
+    if (allItems.empty()) 
     {
-        AllItems.push_back(newItem);
+        allItems.push_back(newItem);
     } 
     else 
     {
-        auto itr = AllItems.begin();
-        while (itr != AllItems.end() && newItem->getPriority() >= (*itr)->getPriority()) 
+        auto itr = allItems.begin();
+        while (itr != allItems.end() && newItem->getPriority() >= (*itr)->getPriority()) 
         {
             if (newItem->getPriority() == (*itr)->getPriority()) 
             {
-                AllItems.insert(itr, newItem);
+                allItems.insert(itr, newItem);
                 return;
             }
             ++itr;
         }
-        AllItems.insert(itr, newItem);
+        allItems.insert(itr, newItem);
     }
     ++ItemCount;
 }
 
 void ToDoList::displayAll(ostream& ss) const {
     printTitle(ss);
-    printBody(ss, AllItems);
+    printBody(ss, allItems);
 }
 
 void ToDoList::displayCompleted(ostream& ss)  {
     printTitle(ss);
-    auto itr = AllItems.begin();
-        while (itr != AllItems.end()) 
+    auto itr = allItems.begin();
+        while (itr != allItems.end()) 
         {
             if ((*itr)->getCompletion() == true) 
             {
-                CompletedItems.push_back(*itr);
+                completedItems.push_back(*itr);
             }
             ++itr;
         }
-    printBody(ss, CompletedItems);
+    printBody(ss, completedItems);
 }
 
 void ToDoList::DisplayIncompleted(ostream& ss)  {
     printTitle(ss);
-    auto itr = AllItems.begin();
-        while (itr != AllItems.end()) 
+    auto itr = allItems.begin();
+        while (itr != allItems.end()) 
         {
             if ((*itr)->getCompletion() == false) 
             {
-                IncompletedItems.push_back(*itr);
+                incompletedItems.push_back(*itr);
             }
             ++itr;
         }
-    printBody(ss, IncompletedItems);
+    printBody(ss, incompletedItems);
 }
 
 void ToDoList::printTitle(ostream& ss) const{

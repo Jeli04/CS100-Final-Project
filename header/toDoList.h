@@ -12,9 +12,9 @@ using namespace std;
 
 class ToDoList{
 private:
-    list<Item*> AllItems;
-    list<Item*> CompletedItems;
-    list<Item*> IncompletedItems;
+    list<Item*> allItems;
+    list<Item*> completedItems;
+    list<Item*> incompletedItems;
 
     int ItemCount = 0; 
 public:
@@ -23,8 +23,8 @@ public:
     void displayAll(ostream& ss) const;
     void displayCompleted(ostream& ss) ;
     void DisplayIncompleted(ostream& ss) ;
-    int GetItemCount() const {return ItemCount;}
-    list<Item*> GetAllItems() const;
+    int getItemCount() const {return ItemCount;}
+    list<Item*> getAllItems() const;
 
     void printTitle(ostream& ss) const;
     void printBody(ostream& ss, const list<Item*>& toDoListType) const;

@@ -18,10 +18,10 @@ TEST(ToDoList, addToList)
     expectedList.push_back(newItemExpect);
     expectedList.push_back(anotherItemExpect);
 
-    ASSERT_EQ(testList.GetAllItems().size(), expectedList.size());
+    ASSERT_EQ(testList.getAllItems().size(), expectedList.size());
 
     // Iterate over the elements and compare them one by one
-    list<Item*>::iterator it1 = testList.GetAllItems().begin();
+    list<Item*>::iterator it1 = testList.getAllItems().begin();
     list<Item*>::iterator it2 = expectedList.begin();
     ASSERT_EQ((*it1)->getName(), (*it2)->getName());
 
@@ -33,7 +33,7 @@ TEST(ToDoList, ItemCount){
     TestList.add(new Item(true));
 
     // Test GetItemCount
-    EXPECT_EQ(TestList.GetItemCount(), 1);
+    EXPECT_EQ(TestList.getItemCount(), 1);
 }
 
 TEST(ToDoList, DisplayAll1){
