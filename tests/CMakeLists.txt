@@ -12,3 +12,13 @@ add_executable(Tests
 
 target_link_libraries(Tests gmock gtest gtest_main)
 target_link_libraries(Tests simpleLibrary)
+
+
+add_executable(CourseTests
+    ../tests/testCourse.cpp
+    ../src/item.cpp
+    ../src/course.cpp
+)
+
+target_link_libraries(CourseTests gmock gtest gtest_main)
+target_link_libraries(CourseTests simpleLibrary)
