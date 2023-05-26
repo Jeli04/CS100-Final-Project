@@ -19,7 +19,7 @@ class Item {
     public:
 
         //Setters of Item  
-        Item();  
+        Item();  ~
         void setName(const string&);
         void setTime(const string&);
         void setLocation(const string&);
