@@ -31,14 +31,6 @@ TEST(ToDoList, ItemCount){
 
 // }
 
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-    TestList.Add(new Item(true));
-
-    // Test GetItemCount
-    EXPECT_EQ(TestList.GetItemCount(), 1);
-}
 
 TEST(ToDoList, DisplayAll1){
     ToDoList TestList = ToDoList();
@@ -102,7 +94,7 @@ TEST(ToDoList, DisplayIncompleted2){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
-// int main(int argc, char** argv) {
-//   ::testing::InitGoogleTest(&argc, argv);
-//   return RUN_ALL_TESTS();
-// }
+int main(int argc, char** argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
