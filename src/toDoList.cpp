@@ -120,7 +120,7 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
 
         ss << "| ";
 
-        ss << listItem->getTime() << endl;
+        ss << listItem->getDate() << endl;
     }
 }
 

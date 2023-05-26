@@ -1,6 +1,5 @@
-#ifndef COURSES_H
-#define COURSES_H
-
+#ifndef COURSELIST_H
+#define COURSELIST_H
 
 
 

@@ -3,16 +3,17 @@
 #include <gmock/gmock-matchers.h>
 #include "../header/toDoList.h"
 #include "../header/item.h"
+#include "../header/task.h"
 
 
 TEST(ToDoList, addToList)
 {
     ToDoList testList;
     list<Item*> expectedList;
-    Item *newItem = new Item(false);
-    Item *anotherItem = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
-    Item *newItemExpect = new Item(false);
-    Item *anotherItemExpect = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Task *newItem = new Task(false);
+    Task *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Task *newItemExpect = new Task(false);
+    Task *anotherItemExpect = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
     testList.add(anotherItem);
     testList.add(newItem);
     expectedList.push_back(newItemExpect);
@@ -56,7 +57,7 @@ TEST(ToDoList, deleteFromList)
 
 TEST(ToDoList, ItemCount){
     ToDoList testList = ToDoList();
-    testList.add(new Item(true));
+    testList.add(new Task(true));
 
     // Test GetItemCount
     EXPECT_EQ(testList.getItemCount(), 1);
@@ -64,7 +65,7 @@ TEST(ToDoList, ItemCount){
 
 TEST(ToDoList, DisplayAll1){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(false));
 
     // Test displayAll function 
     stringstream ss;
@@ -74,9 +75,9 @@ TEST(ToDoList, DisplayAll1){
 
 TEST(ToDoList, DisplayAll2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
-    testList.add(new Item(false));
-    testList.add(new Item(true));
+    testList.add(new Task(false));
+    testList.add(new Task(false));
+    testList.add(new Task(true));
 
     // Test displayAll function 
     stringstream ss;
@@ -86,7 +87,7 @@ TEST(ToDoList, DisplayAll2){
 
 TEST(ToDoList, DisplayCompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Item(true));
+    testList.add(new Task(true));
 
     // Test displayCompleted function 
     stringstream ss;
@@ -96,7 +97,7 @@ TEST(ToDoList, DisplayCompleted1){
 
 TEST(ToDoList, DisplayCompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(false));
 
     // Test displayCompleted function 
     stringstream ss;
@@ -106,7 +107,7 @@ TEST(ToDoList, DisplayCompleted2){
 
 TEST(ToDoList, DisplayIncompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(false));
 
     // Test displayIncompleted function 
     stringstream ss;
@@ -116,7 +117,7 @@ TEST(ToDoList, DisplayIncompleted1){
 
 TEST(ToDoList, DisplayIncompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(true));
+    testList.add(new Task(true));
 
     // Test displayIncompleted function 
     stringstream ss;
