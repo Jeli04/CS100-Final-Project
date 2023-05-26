@@ -40,7 +40,7 @@ TEST(ToDoList, DisplayAll1){
     ToDoList TestList = ToDoList();
     TestList.add(new Item(false));
 
-    // Test DisplayAll function 
+    // Test displayAll function 
     stringstream ss;
     TestList.displayAll(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
@@ -52,7 +52,7 @@ TEST(ToDoList, DisplayAll2){
     TestList.add(new Item(false));
     TestList.add(new Item(true));
 
-    // Test DisplayAll function 
+    // Test displayAll function 
     stringstream ss;
     TestList.displayAll(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
@@ -62,7 +62,7 @@ TEST(ToDoList, DisplayCompleted1){
     ToDoList TestList = ToDoList();
     TestList.add(new Item(true));
 
-    // Test DisplayCompleted function 
+    // Test displayCompleted function 
     stringstream ss;
     TestList.displayCompleted(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n", ss.str());
@@ -72,7 +72,7 @@ TEST(ToDoList, DisplayCompleted2){
     ToDoList TestList = ToDoList();
     TestList.add(new Item(false));
 
-    // Test DisplayCompleted function 
+    // Test displayCompleted function 
     stringstream ss;
     TestList.displayCompleted(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
@@ -82,9 +82,9 @@ TEST(ToDoList, DisplayIncompleted1){
     ToDoList TestList = ToDoList();
     TestList.add(new Item(false));
 
-    // Test DisplayIncompleted function 
+    // Test displayIncompleted function 
     stringstream ss;
-    TestList.DisplayIncompleted(ss);
+    testList.displayIncompleted(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
@@ -92,9 +92,9 @@ TEST(ToDoList, DisplayIncompleted2){
     ToDoList TestList = ToDoList();
     TestList.add(new Item(true));
 
-    // Test DisplayIncompleted function 
+    // Test displayIncompleted function 
     stringstream ss;
-    TestList.DisplayIncompleted(ss);
+    testList.displayIncompleted(ss);
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
