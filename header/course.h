@@ -5,6 +5,7 @@
 #include <list>
 #include <vector>
 #include "task.h"
+#include "item.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Course : public Items {
         //list<Task> ListOfAssignments;
     public:
         Course(vector<string> days, string instructorName);
+        Course();
         void Edit();
         void DisplayCourseInfo();
         void getOccuringDays();

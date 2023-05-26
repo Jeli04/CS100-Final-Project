@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/runDisplay.dir/display.o -o runDisplay 
+/usr/bin/c++  -std=c++1y CMakeFiles/runDisplay.dir/display.cc.o -o ../bin/runDisplay 

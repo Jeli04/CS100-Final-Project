@@ -2,8 +2,8 @@
 #define TASK_H
 using namespace std;
 
-class Task : public Item {
+class Task : public Items {
     public: 
         void Edit();
-}
+};
 #endif

@@ -9,6 +9,11 @@ Course::Course(vector<string> days, string instructorName){
     this->InstructorName = instructor;
 }
 
+Course::Course() : Items() {
+    //this->OccuringDays;
+    this->InstructorName = "";
+}
+
 void Course::Edit(){
     int userInput = 0;
 

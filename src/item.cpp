@@ -1,50 +1,68 @@
 #include "../header/item.h"
 using namespace std;
 
-string Item::getName() const {
-    return this->itemName_;
+Items::Items() {
+    this->itemName = "";
+    this->itemTime = "";
+    this->itemLocation = "";
+    this->itemDescription = "";
+    this->itemPriority = 0;
+    this->itemCompletion = false;
 }
 
-string Item::getTime() const {
-    return this->itemTime_;
+Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
+    this->itemName = name;
+    this->itemTime = time;
+    this->itemLocation = loc;
+    this->itemDescription = desc;
+    this->itemPriority = priority;
+    this->itemCompletion = status;
 }
 
-string Item::getLocation() const {
-    return this->itemLocation_;
+string Items::getName() const {
+    return this->itemName;
 }
 
-string Item::getDescription() const {
-    return this->itemDescrip_;
+string Items::getDate() const {
+    return this->itemDate;
 }
 
-int Item::getPriority() const {
-    return this->itemPriority_;
+string Items::getLocation() const {
+    return this->itemLocation;
 }
 
-bool Item::getStatus() const {
-    return this->itemCompletion_;
+string Items::getDescription() const {
+    return this->itemDescription;
 }
 
-void Item::setName(const string& name) {
-    this->itemName_ = name;
+int Items::getPriority() const {
+    return this->itemPriority;
 }
 
-void Item::setTime(const string& time) {
-    this->itemTime_ = time;
+bool Items::getStatus() const {
+    return this->itemCompletion;
 }
 
-void Item::setLocation(const string& location) {
-    this->itemLocation_ = location;
+void Items::setName(const string name) {
+    this->itemName = name;
 }
 
-void Item::setDescripion(const string& description) {
-    this->itemDescrip_ = description;
+void Items::setDate(const string date) {
+    this->itemDate = date;
 }
 
-void Item::setPriority(int priority) {
-    this->itemPriority_ = itemPriority_;
+void Items::setLocation(const string location) {
+    this->itemLocation = location;
+}
+
+void Items::setDescription(const string description) {
+    this->itemDescription = description;
+}
+
+void Items::setPriority(int priority) {
+    this->itemPriority = priority;
 }
 
 void Items::setItemCompletion(bool status) {
-    this->itemCompletion_ = status;
+    this->itemCompletion = status;
 }
