@@ -8,6 +8,7 @@ add_subdirectory(googletest)
 add_executable(Tests
     ../tests/testItem.cpp
     ../src/item.cpp
+    ../tests/testDisplayItem.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)

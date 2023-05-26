@@ -3,10 +3,11 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
-class Item {
+class Items {
     protected:
 
         string itemName;
@@ -42,7 +43,7 @@ class Item {
         string getItemType() const; 
 
         //Making class abstract
-        //virtual void displayItem() = 0;
+        void displayItem(ostream&, Items&);
         //virtual void edit() = 0;
 
 };
