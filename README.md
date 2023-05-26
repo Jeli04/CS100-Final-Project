@@ -48,6 +48,12 @@ If a user chooses to open the task list this is the task list that appears. The 
 ## Class Diagram
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/class-diagram.drawio.png?raw=true)
 
+**S:** We separate our classes based on responsibilities. For example, we have distinct classes for tasks, courses, and events. We also have separate classes for data management, user interaction, and data display.
+**O:** We establish friend relationships instead of inheritance to access the data stored in inherited variables.
+**L:** Derived classes can perform all the functions of their parent classes, ensuring compatibility and behavior consistency.
+**I:** We create different friend or derived classes for different needs. Each class focuses on specific actions and does not share unnecessary functions with others.
+**D:** Our abstract "item" class forms the foundation for constructing various data sets and classes. Child and friend classes implement specific behaviors based on the described behavior in the item class.
+
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
