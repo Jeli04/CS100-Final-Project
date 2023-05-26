@@ -1,5 +1,6 @@
 #include "../header/toDoList.h"
 #include "../header/item.h"
+#include "../header/courseList.h"
 #include <iostream>
 #include <ostream>
 
@@ -31,7 +32,7 @@ void ToDoList::add(Item* newItem) {
         }
         allItems.insert(itr, newItem);
     }
-    ++ItemCount;
+    ++itemCount;
 }
 
 void ToDoList::displayAll(ostream& ss) const {
@@ -80,16 +81,16 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
         ss << "[";
-        if(ListItem->getCompletion()){ss << "X";}
+        if(listItem->getCompletion()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
         printSpaces(ss, 3);
 
         ss << "| ";
 
-        ss << listItem->GetName();
+        ss << listItem->getName();
         
-        printPadding(ss, listItem->GetName());
+        printPadding(ss, listItem->getName());
 
         //printSpaces(ss, 16);
 
@@ -97,13 +98,13 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
 
         printSpaces(ss, 4);
 
-        ss << listItem->GetPriority();
+        ss << listItem->getPriority();
 
         printSpaces(ss, 4);
 
         ss << "| ";
 
-        ss << listItem->GetTime() << endl;
+        ss << listItem->getTime() << endl;
     }
 }
 

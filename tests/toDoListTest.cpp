@@ -79,8 +79,8 @@ TEST(ToDoList, DisplayCompleted2){
 }
 
 TEST(ToDoList, DisplayIncompleted1){
-    ToDoList TestList = ToDoList();
-    TestList.add(new Item(false));
+    ToDoList testList = ToDoList();
+    testList.add(new Item(false));
 
     // Test displayIncompleted function 
     stringstream ss;
@@ -89,8 +89,8 @@ TEST(ToDoList, DisplayIncompleted1){
 }
 
 TEST(ToDoList, DisplayIncompleted2){
-    ToDoList TestList = ToDoList();
-    TestList.add(new Item(true));
+    ToDoList testList = ToDoList();
+    testList.add(new Item(true));
 
     // Test displayIncompleted function 
     stringstream ss;
