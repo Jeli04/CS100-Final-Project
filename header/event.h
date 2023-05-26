@@ -2,6 +2,7 @@
 #define EVENT_H
 
 #include <string>
+#include "item.h"
 using namespace std;
 
 enum Events { Birthday, Meeting, Appointment, Other};

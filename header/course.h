@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Course : public Item {
+class Course : public Items {
    private:
        string instructorName;
        vector<string> occuringDays;
@@ -18,7 +18,7 @@ class Course : public Item {
    public:
        Course(vector<string> days, string instructor);
        Course();
-       void Edit() override;
+       void Edit();
        void DisplayCourseInfo();
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;

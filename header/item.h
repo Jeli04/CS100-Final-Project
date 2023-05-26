@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Item {
+class Items {
     protected:
 
         string itemName;
@@ -43,7 +43,7 @@ class Item {
 
         //Making class abstract
         //virtual void displayItem() = 0;
-        //virtual void edit() = 0;
+        //virtual void Edit() = 0;
 
 };
 

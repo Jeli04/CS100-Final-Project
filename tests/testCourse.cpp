@@ -7,8 +7,6 @@
 using namespace std;
 
 
-
-
 TEST(CourseTests, testInstructor){
    vector<string> days = {"Monday", "Wednesday"};
    Course math(days, "Mrs. Brown");

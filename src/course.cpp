@@ -5,13 +5,13 @@
 #define COURSES_H
 
 
-Course::Course(vector<string> days, string instructor) : Item() {
+Course::Course(vector<string> days, string instructor) : Items() {
    occuringDays = days;
    instructorName = instructor;
 }
 
 
-Course::Course() : Item(){
+Course::Course() : Items(){
    this->instructorName = "";
 }
 
@@ -66,11 +66,11 @@ void Course::Edit() {
        this->itemName = newName;
    }
    else if (userInput == 2){
-       string newTime;
-       cout << "Enter new time: ";
-       cin >> newTime;
+       string newDate;
+       cout << "Enter new date: ";
+       cin >> newDate;
        cout << endl;
-       this->itemTime = newTime;
+       this->itemDate = newDate;
    }
    else if (userInput == 3){
        string newLocation;

@@ -3,7 +3,7 @@ using namespace std;
 
 Items::Items() {
     this->itemName = "";
-    this->itemTime = "";
+    this->itemDate = "";
     this->itemLocation = "";
     this->itemDescription = "";
     this->itemPriority = 0;
@@ -12,7 +12,7 @@ Items::Items() {
 
 Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
     this->itemName = name;
-    this->itemTime = time;
+    this->itemDate = time;
     this->itemLocation = loc;
     this->itemDescription = desc;
     this->itemPriority = priority;
