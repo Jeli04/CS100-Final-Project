@@ -1,6 +1,7 @@
 #include "../header/mainMenu.h"
 #include "../header/toDoList.h"
 #include "../header/item.h"
+#include "../header/task.h"
 #include <iostream>
 
 using namespace std;
@@ -9,11 +10,11 @@ using namespace std;
 int main()
 {
     ToDoList newList;
-    Item *newItem = new Item(false);
-    Item *anotherItem = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
-    Item *thirdItem = new Item("project", "day after", "there", "finish on gradescope", 1, "task", true);
-    Item *fourthItem = new Item(false);
-    Item *fifthItem = new Item(true);
+    Item *newItem = new Task(false);
+    Item *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Item *thirdItem = new Task("project", "day after", "there", "finish on gradescope", 1, "task", true);
+    Item *fourthItem = new Task(false);
+    Item *fifthItem = new Task(true);
     newList.add(thirdItem);
     newList.add(newItem);
     newList.add(anotherItem);

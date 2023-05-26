@@ -33,12 +33,12 @@ TEST(ToDoList, deleteFromList)
     ToDoList testList;
     list<Item*> expectedList;
 
-    Item *testItem1 = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
-    Item *testItem2 = new Item("project", "today", "there", "finish on gradescope", 1, "task", true);
-    Item *testItem3 = new Item(false);;
+    Item *testItem1 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Item *testItem2 = new Task("project", "today", "there", "finish on gradescope", 1, "task", true);
+    Item *testItem3 = new Task(false);;
 
-    Item *expected1 = new Item(false);;
-    Item *expected2 = new Item("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Item *expected1 = new Task(false);;
+    Item *expected2 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
 
     expectedList.push_back(expected1);
     expectedList.push_back(expected2);
