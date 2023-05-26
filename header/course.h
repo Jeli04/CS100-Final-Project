@@ -18,7 +18,7 @@ class Course : public Items {
    public:
        Course(vector<string> days, string instructor);
        Course();
-       void Edit() override;
+       void Edit();
        void DisplayCourseInfo();
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;

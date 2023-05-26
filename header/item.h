@@ -45,8 +45,13 @@ class Items {
         virtual void Edit() = 0;
 
         //Making class abstract
+<<<<<<< HEAD
+        //virtual void displayItem() = 0;
+        //virtual void Edit() = 0;
+=======
         void displayItem(ostream&, Items&);
         //virtual void edit() = 0;
+>>>>>>> john/riri
 
 };
 
