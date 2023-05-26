@@ -1,16 +1,39 @@
 #include "../header/day.h"
 
-Day::Day(string date){
-    dayNumber = stoi(date.substr(0, 2));  // gets the first two characters
+Day::Day(ToDoList* _toDoList, const string& date){
+    toDoList = _toDoList;
+    dayNumber = stoi(date.substr(3, 2));  // gets the first two characters
 
     // gets the day of the week
-    tm time_in = {0, 0, 0, 24, 10, 2023-2020};
-    time_t time_temp = mktime(&time_in);
-    dayName = localtime(&time_temp)->tm_wday;   // gets the day name
-   
-    for(Item* listItem : AllItems){
-        if(listItem->)
-        // if listItem->date == date
-        // add to listOfItems
+    tm inputTime = {0, 0, 0, dayNumber, stoi(date.substr(0,2))-1, stoi(date.substr(6, 4))-1900};   // day, month - 1, year - 1900
+    time_t tempTime = mktime(&inputTime);
+    string timeOut = asctime(localtime(&tempTime));   // gets the day name
+    
+    dayName = timeOut.substr(0, 3);
+    monthName = timeOut.substr(4, 3);
+
+    updateItems(date);
+}
+
+void Day::displayDayInfo(ostream& ss) const{
+    toDoList->printDashes(ss, 25);
+    toDoList->printSpaces(ss, 6);
+    ss << dayName <<  ", " << monthName << " " << dayNumber << endl;
+    toDoList->printDashes(ss, 25);
+
+    for(Item* item : listOfItems){
+        ss << "Item info" << endl;
+        //item->displayItem();    // displayItem is a temp name
     }
 }
+
+void Day::updateItems(const string& date){
+    for(Item* listItem : toDoList->allItems){
+        if(listItem->getTime() == date){
+            listOfItems.push_back(listItem);
+        }
+    }
+}
+
+
+
