@@ -15,21 +15,23 @@ private:
     list<Item*> allItems;
     list<Item*> completedItems;
     list<Item*> incompletedItems;
-    int itemCount; 
-
-    // helper functions 
-    void printSpaces(ostream& ss, int spaceCount) const;
-    void printDashes(ostream& ss, int numDashes) const;
+    int itemCount = 0; 
+  
+    // helper functions
     void printTitle(ostream& ss) const;
     void printBody(ostream& ss, const list<Item*>& toDoListType) const;
+    void printSpaces(ostream& ss, int spaceCount) const;
+    void printDashes(ostream& ss, int numDashes) const;
     void printPadding(ostream& ss, const string& itemName) const;
 public:
     ToDoList();
-    void add(Item* newItem);
+    void add(Item* NewItem);
     void displayAll(ostream& ss) const;
-    void displayCompleted(ostream& ss) const;
-    void displayIncompleted(ostream& ss) const;
-    int getitemCount() const {return itemCount;}
+    void displayCompleted(ostream& ss) ;
+    void displayIncompleted(ostream& ss) ;
+    int getItemCount() const {return ItemCount;}
+    list<Item*> getAllItems() const;
+
 };
 
 #endif
