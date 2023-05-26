@@ -3,7 +3,7 @@ using namespace std;
 
 Items::Items() {
     this->itemName = "";
-    this->itemTime = "";
+    this->itemDate = "";
     this->itemLocation = "";
     this->itemDescription = "";
     this->itemPriority = 0;
@@ -12,7 +12,7 @@ Items::Items() {
 
 Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
     this->itemName = name;
-    this->itemTime = time;
+    this->itemDate = time;
     this->itemLocation = loc;
     this->itemDescription = desc;
     this->itemPriority = priority;
@@ -65,4 +65,14 @@ void Items::setPriority(int priority) {
 
 void Items::setItemCompletion(bool status) {
     this->itemCompletion = status;
+}
+
+void Items::displayItem(ostream& ss, Items& newItem) {
+    ss << "\t\tHere is your current Item: " << newItem.getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t\tItem Type: Task" << endl;
+    ss << "\t\tDate of Item: " << newItem.getDate() << endl;
+    ss << "\t\tItem Location: " << newItem.getLocation() << endl;
+    ss << "\t\tItem's Priority: " << newItem.getPriority() << endl;
+    ss << "\t\tStatus of Completion: " << newItem.getStatus() << endl;
 }

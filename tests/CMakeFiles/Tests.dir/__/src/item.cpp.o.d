@@ -113,4 +113,5 @@ tests/CMakeFiles/Tests.dir/__/src/item.cpp.o: \
  /usr/include/c++/8/bits/locale_facets.tcc \
  /usr/include/c++/8/bits/basic_ios.tcc \
  /usr/include/c++/8/bits/ostream.tcc /usr/include/c++/8/istream \
- /usr/include/c++/8/bits/istream.tcc
+ /usr/include/c++/8/bits/istream.tcc /usr/include/c++/8/sstream \
+ /usr/include/c++/8/bits/sstream.tcc

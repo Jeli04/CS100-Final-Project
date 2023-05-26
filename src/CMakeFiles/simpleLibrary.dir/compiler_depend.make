@@ -167,8 +167,12 @@ src/CMakeFiles/simpleLibrary.dir/item.cpp.o: src/item.cpp \
   /usr/include/c++/8/bits/basic_ios.tcc \
   /usr/include/c++/8/bits/ostream.tcc \
   /usr/include/c++/8/istream \
-  /usr/include/c++/8/bits/istream.tcc
+  /usr/include/c++/8/bits/istream.tcc \
+  /usr/include/c++/8/sstream \
+  /usr/include/c++/8/bits/sstream.tcc
 
+
+/usr/include/c++/8/bits/sstream.tcc:
 
 /usr/include/bits/endian.h:
 
@@ -201,6 +205,8 @@ src/CMakeFiles/simpleLibrary.dir/item.cpp.o: src/item.cpp \
 /usr/include/endian.h:
 
 /usr/include/bits/types.h:
+
+/usr/include/c++/8/sstream:
 
 /usr/include/c++/8/iosfwd:
 

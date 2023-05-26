@@ -199,6 +199,30 @@ __/src/item.cpp.s:
 	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/__/src/item.cpp.s
 .PHONY : __/src/item.cpp.s
 
+testDisplayItem.o: testDisplayItem.cpp.o
+.PHONY : testDisplayItem.o
+
+# target to build an object file
+testDisplayItem.cpp.o:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/testDisplayItem.cpp.o
+.PHONY : testDisplayItem.cpp.o
+
+testDisplayItem.i: testDisplayItem.cpp.i
+.PHONY : testDisplayItem.i
+
+# target to preprocess a source file
+testDisplayItem.cpp.i:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/testDisplayItem.cpp.i
+.PHONY : testDisplayItem.cpp.i
+
+testDisplayItem.s: testDisplayItem.cpp.s
+.PHONY : testDisplayItem.s
+
+# target to generate assembly for a file
+testDisplayItem.cpp.s:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/testDisplayItem.cpp.s
+.PHONY : testDisplayItem.cpp.s
+
 testItem.o: testItem.cpp.o
 .PHONY : testItem.o
 
@@ -239,6 +263,9 @@ help:
 	@echo "... __/src/item.o"
 	@echo "... __/src/item.i"
 	@echo "... __/src/item.s"
+	@echo "... testDisplayItem.o"
+	@echo "... testDisplayItem.i"
+	@echo "... testDisplayItem.s"
 	@echo "... testItem.o"
 	@echo "... testItem.i"
 	@echo "... testItem.s"

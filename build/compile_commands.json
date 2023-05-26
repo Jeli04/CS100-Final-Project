@@ -15,6 +15,11 @@
   "file": "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/item.cpp"
 },
 {
+  "directory": "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/build/tests",
+  "command": "/usr/bin/g++  -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/header -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/lib/googletest/include -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock/include -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest/include -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest  -std=c++1y -g -o CMakeFiles/Tests.dir/testDisplayItem.cpp.o -c /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/testDisplayItem.cpp",
+  "file": "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/testDisplayItem.cpp"
+},
+{
   "directory": "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/build/tests/googletest/googlemock",
   "command": "/usr/bin/g++  -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/header -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/lib/googletest/include -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock/include -I/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest/include -isystem /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest  -std=c++1y -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock/src/gmock-all.cc",
   "file": "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googlemock/src/gmock-all.cc"

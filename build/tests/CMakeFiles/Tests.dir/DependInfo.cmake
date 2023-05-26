@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/item.cpp" "tests/CMakeFiles/Tests.dir/__/src/item.cpp.o" "gcc" "tests/CMakeFiles/Tests.dir/__/src/item.cpp.o.d"
+  "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/testDisplayItem.cpp" "tests/CMakeFiles/Tests.dir/testDisplayItem.cpp.o" "gcc" "tests/CMakeFiles/Tests.dir/testDisplayItem.cpp.o.d"
   "/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/tests/testItem.cpp" "tests/CMakeFiles/Tests.dir/testItem.cpp.o" "gcc" "tests/CMakeFiles/Tests.dir/testItem.cpp.o.d"
   )
 

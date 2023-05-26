@@ -1,1 +1,1 @@
-/usr/bin/g++  -std=c++1y -g CMakeFiles/Tests.dir/testItem.cpp.o CMakeFiles/Tests.dir/__/src/item.cpp.o -o ../bin/Tests  ../lib/libgmock.a ../lib/libgtest.a ../lib/libgtest_main.a ../lib/libsimpleLibrary.a ../lib/libgtest.a -lpthread -lm 
+/usr/bin/g++  -std=c++1y -g CMakeFiles/Tests.dir/testItem.cpp.o CMakeFiles/Tests.dir/__/src/item.cpp.o CMakeFiles/Tests.dir/testDisplayItem.cpp.o -o ../bin/Tests  ../lib/libgmock.a ../lib/libgtest.a ../lib/libgtest_main.a ../lib/libsimpleLibrary.a ../lib/libgtest.a -lpthread -lm 
