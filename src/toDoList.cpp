@@ -35,6 +35,20 @@ void ToDoList::add(Item* newItem) {
     ++itemCount;
 }
 
+void ToDoList::deleteItem(string itemName)
+{
+    auto itr = allItems.begin();
+    while (itr != allItems.end())
+    {
+        if ((*itr)->getName() == itemName)
+        {
+            allItems.erase(itr);
+            break;
+        }
+        ++itr;
+    }
+}
+
 void ToDoList::displayAll(ostream& ss) const {
     printTitle(ss);
     printBody(ss, allItems);
@@ -42,6 +56,7 @@ void ToDoList::displayAll(ostream& ss) const {
 
 void ToDoList::displayCompleted(ostream& ss)  {
     printTitle(ss);
+    list<Item*> completedItems;
     auto itr = allItems.begin();
         while (itr != allItems.end()) 
         {
@@ -56,6 +71,7 @@ void ToDoList::displayCompleted(ostream& ss)  {
 
 void ToDoList::displayIncompleted(ostream& ss) {
     printTitle(ss);
+    list<Item*> incompletedItems;
     auto itr = allItems.begin();
         while (itr != allItems.end()) 
         {
