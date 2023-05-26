@@ -39,13 +39,31 @@ void ToDoList::DisplayAll(ostream& ss) const {
     printBody(ss, AllItems);
 }
 
-void ToDoList::DisplayCompleted(ostream& ss) const {
+void ToDoList::DisplayCompleted(ostream& ss)  {
     printTitle(ss);
+    auto itr = AllItems.begin();
+        while (itr != AllItems.end()) 
+        {
+            if ((*itr)->getCompletion() == true) 
+            {
+                CompletedItems.push_back(*itr);
+            }
+            ++itr;
+        }
     printBody(ss, CompletedItems);
 }
 
-void ToDoList::DisplayIncompleted(ostream& ss) const {
+void ToDoList::DisplayIncompleted(ostream& ss)  {
     printTitle(ss);
+    auto itr = AllItems.begin();
+        while (itr != AllItems.end()) 
+        {
+            if ((*itr)->getCompletion() == false) 
+            {
+                IncompletedItems.push_back(*itr);
+            }
+            ++itr;
+        }
     printBody(ss, IncompletedItems);
 }
 
@@ -62,16 +80,16 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     for(Item* ListItem : toDoListType){
         PrintSpaces(ss, 4);
         ss << "[";
-        if(ListItem->GetCompletion()){ss << "X";}
+        if(ListItem->getCompletion()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
         PrintSpaces(ss, 3);
 
         ss << "| ";
 
-        ss << ListItem->GetName();
+        ss << ListItem->getName();
         
-        printPadding(ss, ListItem->GetName());
+        printPadding(ss, ListItem->getName());
 
         //PrintSpaces(ss, 16);
 
@@ -79,7 +97,7 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
 
         PrintSpaces(ss, 4);
 
-        ss << ListItem->GetPriority();
+        ss << ListItem->getPriority();
 
         PrintSpaces(ss, 4);
 

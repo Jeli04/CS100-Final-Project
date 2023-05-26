@@ -4,10 +4,6 @@
 #include "../header/toDoList.h"
 #include "../header/item.h"
 
-TEST(ToDoList, ItemCount){
-    ToDoList TestList = ToDoList();
-    EXPECT_EQ(TestList.GetItemCount(), 0);
-}
 
 // TEST(ToDoList, addToList)
 // {
@@ -32,6 +28,14 @@ TEST(ToDoList, ItemCount){
 // }
 
 
+TEST(ToDoList, ItemCount){
+    ToDoList TestList = ToDoList();
+    TestList.Add(new Item(true));
+
+    // Test GetItemCount
+    EXPECT_EQ(TestList.GetItemCount(), 1);
+}
+
 TEST(ToDoList, DisplayAll1){
     ToDoList TestList = ToDoList();
     TestList.Add(new Item(false));
@@ -51,7 +55,7 @@ TEST(ToDoList, DisplayAll2){
     // Test DisplayAll function 
     stringstream ss;
     TestList.DisplayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [X]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
 TEST(ToDoList, DisplayCompleted1){

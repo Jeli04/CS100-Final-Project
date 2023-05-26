@@ -21,8 +21,8 @@ public:
     ToDoList();
     void Add(Item* NewItem);
     void DisplayAll(ostream& ss) const;
-    void DisplayCompleted(ostream& ss) const;
-    void DisplayIncompleted(ostream& ss) const;
+    void DisplayCompleted(ostream& ss) ;
+    void DisplayIncompleted(ostream& ss) ;
     int GetItemCount() const {return ItemCount;}
     list<Item*> GetAllItems() const;
 
