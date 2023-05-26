@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Course : public Item {
+class Course : public Items {
    private:
        string instructorName;
        vector<string> occuringDays;

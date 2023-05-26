@@ -11,7 +11,7 @@ Course::Course(vector<string> days, string instructor) : Item() {
 }
 
 
-Course::Course() : Item(){
+Course::Course() : Items(){
    this->instructorName = "";
 }
 

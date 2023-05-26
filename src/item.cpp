@@ -1,4 +1,5 @@
 #include "../header/item.h"
+
 using namespace std;
 
 Items::Items() {
@@ -63,7 +64,7 @@ void Items::setPriority(int priority) {
     this->itemPriority = priority;
 }
 
-void Items::setItemCompletion(bool status) {
+void Item::setItemCompletion(bool status) {
     this->itemCompletion = status;
 }
 

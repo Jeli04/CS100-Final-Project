@@ -25,10 +25,10 @@ class Items {
         Items();
 
         //Setters of Item    
-        void setName(const string);
-        void setDate(const string);
-        void setLocation(const string);
-        void setDescription(const string);
+        void setName(const string&);
+        void setDate(const string&);
+        void setLocation(const string&);
+        void setDescription(const string&);
         void setPriority(int);
         void setItemCompletion(bool);
 
@@ -41,6 +41,8 @@ class Items {
         int getPriority() const;
         bool getStatus() const;
         string getItemType() const; 
+
+        virtual void Edit() = 0;
 
         //Making class abstract
         void displayItem(ostream&, Items&);
