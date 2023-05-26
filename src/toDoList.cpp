@@ -12,7 +12,7 @@ list<Item*> ToDoList::GetAllItems() const
     return AllItems;
 }
 
-void ToDoList::Add(Item* newItem) {
+void ToDoList::add(Item* newItem) {
     if (AllItems.empty()) 
     {
         AllItems.push_back(newItem);
@@ -34,12 +34,12 @@ void ToDoList::Add(Item* newItem) {
     ++ItemCount;
 }
 
-void ToDoList::DisplayAll(ostream& ss) const {
+void ToDoList::displayAll(ostream& ss) const {
     printTitle(ss);
     printBody(ss, AllItems);
 }
 
-void ToDoList::DisplayCompleted(ostream& ss)  {
+void ToDoList::displayCompleted(ostream& ss)  {
     printTitle(ss);
     auto itr = AllItems.begin();
         while (itr != AllItems.end()) 

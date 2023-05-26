@@ -14,13 +14,13 @@ int main()
     Item *thirdItem = new Item("project", "day after", "there", "finish on gradescope", 1, "task", true);
     Item *fourthItem = new Item(false);
     Item *fifthItem = new Item(true);
-    newList.Add(thirdItem);
-    newList.Add(newItem);
-    newList.Add(anotherItem);
-    newList.Add(fourthItem);
-    newList.Add(fifthItem);
-    newList.DisplayAll(cout);
-    newList.DisplayCompleted(cout);
+    newList.add(thirdItem);
+    newList.add(newItem);
+    newList.add(anotherItem);
+    newList.add(fourthItem);
+    newList.add(fifthItem);
+    newList.displayAll(cout);
+    newList.displayCompleted(cout);
     newList.DisplayIncompleted(cout);
     return 0;
 }
