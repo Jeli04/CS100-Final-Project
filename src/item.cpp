@@ -1,57 +1,66 @@
 #include "../header/item.h"
 using namespace std;
 
-Item::Item(){
-    itemName = "";
-    itemTime = "";
-    itemLocation = "";
-    itemDescription = "";
-    itemPriority = "";
-    itemCompletion = false;
+Items::Items() {
+    this->itemName = "";
+    this->itemTime = "";
+    this->itemLocation = "";
+    this->itemDescription = "";
+    this->itemPriority = 0;
+    this->itemCompletion = false;
 }
 
-string Item::getName() const {
+Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
+    this->itemName = name;
+    this->itemTime = time;
+    this->itemLocation = loc;
+    this->itemDescription = desc;
+    this->itemPriority = priority;
+    this->itemCompletion = status;
+}
+
+string Items::getName() const {
     return this->itemName;
 }
 
-string Item::getTime() const {
-    return this->itemTime;
+string Items::getDate() const {
+    return this->itemDate;
 }
 
-string Item::getLocation() const {
+string Items::getLocation() const {
     return this->itemLocation;
 }
 
-string Item::getDescription() const {
+string Items::getDescription() const {
     return this->itemDescription;
 }
 
-int Item::getPriority() const {
+int Items::getPriority() const {
     return this->itemPriority;
 }
 
-bool Item::getStatus() const {
+bool Items::getStatus() const {
     return this->itemCompletion;
 }
 
-void Item::setName(const string& name) {
+void Items::setName(const string name) {
     this->itemName = name;
 }
 
-void Item::setTime(const string& time) {
-    this->itemTime = time;
+void Items::setDate(const string date) {
+    this->itemDate = date;
 }
 
-void Item::setLocation(const string& location) {
+void Items::setLocation(const string location) {
     this->itemLocation = location;
 }
 
-void Item::setDescripion(const string& description) {
+void Items::setDescription(const string description) {
     this->itemDescription = description;
 }
 
-void Item::setPriority(int priority) {
-    this->itemPriority = itemPriority_;
+void Items::setPriority(int priority) {
+    this->itemPriority = priority;
 }
 
 void Items::setItemCompletion(bool status) {

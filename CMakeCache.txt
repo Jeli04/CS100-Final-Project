@@ -293,6 +293,12 @@ PrioirtyFlow_BINARY_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli7
 PrioirtyFlow_SOURCE_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 //Value Computed by CMake
+PriorityFlow_BINARY_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+
+//Value Computed by CMake
+PriorityFlow_SOURCE_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+
+//Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 //Value Computed by CMake
@@ -343,9 +349,6 @@ gtest_hide_internal_symbols:BOOL=OFF
 
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
-
-//Dependencies for the target
-simpleLibrary_LIB_DEPENDS:STATIC=general;/usr/lib64/libm.so;
 
 
 ########################
