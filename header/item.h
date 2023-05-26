@@ -10,7 +10,7 @@ class Item {
     protected:
 
         string itemName;
-        string itemTime;
+        string itemDate;
         string itemLocation;
         string itemDescription;
         int itemPriority;
@@ -19,9 +19,9 @@ class Item {
     public:
 
         //Setters of Item  
-        Item();  ~
+        Item();  
         void setName(const string&);
-        void setTime(const string&);
+        void setDate(const string&);
         void setLocation(const string&);
         void setDescription(const string&);
         void setPriority(int);
@@ -29,7 +29,7 @@ class Item {
 
         //Getters of Item
         string getName() const;
-        string getTime() const;
+        string getDate() const;
         string getLocation() const;
         string getDescription() const;
         int getPriority() const;

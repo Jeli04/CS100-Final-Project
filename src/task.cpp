@@ -23,11 +23,11 @@ void Task::Edit(){
         this->itemName = newName;
     }
     else if (userInput == 2){
-        string newTime;
-        cout << "Enter new time: ";
-        cin >> newTime;
+        string newDate;
+        cout << "Enter new date: ";
+        cin >> newDate;
         cout << endl;
-        this->itemTime = newTime;
+        this->itemDate = newDate;
     }
     else if (userInput == 3){
         string newLocation;

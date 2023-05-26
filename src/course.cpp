@@ -33,7 +33,7 @@ void Course::Edit() {
     int userInput = 0;
 
     cout << "1. Name" << endl;
-    cout << "2. Time" << endl;
+    cout << "2. Date" << endl;
     cout << "3. Location" << endl;
     cout << "4. Description" << endl;
     cout << "5. Priority" << endl; 
@@ -54,11 +54,11 @@ void Course::Edit() {
         this->itemName = newName;
     }
     else if (userInput == 2){
-        string newTime;
-        cout << "Enter new time: ";
-        cin >> newTime;
+        string newDate;
+        cout << "Enter new date: ";
+        cin >> newDate;
         cout << endl;
-        this->itemTime = newTime;
+        this->itemDate = newDate;
     }
     else if (userInput == 3){
         string newLocation;

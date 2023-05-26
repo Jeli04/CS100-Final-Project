@@ -29,7 +29,7 @@ void Event::Edit(){
         cout << "Enter new date: ";
         cin >> newDate;
         cout << endl;
-        this->itemTime = newDate;
+        this->itemDate = newDate;
     }
     else if (userInput == 3){
         string newLocation;

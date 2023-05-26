@@ -347,8 +347,7 @@ CMakeFiles/testCourse.dir/src/item.cpp.o: src/item.cpp \
   /usr/include/c++/8/bits/basic_ios.tcc \
   /usr/include/c++/8/bits/ostream.tcc \
   /usr/include/c++/8/istream \
-  /usr/include/c++/8/bits/istream.tcc \
-  /usr/include/c++/8/ctime
+  /usr/include/c++/8/bits/istream.tcc
 
 CMakeFiles/testCourse.dir/tests/testCourse.cpp.o: tests/testCourse.cpp \
   /usr/include/stdc-predef.h \
