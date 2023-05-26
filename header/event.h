@@ -13,6 +13,7 @@ class Event : public Item {
     public:
         void Edit() override;
         void DisplayEventInfo();
+        virtual void displayItem(Event&) override;
 };
 
 #endif

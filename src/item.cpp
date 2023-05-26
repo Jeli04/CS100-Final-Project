@@ -2,61 +2,78 @@
 
 using namespace std;
 
-Item::Item(){
-    itemName = "";
-    itemDate = "";
-    itemLocation = "";
-    itemDescription = "";
-    itemPriority = 0;
-    itemCompletion = false;
+Items::Items() {
+    this->itemName = "";
+    this->itemDate = "";
+    this->itemLocation = "";
+    this->itemDescription = "";
+    this->itemPriority = 0;
+    this->itemCompletion = false;
 }
 
+Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
+    this->itemName = name;
+    this->itemDate = time;
+    this->itemLocation = loc;
+    this->itemDescription = desc;
+    this->itemPriority = priority;
+    this->itemCompletion = status;
+}
 
-string Item::getName() const {
+string Items::getName() const {
     return this->itemName;
 }
 
-string Item::getDate() const {
+string Items::getDate() const {
     return this->itemDate;
 }
 
-string Item::getLocation() const {
+string Items::getLocation() const {
     return this->itemLocation;
 }
 
-string Item::getDescription() const {
+string Items::getDescription() const {
     return this->itemDescription;
 }
 
-int Item::getPriority() const {
+int Items::getPriority() const {
     return this->itemPriority;
 }
 
-bool Item::getStatus() const {
+bool Items::getStatus() const {
     return this->itemCompletion;
 }
 
-void Item::setName(const string& name) {
+void Items::setName(const string name) {
     this->itemName = name;
 }
 
-void Item::setDate(const string& time) {
-    
-    this->itemDate = time;
+void Items::setDate(const string date) {
+    this->itemDate = date;
 }
 
-void Item::setLocation(const string& location) {
+void Items::setLocation(const string location) {
     this->itemLocation = location;
 }
 
-void Item::setDescription(const string& description) {
+void Items::setDescription(const string description) {
     this->itemDescription = description;
 }
 
-void Item::setPriority(int priority) {
-    this->itemPriority = itemPriority;
+void Items::setPriority(int priority) {
+    this->itemPriority = priority;
 }
 
 void Item::setItemCompletion(bool status) {
     this->itemCompletion = status;
+}
+
+void Items::displayItem(ostream& ss, Items& newItem) {
+    ss << "\t\tHere is your current Item: " << newItem.getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t\tItem Type: Task" << endl;
+    ss << "\t\tDate of Item: " << newItem.getDate() << endl;
+    ss << "\t\tItem Location: " << newItem.getLocation() << endl;
+    ss << "\t\tItem's Priority: " << newItem.getPriority() << endl;
+    ss << "\t\tStatus of Completion: " << newItem.getStatus() << endl;
 }

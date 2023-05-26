@@ -87,3 +87,7 @@ void Event::Edit(){
     }
 }
 
+virtual void Events::displayItem(Event& event) override {
+    cout << "\t\tHere is your current event: " << event.getName() << endl;
+    cout << "-------------------------------------------------------" << endl;
+}
