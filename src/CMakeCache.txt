@@ -149,7 +149,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Project
+CMAKE_PROJECT_NAME:STATIC=PriorityFlow
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -223,13 +223,16 @@ LIBRARY_OUTPUT_PATH:PATH=
 M_LIB:FILEPATH=/usr/lib64/libm.so
 
 //Value Computed by CMake
+PriorityFlow_BINARY_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+
+//Value Computed by CMake
+PriorityFlow_SOURCE_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+
+//Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
 
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
-
-//Dependencies for the target
-simpleLibrary_LIB_DEPENDS:STATIC=general;/usr/lib64/libm.so;
 
 
 ########################

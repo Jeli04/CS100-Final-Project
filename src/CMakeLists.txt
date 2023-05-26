@@ -1,10 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+project(PriorityFlow)
+
 add_library(simpleLibrary
-    display.cc
+    item.cpp
 )
 
-add_executable(runDisplay
-    display.cc
-)
 
 find_library(M_LIB m)
 target_link_libraries(simpleLibrary ${M_LIB})

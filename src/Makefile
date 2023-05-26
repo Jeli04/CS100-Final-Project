@@ -57,23 +57,25 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+CMAKE_SOURCE_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src
+CMAKE_BINARY_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -85,16 +87,59 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src/CMakeFiles 0
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/src//CMakeFiles/progress.marks
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,62 +148,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named simpleLibrary
+# Convenience name for target.
+src/CMakeFiles/simpleLibrary.dir/rule:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/simpleLibrary.dir/rule
+.PHONY : src/CMakeFiles/simpleLibrary.dir/rule
 
-# Build rule for target.
-simpleLibrary: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simpleLibrary
+# Convenience name for target.
+simpleLibrary: src/CMakeFiles/simpleLibrary.dir/rule
 .PHONY : simpleLibrary
 
 # fast build rule for target.
 simpleLibrary/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleLibrary.dir/build.make CMakeFiles/simpleLibrary.dir/build
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/build
 .PHONY : simpleLibrary/fast
 
-#=============================================================================
-# Target rules for targets named runDisplay
-
-# Build rule for target.
-runDisplay: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runDisplay
-.PHONY : runDisplay
-
-# fast build rule for target.
-runDisplay/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runDisplay.dir/build.make CMakeFiles/runDisplay.dir/build
-.PHONY : runDisplay/fast
+item.o: item.cpp.o
+.PHONY : item.o
 
 # target to build an object file
-display.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleLibrary.dir/build.make CMakeFiles/simpleLibrary.dir/display.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runDisplay.dir/build.make CMakeFiles/runDisplay.dir/display.o
-.PHONY : display.o
+item.cpp.o:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/item.cpp.o
+.PHONY : item.cpp.o
+
+item.i: item.cpp.i
+.PHONY : item.i
 
 # target to preprocess a source file
-display.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleLibrary.dir/build.make CMakeFiles/simpleLibrary.dir/display.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runDisplay.dir/build.make CMakeFiles/runDisplay.dir/display.i
-.PHONY : display.i
+item.cpp.i:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/item.cpp.i
+.PHONY : item.cpp.i
+
+item.s: item.cpp.s
+.PHONY : item.s
 
 # target to generate assembly for a file
-display.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleLibrary.dir/build.make CMakeFiles/simpleLibrary.dir/display.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runDisplay.dir/build.make CMakeFiles/runDisplay.dir/display.s
-.PHONY : display.s
+item.cpp.s:
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/item.cpp.s
+.PHONY : item.cpp.s
 
 # Help Target
 help:
@@ -167,12 +206,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... runDisplay"
 	@echo "... simpleLibrary"
-	@echo "... display.o"
-	@echo "... display.i"
-	@echo "... display.s"
+	@echo "... item.o"
+	@echo "... item.i"
+	@echo "... item.s"
 .PHONY : help
 
 
@@ -184,6 +226,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
