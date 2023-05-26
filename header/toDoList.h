@@ -2,6 +2,7 @@
 #define TODOLIST_H
 
 #include "../header/item.h"
+#include "../header/courseList.h"
 #include <iostream>
 #include <string>
 #include <sstream>
