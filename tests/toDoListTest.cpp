@@ -1,17 +1,45 @@
 #include "gtest/gtest.h"
+#include <gmock/gmock.h>
+#include <gmock/gmock-matchers.h>
 #include "../header/toDoList.h"
+#include "../header/item.h"
+#include "../header/task.h"
 
-TEST(ToDoList, itemCount){
-    ToDoList testList = ToDoList();
-    testList.add(new Item(true));
 
-    // Test getitemCount
-    EXPECT_EQ(testList.getitemCount(), 1);
+TEST(ToDoList, addToList)
+{
+    ToDoList testList;
+    list<Item*> expectedList;
+    Task *newItem = new Task(false);
+    Task *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Task *newItemExpect = new Task(false);
+    Task *anotherItemExpect = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    testList.add(anotherItem);
+    testList.add(newItem);
+    expectedList.push_back(newItemExpect);
+    expectedList.push_back(anotherItemExpect);
+
+    ASSERT_EQ(testList.getAllItems().size(), expectedList.size());
+
+    // Iterate over the elements and compare them one by one
+    list<Item*>::iterator it1 = testList.getAllItems().begin();
+    list<Item*>::iterator it2 = expectedList.begin();
+    ASSERT_EQ((*it1)->getName(), (*it2)->getName());
+
 }
 
-TEST(ToDoList, displayAll1){
+
+TEST(ToDoList, ItemCount){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(true));
+
+    // Test GetItemCount
+    EXPECT_EQ(testList.getItemCount(), 1);
+}
+
+TEST(ToDoList, DisplayAll1){
+    ToDoList testList = ToDoList();
+    testList.add(new Task(false));
 
     // Test displayAll function 
     stringstream ss;
@@ -19,21 +47,21 @@ TEST(ToDoList, displayAll1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, displayAll2){
+TEST(ToDoList, DisplayAll2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
-    testList.add(new Item(false));
-    testList.add(new Item(true));
+    testList.add(new Task(false));
+    testList.add(new Task(false));
+    testList.add(new Task(true));
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [X]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, displayCompleted1){
+TEST(ToDoList, DisplayCompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Item(true));
+    testList.add(new Task(true));
 
     // Test displayCompleted function 
     stringstream ss;
@@ -41,9 +69,9 @@ TEST(ToDoList, displayCompleted1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, displayCompleted2){
+TEST(ToDoList, DisplayCompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(false));
 
     // Test displayCompleted function 
     stringstream ss;
@@ -51,9 +79,9 @@ TEST(ToDoList, displayCompleted2){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
-TEST(ToDoList, displayIncompleted1){
+TEST(ToDoList, DisplayIncompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Item(false));
+    testList.add(new Task(false));
 
     // Test displayIncompleted function 
     stringstream ss;
@@ -61,9 +89,9 @@ TEST(ToDoList, displayIncompleted1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, displayIncompleted2){
+TEST(ToDoList, DisplayIncompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Item(true));
+    testList.add(new Task(true));
 
     // Test displayIncompleted function 
     stringstream ss;

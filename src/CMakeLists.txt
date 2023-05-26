@@ -1,4 +1,12 @@
 add_library(simpleLibrary
+calendar.cpp
+course.cpp
+courseList.cpp
+day.cpp
+event.cpp
+item.cpp
+mainMenu.cpp
+task.cpp
 toDoList.cpp
 )
 

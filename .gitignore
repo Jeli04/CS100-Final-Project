@@ -10,3 +10,4 @@ src/cmake_install.cmake
 tests/Makefile
 tests/cmake_install.cmake
 tests/CMakeFiles/
+a.out

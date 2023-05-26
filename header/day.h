@@ -3,6 +3,9 @@
 
 #include "../header/toDoList.h"
 #include <ctime>
+#include <string>
+
+using namespace std;
 
 class Day{
 private:
@@ -13,7 +16,6 @@ private:
     ToDoList* toDoList;
 
     // helper functions
-    void printDashes(ostream& ss, int dashCount) const;
     void updateItems(const string& date);
 public:
     Day(ToDoList* _toDoList, const string& date); 

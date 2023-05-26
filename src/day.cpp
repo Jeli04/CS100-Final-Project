@@ -22,14 +22,13 @@ void Day::displayDayInfo(ostream& ss) const{
     toDoList->printDashes(ss, 25);
 
     for(Item* item : listOfItems){
-        ss << "Item info" << endl;
-        //item->displayItem();    // displayItem is a temp name
+        item->displayItemInfo(ss);   
     }
 }
 
 void Day::updateItems(const string& date){
     for(Item* listItem : toDoList->allItems){
-        if(listItem->getTime() == date){
+        if(listItem->getDate() == date){
             listOfItems.push_back(listItem);
         }
     }
