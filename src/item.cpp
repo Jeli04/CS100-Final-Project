@@ -1,4 +1,5 @@
 #include "../header/item.h"
+
 using namespace std;
 
 Items::Items() {
@@ -63,6 +64,16 @@ void Items::setPriority(int priority) {
     this->itemPriority = priority;
 }
 
-void Items::setItemCompletion(bool status) {
+void Item::setItemCompletion(bool status) {
     this->itemCompletion = status;
+}
+
+void Items::displayItem(ostream& ss, Items& newItem) {
+    ss << "\t\tHere is your current Item: " << newItem.getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t\tItem Type: Task" << endl;
+    ss << "\t\tDate of Item: " << newItem.getDate() << endl;
+    ss << "\t\tItem Location: " << newItem.getLocation() << endl;
+    ss << "\t\tItem's Priority: " << newItem.getPriority() << endl;
+    ss << "\t\tStatus of Completion: " << newItem.getStatus() << endl;
 }

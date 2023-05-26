@@ -7,12 +7,13 @@ using namespace std;
 
 enum Events { Birthday, Meeting, Appointment, Other};
 
-class Event : public Items {
+class Event : public Item {
     private:
         Events eventType;
     public:
-        void Edit();
+        void Edit() override;
         void DisplayEventInfo();
+        virtual void displayItem(Event&) override;
 };
 
 #endif

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -24,10 +25,10 @@ class Items {
         Items();
 
         //Setters of Item    
-        void setName(const string);
-        void setDate(const string);
-        void setLocation(const string);
-        void setDescription(const string);
+        void setName(const string&);
+        void setDate(const string&);
+        void setLocation(const string&);
+        void setDescription(const string&);
         void setPriority(int);
         void setItemCompletion(bool);
 
@@ -41,9 +42,16 @@ class Items {
         bool getStatus() const;
         string getItemType() const; 
 
+        virtual void Edit() = 0;
+
         //Making class abstract
+<<<<<<< HEAD
         //virtual void displayItem() = 0;
         //virtual void Edit() = 0;
+=======
+        void displayItem(ostream&, Items&);
+        //virtual void edit() = 0;
+>>>>>>> john/riri
 
 };
 

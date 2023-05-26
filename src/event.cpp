@@ -1,4 +1,4 @@
-#include "event.h"
+#include "../header/event.h"
 #include <iostream>
 using namespace std;
 
@@ -6,7 +6,7 @@ void Event::Edit(){
     int userInput = 0;
 
     cout << "1. Name" << endl;
-    cout << "2. Time" << endl;
+    cout << "2. Date" << endl;
     cout << "3. Location" << endl;
     cout << "4. Description" << endl;
     cout << "5. Priority" << endl; 
@@ -25,11 +25,11 @@ void Event::Edit(){
         this->itemName = newName;
     }
     else if (userInput == 2){
-        string newTime;
-        cout << "Enter new time: ";
-        cin >> newTime;
+        string newDate;
+        cout << "Enter new date: ";
+        cin >> newDate;
         cout << endl;
-        this->itemDate = newTime;
+        this->itemDate = newDate;
     }
     else if (userInput == 3){
         string newLocation;
@@ -87,3 +87,7 @@ void Event::Edit(){
     }
 }
 
+virtual void Events::displayItem(Event& event) override {
+    cout << "\t\tHere is your current event: " << event.getName() << endl;
+    cout << "-------------------------------------------------------" << endl;
+}
