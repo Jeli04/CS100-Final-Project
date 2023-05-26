@@ -26,21 +26,11 @@ public:
     string getTime() const {return Time;}
     string getLocation() const {return Location;}
     string getDescription() const {return Description;}
-    int getPrioirty() const {return Priority;}
+    int getPriority() const {return Priority;}
     string getType() const {return Type;}
     bool getCompletion() const {return Completed;}
     void setPriority(int p){Priority = p;}
     void setCompletion(bool c){Completed = c;}
 
-    /*
-    getNmae
-    getTime
-    getLocation
-    getDescription
-    getPrioirty
-    getStatus
-    */
 };
-
-
 #endif
