@@ -3,19 +3,33 @@
 #ifndef COURSES_H
 #define COURSES_H
 
-Course::Course(String[] days, String instructor) : Item() {
+Course::Course(vector<string> days, string instructor) : Item() {
     occuringDays = days;
     instructorName = instructor;
 }
 
-String Course::getInstructorName(){
+Course::Course() : Item(){
+    this->instructorName = "";
+}
+
+string Course::GetInstructorName() const{
     return this->instructorName;
 }
 
-String[] Course::getOccuringDays(){
+vector<string> Course::GetOccuringDays() const{
     return this->occuringDays;
 }
-void Course::Edit(){
+
+void Course::SetInstructorName(const string& name){
+    this->instructorName = name;
+}
+
+void Course::SetOccuringDays(vector<string> days){
+    this->occuringDays = days;
+}
+
+
+void Course::Edit() {
     int userInput = 0;
 
     cout << "1. Name" << endl;
@@ -37,35 +51,35 @@ void Course::Edit(){
         cout << "Enter new name: ";
         cin >> newName;
         cout << endl;
-        this.Name = newName;
+        this->itemName = newName;
     }
     else if (userInput == 2){
         string newTime;
         cout << "Enter new time: ";
         cin >> newTime;
         cout << endl;
-        this.Time = newTime;
+        this->itemTime = newTime;
     }
     else if (userInput == 3){
         string newLocation;
         cout << "Enter new location: ";
         cin >> newLocation;
         cout << endl;
-        this.Location = newLocation;
+        this->itemLocation = newLocation;
     }
     else if (userInput == 4){
         string newDescription;
         cout << "Enter new description: ";
         cin >> newDescription;
         cout << endl;
-        this.Description = newDescription;
+        this->itemDescription = newDescription;
     }
     else if (userInput == 5){
         int newPriority;
         cout << "Enter new priority: ";
         cin >> newPriority;
         cout << endl;
-        this.Priority = newPriority;
+        this->itemPriority = newPriority;
     }
     //type?
     else if (userInput == 7){
@@ -74,10 +88,10 @@ void Course::Edit(){
         cin >> userInputCompleted;
         cout << endl;
         if (userInput == 'y'){
-            this.Completed = true;
+            this->itemCompletion = true;
         }
         else{
-            this.Completed = false;
+            this->itemCompletion = false;
         }
     }
     else if (userInput == 8){
@@ -85,12 +99,14 @@ void Course::Edit(){
         cout << "Enter new instructor name: ";
         cin >> newInstructorName;
         cout << endl;
-        this.InstructorName = newInstructorName;
+        this->instructorName = newInstructorName;
     }
     else if (userInput == 9){
-        vector<String> newOccuringDays;
-        String inputEditDays;
-        while (inputEditDays != 'q'){
+        vector<string> newOccuringDays;
+        int inputEditDays = 0;
+        string inputAgain = "";
+
+        while (inputAgain != "n"){
             cout << "1. Sunday" << endl;
             cout << "2. Monday" << endl;
             cout << "3. Tuesday" << endl;
@@ -106,8 +122,6 @@ void Course::Edit(){
                 newOccuringDays.push_back("Sunday");
             }
             
-
-            String inputAgain;
             cout << "Would you like to enter another day?[y/n]" << endl;
             cin >> inputAgain;
         }

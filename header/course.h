@@ -4,22 +4,25 @@
 #include <string>
 #include <list>
 #include <vector>
-#include "task.h"
+#include "item.h"
 
 using namespace std;
 
 
-class Course : public Items {
+class Course : public Item {
     private:
-        String instructorName;
-        String[] occuringDays;
+        string instructorName;
+        vector<string> occuringDays;
         //list<Task> ListOfAssignments;
     public:
-        Course(vector<string> days, string instructorName);
-        void Edit();
+        Course(vector<string> days, string instructor);
+        Course();
+        void Edit() override;
         void DisplayCourseInfo();
-        void getOccuringDays();
-        void getInstructorName()
-        
+        vector<string> GetOccuringDays() const;
+        string GetInstructorName() const;
+        void SetInstructorName(const string&);
+        void SetOccuringDays(vector<string>);
+
 };
 #endif

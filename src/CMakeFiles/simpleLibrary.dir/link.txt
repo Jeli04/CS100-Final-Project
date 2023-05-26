@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsimpleLibrary.a CMakeFiles/simpleLibrary.dir/display.o
-/usr/bin/ranlib libsimpleLibrary.a

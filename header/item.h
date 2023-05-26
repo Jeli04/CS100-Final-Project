@@ -35,8 +35,10 @@ class Item {
         int getPriority() const;
         bool getStatus() const;
 
+        virtual void Edit() = 0;
+
         //Making class abstract
-        virtual void item() = 0;
+        //virtual void item() = 0;
 
 };
 

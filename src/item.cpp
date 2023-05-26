@@ -1,21 +1,28 @@
 #include "../header/item.h"
+#include <ctime>
+
 using namespace std;
 
 Item::Item(){
     itemName = "";
-    itemTime = "";
+    itemDate = "";
+    itemType = "";
     itemLocation = "";
     itemDescription = "";
-    itemPriority = "";
+    itemPriority = 0;
     itemCompletion = false;
+}
+
+string Item::getType() const{
+    return this->itemType;
 }
 
 string Item::getName() const {
     return this->itemName;
 }
 
-string Item::getTime() const {
-    return this->itemTime;
+string Item::getDate() const {
+    return this->itemDate;
 }
 
 string Item::getLocation() const {
@@ -39,6 +46,7 @@ void Item::setName(const string& name) {
 }
 
 void Item::setTime(const string& time) {
+    
     this->itemTime = time;
 }
 
@@ -46,14 +54,14 @@ void Item::setLocation(const string& location) {
     this->itemLocation = location;
 }
 
-void Item::setDescripion(const string& description) {
+void Item::setDescription(const string& description) {
     this->itemDescription = description;
 }
 
 void Item::setPriority(int priority) {
-    this->itemPriority = itemPriority_;
+    this->itemPriority = itemPriority;
 }
 
-void Items::setItemCompletion(bool status) {
+void Item::setItemCompletion(bool status) {
     this->itemCompletion = status;
 }
