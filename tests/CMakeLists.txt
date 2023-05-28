@@ -8,6 +8,7 @@ add_subdirectory(googletest)
 add_executable(Tests
   toDoListTest.cpp 
   dayTest.cpp
+  calendarTest.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)
