@@ -1,6 +1,6 @@
 #include "../header/calendar.h"
 
-Calendar::Calendar(string& _year, string& _month, int _dayCount){
+Calendar::Calendar(const string& _year, const string& _month, const int _dayCount){
     year = _year;
     month = _month;
     dayCount = _dayCount;
