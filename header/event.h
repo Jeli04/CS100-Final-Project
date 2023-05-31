@@ -11,8 +11,10 @@ class Event : public Items {
     private:
         Events eventType;
     public:
-        void Edit();
-        void DisplayEventInfo();
+        Event();
+        Event(Events typeEvent);
+        void edit() override;
+        void displayItemInfo() override;
 };
 
 #endif

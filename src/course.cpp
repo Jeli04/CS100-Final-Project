@@ -13,6 +13,7 @@ Course::Course(vector<string> days, string instructor) : Items() {
 
 Course::Course() : Items(){
    this->instructorName = "";
+   this->itemType = "Course";
 }
 
 
@@ -25,6 +26,9 @@ vector<string> Course::GetOccuringDays() const{
    return this->occuringDays;
 }
 
+string Course::getType() {
+    return "Course";
+}
 
 void Course::SetInstructorName(const string& name){
    this->instructorName = name;
@@ -35,10 +39,10 @@ void Course::SetOccuringDays(vector<string> days){
    this->occuringDays = days;
 }
 
-
-
-
-void Course::Edit() {
+void Course::displayItemInfo(){
+    cout << "hi" << endl;
+}
+void Course::edit() {
    int userInput = 0;
 
 
@@ -48,7 +52,7 @@ void Course::Edit() {
    cout << "4. Description" << endl;
    cout << "5. Priority" << endl;
    cout << "6. Type" << endl;
-   cout << "7. Completed" << endl;
+   cout << "7. Completion" << endl;
    cout << "8. Instructor Name" << endl;
    cout << "9. Occuring Days" << endl;
    cout << "Enter number of what you would like to edit ";

@@ -39,12 +39,11 @@ class Items {
         string getDescription() const;
         int getPriority() const;
         bool getStatus() const;
-        string getItemType() const; 
+        virtual string getType() const = 0; 
 
         //Making class abstract
-        //virtual void displayItem() = 0;
-        //virtual void Edit() = 0;
-
+        virtual void displayItemInfo() = 0;
+        virtual void edit() = 0;
 };
 
 #endif
