@@ -39,7 +39,7 @@ class Items {
         string getDescription() const;
         int getPriority() const;
         bool getStatus() const;
-        virtual string getType() const = 0; 
+        string getType() const; 
 
         //Making class abstract
         virtual void displayItemInfo() = 0;

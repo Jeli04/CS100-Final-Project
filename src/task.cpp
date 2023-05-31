@@ -2,11 +2,13 @@
 using namespace std;
 
 Tasks::Tasks() : Items() {
-    taskType = Other;
+    this->itemType = "Task";
+    this->taskType = Other;
     this->subject = "";
 }
 
 Tasks::Tasks(string subjectName, Tasks type) : Items() {
+    this->itemType = "Task";
     this->subject = subjectName
     this->taskType = type;
 }

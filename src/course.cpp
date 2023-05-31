@@ -26,10 +26,6 @@ vector<string> Course::GetOccuringDays() const{
    return this->occuringDays;
 }
 
-string Course::getType() {
-    return "Course";
-}
-
 void Course::SetInstructorName(const string& name){
    this->instructorName = name;
 }
@@ -135,13 +131,22 @@ void Course::edit() {
            cin >> inputEditDays;
            cout << endl;
 
-
-           if (inputEditDays == 1){
-               newOccuringDays.push_back("Sunday");
-           }
+            vector<string> days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+            bool validInput = true;
+            //check if string already in newoccuringdays
+            for (unsigned int i = 0; i < newOccuringDays.size(); i++){
+                if (newOccuringDays[i] == days[inputEditDays - 1]){
+                    cout << days[inputEditDays] << " has already been added to the Occuring Days List" << endl;
+                    validInput = false;
+                }
+            }
+            if (validInput == true){
+                newOccuringDays.push_back(days[inputEditDays - 1]);
+            }
           
-           cout << "Would you like to enter another day?[y/n]" << endl;
+           cout << "Would you like to enter another day?[y/n] ";
            cin >> inputAgain;
+           cout << endl;
        }
        // set new days
    }
