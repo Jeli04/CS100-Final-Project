@@ -18,13 +18,15 @@ class Course : public Items {
    public:
        Course(vector<string> days, string instructor);
        Course();
-       void Edit() override;
-       void DisplayCourseInfo();
+       void edit() override;
+       void displayItemInfo() override;
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;
        void SetInstructorName(const string&);
        void SetOccuringDays(vector<string>);
-
-
+       void editOccuringDays();
+       void editPriority();
+       void editCompletion();
+       void printMenu() const;
 };
 #endif

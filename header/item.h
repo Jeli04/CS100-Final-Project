@@ -40,14 +40,13 @@ class Items {
         string getDescription() const;
         int getPriority() const;
         bool getStatus() const;
-        string getItemType() const; 
+        string getType() const; 
 
         virtual void Edit() = 0;
 
         //Making class abstract
-        void displayItem(ostream&, Items&);
-        //virtual void edit() = 0;
-
+        virtual void displayItemInfo() = 0;
+        virtual void edit() = 0;
 };
 
 #endif

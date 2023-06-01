@@ -2,7 +2,20 @@
 #include <iostream>
 using namespace std;
 
-void Event::Edit(){
+Event::Event() : Items(){
+    this->itemType = "Event";
+    this->eventType = Other;
+}
+
+Event::Event(Events typeEvent) : Items(){
+    this->eventType = typeEvent;
+}
+
+void Event::displayItemInfo(){
+    cout << "hi" << endl;
+}
+
+void Event::edit(){
     int userInput = 0;
 
     cout << "1. Name" << endl;
@@ -10,7 +23,7 @@ void Event::Edit(){
     cout << "3. Location" << endl;
     cout << "4. Description" << endl;
     cout << "5. Priority" << endl; 
-    cout << "6. Completed" << endl;
+    cout << "6. Completion" << endl;
     cout << "7. Event Type" << endl;
     cout << "Enter number of what you would like to edit ";
 

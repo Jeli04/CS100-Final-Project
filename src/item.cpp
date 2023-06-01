@@ -44,6 +44,9 @@ bool Items::getStatus() const {
     return this->itemCompletion;
 }
 
+string Items::getType() const{
+    return itemType;
+}
 void Items::setName(const string name) {
     this->itemName = name;
 }
