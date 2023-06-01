@@ -1,5 +1,9 @@
 add_library(simpleLibrary
-    
+    mainMenu.cpp
+)
+
+add_executable(PriorityFlow
+    mainMenu.cpp
 )
 
 find_library(M_LIB m)
