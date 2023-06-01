@@ -24,5 +24,9 @@ class Course : public Items {
        string GetInstructorName() const;
        void SetInstructorName(const string&);
        void SetOccuringDays(vector<string>);
+       void editOccuringDays();
+       void editPriority();
+       void editCompletion();
+       void printMenu() const;
 };
 #endif
