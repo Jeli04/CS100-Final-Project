@@ -47,19 +47,19 @@ bool Items::getStatus() const {
 string Items::getType() const{
     return itemType;
 }
-void Items::setName(const string name) {
+void Items::setName(const string& name) {
     this->itemName = name;
 }
 
-void Items::setDate(const string date) {
+void Items::setDate(const string& date) {
     this->itemDate = date;
 }
 
-void Items::setLocation(const string location) {
+void Items::setLocation(const string& location) {
     this->itemLocation = location;
 }
 
-void Items::setDescription(const string description) {
+void Items::setDescription(const string& description) {
     this->itemDescription = description;
 }
 
@@ -67,11 +67,11 @@ void Items::setPriority(int priority) {
     this->itemPriority = priority;
 }
 
-void Item::setItemCompletion(bool status) {
+void Items::setItemCompletion(bool status) {
     this->itemCompletion = status;
 }
 
-void Items::displayItem(ostream& ss, Items& newItem) {
+void Items::displayItemInfo(ostream& ss, Items& newItem) {
     ss << "\t\tHere is your current Item: " << newItem.getName() << endl;
     ss << "--------------------------------------------------" << endl;
     ss << "\t\tItem Type: Task" << endl;

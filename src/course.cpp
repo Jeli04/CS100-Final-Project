@@ -30,8 +30,8 @@ void Course::SetOccuringDays(vector<string> days){
    this->occuringDays = days;
 }
 
-void Course::displayItemInfo(){
-    cout << "hi" << endl;
+void Course::displayItemInfo(ostream& ss, Items& newItem){
+    ss << "hi" << endl;
 }
 
 //user enters new occuring days
@@ -207,11 +207,7 @@ void Course::edit() {
             this->itemDescription = newDescription;
         }
         else if (userInput == 5){
-            int newPriority;
-            cout << "Enter new priority: ";
-            cin >> newPriority;
-            cout << endl;
-            this->itemPriority = newPriority;
+            editPriority();
         }
         else if (userInput == 6){
             editCompletion();

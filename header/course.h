@@ -19,7 +19,7 @@ class Course : public Items {
        Course(vector<string> days, string instructor);
        Course();
        void edit() override;
-       void displayItemInfo() override;
+       void displayItemInfo(ostream&, Items&) override;
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;
        void SetInstructorName(const string&);

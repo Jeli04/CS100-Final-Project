@@ -19,7 +19,10 @@ class Task : public Items {
         Task();
         Task(string subjectName, Tasks type);
         void edit() override;
-        void displayItemInfo() override;
+        void displayItemInfo(ostream&, Items&) override;
+        void editCompletion();
+        void editPriority();
+        void printMenu() const;
 };
 
 #endif

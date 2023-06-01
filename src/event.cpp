@@ -11,8 +11,8 @@ Event::Event(Events typeEvent) : Items(){
     this->eventType = typeEvent;
 }
 
-void Event::displayItemInfo(){
-    cout << "hi" << endl;
+void Event::displayItemInfo(ostream& ss, Items& newItem){
+    ss << "hi" << endl;
 }
 
 void Event::edit(){
