@@ -10,9 +10,9 @@ using namespace std;
 
 class MainMenu{
 private:   
-    // ToDoList* toDoList;
-    // CourseList* courseList;
-    // Calendar* calendar;
+    ToDoList* toDoList;
+    CourseList* courseList;
+    Calendar* calendar;
     char previousPrompt;
     char currentPrompt;
 
@@ -20,8 +20,9 @@ private:
 public:
     void homePrompt(ostream& ss);
     void calendarPrompt(ostream& ss);
+    void dayPrompt(ostream& ss);
     void courseListPrompt(ostream& ss);
-    void toDoLisetPrompt(ostream& ss);
+    void toDoListPrompt(ostream& ss);
 };
 
 #endif
