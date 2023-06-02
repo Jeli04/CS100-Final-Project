@@ -8,6 +8,7 @@ item.cpp
 mainMenu.cpp
 task.cpp
 toDoList.cpp
+container.cpp
 )
 
 find_library(M_LIB m)

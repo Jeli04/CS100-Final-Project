@@ -31,7 +31,7 @@ public:
     void setPriority(int p){Priority = p;}
     void setCompletion(bool c){Completed = c;}
     void setDate(string d){Date = d;}
-    // virtual void displayItemInfo(ostream& ss) const = 0;
+    virtual void displayItemInfo(ostream& ss) const = 0;
 
 };
 #endif
