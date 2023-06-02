@@ -1,13 +1,9 @@
 #include <iostream>
 #include "../header/item.h"
-#include "../header/course.h"
+#include "../header/event.h"
 
 int main(){
-    Course math;
-    math.setName("Math");
-    math.setLocation("Pierce Hall");
-    math.setDescription("Math 10a Multivariable Calc Section 004");
-    vector<string> days = {"Monday", "Wednesday"};
-    math.SetOccuringDays(days);
+    Event math;
+    math.setName("Math Class");
     math.edit();
 }

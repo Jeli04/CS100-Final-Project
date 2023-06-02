@@ -24,11 +24,3 @@ target_link_libraries(CourseTests gmock gtest gtest_main)
 target_link_libraries(CourseTests simpleLibrary)
 
 
-add_executable(EventTests
-    ../tests/testEvent.cpp
-    ../src/item.cpp
-    ../src/event.cpp
-)
-
-target_link_libraries(EventTests gmock gtest gtest_main)
-target_link_libraries(EventTests simpleLibrary)

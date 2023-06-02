@@ -77,6 +77,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -98,16 +110,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 .PHONY : list_install_components/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -118,17 +120,15 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -160,32 +160,6 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named testCourse
-
-# Build rule for target.
-testCourse: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testCourse
-.PHONY : testCourse
-
-# fast build rule for target.
-testCourse/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/build
-.PHONY : testCourse/fast
-
-#=============================================================================
-# Target rules for targets named testItem
-
-# Build rule for target.
-testItem: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testItem
-.PHONY : testItem
-
-# fast build rule for target.
-testItem/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/build
-.PHONY : testItem/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -239,156 +213,6 @@ gtest/fast:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-src/course.o: src/course.cpp.o
-.PHONY : src/course.o
-
-# target to build an object file
-src/course.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/course.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/course.cpp.o
-.PHONY : src/course.cpp.o
-
-src/course.i: src/course.cpp.i
-.PHONY : src/course.i
-
-# target to preprocess a source file
-src/course.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/course.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/course.cpp.i
-.PHONY : src/course.cpp.i
-
-src/course.s: src/course.cpp.s
-.PHONY : src/course.s
-
-# target to generate assembly for a file
-src/course.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/course.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/course.cpp.s
-.PHONY : src/course.cpp.s
-
-src/event.o: src/event.cpp.o
-.PHONY : src/event.o
-
-# target to build an object file
-src/event.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/event.cpp.o
-.PHONY : src/event.cpp.o
-
-src/event.i: src/event.cpp.i
-.PHONY : src/event.i
-
-# target to preprocess a source file
-src/event.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/event.cpp.i
-.PHONY : src/event.cpp.i
-
-src/event.s: src/event.cpp.s
-.PHONY : src/event.s
-
-# target to generate assembly for a file
-src/event.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/event.cpp.s
-.PHONY : src/event.cpp.s
-
-src/item.o: src/item.cpp.o
-.PHONY : src/item.o
-
-# target to build an object file
-src/item.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/item.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/item.cpp.o
-.PHONY : src/item.cpp.o
-
-src/item.i: src/item.cpp.i
-.PHONY : src/item.i
-
-# target to preprocess a source file
-src/item.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/item.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/item.cpp.i
-.PHONY : src/item.cpp.i
-
-src/item.s: src/item.cpp.s
-.PHONY : src/item.s
-
-# target to generate assembly for a file
-src/item.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/src/item.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/item.cpp.s
-.PHONY : src/item.cpp.s
-
-src/task.o: src/task.cpp.o
-.PHONY : src/task.o
-
-# target to build an object file
-src/task.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/task.cpp.o
-.PHONY : src/task.cpp.o
-
-src/task.i: src/task.cpp.i
-.PHONY : src/task.i
-
-# target to preprocess a source file
-src/task.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/task.cpp.i
-.PHONY : src/task.cpp.i
-
-src/task.s: src/task.cpp.s
-.PHONY : src/task.s
-
-# target to generate assembly for a file
-src/task.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/src/task.cpp.s
-.PHONY : src/task.cpp.s
-
-tests/testCourse.o: tests/testCourse.cpp.o
-.PHONY : tests/testCourse.o
-
-# target to build an object file
-tests/testCourse.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/tests/testCourse.cpp.o
-.PHONY : tests/testCourse.cpp.o
-
-tests/testCourse.i: tests/testCourse.cpp.i
-.PHONY : tests/testCourse.i
-
-# target to preprocess a source file
-tests/testCourse.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/tests/testCourse.cpp.i
-.PHONY : tests/testCourse.cpp.i
-
-tests/testCourse.s: tests/testCourse.cpp.s
-.PHONY : tests/testCourse.s
-
-# target to generate assembly for a file
-tests/testCourse.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/tests/testCourse.cpp.s
-.PHONY : tests/testCourse.cpp.s
-
-tests/testItem.o: tests/testItem.cpp.o
-.PHONY : tests/testItem.o
-
-# target to build an object file
-tests/testItem.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/tests/testItem.cpp.o
-.PHONY : tests/testItem.cpp.o
-
-tests/testItem.i: tests/testItem.cpp.i
-.PHONY : tests/testItem.i
-
-# target to preprocess a source file
-tests/testItem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/tests/testItem.cpp.i
-.PHONY : tests/testItem.cpp.i
-
-tests/testItem.s: tests/testItem.cpp.s
-.PHONY : tests/testItem.s
-
-# target to generate assembly for a file
-tests/testItem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/tests/testItem.cpp.s
-.PHONY : tests/testItem.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -405,26 +229,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... testCourse"
-	@echo "... testItem"
-	@echo "... src/course.o"
-	@echo "... src/course.i"
-	@echo "... src/course.s"
-	@echo "... src/event.o"
-	@echo "... src/event.i"
-	@echo "... src/event.s"
-	@echo "... src/item.o"
-	@echo "... src/item.i"
-	@echo "... src/item.s"
-	@echo "... src/task.o"
-	@echo "... src/task.i"
-	@echo "... src/task.s"
-	@echo "... tests/testCourse.o"
-	@echo "... tests/testCourse.i"
-	@echo "... tests/testCourse.s"
-	@echo "... tests/testItem.o"
-	@echo "... tests/testItem.i"
-	@echo "... tests/testItem.s"
 .PHONY : help
 
 
