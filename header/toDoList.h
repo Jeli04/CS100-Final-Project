@@ -34,8 +34,8 @@ public:
     // list<Item*> getAllItems() const;
 
     friend class Day;
-    // friend class Calendar;
-    // friend class CourseList;
+    friend class Calendar;
+    friend class CourseList;
 };
 
 #endif
