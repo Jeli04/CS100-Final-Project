@@ -63,8 +63,7 @@ CMAKE_BINARY_DIR = /home/csmajs/rdutt010/github-classroom/cs100/final-project-sg
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/testCourse.dir/all
-all: CMakeFiles/testItem.dir/all
+all: CMakeFiles/testTask.dir/all
 all: googletest/all
 .PHONY : all
 
@@ -73,8 +72,7 @@ preinstall: googletest/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/testCourse.dir/clean
-clean: CMakeFiles/testItem.dir/clean
+clean: CMakeFiles/testTask.dir/clean
 clean: googletest/clean
 .PHONY : clean
 
@@ -130,56 +128,30 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : googletest/googletest/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/testCourse.dir
+# Target rules for target CMakeFiles/testTask.dir
 
 # All Build rule for target.
-CMakeFiles/testCourse.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=9,10,11,12 "Built target testCourse"
-.PHONY : CMakeFiles/testCourse.dir/all
+CMakeFiles/testTask.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=9,10,11,12 "Built target testTask"
+.PHONY : CMakeFiles/testTask.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/testCourse.dir/rule: cmake_check_build_system
+CMakeFiles/testTask.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testCourse.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testTask.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
-.PHONY : CMakeFiles/testCourse.dir/rule
+.PHONY : CMakeFiles/testTask.dir/rule
 
 # Convenience name for target.
-testCourse: CMakeFiles/testCourse.dir/rule
-.PHONY : testCourse
+testTask: CMakeFiles/testTask.dir/rule
+.PHONY : testTask
 
 # clean rule for target.
-CMakeFiles/testCourse.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testCourse.dir/build.make CMakeFiles/testCourse.dir/clean
-.PHONY : CMakeFiles/testCourse.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/testItem.dir
-
-# All Build rule for target.
-CMakeFiles/testItem.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=13,14,15,16,17,18 "Built target testItem"
-.PHONY : CMakeFiles/testItem.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/testItem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testItem.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
-.PHONY : CMakeFiles/testItem.dir/rule
-
-# Convenience name for target.
-testItem: CMakeFiles/testItem.dir/rule
-.PHONY : testItem
-
-# clean rule for target.
-CMakeFiles/testItem.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testItem.dir/build.make CMakeFiles/testItem.dir/clean
-.PHONY : CMakeFiles/testItem.dir/clean
+CMakeFiles/testTask.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/clean
+.PHONY : CMakeFiles/testTask.dir/clean
 
 #=============================================================================
 # Target rules for target googletest/googlemock/CMakeFiles/gmock_main.dir
