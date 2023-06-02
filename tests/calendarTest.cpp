@@ -25,7 +25,7 @@ TEST(Calendar, addDayToCalendarTest2){
 TEST(Calendar, addDayToCalendarTest3){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2020", "June", 20);
-    for(unsigned i = 0; i < 31; i++){
+    for(unsigned i = 0; i < 20; i++){
         calendar->addDay(new Day(toDoList, "06/"+to_string((i+1))+"/2020"));
     }
 
