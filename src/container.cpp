@@ -4,17 +4,16 @@
 #include <iostream>
 #include <ostream>
 
-ToDoList::ToDoList(){
-    itemCount = 0;
-}
+// Container::Container(){
+//     itemCount = 0;
+// }
 
-/*
-list<Item*> ToDoList::getAllItems() const
+list<Item*> Container::getAllItems() const
 {
     return allItems;
 }
 
-void ToDoList::add(Item* newItem) {
+void Container::add(Item* newItem) {
     if (allItems.empty()) 
     {
         allItems.push_back(newItem);
@@ -36,7 +35,7 @@ void ToDoList::add(Item* newItem) {
     ++itemCount;
 }
 
-void ToDoList::deleteItem(string itemName)
+void Container::deleteItem(string itemName)
 {
     auto itr = allItems.begin();
     while (itr != allItems.end())
@@ -50,14 +49,13 @@ void ToDoList::deleteItem(string itemName)
     }
 }
 
-void ToDoList::displayAll(ostream& ss) const {
+void Container::displayAll(ostream& ss) const {
     printTitle(ss);
     printBody(ss, allItems);
 }
 
-*/
-
-void ToDoList::displayCompleted(ostream& ss)  {
+/*
+void Container::displayCompleted(ostream& ss)  {
     printTitle(ss);
     list<Item*> completedItems;
     auto itr = allItems.begin();
@@ -72,7 +70,7 @@ void ToDoList::displayCompleted(ostream& ss)  {
     printBody(ss, completedItems);
 }
 
-void ToDoList::displayIncompleted(ostream& ss) {
+void Container::displayIncompleted(ostream& ss) {
     printTitle(ss);
     list<Item*> incompletedItems;
     auto itr = allItems.begin();
@@ -86,10 +84,9 @@ void ToDoList::displayIncompleted(ostream& ss) {
         }
     printBody(ss, incompletedItems);
 }
+*/
 
-/*
-
-void ToDoList::printTitle(ostream& ss) const{
+void Container::printTitle(ostream& ss) const{
     // prints the title 
     ss << "Completion | Name";
     printSpaces(ss, 16);
@@ -97,7 +94,7 @@ void ToDoList::printTitle(ostream& ss) const{
     printDashes(ss, 52);
 }
 
-void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
+void Container::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     // prints the body
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
@@ -129,21 +126,19 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     }
 }
 
-void ToDoList::printSpaces(ostream& ss, int spaceCount) const{
+void Container::printSpaces(ostream& ss, int spaceCount) const{
     for(unsigned i = 0; i < spaceCount; i++){
         ss << " ";
     }
 }
 
-void ToDoList::printDashes(ostream& ss, int numDashes) const{
+void Container::printDashes(ostream& ss, int numDashes) const{
     for(unsigned i = 0; i < numDashes; i++){
         ss << "-";
     }
     ss << endl;
 }
 
-void ToDoList::printPadding(ostream& ss, const string& itemName) const{
+void Container::printPadding(ostream& ss, const string& itemName) const{
     for (unsigned i = 0; i < 20-itemName.size(); i++){ss<<" ";}
 }
-
-*/

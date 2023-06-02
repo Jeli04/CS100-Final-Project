@@ -1,1 +1,2 @@
-#include "../header/courses.h"
+#include "../header/course.h"
+
