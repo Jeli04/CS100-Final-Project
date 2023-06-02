@@ -1,4 +1,5 @@
 #include "../header/course.h"
+#include <limits>
 
 #ifndef COURSES_H
 #define COURSES_H
@@ -57,7 +58,7 @@ void Course::editOccuringDays(){
         //validating user input
         while(cin.fail() || inputEditDays < 1 || inputEditDays > 7){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "----Invalid Input: Enter a number[1-7]----" << endl;
             cout << "Enter the number of the day this course is on[1-7]: ";
             cin >> inputEditDays;
@@ -133,9 +134,10 @@ void Course::editPriority(){
     cout << "Enter new priority: ";
     cin >> newPriority;
     cout << endl;
+
     while (cin.fail()){
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "----Invalid Input: Enter Number----" << endl;
         cout << "Enter new priority: ";
         cin >> newPriority;
@@ -168,11 +170,10 @@ void Course::edit() {
         cin >> userInput;
         cout << endl;
 
-        //validating user input
-        while(cin.fail() || userInput < 1 || userInput > 8){
+        while (cin.fail() || userInput < 1 || userInput > 8){
             cin.clear();
-            cin.ignore();
-            cout << "----Invalid Input: Enter a number[1-8]----" << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "----Invalid Input: Enter Number[1-8]----" << endl;
             cout << "Enter number of what you would like to edit[1-8]: ";
             cin >> userInput;
             cout << endl;

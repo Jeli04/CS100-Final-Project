@@ -16,5 +16,4 @@ class Event : public Items {
         void edit() override;
         void displayItemInfo(ostream&, Items&) override;
 };
-
 #endif
