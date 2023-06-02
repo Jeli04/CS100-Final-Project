@@ -7,9 +7,9 @@
 #include "../header/container.h"
 
 
-TEST(ToDoList, addToList)
+TEST(CourseListTest, addToList)
 {
-    ToDoList testList;
+    CourseList testList;
     list<Item*> expectedList;
     Task *newItem = new Task(false);
     Task *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
@@ -29,9 +29,9 @@ TEST(ToDoList, addToList)
 
 }
 
-TEST(ToDoList, deleteFromList)
+TEST(CourseListTest, deleteFromList)
 {
-    ToDoList testList;
+    CourseList testList;
     list<Item*> expectedList;
 
     Item *testItem1 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
@@ -56,16 +56,16 @@ TEST(ToDoList, deleteFromList)
 }
 
 
-TEST(ToDoList, ItemCount){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, ItemCount){
+    CourseList testList = ToDoList();
     testList.add(new Task(true));
 
     // Test GetItemCount
     EXPECT_EQ(testList.getItemCount(), 1);
 }
 
-TEST(ToDoList, DisplayAll1){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayAll1){
+    CourseList testList = ToDoList();
     testList.add(new Task(false));
 
     // Test displayAll function 
@@ -74,8 +74,8 @@ TEST(ToDoList, DisplayAll1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, DisplayAll2){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayAll2){
+    CourseList testList = ToDoList();
     testList.add(new Task(false));
     testList.add(new Task(false));
     testList.add(new Task(true));
@@ -86,8 +86,8 @@ TEST(ToDoList, DisplayAll2){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, DisplayCompleted1){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayCompleted1){
+    CourseList testList = ToDoList();
     testList.add(new Task(true));
 
     // Test displayCompleted function 
@@ -96,8 +96,8 @@ TEST(ToDoList, DisplayCompleted1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, DisplayCompleted2){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayCompleted2){
+    CourseList testList = ToDoList();
     testList.add(new Task(false));
 
     // Test displayCompleted function 
@@ -106,8 +106,8 @@ TEST(ToDoList, DisplayCompleted2){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
-TEST(ToDoList, DisplayIncompleted1){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayIncompleted1){
+    CourseList testList = ToDoList();
     testList.add(new Task(false));
 
     // Test displayIncompleted function 
@@ -116,8 +116,8 @@ TEST(ToDoList, DisplayIncompleted1){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
-TEST(ToDoList, DisplayIncompleted2){
-    ToDoList testList = ToDoList();
+TEST(CourseListTest, DisplayIncompleted2){
+    CourseList testList = ToDoList();
     testList.add(new Task(true));
 
     // Test displayIncompleted function 

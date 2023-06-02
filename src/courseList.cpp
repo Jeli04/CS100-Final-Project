@@ -14,3 +14,8 @@
 CourseList::CourseList(){
     itemCount = 0;
 }
+
+void CourseList::displayAll(ostream& ss) const {
+    printTitle(ss);
+    printBody(ss, allItems);
+}

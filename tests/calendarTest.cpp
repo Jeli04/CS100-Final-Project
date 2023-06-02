@@ -40,7 +40,7 @@ TEST(Calendar, displayCalendarTest1){
     }
 
     stringstream ss;
-    calendar->displayMonth(ss);
+    calendar->displayAll(ss);
 
     EXPECT_EQ(calendar->dayListSize(), 31);
     EXPECT_EQ("         March 2023\n----------------------------\nSun Mon Tue Wed Thu Fri Sat\n              1   2   3   4 \n  5   6   7   8   9  10  11 \n 12  13  14  15  16  17  18 \n 19  20  21  22  23  24  25 \n 26  27  28  29  30  31 \n", ss.str());
@@ -54,7 +54,7 @@ TEST(Calendar, displayCalendarTest2){
     }
 
     stringstream ss;
-    calendar->displayMonth(ss);
+    calendar->displayAll(ss);
 
     EXPECT_EQ(calendar->dayListSize(), 31);
     EXPECT_EQ("        August 2022\n----------------------------\nSun Mon Tue Wed Thu Fri Sat\n      1   2   3   4   5   6 \n  7   8   9  10  11  12  13 \n 14  15  16  17  18  19  20 \n 21  22  23  24  25  26  27 \n 28  29  30  31 \n", ss.str());
@@ -65,7 +65,7 @@ TEST(Calendar, displayCalendarTest3){
     Calendar* calendar = new Calendar("2021", "November", 30);  // calendar with empty days
     
     stringstream ss;
-    calendar->displayMonth(ss);
+    calendar->displayAll(ss);
 
     EXPECT_EQ(calendar->dayListSize(), 0);
     EXPECT_EQ("      November 2021\n----------------------------\nSun Mon Tue Wed Thu Fri Sat\n      1   2   3   4   5   6 \n  7   8   9  10  11  12  13 \n 14  15  16  17  18  19  20 \n 21  22  23  24  25  26  27 \n 28  29  30 \n", ss.str());

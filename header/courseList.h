@@ -24,6 +24,7 @@ class CourseList : public ToDoList {
 
     public: 
         CourseList();
+        void displayAll(ostream& ss) const override;
         // display all items when called on a course will only access the data saved to course
 
 };

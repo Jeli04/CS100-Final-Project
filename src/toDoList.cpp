@@ -50,12 +50,12 @@ void ToDoList::deleteItem(string itemName)
     }
 }
 
-void ToDoList::displayAll(ostream& ss) const {
+*/
+
+void ToDoList::displayAll(ostream& ss) const  {
     printTitle(ss);
     printBody(ss, allItems);
 }
-
-*/
 
 void ToDoList::displayCompleted(ostream& ss)  {
     printTitle(ss);

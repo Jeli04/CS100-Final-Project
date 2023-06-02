@@ -26,7 +26,7 @@ public:
     // ToDoList();
     void add(Item* NewItem);
     void deleteItem(string itemName);
-    void displayAll(ostream& ss) const;
+    virtual void displayAll(ostream& ss) const = 0;
     int getItemCount() const {return itemCount;}
     list<Item*> getAllItems() const;
 

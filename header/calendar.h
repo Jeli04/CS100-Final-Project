@@ -22,7 +22,7 @@ private:
 
 public:
     Calendar(const string& _year, const string& _month, const int _dayCount);
-    void displayMonth(ostream& ss) const;
+    void displayAll(ostream& ss) const override;
     void addDay(Day* day);
     int dayListSize() const;
 };

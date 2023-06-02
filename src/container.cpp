@@ -49,10 +49,10 @@ void Container::deleteItem(string itemName)
     }
 }
 
-void Container::displayAll(ostream& ss) const {
-    printTitle(ss);
-    printBody(ss, allItems);
-}
+// void Container::displayAll(ostream& ss) const {
+//     printTitle(ss);
+//     printBody(ss, allItems);
+// }
 
 /*
 void Container::displayCompleted(ostream& ss)  {

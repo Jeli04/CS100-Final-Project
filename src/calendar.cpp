@@ -20,7 +20,7 @@ void Calendar::addDay(Day* day){
     dayList.push_back(day);
 }
 
-void Calendar::displayMonth(ostream& ss) const{
+void Calendar::displayAll(ostream& ss) const  {
     // gets the first weekday in the month
     int weekday = (tmCalendar.tm_wday) % 7;
 

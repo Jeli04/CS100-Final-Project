@@ -27,15 +27,15 @@ public:
     ToDoList();
     // void add(Item* NewItem);
     // void deleteItem(string itemName);
-    // void displayAll(ostream& ss) const;
+    void displayAll(ostream& ss) const override;
     void displayCompleted(ostream& ss);
     void displayIncompleted(ostream& ss);
     // int getItemCount() const {return itemCount;}
     // list<Item*> getAllItems() const;
 
     friend class Day;
-    // friend class Calendar;
-    // friend class CourseList;
+    friend class Calendar;
+    friend class CourseList;
 };
 
 #endif
