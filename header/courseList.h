@@ -16,15 +16,17 @@
 using namespace std;
 
 
-class CourseList : public ToDoList {
+class CourseList : public Container {
     private:
-        list<Item*> allItems; // used as list of courses
-        int itemCount = 0;  // used as couse count
+        // list<Item*> allItems; // used as list of courses
+        // int itemCount = 0;  // used as couse count
         string schoolName;
 
     public: 
         CourseList();
+        void printBody(ostream& ss, const list<Item*>& toDoListType) const override;
         void displayAll(ostream& ss) const override;
+        void printTitle(ostream& ss) const override;
         // display all items when called on a course will only access the data saved to course
 
 };

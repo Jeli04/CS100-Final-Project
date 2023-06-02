@@ -87,7 +87,6 @@ void ToDoList::displayIncompleted(ostream& ss) {
     printBody(ss, incompletedItems);
 }
 
-/*
 
 void ToDoList::printTitle(ostream& ss) const{
     // prints the title 
@@ -96,6 +95,7 @@ void ToDoList::printTitle(ostream& ss) const{
     ss << "| Priority | Time" << endl;
     printDashes(ss, 52);
 }
+
 
 void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     // prints the body
@@ -129,6 +129,7 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     }
 }
 
+/*
 void ToDoList::printSpaces(ostream& ss, int spaceCount) const{
     for(unsigned i = 0; i < spaceCount; i++){
         ss << " ";

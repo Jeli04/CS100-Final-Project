@@ -47,4 +47,45 @@ void Calendar::displayAll(ostream& ss) const  {
     ss << endl;
 }
 
+void Calendar::printTitle(ostream& ss) const{
+    // prints the title 
+    ss << "Completion | Name";
+    printSpaces(ss, 16);
+    ss << "| Priority | Time" << endl;
+    printDashes(ss, 52);
+}
+
+
+void Calendar::printBody(ostream& ss, const list<Item*>& toDoListType) const{
+    // prints the body
+    for(Item* listItem : toDoListType){
+        printSpaces(ss, 4);
+        ss << "[";
+        if(listItem->getCompletion()){ss << "X";}
+        else {ss << " ";}
+        ss << "] ";
+        printSpaces(ss, 3);
+
+        ss << "| ";
+
+        ss << listItem->getName();
+        
+        printPadding(ss, listItem->getName());
+
+        //printSpaces(ss, 16);
+
+        ss << "| ";
+
+        printSpaces(ss, 4);
+
+        ss << listItem->getPriority();
+
+        printSpaces(ss, 4);
+
+        ss << "| ";
+
+        ss << listItem->getDate() << endl;
+    }
+}
+
 int Calendar::dayListSize() const{return dayList.size();}

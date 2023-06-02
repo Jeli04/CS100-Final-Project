@@ -94,37 +94,37 @@ void Container::printTitle(ostream& ss) const{
     printDashes(ss, 52);
 }
 
-void Container::printBody(ostream& ss, const list<Item*>& toDoListType) const{
-    // prints the body
-    for(Item* listItem : toDoListType){
-        printSpaces(ss, 4);
-        ss << "[";
-        if(listItem->getCompletion()){ss << "X";}
-        else {ss << " ";}
-        ss << "] ";
-        printSpaces(ss, 3);
+// void Container::printBody(ostream& ss, const list<Item*>& toDoListType) const{
+//     // prints the body
+//     for(Item* listItem : toDoListType){
+//         printSpaces(ss, 4);
+//         ss << "[";
+//         if(listItem->getCompletion()){ss << "X";}
+//         else {ss << " ";}
+//         ss << "] ";
+//         printSpaces(ss, 3);
 
-        ss << "| ";
+//         ss << "| ";
 
-        ss << listItem->getName();
+//         ss << listItem->getName();
         
-        printPadding(ss, listItem->getName());
+//         printPadding(ss, listItem->getName());
 
-        //printSpaces(ss, 16);
+//         //printSpaces(ss, 16);
 
-        ss << "| ";
+//         ss << "| ";
 
-        printSpaces(ss, 4);
+//         printSpaces(ss, 4);
 
-        ss << listItem->getPriority();
+//         ss << listItem->getPriority();
 
-        printSpaces(ss, 4);
+//         printSpaces(ss, 4);
 
-        ss << "| ";
+//         ss << "| ";
 
-        ss << listItem->getDate() << endl;
-    }
-}
+//         ss << listItem->getDate() << endl;
+//     }
+// }
 
 void Container::printSpaces(ostream& ss, int spaceCount) const{
     for(unsigned i = 0; i < spaceCount; i++){

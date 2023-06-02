@@ -71,7 +71,7 @@ TEST(CourseListTest, DisplayAll1){
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayAll2){
@@ -83,7 +83,7 @@ TEST(CourseListTest, DisplayAll2){
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayCompleted1){
@@ -93,7 +93,7 @@ TEST(CourseListTest, DisplayCompleted1){
     // Test displayCompleted function 
     stringstream ss;
     testList.displayCompleted(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayCompleted2){
@@ -103,7 +103,7 @@ TEST(CourseListTest, DisplayCompleted2){
     // Test displayCompleted function 
     stringstream ss;
     testList.displayCompleted(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayIncompleted1){
@@ -113,7 +113,7 @@ TEST(CourseListTest, DisplayIncompleted1){
     // Test displayIncompleted function 
     stringstream ss;
     testList.displayIncompleted(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayIncompleted2){
@@ -123,7 +123,7 @@ TEST(CourseListTest, DisplayIncompleted2){
     // Test displayIncompleted function 
     stringstream ss;
     testList.displayIncompleted(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
+    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
 int main(int argc, char** argv) {

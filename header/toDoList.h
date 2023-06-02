@@ -18,8 +18,8 @@ class ToDoList : public Container{
 //     int itemCount = 0; 
   
 //     // helper functions
-//     void printTitle(ostream& ss) const;
-//     void printBody(ostream& ss, const list<Item*>& toDoListType) const;
+    void printTitle(ostream& ss) const override;
+    void printBody(ostream& ss, const list<Item*>& toDoListType) const override;
 //     void printSpaces(ostream& ss, int spaceCount) const;
 //     void printDashes(ostream& ss, int numDashes) const;
 //     void printPadding(ostream& ss, const string& itemName) const;
