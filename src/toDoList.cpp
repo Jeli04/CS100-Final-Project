@@ -8,50 +8,6 @@ ToDoList::ToDoList(){
     itemCount = 0;
 }
 
-/*
-list<Item*> ToDoList::getAllItems() const
-{
-    return allItems;
-}
-
-void ToDoList::add(Item* newItem) {
-    if (allItems.empty()) 
-    {
-        allItems.push_back(newItem);
-    } 
-    else 
-    {
-        auto itr = allItems.begin();
-        while (itr != allItems.end() && newItem->getPriority() >= (*itr)->getPriority()) 
-        {
-            if (newItem->getPriority() == (*itr)->getPriority()) 
-            {
-                allItems.insert(itr, newItem);
-                return;
-            }
-            ++itr;
-        }
-        allItems.insert(itr, newItem);
-    }
-    ++itemCount;
-}
-
-void ToDoList::deleteItem(string itemName)
-{
-    auto itr = allItems.begin();
-    while (itr != allItems.end())
-    {
-        if ((*itr)->getName() == itemName)
-        {
-            allItems.erase(itr);
-            break;
-        }
-        ++itr;
-    }
-}
-
-*/
-
 void ToDoList::displayAll(ostream& ss) const  {
     printTitle(ss);
     printBody(ss, allItems);
@@ -128,23 +84,3 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
         ss << listItem->getDate() << endl;
     }
 }
-
-/*
-void ToDoList::printSpaces(ostream& ss, int spaceCount) const{
-    for(unsigned i = 0; i < spaceCount; i++){
-        ss << " ";
-    }
-}
-
-void ToDoList::printDashes(ostream& ss, int numDashes) const{
-    for(unsigned i = 0; i < numDashes; i++){
-        ss << "-";
-    }
-    ss << endl;
-}
-
-void ToDoList::printPadding(ostream& ss, const string& itemName) const{
-    for (unsigned i = 0; i < 20-itemName.size(); i++){ss<<" ";}
-}
-
-*/

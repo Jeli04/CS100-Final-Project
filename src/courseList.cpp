@@ -11,7 +11,8 @@
 #include <iterator>
 #include <list>
 
-CourseList::CourseList(){
+CourseList::CourseList(const string& _schoolName){
+    schoolName = _schoolName;
     itemCount = 0;
 }
 
@@ -19,19 +20,10 @@ void CourseList::printBody(ostream& ss, const list<Item*>& toDoListType) const
 {
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
-        // ss << "[";
-        // if(listItem->getCompletion()){ss << "X";}
-        // else {ss << " ";}
-        // ss << "] ";
-        // printSpaces(ss, 3);
-
-        // ss << "| ";
 
         ss << listItem->getName();
         
         printPadding(ss, listItem->getName());
-
-        //printSpaces(ss, 16);
 
         ss << "| ";
 
@@ -49,6 +41,9 @@ void CourseList::printBody(ostream& ss, const list<Item*>& toDoListType) const
 
 void CourseList::printTitle(ostream& ss) const{
     // prints the title 
+    printSpaces(ss, 20);
+    ss << schoolName << endl;
+
     ss << "    Course Name";
     printSpaces(ss, 9);
     ss << "| Priority | Time" << endl;
@@ -58,6 +53,5 @@ void CourseList::printTitle(ostream& ss) const{
 void CourseList::displayAll(ostream& ss) const 
 {
     printTitle(ss);
-    // cout<<allItems.size()<<endl;
     printBody(ss, allItems);
 }

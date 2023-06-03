@@ -33,13 +33,13 @@ int main()
     // newList.displayIncompleted(cout);
 
 
-    CourseList newCourseList;
-    Item *newCourse = new Course(false);
-    newCourseList.add(newCourse);
+    // CourseList newCourseList;
+    // Item *newCourse = new Course(false);
+    // newCourseList.add(newCourse);
     
-    Item *anotherCourse = new Course("English", "mon, wed, fri", "rm 508", "homework on tuesdays", 1, "class", false);
-    newCourseList.add(anotherCourse);
-    newCourseList.displayAll(cout);
+    // Item *anotherCourse = new Course("English", "mon, wed, fri", "rm 508", "homework on tuesdays", 1, "class", false);
+    // newCourseList.add(anotherCourse);
+    // newCourseList.displayAll(cout);
     // newCourseList.deleteItem("English");
     // newCourseList.displayAll(cout);
     return 0;

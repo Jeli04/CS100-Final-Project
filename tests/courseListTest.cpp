@@ -5,11 +5,12 @@
 #include "../header/item.h"
 #include "../header/task.h"
 #include "../header/container.h"
+#include "../header/courseList.h"
 
 
 TEST(CourseListTest, addToList)
 {
-    CourseList testList;
+    CourseList testList = CourseList("UCR");
     list<Item*> expectedList;
     Task *newItem = new Task(false);
     Task *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
@@ -31,7 +32,7 @@ TEST(CourseListTest, addToList)
 
 TEST(CourseListTest, deleteFromList)
 {
-    CourseList testList;
+    CourseList testList = CourseList("UCR");
     list<Item*> expectedList;
 
     Item *testItem1 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
@@ -57,7 +58,7 @@ TEST(CourseListTest, deleteFromList)
 
 
 TEST(CourseListTest, ItemCount){
-    CourseList testList = ToDoList();
+    CourseList testList = CourseList("UCR");
     testList.add(new Task(true));
 
     // Test GetItemCount
@@ -65,17 +66,17 @@ TEST(CourseListTest, ItemCount){
 }
 
 TEST(CourseListTest, DisplayAll1){
-    CourseList testList = ToDoList();
+    CourseList testList = CourseList("UCR");
     testList.add(new Task(false));
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("                    UCR\n    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
 }
 
 TEST(CourseListTest, DisplayAll2){
-    CourseList testList = ToDoList();
+    CourseList testList = CourseList("UCR");
     testList.add(new Task(false));
     testList.add(new Task(false));
     testList.add(new Task(true));
@@ -83,50 +84,5 @@ TEST(CourseListTest, DisplayAll2){
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
-}
-
-TEST(CourseListTest, DisplayCompleted1){
-    CourseList testList = ToDoList();
-    testList.add(new Task(true));
-
-    // Test displayCompleted function 
-    stringstream ss;
-    testList.displayCompleted(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
-}
-
-TEST(CourseListTest, DisplayCompleted2){
-    CourseList testList = ToDoList();
-    testList.add(new Task(false));
-
-    // Test displayCompleted function 
-    stringstream ss;
-    testList.displayCompleted(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n", ss.str());
-}
-
-TEST(CourseListTest, DisplayIncompleted1){
-    CourseList testList = ToDoList();
-    testList.add(new Task(false));
-
-    // Test displayIncompleted function 
-    stringstream ss;
-    testList.displayIncompleted(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n", ss.str());
-}
-
-TEST(CourseListTest, DisplayIncompleted2){
-    CourseList testList = ToDoList();
-    testList.add(new Task(true));
-
-    // Test displayIncompleted function 
-    stringstream ss;
-    testList.displayIncompleted(ss);
-    EXPECT_EQ("    Course Name         | Priority | Time\n----------------------------------------------------\n", ss.str());
-}
-
-int main(int argc, char** argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+    EXPECT_EQ("                    UCR\n    Course Name         | Priority | Time\n----------------------------------------------------\n    Name                |     0    | Time\n    Name                |     0    | Time\n    Name                |     0    | Time\n", ss.str());
 }

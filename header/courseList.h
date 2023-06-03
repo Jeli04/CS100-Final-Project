@@ -18,12 +18,11 @@ using namespace std;
 
 class CourseList : public Container {
     private:
-        // list<Item*> allItems; // used as list of courses
-        // int itemCount = 0;  // used as couse count
         string schoolName;
 
     public: 
-        CourseList();
+        CourseList(const string& _schoolName);
+        string getSchoolName() const {return schoolName;}
         void printBody(ostream& ss, const list<Item*>& toDoListType) const override;
         void displayAll(ostream& ss) const override;
         void printTitle(ostream& ss) const override;

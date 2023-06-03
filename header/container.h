@@ -2,7 +2,6 @@
 #define CONTAINER_H
 
 #include "../header/item.h"
-// #include "../header/courseList.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -23,16 +22,14 @@ protected:
     void printDashes(ostream& ss, int numDashes) const;
     void printPadding(ostream& ss, const string& itemName) const;
 public:
-    // ToDoList();
+    // destructor
+    ~Container();
+
     void add(Item* NewItem);
     void deleteItem(string itemName);
     virtual void displayAll(ostream& ss) const = 0;
     int getItemCount() const {return itemCount;}
     list<Item*> getAllItems() const;
-
-    friend class Day;
-    friend class Calendar;
-    // friend class CourseList;
 };
 
 #endif
