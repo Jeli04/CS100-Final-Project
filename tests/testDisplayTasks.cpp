@@ -16,7 +16,7 @@ TEST(DisplayTests, testTaskDisplay) {
     newTask.setPriority(3);
     newTask.setItemCompletion(true);
 
-    newTask.displayItem(ss);
+    newTask.displayItemInfo(ss);
 
     EXPECT_EQ(
         "\t  Task: Go grocery shopping\n--------------------------------------------------\n\t  Task Description: \n\t I need milk and some bread for french toast!\n\t  Finish By: Today\n\t  Task Priority: 3\n\t  Status of Completion: 1\n", ss.str()

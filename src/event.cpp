@@ -94,7 +94,7 @@ void Event::Edit() {
     }
 }
 
-void Event::displayItem(ostream& ss) {
+void Event::displayItemInfo(ostream& ss) {
     list<Event>::iterator it;
     ss << "\t Event Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;

@@ -64,7 +64,7 @@ void Task::Edit(){
     }
 }
 
-void Task::displayItem(ostream& ss) {
+void Task::displayItemInfo(ostream& ss) {
     ss << "\t  Task: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
     ss << "\t  Task Description: " << endl;

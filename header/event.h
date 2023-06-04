@@ -16,7 +16,7 @@ class Event : public Items {
     public:
         Event();
         void Edit();
-        void displayItem(ostream&);
+        void displayItemInfo(ostream&);
 
         void setEventsType(Events);
         

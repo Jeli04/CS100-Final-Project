@@ -3,6 +3,8 @@
 #include "../header/item.h"
 using namespace std;
 
+//Only uncomment this when you comment virtual void functions in item.h b/c of abstraction
+
 /*TEST (ItemTests, testDisplay) {
     Items newItem = Items(
         "Bake a Cake",

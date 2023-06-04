@@ -21,7 +21,7 @@ class Course : public Items {
        Course(vector<string> days, string instructor);
        Course();
        void Edit();
-       void displayItem(ostream&);
+       void displayItemInfo(ostream&);
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;
        void SetInstructorName(const string&);

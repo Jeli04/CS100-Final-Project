@@ -22,7 +22,7 @@ TEST(DisplayTests, testEventDisplay) {
     newEvent->setDate("10/20/23");
     newEvent->setItemCompletion(false);
 
-    newEvent->displayItem(ss);
+    newEvent->displayItemInfo(ss);
 
     EXPECT_EQ(
         "\t Event Name: Cousins Birthday Bash!\n--------------------------------------------------\n\t Event Type: Birthday\n\t Event Description: \n\t I can't wait to celebrate my cousins 5th birthday!\n\t Event Location: 3445 Winbrow St\n\t Event Date: 10/20/23\n\t Event Completed: 0\n--------------------------------------------------\n\n", ss.str()

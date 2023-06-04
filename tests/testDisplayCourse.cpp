@@ -24,7 +24,7 @@ TEST(DisplayTests, testDisplay) {
     newCourse->setPriority(1);
     newCourse->setItemCompletion(true);
 
-    newCourse->displayItem(ss);
+    newCourse->displayItemInfo(ss);
 
     EXPECT_EQ(
         "\t  Course Name: Applied Linear Algebra\n--------------------------------------------------\n\t  Instructor: Mr. Kalley\n\t  Meeting Times: Monday, Friday\n\t  Class Location: Winston Chung\n\t  Class Priority: 1\n\t  Status of Completion: 1\n--------------------------------------------------\n\n\t  List of Assignments\n--------------------------------------------------\n", ss.str()
@@ -53,7 +53,7 @@ TEST(DisplayTests, testDisplayOneAssignment) {
     newTask.setItemCompletion(false);
 
     newCourse->createAssignment(newTask);
-    newCourse->displayItem(ss);    
+    newCourse->displayItemInfo(ss);    
     EXPECT_EQ(
         "\t  Course Name: English 10C\n--------------------------------------------------\n\t  Instructor: Mrs. Melley\n\t  Meeting Times: Tuesday, Thursday\n\t  Class Location: Sproul Hall\n\t  Class Priority: 1\n\t  Status of Completion: 0\n--------------------------------------------------\n\n\t  List of Assignments\n--------------------------------------------------\n\t  Task: Chapter 5: Shakespeare\n--------------------------------------------------\n\t  Task Description: \n\t Understanding Literary Works\n\t  Finish By: 10/23/23\n\t  Task Priority: 3\n\t  Status of Completion: 0\n--------------------------------------------------\n", ss.str()
     );
@@ -91,7 +91,7 @@ TEST(DisplayTests, testDisplayTwoAssignments) {
     newCourse->createAssignment(newTask);
     newCourse->createAssignment(newTask2);
 
-    newCourse->displayItem(ss);
+    newCourse->displayItemInfo(ss);
 
     EXPECT_EQ(
         "\t  Course Name: Differential Equations\n--------------------------------------------------\n\t  Instructor: FNU Ishan\n\t  Meeting Times: Tuesday, Thursday\n\t  Class Location: Sproul Hall\n\t  Class Priority: 2\n\t  Status of Completion: 1\n--------------------------------------------------\n\n\t  List of Assignments\n--------------------------------------------------\n\t  Task: Chapter 5: Linear Equations\n--------------------------------------------------\n\t  Task Description: \n\t This homework emphasises gaussian elimination and elementary row operations\n\t  Finish By: 10/23/23\n\t  Task Priority: 1\n\t  Status of Completion: 0\n--------------------------------------------------\n\t  Task: Gradient Descent\n--------------------------------------------------\n\t  Task Description: \n\t How to utilize weights for adjunct functions\n\t  Finish By: 11/01/23\n\t  Task Priority: 2\n\t  Status of Completion: 1\n--------------------------------------------------\n", ss.str()
