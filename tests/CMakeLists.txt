@@ -7,10 +7,13 @@ add_subdirectory(googletest)
 
 add_executable(Tests
     ../src/item.cpp
+    ../src/course.cpp
+    ../src/task.cpp
+    ../tests/testDisplayEvents.cpp
     ../tests/testCourse.cpp
-    ../tests/testDisplayItem.cpp
     ../tests/testEvent.cpp
-    ../tests/testItem.cpp
+    ../tests/testDisplayCourse.cpp
+    ../tests/testDisplayTasks.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)

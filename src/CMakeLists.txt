@@ -1,5 +1,7 @@
 add_library(simpleLibrary
-    
+    item.cpp
+    course.cpp
+    event.cpp
 )
 
 find_library(M_LIB m)

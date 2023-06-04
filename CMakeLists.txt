@@ -18,5 +18,3 @@ add_subdirectory(src)
 add_subdirectory(tests)
 
 
-TARGET_LINK_LIBRARIES(testItem gtest)
-TARGET_COMPILE_DEFINITIONS(testItem PRIVATE gtest_disable_pthreads=ON)

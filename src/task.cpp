@@ -63,3 +63,13 @@ void Task::Edit(){
         }
     }
 }
+
+void Task::displayItem(ostream& ss) {
+    ss << "\t  Task: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t  Task Description: " << endl;
+    ss << "\t " << getDescription() << endl;
+    ss << "\t  Finish By: " << getDate() << endl;
+    ss << "\t  Task Priority: " << getPriority() << endl;
+    ss << "\t  Status of Completion: " << getStatus() << endl;
+}

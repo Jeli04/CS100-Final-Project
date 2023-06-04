@@ -5,13 +5,14 @@
 #define COURSES_H
 
 
-Course::Course(vector<string> days, string instructor) : Items() {
+Course::Course(vector<string> days, string instructor) {
+   
    occuringDays = days;
    instructorName = instructor;
 }
 
 
-Course::Course() : Items(){
+Course::Course() {
    this->instructorName = "";
 }
 
@@ -144,7 +145,51 @@ void Course::Edit() {
 }
 
 
+void Course::displayItem(ostream& ss) {
+    vector<string> days = GetOccuringDays();
+    list<Task>::iterator it;
+    ss << "\t  Course Name: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t  Instructor: " << GetInstructorName() << endl;
+    ss << "\t  Meeting Times: ";
+    /*for (int i = 0; i < days.size() - 1; i++) {
+        cout << days.at(i) << ", ";
+    }
+    ss << days.back() << endl; */
+    PrintOccuringDays(ss, days);
+    ss << "\t  Class Location: " << getLocation() << endl;
+    ss << "\t  Class Priority: " << getPriority() << endl;
+    ss << "\t  Status of Completion: " << getStatus() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << endl;
+    ss << "\t  List of Assignments" << endl;
+    ss << "--------------------------------------------------" << endl;
+    for (it = ListOfAssignments.begin(); it != ListOfAssignments.end(); ++it) {
+        if (ListOfAssignments.empty()) {
+            cout << "\t You currently have no given assignments...." << endl;
+        } else {
+            it->displayItem(ss);
+            ss << "--------------------------------------------------" << endl;
+        }
+    }
+    
+} 
 //enum
+
+void Course::createAssignment(Task& newTask) {
+    ListOfAssignments.push_back(newTask);
+}
+
+void Course::PrintOccuringDays(ostream& ss, vector<string>& days) {
+    for (int i = 0; i < days.size() - 1; ++i) {
+        ss << days.at(i) << ", ";
+    }
+    ss << days.back() << endl;
+}
+
+
+
+
 
 
 #endif
