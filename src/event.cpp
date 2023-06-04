@@ -3,13 +3,13 @@
 #include <limits>
 using namespace std;
 
-Event::Event() : Items(){
+Event::Event(){
     this->itemType = "Event";
     this->eventType = Other;
     this->length = 0;
 }
 
-Event::Event(Events typeEvent) : Items(){
+Event::Event(Events typeEvent) {
     this->eventType = typeEvent;
 }
 
@@ -198,4 +198,48 @@ void Event::edit(){
             continueEdit = false;
         }
     }
+}
+
+void Event::displayItemInfo(ostream& ss) {
+    list<Event>::iterator it;
+    ss << "\t Event Name: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    try {
+        ss << "\t Event Type: " << to_string(getEventsType()) << endl;
+    }
+    catch (const runtime_error& e) {
+        ss << "Error: " << e.what() << endl;
+    }
+    ss << "\t Event Description: " << endl;
+    ss << "\t " << getDescription() << endl;
+    ss << "\t Event Location: " << getLocation() << endl;
+    ss << "\t Event Date: " << getDate() << endl;
+    ss << "\t Event Completed: " << getStatus() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << endl;
+}
+
+
+void Event::setEventsType(Events newEvent) {
+    this->eventType = newEvent;
+}
+
+Events Event::getEventsType() {
+    return this->eventType;
+}
+
+string Event::to_string(Events newEvent) {
+        switch(newEvent) {
+            case Birthday:
+                return "Birthday";
+            case Meeting:
+                return "Meeting";
+            case Appointment:
+                return "Appointment";
+            case Other:
+                return "Other";
+            default:
+                throw runtime_error("Invalid Event Type...");
+        }
+
 }

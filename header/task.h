@@ -18,8 +18,8 @@ class Task : public Items {
     public: 
         Task();
         Task(string subjectName, Tasks type);
-        void edit() override;
-        void displayItemInfo(ostream&, Items&) override;
+        void edit();
+        void displayItemInfo(ostream&);
         void editCompletion();
         void editPriority();
         void printMenu() const;

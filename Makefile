@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003
+CMAKE_SOURCE_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003
+CMAKE_BINARY_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -162,6 +162,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named simpleLibrary
+
+# Build rule for target.
+simpleLibrary: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simpleLibrary
+.PHONY : simpleLibrary
+
+# fast build rule for target.
+simpleLibrary/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/build
+.PHONY : simpleLibrary/fast
+
+#=============================================================================
+# Target rules for targets named Tests
+
+# Build rule for target.
+Tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tests
+.PHONY : Tests
+
+# fast build rule for target.
+Tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/build
+.PHONY : Tests/fast
+
+#=============================================================================
 # Target rules for targets named gmock_main
 
 # Build rule for target.
@@ -171,7 +197,7 @@ gmock_main: cmake_check_build_system
 
 # fast build rule for target.
 gmock_main/fast:
-	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
+	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 #=============================================================================
@@ -184,7 +210,7 @@ gmock: cmake_check_build_system
 
 # fast build rule for target.
 gmock/fast:
-	$(MAKE) $(MAKESILENT) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
+	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 #=============================================================================
@@ -197,7 +223,7 @@ gtest_main: cmake_check_build_system
 
 # fast build rule for target.
 gtest_main/fast:
-	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
+	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/googletest/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
 #=============================================================================
@@ -210,7 +236,7 @@ gtest: cmake_check_build_system
 
 # fast build rule for target.
 gtest/fast:
-	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
+	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
 # Help Target
@@ -225,6 +251,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... Tests"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

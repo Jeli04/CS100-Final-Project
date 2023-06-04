@@ -43,7 +43,7 @@ class Items {
         string getType() const; 
 
         //Making class abstract
-        virtual void displayItemInfo(ostream&, Items&) = 0;
+        virtual void displayItemInfo(ostream&) = 0;
         virtual void edit() = 0;
 };
 
