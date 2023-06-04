@@ -95,9 +95,20 @@ install/local: preinstall
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -105,21 +116,9 @@ edit_cache:
 	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -163,17 +162,56 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testTask
+# Target rules for targets named simpleLibrary
 
 # Build rule for target.
-testTask: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testTask
-.PHONY : testTask
+simpleLibrary: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simpleLibrary
+.PHONY : simpleLibrary
 
 # fast build rule for target.
-testTask/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/build
-.PHONY : testTask/fast
+simpleLibrary/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/build
+.PHONY : simpleLibrary/fast
+
+#=============================================================================
+# Target rules for targets named CourseTests
+
+# Build rule for target.
+CourseTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CourseTests
+.PHONY : CourseTests
+
+# fast build rule for target.
+CourseTests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/CourseTests.dir/build.make tests/CMakeFiles/CourseTests.dir/build
+.PHONY : CourseTests/fast
+
+#=============================================================================
+# Target rules for targets named TaskTests
+
+# Build rule for target.
+TaskTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TaskTests
+.PHONY : TaskTests
+
+# fast build rule for target.
+TaskTests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/TaskTests.dir/build.make tests/CMakeFiles/TaskTests.dir/build
+.PHONY : TaskTests/fast
+
+#=============================================================================
+# Target rules for targets named Tests
+
+# Build rule for target.
+Tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tests
+.PHONY : Tests
+
+# fast build rule for target.
+Tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/build
+.PHONY : Tests/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -227,78 +265,6 @@ gtest/fast:
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-src/item.o: src/item.cpp.o
-.PHONY : src/item.o
-
-# target to build an object file
-src/item.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/item.cpp.o
-.PHONY : src/item.cpp.o
-
-src/item.i: src/item.cpp.i
-.PHONY : src/item.i
-
-# target to preprocess a source file
-src/item.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/item.cpp.i
-.PHONY : src/item.cpp.i
-
-src/item.s: src/item.cpp.s
-.PHONY : src/item.s
-
-# target to generate assembly for a file
-src/item.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/item.cpp.s
-.PHONY : src/item.cpp.s
-
-src/task.o: src/task.cpp.o
-.PHONY : src/task.o
-
-# target to build an object file
-src/task.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/task.cpp.o
-.PHONY : src/task.cpp.o
-
-src/task.i: src/task.cpp.i
-.PHONY : src/task.i
-
-# target to preprocess a source file
-src/task.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/task.cpp.i
-.PHONY : src/task.cpp.i
-
-src/task.s: src/task.cpp.s
-.PHONY : src/task.s
-
-# target to generate assembly for a file
-src/task.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/src/task.cpp.s
-.PHONY : src/task.cpp.s
-
-tests/testTask.o: tests/testTask.cpp.o
-.PHONY : tests/testTask.o
-
-# target to build an object file
-tests/testTask.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/tests/testTask.cpp.o
-.PHONY : tests/testTask.cpp.o
-
-tests/testTask.i: tests/testTask.cpp.i
-.PHONY : tests/testTask.i
-
-# target to preprocess a source file
-tests/testTask.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/tests/testTask.cpp.i
-.PHONY : tests/testTask.cpp.i
-
-tests/testTask.s: tests/testTask.cpp.s
-.PHONY : tests/testTask.s
-
-# target to generate assembly for a file
-tests/testTask.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testTask.dir/build.make CMakeFiles/testTask.dir/tests/testTask.cpp.s
-.PHONY : tests/testTask.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -312,21 +278,13 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... CourseTests"
+	@echo "... TaskTests"
 	@echo "... Tests"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... testTask"
-	@echo "... src/item.o"
-	@echo "... src/item.i"
-	@echo "... src/item.s"
-	@echo "... src/task.o"
-	@echo "... src/task.i"
-	@echo "... src/task.s"
-	@echo "... tests/testTask.o"
-	@echo "... tests/testTask.i"
-	@echo "... tests/testTask.s"
+	@echo "... simpleLibrary"
 .PHONY : help
 
 

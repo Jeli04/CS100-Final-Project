@@ -113,6 +113,7 @@ void Course::editCompletion(){
     while (cin.fail() || (userInputCompleted != 'y' && userInputCompleted != 'n')){
         if (cin.fail()){
             cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
         }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
@@ -171,7 +172,7 @@ void Course::edit() {
         //validating user input
         while(cin.fail() || userInput < 1 || userInput > 8){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "----Invalid Input: Enter a number[1-8]----" << endl;
             cout << "Enter number of what you would like to edit[1-8]: ";
             cin >> userInput;
