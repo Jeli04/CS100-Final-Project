@@ -1,8 +1,14 @@
 add_library(simpleLibrary
-    item.cpp
-    course.cpp
-    event.cpp
-    task.cpp
+calendar.cpp
+course.cpp
+courseList.cpp
+day.cpp
+event.cpp
+item.cpp
+mainMenu.cpp
+task.cpp
+toDoList.cpp
+container.cpp
 )
 
 find_library(M_LIB m)

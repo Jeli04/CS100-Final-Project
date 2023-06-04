@@ -11,10 +11,17 @@ include_directories(${CMAKE_SOURCE_DIR}/header)
 link_directories(${LIBRARY_OUTPUT_PATH})
 
 include_directories(
-  ${CMAKE_SOURCE_DIR}/tests/lib/googletest/include/
+
+  ${CMAKE_SOURCE_DIR}/tests/googletest/include/
 )
+
+# add_executable (test
+#   tests/toDoListTest.cpp
+#   src/item.cpp
+# )
 
 add_subdirectory(src)
 add_subdirectory(tests)
 
-
+# TARGET_LINK_LIBRARIES(test gtest)
+# TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

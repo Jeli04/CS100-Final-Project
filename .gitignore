@@ -12,3 +12,4 @@ tests/cmake_install.cmake
 tests/CMakeFiles/
 build/
 src/a.out
+a.out

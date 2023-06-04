@@ -1,13 +1,6 @@
 #ifndef COURSE_H
 #define COURSE_H
 
-
-#include <string>
-#include <list>
-#include <sstream>
-#include <iostream>
-#include <vector>
-#include "task.h"
 #include "item.h"
 
 using namespace std;
