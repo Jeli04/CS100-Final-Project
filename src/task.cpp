@@ -70,11 +70,7 @@ void Task::edit(){
     while (continueEdit == true){
         
         printMenu();
-<<<<<<< HEAD
         cout << "Enter number of what you would like to edit[1-7]: ";
-=======
-        cout << "Enter number of what you would like to edit[1-8]: ";
->>>>>>> john/riri
 
         cin >> userInput;
         cout << endl;
@@ -145,12 +141,8 @@ void Task::edit(){
             cin >> continueEditInput;
             cout << endl;
         }
-<<<<<<< HEAD
-        if (continueEditInput == 'n'){
-            cout << "----Exiting Edit----" << endl;
-=======
         if (continueEditInput == "n"){
->>>>>>> john/riri
+            cout << "----Exiting Edit----" << endl;
             continueEdit = false;
         }
     }
