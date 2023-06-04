@@ -9,26 +9,21 @@ using namespace std;
 enum Events { Birthday, Meeting, Appointment, Other};
 
 class Event : public Items {
-
-
     private:
         Events eventType;
     public:
         Event();
-        void Edit();
+        Event(Events);
+        void setLength(int);
+        int getLength() const;
+        void setEventType(Events);
+        Events getTypeOfEvent() const;
+        void editCompletion();
+        void editPriority();
+        void editEventType();
+        void printMenu() const;
+        void edit() override;
         void displayItemInfo(ostream&);
-
-        void setEventsType(Events);
-        
-        Events getEventsType();
-
-        string to_string(Events);
-
-        //code stubs
-        void createEvent(Event&);
-        ostream& PrintType(ostream&, Events value);
-
-    //friend ostream& operator<<(ostream& , const Events);
 };
 
 #endif

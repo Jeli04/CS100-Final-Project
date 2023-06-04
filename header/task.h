@@ -9,9 +9,20 @@ using namespace std;
 #include "item.h"
 #include <string>
 
+enum Tasks {Homework, Tests, Shopping, Gym, Other};
+
 class Task : public Items {
+    private: 
+        string subject;
+        Tasks taskType;
     public: 
-        void Edit();
+        Task();
+        Task(string subjectName, Tasks type);
+        void edit();
         void displayItemInfo(ostream&);
+        void editCompletion();
+        void editPriority();
+        void printMenu() const;
 };
+
 #endif

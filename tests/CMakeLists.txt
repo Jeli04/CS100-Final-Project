@@ -5,6 +5,17 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 
 add_subdirectory(googletest)
 
+
+add_executable(CourseTests
+    ../tests/testCourse.cpp
+    ../src/item.cpp
+    ../src/course.cpp
+)
+
+target_link_libraries(CourseTests gmock gtest gtest_main)
+target_link_libraries(CourseTests simpleLibrary)
+
+
 add_executable(Tests
     ../src/item.cpp
     ../src/course.cpp

@@ -256,7 +256,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... simpleLibrary"
 .PHONY : help
 
 

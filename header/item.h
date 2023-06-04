@@ -40,12 +40,11 @@ class Items {
         string getDescription() const;
         int getPriority() const;
         bool getStatus() const;
-        string getItemType() const; 
+        string getType() const; 
 
-        //Making class abstract (to be overriden)
+        //Making class abstract
         virtual void displayItemInfo(ostream&) = 0;
-        virtual void Edit() = 0;
-
+        virtual void edit() = 0;
 };
 
 #endif
