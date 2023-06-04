@@ -1,4 +1,5 @@
 #include "../header/course.h"
+#include <limits>
 
 #ifndef COURSES_H
 #define COURSES_H
@@ -57,7 +58,7 @@ void Course::editOccuringDays(){
         //validating user input
         while(cin.fail() || inputEditDays < 1 || inputEditDays > 7){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "----Invalid Input: Enter a number[1-7]----" << endl;
             cout << "Enter the number of the day this course is on[1-7]: ";
             cin >> inputEditDays;
@@ -87,7 +88,7 @@ void Course::editOccuringDays(){
         while (cin.fail() || (inputAgain != 'y' && inputAgain != 'n')){
             if (cin.fail()){
                 cin.clear();
-                cin.ignore();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
             }
             cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
             cout << "Would you like to enter another day?[y/n] ";
@@ -113,7 +114,7 @@ void Course::editCompletion(){
     while (cin.fail() || (userInputCompleted != 'y' && userInputCompleted != 'n')){
         if (cin.fail()){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
         }
         cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
         cout << "Is this completed[y/n]? ";
@@ -135,7 +136,7 @@ void Course::editPriority(){
     cout << endl;
     while (cin.fail()){
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << "----Invalid Input: Enter Number----" << endl;
         cout << "Enter new priority: ";
         cin >> newPriority;
@@ -171,7 +172,7 @@ void Course::edit() {
         //validating user input
         while(cin.fail() || userInput < 1 || userInput > 8){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "----Invalid Input: Enter a number[1-8]----" << endl;
             cout << "Enter number of what you would like to edit[1-8]: ";
             cin >> userInput;
@@ -230,7 +231,7 @@ void Course::edit() {
         while (cin.fail() || (continueEditInput != 'y' && continueEditInput != 'n')){
             if (cin.fail()){
                 cin.clear();
-                cin.ignore();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
             }
             cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
             cout << "Would you like to edit anything else?[y/n]: ";
