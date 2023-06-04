@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Items::Items() {
+Item::Item() {
     this->itemName = "";
     this->itemDate = "";
     this->itemLocation = "";
@@ -11,7 +11,7 @@ Items::Items() {
     this->itemCompletion = false;
 }
 
-Items::Items(string name, string time, string loc, string desc, int priority, bool status)  {
+Item::Item(string name, string time, string loc, string desc, int priority, bool status)  {
     this->itemName = name;
     this->itemDate = time;
     this->itemLocation = loc;
@@ -20,54 +20,54 @@ Items::Items(string name, string time, string loc, string desc, int priority, bo
     this->itemCompletion = status;
 }
 
-string Items::getName() const {
+string Item::getName() const {
     return this->itemName;
 }
 
-string Items::getDate() const {
+string Item::getDate() const {
     return this->itemDate;
 }
 
-string Items::getLocation() const {
+string Item::getLocation() const {
     return this->itemLocation;
 }
 
-string Items::getDescription() const {
+string Item::getDescription() const {
     return this->itemDescription;
 }
 
-int Items::getPriority() const {
+int Item::getPriority() const {
     return this->itemPriority;
 }
 
-bool Items::getStatus() const {
+bool Item::getStatus() const {
     return this->itemCompletion;
 }
 
-string Items::getType() const{
+string Item::getType() const{
     return itemType;
 }
-void Items::setName(const string& name) {
+void Item::setName(const string& name) {
     this->itemName = name;
 }
 
-void Items::setDate(const string& date) {
+void Item::setDate(const string& date) {
     this->itemDate = date;
 }
 
-void Items::setLocation(const string& location) {
+void Item::setLocation(const string& location) {
     this->itemLocation = location;
 }
 
-void Items::setDescription(const string& description) {
+void Item::setDescription(const string& description) {
     this->itemDescription = description;
 }
 
-void Items::setPriority(int priority) {
+void Item::setPriority(int priority) {
     this->itemPriority = priority;
 }
 
-void Items::setItemCompletion(bool status) {
+void Item::setItemCompletion(bool status) {
     this->itemCompletion = status;
 }
 

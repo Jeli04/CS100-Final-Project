@@ -37,7 +37,7 @@ TEST(DisplayTests, testDisplayOneAssignment) {
     days.push_back("Tuesday");
     days.push_back("Thursday");
     Course* newCourse = new Course();
-    Task newTask = Task();
+    Task* newTask = new Task();
 
     newCourse->setName("English 10C");
     newCourse->SetInstructorName("Mrs. Melley");
@@ -46,11 +46,11 @@ TEST(DisplayTests, testDisplayOneAssignment) {
     newCourse->setLocation("Sproul Hall");
     newCourse->setPriority(1);
 
-    newTask.setName("Chapter 5: Shakespeare");
-    newTask.setDescription("Understanding Literary Works");
-    newTask.setDate("10/23/23");
-    newTask.setPriority(3);
-    newTask.setItemCompletion(false);
+    newTask->setName("Chapter 5: Shakespeare");
+    newTask->setDescription("Understanding Literary Works");
+    newTask->setDate("10/23/23");
+    newTask->setPriority(3);
+    newTask->setItemCompletion(false);
 
     newCourse->createAssignment(newTask);
     newCourse->displayItemInfo(ss);    
@@ -65,8 +65,8 @@ TEST(DisplayTests, testDisplayTwoAssignments) {
     days.push_back("Tuesday");
     days.push_back("Thursday");
     Course* newCourse = new Course();
-    Task newTask = Task();
-    Task newTask2 = Task();
+    Task* newTask = new Task();
+    Task* newTask2 = new Task();
 
     newCourse->setName("Differential Equations");
     newCourse->SetInstructorName("FNU Ishan");
@@ -76,17 +76,17 @@ TEST(DisplayTests, testDisplayTwoAssignments) {
     newCourse->setPriority(2);
     newCourse->setItemCompletion(true);
 
-    newTask.setName("Chapter 5: Linear Equations");
-    newTask.setDescription("This homework emphasises gaussian elimination and elementary row operations");
-    newTask.setDate("10/23/23");
-    newTask.setPriority(1);
-    newTask.setItemCompletion(false);
+    newTask->setName("Chapter 5: Linear Equations");
+    newTask->setDescription("This homework emphasises gaussian elimination and elementary row operations");
+    newTask->setDate("10/23/23");
+    newTask->setPriority(1);
+    newTask->setItemCompletion(false);
 
-    newTask2.setName("Gradient Descent");
-    newTask2.setDescription("How to utilize weights for adjunct functions");
-    newTask2.setDate("11/01/23");
-    newTask2.setPriority(2);
-    newTask2.setItemCompletion(true);
+    newTask2->setName("Gradient Descent");
+    newTask2->setDescription("How to utilize weights for adjunct functions");
+    newTask2->setDate("11/01/23");
+    newTask2->setPriority(2);
+    newTask2->setItemCompletion(true);
 
     newCourse->createAssignment(newTask);
     newCourse->createAssignment(newTask2);

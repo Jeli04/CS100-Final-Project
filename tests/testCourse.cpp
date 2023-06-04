@@ -43,10 +43,3 @@ TEST(CourseTests, testOccuringDays){
    EXPECT_TRUE(math.GetOccuringDays() == days);
 }
 
-
-
-
-int main(int argc, char **argv) {
- ::testing::InitGoogleTest(&argc, argv);
- return RUN_ALL_TESTS();
-}

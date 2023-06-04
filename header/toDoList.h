@@ -2,8 +2,8 @@
 #define TODOLIST_H
 using namespace std;
 
-#include "../header/item.h"
-#include "../header/container.h"
+#include "item.h"
+#include "container.h"
 #include <iostream>
 #include <string>
 #include <sstream>

@@ -9,7 +9,7 @@ using namespace std;
 #include "item.h"
 #include <string>
 
-class Task : public Items {
+class Task : public Item {
     private: 
         string subject;
 

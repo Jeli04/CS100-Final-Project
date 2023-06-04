@@ -19,7 +19,7 @@ void ToDoList::displayCompleted(ostream& ss)  {
     auto itr = allItems.begin();
         while (itr != allItems.end()) 
         {
-            if ((*itr)->getCompletion() == true) 
+            if ((*itr)->getStatus() == true) 
             {
                 completedItems.push_back(*itr);
             }
@@ -34,7 +34,7 @@ void ToDoList::displayIncompleted(ostream& ss) {
     auto itr = allItems.begin();
         while (itr != allItems.end()) 
         {
-            if ((*itr)->getCompletion() == false) 
+            if ((*itr)->getStatus() == false) 
             {
                 incompletedItems.push_back(*itr);
             }
@@ -58,7 +58,7 @@ void ToDoList::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
         ss << "[";
-        if(listItem->getCompletion()){ss << "X";}
+        if(listItem->getStatus()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
         printSpaces(ss, 3);

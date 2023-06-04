@@ -61,7 +61,7 @@ void Calendar::printBody(ostream& ss, const list<Item*>& toDoListType) const{
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
         ss << "[";
-        if(listItem->getCompletion()){ss << "X";}
+        if(listItem->getStatus()){ss << "X";}
         else {ss << " ";}
         ss << "] ";
         printSpaces(ss, 3);

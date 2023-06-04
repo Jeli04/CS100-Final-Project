@@ -126,7 +126,3 @@ TEST(ToDoList, DisplayIncompleted2){
     EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n", ss.str());
 }
 
-int main(int argc, char** argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

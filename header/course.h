@@ -2,14 +2,15 @@
 #define COURSE_H
 
 #include "item.h"
+#include "task.h"
 
 using namespace std;
 
-class Course : public Items {
+class Course : public Item {
    private:
        string instructorName;
        vector<string> occuringDays;
-       list<Task> ListOfAssignments;
+       list<Task*> ListOfAssignments;
    public:
        Course(vector<string> days, string instructor);
        Course();
@@ -24,6 +25,6 @@ class Course : public Items {
        void editCompletion();
        void printMenu() const;
        void PrintOccuringDays(ostream&, vector<string>&);
-       void createAssignment(Task&);
+       void createAssignment(Task*);
 };
 #endif

@@ -1,11 +1,10 @@
 #ifndef COURSELIST_H
 #define COURSELIST_H
 
-#include "../header/toDoList.h"
-#include "../header/item.h"
-#include "../header/task.h"
-#include "../header/course.h"
-#include "../header/mainMenu.h"
+#include "toDoList.h"
+#include "item.h"
+#include "task.h"
+#include "course.h"
 
 #include <iostream>
 #include <string>

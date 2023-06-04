@@ -2,7 +2,7 @@
 #define DAY_H
 using namespace std;
 
-#include "../header/toDoList.h"
+#include "toDoList.h"
 #include <ctime>
 #include <string>
 

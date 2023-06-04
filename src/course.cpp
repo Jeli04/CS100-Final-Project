@@ -248,7 +248,7 @@ void Course::edit() {
 
 void Course::displayItemInfo(ostream& ss) {
     vector<string> days = GetOccuringDays();
-    list<Task>::iterator it;
+    list<Task*>::iterator it;
     ss << "\t  Course Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
     ss << "\t  Instructor: " << GetInstructorName() << endl;
@@ -269,7 +269,7 @@ void Course::displayItemInfo(ostream& ss) {
         if (ListOfAssignments.empty()) {
             cout << "\t You currently have no given assignments...." << endl;
         } else {
-            it->displayItemInfo(ss);
+            (*it)->displayItemInfo(ss);
             ss << "--------------------------------------------------" << endl;
         }
     }
@@ -277,7 +277,7 @@ void Course::displayItemInfo(ostream& ss) {
 } 
 //enum
 
-void Course::createAssignment(Task& newTask) {
+void Course::createAssignment(Task* newTask) {
     ListOfAssignments.push_back(newTask);
 }
 

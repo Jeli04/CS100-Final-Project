@@ -2,12 +2,14 @@
 #define ITEM_H
 
 #include <string>
+#include <vector>
+#include <list>
 #include <iostream>
 #include <sstream>
 
 using namespace std;
 
-class Items {
+class Item {
     protected:
 
         string itemName;
@@ -21,8 +23,8 @@ class Items {
     
     public:
     
-        Items(string, string, string, string, int, bool);
-        Items();
+        Item(string, string, string, string, int, bool);
+        Item();
 
         //Setters of Item    
         void setName(const string&);
