@@ -3,7 +3,17 @@
 #include "../header/event.h"
 
 int main(){
-    Event math;
-    math.setName("Math Class");
+    // Course math;
+    // math.setName("Math");
+    // math.setLocation("Pierce Hall");
+    // math.setDescription("Math 10a Multivariable Calc Section 004");
+    // vector<string> days = {"Monday", "Wednesday"};
+    // math.SetOccuringDays(days);
+    // math.edit();
+
+    Task math;
+    math.setName("MathHw");
+    math.setLocation("Pierce Hall");
+    math.setDescription("Math 10a Multivariable Calc Section 004");
     math.edit();
 }

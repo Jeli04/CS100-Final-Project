@@ -34,10 +34,6 @@ void Course::SetOccuringDays(vector<string> days){
    this->occuringDays = days;
 }
 
-void Course::displayItemInfo(ostream& ss, Items& newItem){
-    ss << "hi" << endl;
-}
-
 //user enters new occuring days
 void Course::editOccuringDays(){
     vector<string> newOccuringDays;

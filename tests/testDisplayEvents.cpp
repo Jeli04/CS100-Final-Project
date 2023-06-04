@@ -16,7 +16,7 @@ TEST(DisplayTests, testEventDisplay) {
     Event* newEvent = new Event();
 
     newEvent->setName("Cousins Birthday Bash!");
-    newEvent->setEventsType(Birthday);
+    newEvent->setEventType(Birthday);
     newEvent->setDescription("I can't wait to celebrate my cousins 5th birthday!");
     newEvent->setLocation("3445 Winbrow St");
     newEvent->setDate("10/20/23");
@@ -35,9 +35,9 @@ TEST(DisplayTests, testValidType1) {
 
     Event* newEvent = new Event();
 
-    newEvent->setEventsType(Birthday);
+    newEvent->setEventType(Birthday);
 
-    EXPECT_EQ(newEvent->to_string(newEvent->getEventsType()), "Birthday");
+    EXPECT_EQ(newEvent->to_string(newEvent->getEventType()), "Birthday");
 }
 
 TEST(DisplayTests, testValidType2) {
@@ -46,9 +46,9 @@ TEST(DisplayTests, testValidType2) {
 
     Event* newEvent = new Event();
 
-    newEvent->setEventsType(Meeting);
+    newEvent->setEventType(Meeting);
 
-    EXPECT_EQ(newEvent->to_string(newEvent->getEventsType()),"Meeting");
+    EXPECT_EQ(newEvent->to_string(newEvent->getEventType()),"Meeting");
 }
 
 TEST(DisplayTests, testValidType3) {
@@ -57,9 +57,9 @@ TEST(DisplayTests, testValidType3) {
 
     Event* newEvent = new Event();
 
-    newEvent->setEventsType(Appointment);
+    newEvent->setEventType(Appointment);
 
-    EXPECT_EQ(newEvent->to_string(newEvent->getEventsType()),"Appointment");
+    EXPECT_EQ(newEvent->to_string(newEvent->getEventType()),"Appointment");
 }
 
 TEST(DisplayTests, testValidType4) {
@@ -68,7 +68,7 @@ TEST(DisplayTests, testValidType4) {
 
     Event* newEvent = new Event();
 
-    newEvent->setEventsType(Other);
+    newEvent->setEventType(Other);
 
-    EXPECT_EQ(newEvent->to_string(newEvent->getEventsType()), "Other");
+    EXPECT_EQ(newEvent->to_string(newEvent->getEventType()), "Other");
 }

@@ -63,12 +63,10 @@ CMAKE_BINARY_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-<<<<<<< HEAD
+all: CMakeFiles/testTask.dir/all
 all: googletest/all
-=======
 all: src/all
 all: tests/all
->>>>>>> john/riri
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -77,12 +75,10 @@ preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-<<<<<<< HEAD
+clean: CMakeFiles/testTask.dir/clean
 clean: googletest/clean
-=======
 clean: src/clean
 clean: tests/clean
->>>>>>> john/riri
 .PHONY : clean
 
 #=============================================================================
@@ -105,6 +101,7 @@ src/clean: src/CMakeFiles/simpleLibrary.dir/clean
 
 # Recursive "all" directory target.
 tests/all: tests/CMakeFiles/Tests.dir/all
+tests/all: tests/CMakeFiles/CourseTests.dir/all
 tests/all: tests/googletest/all
 .PHONY : tests/all
 
@@ -114,6 +111,7 @@ tests/preinstall: tests/googletest/preinstall
 
 # Recursive "clean" directory target.
 tests/clean: tests/CMakeFiles/Tests.dir/clean
+tests/clean: tests/CMakeFiles/CourseTests.dir/clean
 tests/clean: tests/googletest/clean
 .PHONY : tests/clean
 
@@ -133,9 +131,6 @@ tests/googletest/clean: tests/googletest/googlemock/clean
 .PHONY : tests/googletest/clean
 
 #=============================================================================
-<<<<<<< HEAD
-# Target rules for target googletest/googlemock/CMakeFiles/gmock_main.dir
-=======
 # Directory level rules for directory tests/googletest/googlemock
 
 # Recursive "all" directory target.
@@ -178,12 +173,12 @@ tests/googletest/googletest/clean: tests/googletest/googletest/CMakeFiles/gtest.
 src/CMakeFiles/simpleLibrary.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/simpleLibrary.dir/build.make src/CMakeFiles/simpleLibrary.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=18,19,20,21 "Built target simpleLibrary"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=22,23,24,25,26 "Built target simpleLibrary"
 .PHONY : src/CMakeFiles/simpleLibrary.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/simpleLibrary.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/simpleLibrary.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
 .PHONY : src/CMakeFiles/simpleLibrary.dir/rule
@@ -207,12 +202,12 @@ tests/CMakeFiles/Tests.dir/all: tests/googletest/googletest/CMakeFiles/gtest_mai
 tests/CMakeFiles/Tests.dir/all: tests/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/Tests.dir/build.make tests/CMakeFiles/Tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target Tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13 "Built target Tests"
 .PHONY : tests/CMakeFiles/Tests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/Tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/Tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
 .PHONY : tests/CMakeFiles/Tests.dir/rule
@@ -227,15 +222,43 @@ tests/CMakeFiles/Tests.dir/clean:
 .PHONY : tests/CMakeFiles/Tests.dir/clean
 
 #=============================================================================
+# Target rules for target tests/CMakeFiles/CourseTests.dir
+
+# All Build rule for target.
+tests/CMakeFiles/CourseTests.dir/all: src/CMakeFiles/simpleLibrary.dir/all
+tests/CMakeFiles/CourseTests.dir/all: tests/googletest/googlemock/CMakeFiles/gmock.dir/all
+tests/CMakeFiles/CourseTests.dir/all: tests/googletest/googletest/CMakeFiles/gtest_main.dir/all
+tests/CMakeFiles/CourseTests.dir/all: tests/googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/CourseTests.dir/build.make tests/CMakeFiles/CourseTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/CourseTests.dir/build.make tests/CMakeFiles/CourseTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=1,2,3,4 "Built target CourseTests"
+.PHONY : tests/CMakeFiles/CourseTests.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/CourseTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 15
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/CourseTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
+.PHONY : tests/CMakeFiles/CourseTests.dir/rule
+
+# Convenience name for target.
+CourseTests: tests/CMakeFiles/CourseTests.dir/rule
+.PHONY : CourseTests
+
+# clean rule for target.
+tests/CMakeFiles/CourseTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/CourseTests.dir/build.make tests/CMakeFiles/CourseTests.dir/clean
+.PHONY : tests/CMakeFiles/CourseTests.dir/clean
+
+#=============================================================================
 # Target rules for target tests/googletest/googlemock/CMakeFiles/gmock_main.dir
->>>>>>> john/riri
 
 # All Build rule for target.
 tests/googletest/googlemock/CMakeFiles/gmock_main.dir/all: tests/googletest/googlemock/CMakeFiles/gmock.dir/all
 tests/googletest/googlemock/CMakeFiles/gmock_main.dir/all: tests/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=12,13 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=16,17 "Built target gmock_main"
 .PHONY : tests/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -261,7 +284,7 @@ tests/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 tests/googletest/googlemock/CMakeFiles/gmock.dir/all: tests/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=10,11 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=14,15 "Built target gmock"
 .PHONY : tests/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -287,7 +310,7 @@ tests/googletest/googlemock/CMakeFiles/gmock.dir/clean:
 tests/googletest/googletest/CMakeFiles/gtest_main.dir/all: tests/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest_main.dir/build.make tests/googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=16,17 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=20,21 "Built target gtest_main"
 .PHONY : tests/googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -313,7 +336,7 @@ tests/googletest/googletest/CMakeFiles/gtest_main.dir/clean:
 tests/googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/googletest/googletest/CMakeFiles/gtest.dir/build.make tests/googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=14,15 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles --progress-num=18,19 "Built target gtest"
 .PHONY : tests/googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.

@@ -1,29 +1,22 @@
 #include "../header/task.h"
 using namespace std;
 
-Task::Task() : Items() {
+Task::Task() {
     this->itemType = "Task";
-    this->taskType = Other;
     this->subject = "";
 }
 
-Task::Task(string subjectName, Tasks type) : Items() {
+Task::Task(string subjectName) {
     this->itemType = "Task";
     this->subject = subjectName;
-    this->taskType = type;
 }
-
-void Task::displayItemInfo(ostream& ss, Items& newItem){
-    cout << "hi" << endl;
-}
-
 
 void Task::editCompletion(){
-    char userInputCompleted = '\0';
+    string userInputCompleted = "";
     cout << "Is this completed[y/n]? ";
     cin >> userInputCompleted;
     cout << endl;
-    while (cin.fail() || (userInputCompleted != 'y' && userInputCompleted != 'n')){
+    while (cin.fail() || (userInputCompleted != "y" && userInputCompleted != "n")){
         if (cin.fail()){
             cin.clear();
             cin.ignore();
@@ -33,7 +26,7 @@ void Task::editCompletion(){
         cin >> userInputCompleted;
         cout << endl;
     }
-    if (userInputCompleted == 'y'){
+    if (userInputCompleted == "y"){
         this->itemCompletion = true;
     }
     else{
@@ -71,12 +64,12 @@ void Task::printMenu() const{
 void Task::edit(){
     cout << "----Editing Task: " << this->itemName << "----" << endl;
     int userInput = 0;
-    char continueEditInput = '\0';
+    string continueEditInput = "";
     bool continueEdit = true;
     while (continueEdit == true){
         
         printMenu();
-        cout << "Enter number of what you would like to edit ";
+        cout << "Enter number of what you would like to edit[1-8]: ";
 
         cin >> userInput;
         cout << endl;
@@ -132,12 +125,12 @@ void Task::edit(){
             cout << endl;
             this->subject = newSubject;
         }
-        
+
         //checks if user would like to continue editing
         cout << "Would you like to edit anything else?[y/n]: ";
         cin >> continueEditInput;
         cout << endl;
-        while (cin.fail() || (continueEditInput != 'y' && continueEditInput != 'n')){
+        while (cin.fail() || (continueEditInput != "y" && continueEditInput != "n")){
             if (cin.fail()){
                 cin.clear();
                 cin.ignore();
@@ -147,7 +140,7 @@ void Task::edit(){
             cin >> continueEditInput;
             cout << endl;
         }
-        if (continueEditInput == 'n'){
+        if (continueEditInput == "n"){
             continueEdit = false;
         }
     }
