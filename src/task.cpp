@@ -1,20 +1,14 @@
 #include "../header/task.h"
 using namespace std;
 
-Task::Task() : Items() {
+Task::Task() {
     this->itemType = "Task";
-    this->taskType = Other;
     this->subject = "";
 }
 
-Task::Task(string subjectName, Tasks type) : Items() {
+Task::Task(string subjectName) {
     this->itemType = "Task";
     this->subject = subjectName;
-    this->taskType = type;
-}
-
-void Task::displayItemInfo(ostream& ss, Items& newItem){
-    cout << "hi" << endl;
 }
 
 void Task::editCompletion(){
@@ -150,4 +144,14 @@ void Task::edit(){
             continueEdit = false;
         }
     }
+}
+
+void Task::displayItemInfo(ostream& ss) {
+    ss << "\t  Task: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t  Task Description: " << endl;
+    ss << "\t " << getDescription() << endl;
+    ss << "\t  Finish By: " << getDate() << endl;
+    ss << "\t  Task Priority: " << getPriority() << endl;
+    ss << "\t  Status of Completion: " << getStatus() << endl;
 }

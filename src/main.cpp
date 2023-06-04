@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../header/item.h"
-#include "../header/course.h"
+#include "../header/event.h"
 
 int main(){
     // Course math;
