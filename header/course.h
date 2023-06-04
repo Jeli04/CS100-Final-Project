@@ -5,12 +5,25 @@
 
 using namespace std;
 
-class Course : public Item{
-public: 
-    Course(bool _Completed) : Item(_Completed) {}
-    Course(string _Name, string _Time, bool _Completed) : Item(_Name, _Time, _Completed) {}
-    Course(string _Name, string _Time, string _Location, string _Desription, int _Priority, string _Type, bool _Completed) : Item(_Name, _Time, _Location, _Desription, _Priority, _Type, _Completed){}
-    void displayItemInfo(ostream& ss) const;
+class Course : public Items {
+   private:
+       string instructorName;
+       vector<string> occuringDays;
+       list<Task> ListOfAssignments;
+   public:
+       Course(vector<string> days, string instructor);
+       Course();
+       void edit();
+       void displayItemInfo(ostream&);
+       vector<string> GetOccuringDays() const;
+       string GetInstructorName() const;
+       void SetInstructorName(const string&);
+       void SetOccuringDays(vector<string>);
+       void editOccuringDays();
+       void editPriority();
+       void editCompletion();
+       void printMenu() const;
+       void PrintOccuringDays(ostream&, vector<string>&);
+       void createAssignment(Task&);
 };
-
 #endif

@@ -1,14 +1,31 @@
 #ifndef EVENT_H
 #define EVENT_H
 
+#include <string>
+#include <list>
 #include "item.h"
+using namespace std;
 
-class Event : public Item{
-public:
-    Event(bool _Completed) : Item(_Completed) {}
-    Event(string _Name, string _Time, bool _Completed) : Item(_Name, _Time, _Completed) {}
-    Event(string _Name, string _Time, string _Location, string _Desription, int _Priority, string _Type, bool _Completed) : Item(_Name, _Time, _Location, _Desription, _Priority, _Type, _Completed){}
-    void displayItemInfo(ostream& ss) const;
+enum Events { Birthday, Meeting, Appointment, Other};
+
+class Event : public Items {
+    private:
+        Events eventType;
+        int length;
+    public:
+        Event();
+        Event(Events);
+        void setLength(int);
+        int getLength() const;
+        void setEventType(Events);
+        Events getEventType() const;
+        void editCompletion();
+        void editPriority();
+        void editEventType();
+        void printMenu() const;
+        void edit() override;
+        void displayItemInfo(ostream&);
+        string to_string(Events);
 };
 
 #endif

@@ -11,6 +11,7 @@ include_directories(${CMAKE_SOURCE_DIR}/header)
 link_directories(${LIBRARY_OUTPUT_PATH})
 
 include_directories(
+
   ${CMAKE_SOURCE_DIR}/tests/googletest/include/
 )
 

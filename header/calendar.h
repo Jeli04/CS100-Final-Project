@@ -1,5 +1,7 @@
 #ifndef CALENDAR_H
 #define CALENDAR_H
+using namespace std;
+
 
 #include "day.h"
 #include "container.h"
