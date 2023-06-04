@@ -20,7 +20,7 @@ class Course : public Items {
    public:
        Course(vector<string> days, string instructor);
        Course();
-       void Edit();
+       void edit();
        void displayItemInfo(ostream&);
        vector<string> GetOccuringDays() const;
        string GetInstructorName() const;
@@ -30,5 +30,7 @@ class Course : public Items {
        void editPriority();
        void editCompletion();
        void printMenu() const;
+       void PrintOccuringDays(ostream&, vector<string>&);
+       void createAssignment(Task&);
 };
 #endif

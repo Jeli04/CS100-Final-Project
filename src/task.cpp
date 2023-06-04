@@ -1,20 +1,14 @@
 #include "../header/task.h"
 using namespace std;
 
-Task::Task() : Items() {
+Task::Task() {
     this->itemType = "Task";
-    this->taskType = Other;
     this->subject = "";
 }
 
-Task::Task(string subjectName, Tasks type) : Items() {
+Task::Task(string subjectName) {
     this->itemType = "Task";
     this->subject = subjectName;
-    this->taskType = type;
-}
-
-void Task::displayItemInfo(ostream& ss, Items& newItem){
-    cout << "hi" << endl;
 }
 
 

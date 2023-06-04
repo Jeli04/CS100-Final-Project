@@ -188,6 +188,19 @@ Tests/fast:
 .PHONY : Tests/fast
 
 #=============================================================================
+# Target rules for targets named CourseTests
+
+# Build rule for target.
+CourseTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CourseTests
+.PHONY : CourseTests
+
+# fast build rule for target.
+CourseTests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/CourseTests.dir/build.make tests/CMakeFiles/CourseTests.dir/build
+.PHONY : CourseTests/fast
+
+#=============================================================================
 # Target rules for targets named gmock_main
 
 # Build rule for target.
@@ -251,11 +264,13 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... CourseTests"
 	@echo "... Tests"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... simpleLibrary"
 .PHONY : help
 
 

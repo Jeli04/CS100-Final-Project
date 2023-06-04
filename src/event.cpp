@@ -13,10 +13,6 @@ Event::Event(Events typeEvent) {
     this->eventType = typeEvent;
 }
 
-void Event::displayItemInfo(ostream& ss, Items& newItem){
-    ss << "hi" << endl;
-}
-
 void Event::setLength(int eventLength){
     this->length = eventLength;
 }
@@ -25,11 +21,7 @@ int Event::getLength() const{
     return this->length;
 }
 
-void Event::setEventType(Events typeEvent) {
-    this->eventType = typeEvent;
-}
-
-Events Event::getTypeOfEvent() const{
+Events Event::getEventType() const{
     return this->eventType;
 }
 
@@ -205,7 +197,7 @@ void Event::displayItemInfo(ostream& ss) {
     ss << "\t Event Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
     try {
-        ss << "\t Event Type: " << to_string(getEventsType()) << endl;
+        ss << "\t Event Type: " << to_string(getEventType()) << endl;
     }
     catch (const runtime_error& e) {
         ss << "Error: " << e.what() << endl;
@@ -220,12 +212,8 @@ void Event::displayItemInfo(ostream& ss) {
 }
 
 
-void Event::setEventsType(Events newEvent) {
+void Event::setEventType(Events newEvent) {
     this->eventType = newEvent;
-}
-
-Events Event::getEventsType() {
-    return this->eventType;
 }
 
 string Event::to_string(Events newEvent) {
