@@ -14,7 +14,7 @@ class Task : public Items {
         string subject;
     public: 
         Task();
-        Task(string subjectName, Tasks type);
+        Task(string subjectName);
         void edit() override;
         void displayItemInfo(ostream&, Items&) override;
         void editCompletion();
