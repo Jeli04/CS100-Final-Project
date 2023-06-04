@@ -205,4 +205,5 @@ CMakeFiles/testCourse.dir/tests/testCourse.cpp.o: \
  /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/tests/../header/course.h \
  /usr/include/c++/8/list /usr/include/c++/8/bits/stl_list.h \
  /usr/include/c++/8/bits/list.tcc \
+ /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/tests/../header/task.h \
  /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/tests/../header/item.h

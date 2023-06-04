@@ -5,30 +5,35 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 
 add_subdirectory(googletest)
 
-# add_executable(Tests
-#     ../tests/testItem.cpp
-#     ../src/item.cpp
-# )
+add_executable(TaskTests
+    ../tests/testTask.cpp
+)
 
-# target_link_libraries(Tests gmock gtest gtest_main)
-# target_link_libraries(Tests simpleLibrary)
+
+target_link_libraries(TaskTests gmock gtest gtest_main)
+target_link_libraries(TaskTests simpleLibrary)
 
 
 add_executable(CourseTests
     ../tests/testCourse.cpp
     ../src/item.cpp
-    ../src/course.cpp
+    ../src/task.cpp
 )
 
 target_link_libraries(CourseTests gmock gtest gtest_main)
 target_link_libraries(CourseTests simpleLibrary)
 
 
-add_executable(EventTests
-    ../tests/testEvent.cpp
+add_executable(Tests
     ../src/item.cpp
-    ../src/event.cpp
+    ../src/course.cpp
+    ../src/task.cpp
+    ../tests/testDisplayEvents.cpp
+    ../tests/testCourse.cpp
+    ../tests/testEvent.cpp
+    ../tests/testDisplayCourse.cpp
+    ../tests/testDisplayTasks.cpp
 )
 
-target_link_libraries(EventTests gmock gtest gtest_main)
-target_link_libraries(EventTests simpleLibrary)
+target_link_libraries(Tests gmock gtest gtest_main)
+target_link_libraries(Tests simpleLibrary)

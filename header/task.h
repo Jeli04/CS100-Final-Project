@@ -12,11 +12,12 @@ using namespace std;
 class Task : public Items {
     private: 
         string subject;
+
     public: 
         Task();
         Task(string subjectName);
-        void edit() override;
-        void displayItemInfo(ostream&, Items&) override;
+        void edit();
+        void displayItemInfo(ostream&);
         void editCompletion();
         void editPriority();
         void printMenu() const;

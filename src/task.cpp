@@ -2,27 +2,22 @@
 using namespace std;
 #include <limits>
 
-Task::Task() : Items() {
+Task::Task() {
     this->itemType = "Task";
     this->subject = "";
 }
 
-Task::Task(string subjectName) : Items() {
+Task::Task(string subjectName) {
     this->itemType = "Task";
     this->subject = subjectName;
 }
 
-void Task::displayItemInfo(ostream& ss, Items& newItem){
-    cout << "hi" << endl;
-}
-
-
 void Task::editCompletion(){
-    char userInputCompleted = '\0';
+    string userInputCompleted = "";
     cout << "Is this completed[y/n]? ";
     cin >> userInputCompleted;
     cout << endl;
-    while (cin.fail() || (userInputCompleted != 'y' && userInputCompleted != 'n')){
+    while (cin.fail() || (userInputCompleted != "y" && userInputCompleted != "n")){
         if (cin.fail()){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -32,7 +27,7 @@ void Task::editCompletion(){
         cin >> userInputCompleted;
         cout << endl;
     }
-    if (userInputCompleted == 'y'){
+    if (userInputCompleted == "y"){
         this->itemCompletion = true;
     }
     else{
@@ -70,12 +65,16 @@ void Task::edit(){
     cout << "----Editing Task: " << this->itemName << "----" << endl << endl;
 
     int userInput = 0;
-    char continueEditInput = '\0';
+    string continueEditInput = "";
     bool continueEdit = true;
     while (continueEdit == true){
         
         printMenu();
+<<<<<<< HEAD
         cout << "Enter number of what you would like to edit[1-7]: ";
+=======
+        cout << "Enter number of what you would like to edit[1-8]: ";
+>>>>>>> john/riri
 
         cin >> userInput;
         cout << endl;
@@ -131,12 +130,12 @@ void Task::edit(){
             cout << endl;
             this->subject = newSubject;
         }
-        
+
         //checks if user would like to continue editing
         cout << "Would you like to edit anything else?[y/n]: ";
         cin >> continueEditInput;
         cout << endl;
-        while (cin.fail() || (continueEditInput != 'y' && continueEditInput != 'n')){
+        while (cin.fail() || (continueEditInput != "y" && continueEditInput != "n")){
             if (cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -146,9 +145,23 @@ void Task::edit(){
             cin >> continueEditInput;
             cout << endl;
         }
+<<<<<<< HEAD
         if (continueEditInput == 'n'){
             cout << "----Exiting Edit----" << endl;
+=======
+        if (continueEditInput == "n"){
+>>>>>>> john/riri
             continueEdit = false;
         }
     }
+}
+
+void Task::displayItemInfo(ostream& ss) {
+    ss << "\t  Task: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << "\t  Task Description: " << endl;
+    ss << "\t " << getDescription() << endl;
+    ss << "\t  Finish By: " << getDate() << endl;
+    ss << "\t  Task Priority: " << getPriority() << endl;
+    ss << "\t  Status of Completion: " << getStatus() << endl;
 }
