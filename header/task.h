@@ -12,5 +12,6 @@ using namespace std;
 class Task : public Items {
     public: 
         void Edit();
+        void displayItemInfo(ostream&);
 };
 #endif

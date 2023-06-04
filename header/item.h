@@ -42,16 +42,9 @@ class Items {
         bool getStatus() const;
         string getItemType() const; 
 
+        //Making class abstract (to be overriden)
+        virtual void displayItemInfo(ostream&) = 0;
         virtual void Edit() = 0;
-
-        //Making class abstract
-<<<<<<< HEAD
-        //virtual void displayItem() = 0;
-        //virtual void Edit() = 0;
-=======
-        void displayItem(ostream&, Items&);
-        //virtual void edit() = 0;
->>>>>>> john/riri
 
 };
 

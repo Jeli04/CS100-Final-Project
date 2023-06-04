@@ -1,8 +1,15 @@
 #include "../header/event.h"
 #include <iostream>
+#include <list>
+#include <sstream>
+#include <stdexcept>
 using namespace std;
 
-void Event::Edit(){
+Event::Event() {
+    this->eventType = Other;
+}
+
+void Event::Edit() {
     int userInput = 0;
 
     cout << "1. Name" << endl;
@@ -87,7 +94,52 @@ void Event::Edit(){
     }
 }
 
-virtual void Events::displayItem(Event& event) override {
-    cout << "\t\tHere is your current event: " << event.getName() << endl;
-    cout << "-------------------------------------------------------" << endl;
+void Event::displayItemInfo(ostream& ss) {
+    list<Event>::iterator it;
+    ss << "\t Event Name: " << getName() << endl;
+    ss << "--------------------------------------------------" << endl;
+    try {
+        ss << "\t Event Type: " << to_string(getEventsType()) << endl;
+    }
+    catch (const runtime_error& e) {
+        ss << "Error: " << e.what() << endl;
+    }
+    ss << "\t Event Description: " << endl;
+    ss << "\t " << getDescription() << endl;
+    ss << "\t Event Location: " << getLocation() << endl;
+    ss << "\t Event Date: " << getDate() << endl;
+    ss << "\t Event Completed: " << getStatus() << endl;
+    ss << "--------------------------------------------------" << endl;
+    ss << endl;
 }
+
+
+void Event::setEventsType(Events newEvent) {
+    this->eventType = newEvent;
+}
+
+Events Event::getEventsType() {
+    return this->eventType;
+}
+
+string Event::to_string(Events newEvent) {
+    
+        switch(newEvent) {
+            case Birthday:
+                return "Birthday";
+            case Meeting:
+                return "Meeting";
+            case Appointment:
+                return "Appointment";
+            case Other:
+                return "Other";
+            default:
+                throw runtime_error("Invalid Event Type...");
+        }
+
+}
+
+/*ostream& Event::PrintType(ostream& ss, Events value) {
+    ss << "\t " << value << endl;
+    return ss;
+} */
