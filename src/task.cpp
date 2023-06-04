@@ -1,5 +1,6 @@
 #include "../header/task.h"
 using namespace std;
+#include <limits>
 
 Task::Task() {
     this->itemType = "Task";
@@ -19,7 +20,7 @@ void Task::editCompletion(){
     while (cin.fail() || (userInputCompleted != "y" && userInputCompleted != "n")){
         if (cin.fail()){
             cin.clear();
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
         cout << "Is this completed[y/n]? ";
@@ -41,7 +42,7 @@ void Task::editPriority(){
     cout << endl;
     while (cin.fail()){
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "----Invalid Input: Enter Number----" << endl;
         cout << "Enter new priority: ";
         cin >> newPriority;
@@ -58,28 +59,32 @@ void Task::printMenu() const{
    cout << "5. Priority" << endl;
    cout << "6. Completion" << endl;
    cout << "7. Subject" << endl;
-   cout << "8. Type of task" << endl;
 }
 
 void Task::edit(){
-    cout << "----Editing Task: " << this->itemName << "----" << endl;
+    cout << "----Editing Task: " << this->itemName << "----" << endl << endl;
+
     int userInput = 0;
     string continueEditInput = "";
     bool continueEdit = true;
     while (continueEdit == true){
         
         printMenu();
+<<<<<<< HEAD
+        cout << "Enter number of what you would like to edit[1-7]: ";
+=======
         cout << "Enter number of what you would like to edit[1-8]: ";
+>>>>>>> john/riri
 
         cin >> userInput;
         cout << endl;
 
         //validating user input
-        while(cin.fail() || userInput < 1 || userInput > 8){
+        while(cin.fail() || userInput < 1 || userInput > 7){
             cin.clear();
-            cin.ignore();
-            cout << "----Invalid Input: Enter a number[1-8]----" << endl;
-            cout << "Enter number of what you would like to edit[1-8]: ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "----Invalid Input: Enter a number[1-7]----" << endl;
+            cout << "Enter number of what you would like to edit[1-7]: ";
             cin >> userInput;
             cout << endl;
         }
@@ -133,14 +138,19 @@ void Task::edit(){
         while (cin.fail() || (continueEditInput != "y" && continueEditInput != "n")){
             if (cin.fail()){
                 cin.clear();
-                cin.ignore();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
             cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
             cout << "Would you like to edit anything else?[y/n]: ";
             cin >> continueEditInput;
             cout << endl;
         }
+<<<<<<< HEAD
+        if (continueEditInput == 'n'){
+            cout << "----Exiting Edit----" << endl;
+=======
         if (continueEditInput == "n"){
+>>>>>>> john/riri
             continueEdit = false;
         }
     }
