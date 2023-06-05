@@ -7,7 +7,16 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 add_subdirectory(googletest)
 
 add_executable(Tests
-    calendarTest.cpp
+  # toDoListTest.cpp 
+  # dayTest.cpp
+  # calendarTest.cpp
+  # courseListTest.cpp
+  testDisplayEvents.cpp
+  testCourse.cpp
+  testEvent.cpp
+  testDisplayCourse.cpp
+  testDisplayTasks.cpp
+  testTask.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)
