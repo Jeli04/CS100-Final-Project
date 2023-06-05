@@ -11,9 +11,9 @@ using namespace std;
 
 class MainMenu{
 private:   
-    ToDoList* toDoList;
-    CourseList* courseList;
-    Calendar* calendar;
+    ToDoList* toDoList = nullptr;
+    CourseList* courseList = nullptr;
+    Calendar* calendar = nullptr;
     char previousPrompt;
     char currentPrompt;
 
