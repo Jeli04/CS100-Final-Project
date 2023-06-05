@@ -14,6 +14,7 @@ private:
     ToDoList* toDoList = nullptr;
     CourseList* courseList = nullptr;
     Calendar* calendar = nullptr;
+    char userChoice;
     char previousPrompt;
     char currentPrompt;
 
