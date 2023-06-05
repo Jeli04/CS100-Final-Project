@@ -1,6 +1,5 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
-using namespace std;
 
 #include <iostream>
 #include "courseList.h"
@@ -20,10 +19,14 @@ private:
     void back(const char prev, const char curr);
 public:
     void homePrompt(ostream& ss);
-    void calendarPrompt(ostream& ss);
-    void dayPrompt(ostream& ss);
-    void courseListPrompt(ostream& ss);
-    void toDoListPrompt(ostream& ss);
+    void addCoursePrompt(ostream& ss);
+    void addTaskPrompt(ostream& ss);
+    void addEventPrompt(ostream& ss);
+
+    void manageCalendar(ostream& ss);
+    // void dayPrompt(ostream& ss);
+    void manageCourseList(ostream& ss);
+    void manageToDoList(ostream& ss);
 };
 
 #endif
