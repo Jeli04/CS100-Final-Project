@@ -17,6 +17,8 @@ list<Item*> Container::getAllItems() const
 }
 
 void Container::add(Item* newItem) {
+    ++itemCount;
+
     if (allItems.empty()) 
     {
         allItems.push_back(newItem);
@@ -35,7 +37,6 @@ void Container::add(Item* newItem) {
         }
         allItems.insert(itr, newItem);
     }
-    ++itemCount;
 }
 
 void Container::deleteItem(string itemName)
@@ -45,6 +46,7 @@ void Container::deleteItem(string itemName)
     {
         if ((*itr)->getName() == itemName)
         {
+            // need to call delete???
             allItems.erase(itr);
             break;
         }
