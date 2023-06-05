@@ -6,10 +6,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 add_subdirectory(googletest)
 
 add_executable(Tests
-  # toDoListTest.cpp 
-  # dayTest.cpp
-  # calendarTest.cpp
-  # courseListTest.cpp
+  toDoListTest.cpp 
+  dayTest.cpp
+  calendarTest.cpp
+  courseListTest.cpp
   testDisplayEvents.cpp
   testCourse.cpp
   testEvent.cpp

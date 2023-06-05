@@ -16,10 +16,10 @@ Day::Day(ToDoList* _toDoList, const string& date){
 }
 
 void Day::displayDayInfo(ostream& ss) const{
-    toDoList->printDashes(ss, 25);
-    toDoList->printSpaces(ss, 6);
+    toDoList->printDashes(ss, 50);
+    toDoList->printSpaces(ss, 18);
     ss << dayName <<  ", " << monthName << " " << dayNumber << endl;
-    toDoList->printDashes(ss, 25);
+    toDoList->printDashes(ss, 50);
 
     for(Item* item : listOfItems){
         item->displayItemInfo(ss);   
