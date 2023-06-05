@@ -31,8 +31,5 @@ public:
     int dayListSize() const;
 };
 
-class Calendar{
-
-};
 
 #endif
