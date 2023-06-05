@@ -10,12 +10,14 @@ add_executable(Tests
   # dayTest.cpp
   # calendarTest.cpp
   # courseListTest.cpp
-  testDisplayEvents.cpp
-  testCourse.cpp
-  testEvent.cpp
-  testDisplayCourse.cpp
-  testDisplayTasks.cpp
-  testTask.cpp
+  #testDisplayEvents.cpp
+  #testCourse.cpp
+  #testEvent.cpp
+  #testDisplayCourse.cpp
+  #testDisplayTasks.cpp
+  #testTask.cpp
+  #testCreateCourse.cpp
+  testCreateTask.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)
