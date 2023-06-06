@@ -11,10 +11,29 @@ TEST(ToDoList, addToList)
 {
     ToDoList testList;
     list<Item*> expectedList;
-    Task *newItem = new Task(false);
-    Task *anotherItem = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
-    Task *newItemExpect = new Task(false);
-    Task *anotherItemExpect = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Task *newItem = new Task();
+    newItem->setItemCompletion(false);
+
+    Task *anotherItem = new Task();
+    anotherItem->setName("homework");
+    anotherItem->setDate("06/04/2023");
+    anotherItem->setLocation("here");
+    anotherItem->setDescription("finish on canvas");
+    anotherItem->setPriority(3);
+    anotherItem->setItemCompletion(false);
+
+    // ended here
+    Task *newItemExpect = new Task();
+    newItemExpect->setItemCompletion(false);
+
+    Task *anotherItemExpect = new Task();
+    anotherItemExpect->setName("homework");
+    anotherItemExpect->setDate("06/04/2023");
+    anotherItemExpect->setLocation("here");
+    anotherItemExpect->setDescription("finish on canvas");
+    anotherItemExpect->setPriority(3);
+    anotherItemExpect->setItemCompletion(false);
+    
     testList.add(anotherItem);
     testList.add(newItem);
     expectedList.push_back(newItemExpect);
@@ -34,12 +53,35 @@ TEST(ToDoList, deleteFromList)
     ToDoList testList;
     list<Item*> expectedList;
 
-    Item *testItem1 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
-    Item *testItem2 = new Task("project", "today", "there", "finish on gradescope", 1, "task", true);
-    Item *testItem3 = new Task(false);;
+    Item *testItem1 = new Task();
+    testItem1->setName("homework");
+    testItem1->setDate("06/04/2023");
+    testItem1->setLocation("here");
+    testItem1->setDescription("finish on canvas");
+    testItem1->setPriority(3);
+    testItem1->setItemCompletion(false);
+    
+    Item *testItem2 = new Task();
+    testItem2->setName("project");
+    testItem2->setDate("06/04/2023");
+    testItem2->setLocation("there");
+    testItem2->setDescription("finish on gradescope");
+    testItem2->setPriority(1);
+    testItem2->setItemCompletion(true);  
+    
+    Item *testItem3 = new Task();
+    testItem3->setItemCompletion(false);  
 
-    Item *expected1 = new Task(false);;
-    Item *expected2 = new Task("homework", "tomorrow", "here", "finish on canvas", 3, "task", false);
+    Item *expected1 = new Task();
+    expected1->setItemCompletion(false);
+
+    Item *expected2 = new Task();
+    expected2->setName("project");
+    expected2->setDate("06/04/2023");
+    expected2->setLocation("there");
+    expected2->setDescription("finish on gradescope");
+    expected2->setPriority(1);
+    expected2->setItemCompletion(true);  
 
     expectedList.push_back(expected1);
     expectedList.push_back(expected2);
@@ -58,7 +100,8 @@ TEST(ToDoList, deleteFromList)
 
 TEST(ToDoList, ItemCount){
     ToDoList testList = ToDoList();
-    testList.add(new Task(true));
+    testList.add(new Task());
+    testList.getAllItems().front()->setItemCompletion(true);
 
     // Test GetItemCount
     EXPECT_EQ(testList.getItemCount(), 1);
@@ -66,29 +109,42 @@ TEST(ToDoList, ItemCount){
 
 TEST(ToDoList, DisplayAll1){
     ToDoList testList = ToDoList();
-    testList.add(new Task(false));
+    testList.add(new Task());
+    testList.getAllItems().front()->setItemCompletion(false);
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    |                     |     0    | \n", ss.str());
 }
 
 TEST(ToDoList, DisplayAll2){
     ToDoList testList = ToDoList();
-    testList.add(new Task(false));
-    testList.add(new Task(false));
-    testList.add(new Task(true));
+    testList.add(new Task());
+    testList.getAllItems().front()->setName("Item1");
+    testList.getAllItems().front()->setItemCompletion(false);
+
+    testList.add(new Task());
+    testList.getAllItems().front()->setName("Item2");
+    testList.getAllItems().front()->setItemCompletion(false);
+
+    testList.add(new Task());
+    testList.getAllItems().front()->setName("Item3");
+    testList.getAllItems().front()->setItemCompletion(true);
+
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n    [ ]    | Name                |     0    | Time\n", ss.str());
+    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Item3               |     0    | \n    [ ]    | Item2               |     0    | \n    [ ]    | Item1               |     0    | \n", ss.str());
 }
 
 TEST(ToDoList, DisplayCompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Task(true));
+    testList.add(new Task());
+    testList.getAllItems().back()->setName("Name");
+    testList.getAllItems().back()->setDate("Time");
+    testList.getAllItems().back()->setItemCompletion(true);
 
     // Test displayCompleted function 
     stringstream ss;
@@ -98,7 +154,10 @@ TEST(ToDoList, DisplayCompleted1){
 
 TEST(ToDoList, DisplayCompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Task(false));
+    testList.add(new Task());
+    testList.getAllItems().back()->setName("Name");
+    testList.getAllItems().back()->setDate("Time");
+    testList.getAllItems().back()->setItemCompletion(false);
 
     // Test displayCompleted function 
     stringstream ss;
@@ -108,7 +167,10 @@ TEST(ToDoList, DisplayCompleted2){
 
 TEST(ToDoList, DisplayIncompleted1){
     ToDoList testList = ToDoList();
-    testList.add(new Task(false));
+    testList.add(new Task());
+    testList.getAllItems().back()->setName("Name");
+    testList.getAllItems().back()->setDate("Time");
+    testList.getAllItems().back()->setItemCompletion(false);
 
     // Test displayIncompleted function 
     stringstream ss;
@@ -118,7 +180,10 @@ TEST(ToDoList, DisplayIncompleted1){
 
 TEST(ToDoList, DisplayIncompleted2){
     ToDoList testList = ToDoList();
-    testList.add(new Task(true));
+    testList.add(new Task());
+    testList.getAllItems().back()->setName("Name");
+    testList.getAllItems().back()->setDate("Time");
+    testList.getAllItems().back()->setItemCompletion(true);
 
     // Test displayIncompleted function 
     stringstream ss;

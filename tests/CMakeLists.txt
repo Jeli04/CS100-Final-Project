@@ -3,20 +3,34 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 
+
 add_subdirectory(googletest)
 
 add_executable(Tests
-  # toDoListTest.cpp 
-  # dayTest.cpp
-  # calendarTest.cpp
-  # courseListTest.cpp
-  #testDisplayEvents.cpp
-  #testCourse.cpp
-  #testEvent.cpp
-  #testDisplayCourse.cpp
-  #testDisplayTasks.cpp
-  #testTask.cpp
+   toDoListTest.cpp 
+   dayTest.cpp
+   calendarTest.cpp
+   courseListTest.cpp
+  testDisplayEvents.cpp
+  testCourse.cpp
+  testEvent.cpp
+  testDisplayCourse.cpp
+  testDisplayTasks.cpp
+  testTask.cpp
   testCourseTask.cpp
+ )
+
+add_executable(PriorityFlow
+  toDoListTest.cpp 
+  dayTest.cpp
+  calendarTest.cpp
+  courseListTest.cpp
+  testDisplayEvents.cpp
+  testCourse.cpp
+  testEvent.cpp
+  testDisplayCourse.cpp
+  testDisplayTasks.cpp
+  testTask.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)
