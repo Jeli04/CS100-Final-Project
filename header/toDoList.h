@@ -27,5 +27,4 @@ public:
     friend class CourseList;
 };
 
-
 #endif
