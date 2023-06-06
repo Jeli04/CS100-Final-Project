@@ -20,26 +20,113 @@ MainMenu::MainMenu(){
 }
 
 const char MainMenu::homePrompt(ostream& ss){
-    // ss << "Welcome to Priority Flow" << endl;
-    // ss << "Please enter 'T' to view your To-Do-List" << endl;
-    // ss << "Please enter 'S' to view your Course List" << endl;
-    // ss << "Please enter 'C' to view your Calendar" << endl;
+    ss << "Welcome to Priority Flow" << endl;
+    ss << "Please enter 'L' to view your To-Do-List" << endl;
+    ss << "Please enter 'S' to view your Course List" << endl;
+    ss << "Please enter 'M' to view your Calendar" << endl;
+    ss << "Please enter 'Q' to quit the program" << endl;
 
-    manageToDoList(cout);
+    // manageToDoList(cout);
+
+    return ' ';
 }
 
-const char MainMenu::coursePrompt(ostream& ss){
-    // prompt the user to enter the name of the course 
+// const char MainMenu::coursePrompt(ostream& ss){
+//     // prompt the user to enter the name of the course 
 
-    // prompt the user for the course information to manage (add/delete/edit) and validate user input
+//     // prompt the user for the course information to manage (add/delete/edit) and validate user input
 
-    // prompt the user to go home, quit, or back (return value)
-}
+//     // prompt the user to go home, quit, or back (return value)
+
+//     return ' ';
+// }
+
+const char MainMenu::coursePrompt() {
+    Course* newCourse = new Course();
+    string courseName;
+    string courseInstructor;
+    string courseLoc;
+    int coursePriority;
+    string status;
+
+    int count;
+    int x = 0;
+    vector<string> days;
+    string day;
+    cout << endl;
+    cout << "\t\tCreate a Course" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
+
+    cout << "\tEnter Name of Course: ";
+    getline(cin, courseName);
+    newCourse->setName(courseName);
+    cout << endl;
+
+    cout << "\tEnter Instructor Name: ";
+    getline(cin, courseInstructor);
+    newCourse->SetInstructorName(courseInstructor);
+    cout << endl;
     
-const char mainMenu::taskPrompt() {
+    cout << "\tEnter number of days a week: ";
+    cin >> count;
+    cout << endl;
+
+    while (x < count) {
+        cout << "\tEnter Day " << x + 1 << ": ";
+        cin >> day;
+
+        cout << endl;
+        days.push_back(day);
+        x++;
+    }
+
+    newCourse->SetOccuringDays(days);
+    cin.ignore();
+
+    
+    cout << "\tEnter Location Of Class: ";
+    getline(cin, courseLoc);
+    newCourse->setLocation(courseLoc);
+    cout << endl;
+
+    cout << "\tEnter Priority (Urgency): ";
+    cin >> coursePriority;
+    newCourse->setPriority(coursePriority);
+    cout << endl;
+
+    newCourse->setItemCompletion(0);
+
+    cout << "--------------------------------------------------" << endl;
+    cout << "\tNew Class has been created!" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
+
+    cout << "\tH) Home Q) Quit B) Back\t" << endl;
+    cout << "\tEnter Your Choice: ";
+
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+        }
+    }
+  return ' ';
+}
+
+    
+const char MainMenu::taskPrompt() {
     int choice;
-    Task newTask = Task();
+    Task* newTask = new Task();
     string taskName;
+    string taskSubject;
     string taskDesc;
     string taskDate;
     int taskPriority;
@@ -52,26 +139,33 @@ const char mainMenu::taskPrompt() {
 
     cout << "\tEnter Task Name: ";
     getline(cin, taskName);
-    newTask.setName(taskName);
+    newTask->setName(taskName);
+    cout << endl;
+
+    cout << "\tEnter Task School Subject (Enter if none): ";
+    getline(cin, taskSubject);
+    newTask->setSubject(taskSubject);
     cout << endl;
 
     cout << "\tEnter Task Description: \n";
     cout << "\t ";
     getline(cin, taskDesc);
-    newTask.setDescription(taskDesc);
+    newTask->setDescription(taskDesc);
     cout << endl;
 
     cout << "\tEnter Due Date: ";
     getline(cin, taskDate);
-    newTask.setDate(taskDate);
+    newTask->setDate(taskDate);
     cout << endl;
 
     cout << "\tEnter Task Priority: ";
     cin >> taskPriority;
-    newTask.setPriority(taskPriority);
+    newTask->setPriority(taskPriority);
     cout << endl;
 
-    newTask.setItemCompletion(false);
+    newTask->setItemCompletion(false);
+
+    toDoList->add(newTask); 
 
     cout << "--------------------------------------------------" << endl;
     cout << "\tNew Task has been created!" << endl;
@@ -80,6 +174,7 @@ const char mainMenu::taskPrompt() {
 
     cout << "\tH) Home Q) Quit B) Back\t" << endl;
     cout << "\tEnter Your Choice: ";
+
 
     while(true){
         cin >> userChoice;
@@ -105,6 +200,9 @@ const char MainMenu::eventPrompt(ostream& ss){
     // prompt the user for the event information to manage (add/delete/edit) and validate user input 
 
     // prompt the user to go home, quit, or back (return value)
+
+    return ' ';
+
 }
 
 const char MainMenu::manageCalendar(ostream& ss){
@@ -118,6 +216,7 @@ const char MainMenu::manageCalendar(ostream& ss){
 
     // prompt the user to go home, quit, or back (return value)
 
+    return ' ';
 
 }
 
@@ -129,75 +228,65 @@ const char MainMenu::dayPrompt(ostream& ss){
 
     // prompt the user to go home, quit, or back (return value)
 
+    return ' ';
 }
 
-const char mainMenu::manageCourse() {
-    Course newCourse = Course();
-    string courseName;
-    string courseInstructor;
-    string courseLoc;
-    int coursePriority;
-    string status;
 
-    int count;
-    int x = 0;
-    vector<string> days;
-    string day;
-    cout << endl;
-    cout << "\t\tCreate a Course" << endl;
-    cout << "--------------------------------------------------" << endl;
-    cout << endl;
 
-    cout << "\tEnter Name of Course: ";
-    getline(cin, courseName);
-    newCourse.setName(courseName);
-    cout << endl;
+const char MainMenu::manageToDoList(ostream& ss){
+    if(toDoList == nullptr){toDoList = new ToDoList();}
+ 
+    toDoList->displayAll(ss);
+    ss << endl;
 
-    cout << "\tEnter Instructor Name: ";
-    getline(cin, courseInstructor);
-    newCourse.SetInstructorName(courseInstructor);
-    cout << endl;
-    
-    cout << "\tEnter number of days a week: ";
-    cin >> count;
-    cout << endl;
+    cout << "V) View A) Add E) Edit H) Home Q) Quit B) Back\t" << endl;
+    cout << "Enter Your Choice: ";
 
-    while (x < count) {
-        cout << "\tEnter Day " << x + 1 << ": ";
-        cin >> day;
-
-        cout << endl;
-        days.push_back(day);
-        x++;
-    }
-
-    newCourse.SetOccuringDays(days);
-    cin.ignore();
-
-    
-    cout << "\tEnter Location Of Class: ";
-    getline(cin, courseLoc);
-    newCourse.setLocation(courseLoc);
-    cout << endl;
-
-    cout << "\tEnter Priority (Urgency): ";
-    cin >> coursePriority;
-    newCourse.setPriority(coursePriority);
-    cout << endl;
-
-    newCourse.setItemCompletion(0);
-
-    cout << "--------------------------------------------------" << endl;
-    cout << "\tNew Class has been created!" << endl;
-    cout << "--------------------------------------------------" << endl;
-    cout << endl;
-
-    cout << "\tH) Home Q) Quit B) Back\t" << endl;
-    cout << "\tEnter Your Choice: ";
-
+    string itemType; 
     while(true){
         cin >> userChoice;
-        switch(userChoice) {
+        switch(userChoice){
+            Item* item;
+            case 'V':
+                ss << "Enter the name of the item to view: ";
+                cin >> itemToAccess;
+                ss << endl;
+                item = toDoList->getItem(itemToAccess);
+                if(item == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    item->displayItemInfo(ss);
+                }
+                // return 'V';
+                break;
+            case 'A':
+                ss << "What type of item do you want to add (Task/Course/Event): ";
+                cin >> itemType;
+                while(itemType != "Task" && itemType != "Course" && itemType != "Event"){
+                    ss << "Invalid item type (Task/Course/Event): ";
+                    cin >> itemType;
+                }
+                if(itemType == "Task"){return 'T';}
+                if(itemType == "Course"){return 'C';}
+                if(itemType == "Event"){return 'E';}
+                break;
+            case 'D':
+                return 'D';
+            case 'E':
+                ss << "Enter the name of the item to edit: ";
+                cin >> itemToAccess;
+                ss << endl;
+                item = toDoList->getItem(itemToAccess);
+                if(item == nullptr){
+                    ss << "This item does not exist" << endl;
+                    return 'H';
+                }
+                else{
+                    item->edit();
+                }
+                // return 'E';
+                break;
             case 'H':
                 return 'H';
             case 'B':
@@ -205,69 +294,7 @@ const char mainMenu::manageCourse() {
             case 'Q':
                 return 'Q';
             default:
-                cout << "Invalid option please enter a invalid choice" << endl;
-        }
-    }
-  return " ";
-}
-
-
-const char MainMenu::manageToDoList(ostream& ss){
-    if(toDoList == nullptr){toDoList = new ToDoList();}
-    // TEST CODE
-
-    // Task* task1 = new Task();
-    // task1->setName("Item 1");
-    // Task* task2 = new Task();    
-    // task2->setName("Item 2"); 
-    // Task* task3 = new Task();
-    // task3->setName("Item 3");
-    // Task* task4 = new Task();
-    // task4->setName("Item 4");
-
-    // toDoList->add(task1);
-    // toDoList->add(task2);
-    // toDoList->add(task3);
-    // toDoList->add(task4);
-
-
-    toDoList->displayAll(ss);
-    ss << endl;
-
-    // ss << "Please enter 'V' to view an item on your To-Do-List" << endl;
-    // ss << "Please enter 'A' to add an item onto your To-Do-List" << endl;
-    // ss << "Please enter 'D' to delete an item on your To-Do-List" << endl;
-    // ss << "Please enter 'E' to edit an item on your To-Do-List" << endl;
-    // ss << "Please enter 'H' to go back Home" << endl;
-    // ss << "Please enter 'Q' to quit the program" << endl;
-
-    cout << "V) View A) Add E) Edit H) Home Q) Quit B) Back\t" << endl;
-    cout << "Enter Your Choice: ";
-
-    while(true){
-        cin >> userChoice;
-        switch(userChoice){
-            case 'V':
-                // ss << "Enter the name of the item to view" << endl;
-                // cin >> itemToAccess;
-                // item = toDoList->getItem(itemToAccess);
-                // if(item == nullptr){
-                //     ss << "This item does not exist" << endl;
-                // }
-                // else{
-                //     item->displayItemInfo(ss);
-                // }
-                return 'V';
-            case 'A':
-                return 'A';
-            case 'D':
-                return 'D';
-            case 'H':
-                return 'H';
-            case 'Q':
-                return 'Q';
-            default:
-                ss << "Invalid option please enter a invalid choice" << endl;
+                ss << "Invalid option please enter a invalid choice: ";
                 break;
         }
     }
@@ -275,11 +302,45 @@ const char MainMenu::manageToDoList(ostream& ss){
 }
 
     
-}
+
 
 int main(){
     MainMenu mainMenu = MainMenu();
-    mainMenu.manageToDoList(cout);
+    char userInput = ' ';
+
+    mainMenu.homePrompt(cout);
+    cin >> userInput;
+
+    while(userInput != 'Q'){
+        if (userInput == 'M') {
+            // Calendar 
+        } else if (userInput == 'S') {
+            // Course Lists
+        } else if (userInput == 'L') {
+            // To Do List
+            userInput = mainMenu.manageToDoList(cout);
+        } else if (userInput == 'C') {
+            // Course
+        } else if (userInput == 'E') {
+            // Event
+        } else if (userInput == 'D') {
+            // Day
+            userInput = mainMenu.coursePrompt();
+        } else if (userInput == 'T') {
+            // Task
+            userInput = mainMenu.taskPrompt();
+        } else if (userInput == 'B') {
+            // Back 
+        } else if(userInput == 'H'){
+            // Home
+
+        }
+        else{
+            cout << "Invalid option please enter a invalid choice: ";
+            cin >> userInput;
+            cout << endl;
+        }
+    }
 
     return 0;
 }
