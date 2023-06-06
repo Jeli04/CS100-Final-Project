@@ -16,7 +16,8 @@ add_executable(Tests
   #testDisplayCourse.cpp
   #testDisplayTasks.cpp
   #testTask.cpp
-  testCourseTask.cpp
+  #testCourseTask.cpp
+  testDate.cpp
 )
 
 target_link_libraries(Tests gmock gtest gtest_main)

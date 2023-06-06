@@ -15,5 +15,7 @@ class mainMenu {
         void viewCalendar() {cout << "hi" << endl;}
         void viewCourseList() {cout << "hi" << endl;}
         void viewToDoList() {cout << "hi" << endl;}
+        bool isValidDateFormat(const string& date);
+    
 };
 #endif

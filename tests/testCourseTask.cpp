@@ -9,10 +9,9 @@
 int main() {
     mainMenu newMenu = mainMenu();
 
-    char k = newMenu.addCourse();
+    //char k = newMenu.addCourse();
 
     char s = newMenu.addTask();
 
-    cout << k << endl;
     cout << s << endl;
 }
