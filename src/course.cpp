@@ -6,7 +6,6 @@
 
 
 Course::Course(vector<string> days, string instructor) {
-
    occuringDays = days;
    instructorName = instructor;
    itemType = "Course";

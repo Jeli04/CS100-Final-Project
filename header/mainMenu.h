@@ -26,8 +26,8 @@ private:
 public:
     MainMenu();
     const char homePrompt(ostream& ss);
-    const char coursePrompt(ostream& ss);
-    const char taskPrompt(ostream& ss);
+    const char coursePrompt();
+    const char taskPrompt();
     const char eventPrompt(ostream& ss);
 
     const char manageCalendar(ostream& ss);
