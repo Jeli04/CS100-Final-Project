@@ -29,8 +29,4 @@ class CourseList : public Container {
 
 };
 
-class CourseList{
-
-};
-
 #endif

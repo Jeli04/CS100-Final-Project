@@ -27,8 +27,5 @@ public:
     friend class CourseList;
 };
 
-class ToDoList{
-    
-};
 
 #endif

@@ -26,10 +26,11 @@ public:
     ~Container();
 
     void add(Item* NewItem);
-    void deleteItem(string itemName);
+    void deleteItem(const string& itemName);
     virtual void displayAll(ostream& ss) const = 0;
     int getItemCount() const {return itemCount;}
     list<Item*> getAllItems() const;
+    Item* getItem(const string& itemName);
 };
 
 #endif
