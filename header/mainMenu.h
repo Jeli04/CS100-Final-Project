@@ -9,8 +9,8 @@
 using namespace std;
 class mainMenu {
     public:
-        void addCourse(ostream&);
-        void addTask(ostream&);
+        const char addCourse();
+        const char addTask();
         void MainMenu() {cout << "hi" << endl;}
         void viewCalendar() {cout << "hi" << endl;}
         void viewCourseList() {cout << "hi" << endl;}

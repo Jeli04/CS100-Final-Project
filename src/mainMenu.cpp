@@ -11,7 +11,8 @@
 
 using namespace std;
 
-void mainMenu::addTask(ostream&) {
+const char mainMenu::addTask() {
+    char userChoice;
     int choice;
     Task newTask = Task();
     string taskName;
@@ -19,6 +20,8 @@ void mainMenu::addTask(ostream&) {
     string taskDate;
     int taskPriority;
 
+    cin.ignore();
+    cout << endl;
     cout << "\t\tCreate a Task" << endl;
     cout << "--------------------------------------------------" << endl;
     cout << endl;
@@ -29,7 +32,7 @@ void mainMenu::addTask(ostream&) {
     cout << endl;
 
     cout << "\tEnter Task Description: \n";
-    cout << endl;
+    cout << "\t ";
     getline(cin, taskDesc);
     newTask.setDescription(taskDesc);
     cout << endl;
@@ -46,21 +49,34 @@ void mainMenu::addTask(ostream&) {
 
     newTask.setItemCompletion(false);
 
-
     cout << "--------------------------------------------------" << endl;
-    cout << "\tNew Class has been created!" << endl;
+    cout << "\tNew Task has been created!" << endl;
     cout << "--------------------------------------------------" << endl;
     cout << endl;
 
-    cout << "1) Home 2) Calendar 3) Course List 4) Todo List\t" << endl;
+    cout << "\tH) Home Q) Quit B) Back\t" << endl;
     cout << "\tEnter Your Choice: ";
-    cin >> choice;
-    cout << endl;
+
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
+    }
+    return ' ';
 
 }
 
-void mainMenu::addCourse(ostream&) {
-    int choice;
+const char mainMenu::addCourse() {
+    char userChoice;
     Course newCourse = Course();
     string courseName;
     string courseInstructor;
@@ -76,14 +92,17 @@ void mainMenu::addCourse(ostream&) {
     cout << "\t\tCreate a Course" << endl;
     cout << "--------------------------------------------------" << endl;
     cout << endl;
+
     cout << "\tEnter Name of Course: ";
     getline(cin, courseName);
     newCourse.setName(courseName);
     cout << endl;
+
     cout << "\tEnter Instructor Name: ";
     getline(cin, courseInstructor);
     newCourse.SetInstructorName(courseInstructor);
     cout << endl;
+    
     cout << "\tEnter number of days a week: ";
     cin >> count;
     cout << endl;
@@ -118,20 +137,23 @@ void mainMenu::addCourse(ostream&) {
     cout << "--------------------------------------------------" << endl;
     cout << endl;
 
-    cout << "1) Home 2) Calendar 3) Course List 4) Todo List\t" << endl;
+    cout << "\tH) Home Q) Quit B) Back\t" << endl;
     cout << "\tEnter Your Choice: ";
-    cin >> choice;
-    cout << endl;
-    /*if (choice == 1) {
-        MainMenu();
-    } else if (choice == 2) {
-        viewCalendar();
-    } else if (choice == 3) {
-        viewCourseList();
-    } else if (choice == 4) {
-        viewToDoList();
-    } else {
-        throw runtime_error("Invalid choice");
-    }  */
+
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
+    }
+    return ' ';
 }
 
