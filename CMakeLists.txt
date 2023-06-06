@@ -15,9 +15,8 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tests/googletest/include/
 )
 
-# add_executable (test
-#   tests/toDoListTest.cpp
-#   src/item.cpp
+# add_executable (PrioirtyFlow
+#   src/mainMenu.cpp
 # )
 
 add_subdirectory(src)

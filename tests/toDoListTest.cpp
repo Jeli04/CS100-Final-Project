@@ -121,17 +121,22 @@ TEST(ToDoList, DisplayAll1){
 TEST(ToDoList, DisplayAll2){
     ToDoList testList = ToDoList();
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(false);
+    testList.getAllItems().front()->setName("Item1");
+    testList.getAllItems().front()->setItemCompletion(false);
+
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(false);
+    testList.getAllItems().front()->setName("Item2");
+    testList.getAllItems().front()->setItemCompletion(false);
+
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(true);
+    testList.getAllItems().front()->setName("Item3");
+    testList.getAllItems().front()->setItemCompletion(true);
 
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [ ]    |                     |     0    | \n    [ ]    |                     |     0    | \n    [X]    |                     |     0    | \n", ss.str());
+    EXPECT_EQ("Completion | Name                | Priority | Time\n----------------------------------------------------\n    [X]    | Item3               |     0    | \n    [ ]    | Item2               |     0    | \n    [ ]    | Item1               |     0    | \n", ss.str());
 }
 
 TEST(ToDoList, DisplayCompleted1){

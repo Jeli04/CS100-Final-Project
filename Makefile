@@ -175,6 +175,19 @@ simpleLibrary/fast:
 .PHONY : simpleLibrary/fast
 
 #=============================================================================
+# Target rules for targets named PriorityFlow
+
+# Build rule for target.
+PriorityFlow: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PriorityFlow
+.PHONY : PriorityFlow
+
+# fast build rule for target.
+PriorityFlow/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PriorityFlow.dir/build.make src/CMakeFiles/PriorityFlow.dir/build
+.PHONY : PriorityFlow/fast
+
+#=============================================================================
 # Target rules for targets named Tests
 
 # Build rule for target.
@@ -251,6 +264,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... PriorityFlow"
 	@echo "... Tests"
 	@echo "... gmock"
 	@echo "... gmock_main"

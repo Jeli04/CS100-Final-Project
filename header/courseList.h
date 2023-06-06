@@ -29,5 +29,4 @@ class CourseList : public Container {
 
 };
 
-
 #endif
