@@ -8,6 +8,8 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <cctype>
+#include <limits>
 
 using namespace std;
 
@@ -101,10 +103,101 @@ const char mainMenu::taskPrompt() {
     
 const char MainMenu::eventPrompt(ostream& ss){
     // prompt the user to enter the event name
+    char userChoice = '\0';
+    Event newEvent = Event();
+    string eventName = "";
+    string eventDesc = "";
+    string eventDate = "";
+    int eventType = 0;
+    int eventPriority = 0;
+    int eventLength = 0;
 
     // prompt the user for the event information to manage (add/delete/edit) and validate user input 
+    cin.ignore();
+    cout << endl;
+    cout << "                 Add an Event" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
+
+    cout << "Enter Event Name: ";
+    getline(cin, eventName);
+    newEvent.setName(eventName);
+    cout << endl << endl;
+
+    cout << "Enter Event Description: \n";
+    getline(cin, eventDesc);
+    newEvent.setDescription(eventDesc);
+    cout << endl << endl;
+
+    cout << "Enter Event Date: ";
+    getline(cin, eventDate);
+    newEvent.setDate(eventDate);
+    cout << endl << endl;
+
+    cout << "Enter Event Priority: ";
+    cin >> eventPriority;
+    newEvent.setPriority(eventPriority);
+    cout << endl << endl;
+
+    cout << "1. Birthday" << endl;
+    cout << "2. Meeting" << endl;
+    cout << "3. Appointment" << endl;
+    cout << "4. Other" << endl;
+    cout << "Enter the type of Event[1-4]: ";
+    cin >> eventType;
+
+    //input validation
+    while(cin.fail() || eventType < 1 || eventType > 4){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter a number[1-4]----" << endl;
+        cout << "Enter the type of Event[1-4]: ";
+        cin >> eventType;
+        cout << endl << endl;
+    }
+    newEvent.setEventType(eventType);
+
+    cout << "Enter Event Length: ";
+    cin >> eventLength;
+
+    //input validation
+    while (cin.fail()){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter Number----" << endl;
+        cout << "Enter Event Length: ";
+        cin >> eventLength;
+        cout << endl << endl;
+    }
+    newEvent.setLength(eventLength);
+
+    newEvent.setItemCompletion(false);
+
+    cout << "--------------------------------------------------" << endl;
+    cout << "         New Event has been created!" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
 
     // prompt the user to go home, quit, or back (return value)
+    cout << "H) Home Q) Quit B) Back\t" << endl;
+    cout << "Enter Your Choice[H,Q,B]: ";
+    cin >> userChoice;
+    cout << endl;
+
+    while (cin.fail() || (tolower(userChoice) != 'h' && tolower(userChoice) != 'q' && tolower(userChoice) != 'b')){
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        }
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter H, Q, or B----" << endl;
+        cout << "H) Home Q) Quit B) Back" << endl;
+        cout << "Enter Your Choice[H,Q,B]: ";
+        cin >> userChoice;
+        cout << endl << endl;
+    }
+    
+
 }
 
 const char MainMenu::manageCalendar(ostream& ss){
@@ -275,7 +368,7 @@ const char MainMenu::manageToDoList(ostream& ss){
 }
 
     
-}
+
 
 int main(){
     MainMenu mainMenu = MainMenu();
