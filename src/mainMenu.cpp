@@ -301,7 +301,6 @@ const char MainMenu::manageToDoList(ostream& ss){
     return ' ';
 }
 
-    
 
 
 int main(){
