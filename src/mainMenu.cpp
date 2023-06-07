@@ -28,7 +28,7 @@ const char MainMenu::homePrompt(ostream& ss){
 
     // manageToDoList(cout);
 
-    return ' ';
+    return 'H';
 }
 
 // const char MainMenu::coursePrompt(ostream& ss){
@@ -42,6 +42,7 @@ const char MainMenu::homePrompt(ostream& ss){
 // }
 
 const char MainMenu::coursePrompt() {
+    currentPrompt = 'C';
     Course* newCourse = new Course();
     string courseName;
     string courseInstructor;
@@ -123,6 +124,7 @@ const char MainMenu::coursePrompt() {
 
     
 const char MainMenu::taskPrompt() {
+    currentPrompt = 'T';
     int choice;
     Task* newTask = new Task();
     string taskName;
@@ -234,6 +236,7 @@ const char MainMenu::dayPrompt(ostream& ss){
 
 
 const char MainMenu::manageToDoList(ostream& ss){
+    currentPrompt = 'L';
     if(toDoList == nullptr){toDoList = new ToDoList();}
  
     toDoList->displayAll(ss);
@@ -261,12 +264,15 @@ const char MainMenu::manageToDoList(ostream& ss){
                 // return 'V';
                 break;
             case 'A':
+                previousPrompt = 'L';   // updates the previous prompt 
+
                 ss << "What type of item do you want to add (Task/Course/Event): ";
                 cin >> itemType;
                 while(itemType != "Task" && itemType != "Course" && itemType != "Event"){
                     ss << "Invalid item type (Task/Course/Event): ";
                     cin >> itemType;
                 }
+                // checks the type of item that is being added 
                 if(itemType == "Task"){return 'T';}
                 if(itemType == "Course"){return 'C';}
                 if(itemType == "Event"){return 'E';}
@@ -301,7 +307,26 @@ const char MainMenu::manageToDoList(ostream& ss){
     return ' ';
 }
 
-    
+const char MainMenu::back(){
+    // calls the function linked with the character
+    if (currentPrompt == 'M') {
+        // Calendar
+        previousPrompt = 'H';
+        return 'H';
+    } else if (currentPrompt == 'S') {
+        // Course Lists
+        previousPrompt = 'H';
+        return 'H';
+    } else if (currentPrompt == 'L') {
+        // To Do List
+        previousPrompt = 'H';
+        return 'H';
+    } else if (currentPrompt == 'C' || currentPrompt == 'E' || currentPrompt == 'D' || currentPrompt == 'T') {
+        // Course
+        return previousPrompt;
+    }
+    return ' ';
+}
 
 
 int main(){
@@ -319,21 +344,24 @@ int main(){
         } else if (userInput == 'L') {
             // To Do List
             userInput = mainMenu.manageToDoList(cout);
-        } else if (userInput == 'C') {
-            // Course
-        } else if (userInput == 'E') {
-            // Event
-        } else if (userInput == 'D') {
-            // Day
-            userInput = mainMenu.coursePrompt();
-        } else if (userInput == 'T') {
-            // Task
-            userInput = mainMenu.taskPrompt();
+        } else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'C'){
+            if (userInput == 'E') {
+                // Event
+            } else if (userInput == 'T') {
+                // Task
+                userInput = mainMenu.taskPrompt();
+            } else if (userInput == 'C') {
+                // Course
+                userInput = mainMenu.coursePrompt();
+            } else if (userInput == 'D') {
+                // Day
+            } 
         } else if (userInput == 'B') {
             // Back 
+            userInput = mainMenu.back();
         } else if(userInput == 'H'){
             // Home
-
+            userInput = mainMenu.homePrompt(cout);
         }
         else{
             cout << "Invalid option please enter a invalid choice: ";

@@ -22,18 +22,21 @@ private:
     char previousPrompt;    // used in the back function
     char currentPrompt;    // used in the back function
 
-    void back(const char prev, const char curr);
 public:
     MainMenu();
+    const char back();
     const char homePrompt(ostream& ss);
     const char coursePrompt();
     const char taskPrompt();
     const char eventPrompt(ostream& ss);
-
     const char manageCalendar(ostream& ss);
     const char dayPrompt(ostream& ss);
     const char manageCourseList(ostream& ss);
     const char manageToDoList(ostream& ss);
+
+    // getters
+    const char getPreviousPrompt() const{return previousPrompt;}
+    const char getCurrentPrompt() const{return currentPrompt;}
 };
 
 #endif

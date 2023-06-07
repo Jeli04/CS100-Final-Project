@@ -1,7 +1,8 @@
 #include "../header/day.h"
 
-Day::Day(ToDoList* _toDoList, const string& date){
+Day::Day(ToDoList* _toDoList, CourseList* _courseList, const string& date){
     toDoList = _toDoList;
+    courseList = _courseList;
     dayNumber = stoi(date.substr(3, 2));  // gets the first two characters
 
     // gets the day of the week
@@ -27,7 +28,19 @@ void Day::displayDayInfo(ostream& ss) const{
 }
 
 void Day::updateItems(const string& date){
-    for(Item* listItem : toDoList->allItems){
+    for(Item* listItem : courseList->getAllItems()){
+        if(Course* courseItem = dynamic_cast<Course*>(listItem)){
+            for(string day : courseItem->GetOccuringDays()){
+                if(dayName == day){
+                    listOfItems.push_back(courseItem);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    for(Item* listItem : toDoList->getAllItems()){
         if(listItem->getDate() == date){
             listOfItems.push_back(listItem);
         }
