@@ -8,6 +8,8 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <regex>
+
 
 using namespace std;
 
@@ -133,7 +135,7 @@ const char MainMenu::taskPrompt() {
     string taskDate;
     int taskPriority;
 
-    cin.ignore();
+    
     cout << endl;
     cout << "\t\tCreate a Task" << endl;
     cout << "--------------------------------------------------" << endl;
@@ -157,6 +159,16 @@ const char MainMenu::taskPrompt() {
 
     cout << "\tEnter Due Date: ";
     getline(cin, taskDate);
+    while (!isValidDateFormat(taskDate)){
+        cout << endl;
+        cout << "\tPlease re-enter valid date..." << endl;
+        cout << "\t";
+        getline(cin, taskDate);
+        if (isValidDateFormat(taskDate)) {
+            break;
+        }
+    }
+
     newTask->setDate(taskDate);
     cout << endl;
 
@@ -329,6 +341,14 @@ const char MainMenu::back(){
         return previousPrompt;
     }
     return ' ';
+}
+
+bool mainMenu::isValidDateFormat(const string& date) {
+    // Regular expression to match MM/DD/YYYY format
+    regex pattern(R"(^(0[1-9]|1[0-2])/(0[1-9]|1\d|2\d|3[01])/\d{4}$)");
+
+    // Check if the string matches the pattern
+    return std::regex_match(date, pattern);
 }
 
 

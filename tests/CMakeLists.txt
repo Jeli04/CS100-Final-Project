@@ -18,6 +18,7 @@ add_executable(Tests
   testDisplayTasks.cpp
   testTask.cpp
   testCourseTask.cpp
+  testDate.cpp
  )
 
 

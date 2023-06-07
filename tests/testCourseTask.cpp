@@ -9,10 +9,13 @@
 // int main() {
 //     mainMenu newMenu = mainMenu();
 
+
 //     char k = newMenu.addCourse();
 
 //     char s = newMenu.addTask();
 
+//     cout << s << endl;
+// }
 //     cout << k << endl;
 //     cout << s << endl;
 // }
