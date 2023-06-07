@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 class MainMenu{
 private:   
     ToDoList* toDoList = nullptr;
@@ -33,6 +34,7 @@ public:
     const char dayPrompt(ostream& ss);
     const char manageCourseList(ostream& ss);
     const char manageToDoList(ostream& ss);
+    bool isValidDateFormat(const string& date);
 
     void setPrevPrompt(const char prev){previousPrompt = prev;}
     void setCurrPrompt(const char curr){currentPrompt = curr;}
