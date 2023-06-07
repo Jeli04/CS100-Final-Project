@@ -3,6 +3,8 @@
 using namespace std;
 
 #include "toDoList.h"
+#include "courseList.h"
+#include "course.h"
 #include <ctime>
 #include <string>
 
@@ -15,11 +17,12 @@ private:
     int dayNumber;
     list<Item*> listOfItems;
     ToDoList* toDoList;
+    CourseList* courseList;
 
     // helper functions
     void updateItems(const string& date);
 public:
-    Day(ToDoList* _toDoList, const string& date); 
+    Day(ToDoList* _toDoList, CourseList* _courseList, const string& date); 
     void displayDayInfo(ostream& ss) const;
 };
 

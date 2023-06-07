@@ -6,7 +6,7 @@ TEST(Calendar, addDayToCalendarTest1){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2023", "May", 31);
     for(unsigned i = 0; i < 31; i++){
-        calendar->addDay(new Day(toDoList, "05/"+to_string((i+1))+"/2023"));
+        calendar->addDay(new Day(toDoList, nullptr,"05/"+to_string((i+1))+"/2023"));
     }
 
     EXPECT_EQ(calendar->dayListSize(), 31);
@@ -16,7 +16,7 @@ TEST(Calendar, addDayToCalendarTest2){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2023", "May", 31);
     for(unsigned i = 0; i < 31; i++){
-        calendar->addDay(new Day(toDoList, "05/"+to_string((i+1))+"/2023"));
+        calendar->addDay(new Day(toDoList, nullptr, "05/"+to_string((i+1))+"/2023"));
     }
 
     EXPECT_EQ(calendar->dayListSize(), 31);
@@ -26,7 +26,7 @@ TEST(Calendar, addDayToCalendarTest3){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2020", "June", 20);
     for(unsigned i = 0; i < 20; i++){
-        calendar->addDay(new Day(toDoList, "06/"+to_string((i+1))+"/2020"));
+        calendar->addDay(new Day(toDoList, nullptr, "06/"+to_string((i+1))+"/2020"));
     }
 
     EXPECT_EQ(calendar->dayListSize(), 20);
@@ -36,7 +36,7 @@ TEST(Calendar, displayCalendarTest1){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2023", "March", 31);
     for(unsigned i = 0; i < 31; i++){
-        calendar->addDay(new Day(toDoList, "03/"+to_string((i+1))+"/2023"));
+        calendar->addDay(new Day(toDoList, nullptr, "03/"+to_string((i+1))+"/2023"));
     }
 
     stringstream ss;
@@ -50,7 +50,7 @@ TEST(Calendar, displayCalendarTest2){
     ToDoList* toDoList = new ToDoList(); // empty ToDoList
     Calendar* calendar = new Calendar("2022", "August", 31);
     for(unsigned i = 0; i < 31; i++){
-        calendar->addDay(new Day(toDoList, "08/"+to_string((i+1))+"/2022"));
+        calendar->addDay(new Day(toDoList, nullptr, "08/"+to_string((i+1))+"/2022"));
     }
 
     stringstream ss;

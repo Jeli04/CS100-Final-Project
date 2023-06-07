@@ -23,9 +23,9 @@ private:
     char previousPrompt;    // used in the back function
     char currentPrompt;    // used in the back function
 
-    const char back(const char prev, const char curr);
 public:
     MainMenu();
+    const char back();
     const char homePrompt();
     const char coursePrompt();
     const char taskPrompt();
@@ -35,9 +35,13 @@ public:
     const char manageCourseList(ostream& ss);
     const char manageToDoList(ostream& ss);
     bool isValidDateFormat(const string& date);
-
     void setPrevPrompt(const char prev){previousPrompt = prev;}
     void setCurrPrompt(const char curr){currentPrompt = curr;}
+  
+    // getters
+    const char getPreviousPrompt() const{return previousPrompt;}
+    const char getCurrentPrompt() const{return currentPrompt;}
+
 };
 
 #endif
