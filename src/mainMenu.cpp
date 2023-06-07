@@ -261,8 +261,7 @@ const char MainMenu::manageToDoList(ostream& ss){
                 else{
                     item->displayItemInfo(ss);
                 }
-                // return 'V';
-                break;
+                return 'L';
             case 'A':
                 previousPrompt = 'L';   // updates the previous prompt 
 
@@ -278,21 +277,25 @@ const char MainMenu::manageToDoList(ostream& ss){
                 if(itemType == "Event"){return 'E';}
                 break;
             case 'D':
-                return 'D';
+                return 'B';
             case 'E':
+                previousPrompt = 'L';
+                currentPrompt = 'E';
+
                 ss << "Enter the name of the item to edit: ";
                 cin >> itemToAccess;
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
                     ss << "This item does not exist" << endl;
-                    return 'H';
+                    return 'B';
                 }
                 else{
                     item->edit();
+                    previousPrompt = 'H';   // resets previous prompt if edit is successful 
+                    currentPrompt = 'L';
                 }
-                // return 'E';
-                break;
+                return 'L';
             case 'H':
                 return 'H';
             case 'B':
