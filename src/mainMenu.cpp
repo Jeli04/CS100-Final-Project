@@ -23,23 +23,22 @@ MainMenu::MainMenu(){
 }
 
 const char MainMenu::homePrompt(){
-    int userChoice;
-    cout << "           Welcome to Priority Flow!" << endl;
+    char userChoice;
+
+    if(previousPrompt == 'H' && currentPrompt == 'H'){cout << "           Welcome to Priority Flow!" << endl;}
     cout << "--------------------------------------------------" << endl;
-    cout << "1. Add a Task" << endl;
-    cout << "2. Add an Event" << endl;
-    cout << "3. Add a Course" << endl;
-    cout << "4. View Calendar" << endl;
-    cout << "5. View ToDoList" << endl;
-    cout << "6. View CourseList" << endl;
-    cout << "Please enter your option[1-6]: " << endl;
+    cout << "M. View Monthly Calendar" << endl;
+    cout << "L. View your To-Do-List" << endl;
+    cout << "S. View your Couse List" << endl;
+    cout << "Q. Quit the program" << endl;
+    cout << "Please enter your option[M/L/S/Q]: ";
 
     cin >> userChoice;
-    while (cin.fail() || (userChoice < 1) || (userChoice > 6)){
+    while (cin.fail() || (userChoice != 'M' && userChoice != 'L' && userChoice != 'S' && userChoice != 'Q')){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "----Invalid Input: Enter Number[1-6]----" << endl;
-        cout << "Please enter your option[1-6]: ";
+        cout << "----Invalid Input: Enter Choices[M/L/S/Q]----" << endl;
+        cout << "Please enter your option[M/L/S/Q]: ";
         cin >> userChoice;
         cout << endl << endl;
     }
@@ -58,7 +57,8 @@ const char MainMenu::homePrompt(){
     //     case 6: 
     //         courseList->displayAll();
     // }
-    return ' ';
+
+    return userChoice;
 }
 
 // const char MainMenu::coursePrompt(ostream& ss){
@@ -80,6 +80,14 @@ const char MainMenu::coursePrompt() {
     int coursePriority;
     string status;
 
+    if(courseList == nullptr){
+        string schoolName;
+        cout << "--------------------------------------------------" << endl;
+        cout << "\tEnter your school name: ";
+        cin >> schoolName;
+        courseList = new CourseList(schoolName);
+    }
+
     int count;
     int x = 0;
     vector<string> days;
@@ -90,6 +98,7 @@ const char MainMenu::coursePrompt() {
     cout << endl;
 
     cout << "\tEnter Name of Course: ";
+    cin.ignore();
     getline(cin, courseName);
     newCourse->setName(courseName);
     cout << endl;
@@ -127,6 +136,8 @@ const char MainMenu::coursePrompt() {
     cout << endl;
 
     newCourse->setItemCompletion(0);
+
+    courseList->add(newCourse);
 
     cout << "--------------------------------------------------" << endl;
     cout << "\tNew Class has been created!" << endl;
@@ -170,6 +181,7 @@ const char MainMenu::taskPrompt() {
     cout << endl;
 
     cout << "\tEnter Task Name: ";
+    cin.ignore();
     getline(cin, taskName);
     newTask->setName(taskName);
     cout << endl;
@@ -215,23 +227,23 @@ const char MainMenu::taskPrompt() {
     cout << endl;
 
     cout << "\tH) Home Q) Quit B) Back\t" << endl;
-    cout << "\tEnter Your Choice: ";
+    cout << "\tEnter Your Choice[H,Q,B]: ";
 
 
-    // while(true){
-    //     cin >> userChoice;
-    //     switch(userChoice) {
-    //         case 'H':
-    //             return 'H';
-    //         case 'B':
-    //             return 'B';
-    //         case 'Q':
-    //             return 'Q';
-    //         default:
-    //             cout << "Invalid option please enter a invalid choice" << endl;
-    //             break;
-    //     }
-    // }
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
+    }
     return ' ';
 
 }
@@ -239,7 +251,7 @@ const char MainMenu::taskPrompt() {
 const char MainMenu::eventPrompt(){
     // prompt the user to enter the event name
     char userChoice = '\0';
-    Event newEvent = Event();
+    Event* newEvent = new Event();
     string eventName = "";
     string eventDesc = "";
     string eventDate = "";
@@ -256,22 +268,22 @@ const char MainMenu::eventPrompt(){
 
     cout << "Enter Event Name: ";
     getline(cin, eventName);
-    newEvent.setName(eventName);
+    newEvent->setName(eventName);
     cout << endl << endl;
 
     cout << "Enter Event Description: \n";
     getline(cin, eventDesc);
-    newEvent.setDescription(eventDesc);
+    newEvent->setDescription(eventDesc);
     cout << endl << endl;
 
     cout << "Enter Event Date: ";
     getline(cin, eventDate);
-    newEvent.setDate(eventDate);
+    newEvent->setDate(eventDate);
     cout << endl << endl;
 
     cout << "Enter Event Priority: ";
     cin >> eventPriority;
-    newEvent.setPriority(eventPriority);
+    newEvent->setPriority(eventPriority);
     cout << endl << endl;
 
     //event type
@@ -295,13 +307,13 @@ const char MainMenu::eventPrompt(){
     
     switch(eventType){
         case 1:
-            newEvent.setEventType(Birthday);
+            newEvent->setEventType(Birthday);
         case 2:
-            newEvent.setEventType(Meeting);
+            newEvent->setEventType(Meeting);
         case 3:
-            newEvent.setEventType(Appointment);
+            newEvent->setEventType(Appointment);
         case 4:
-            newEvent.setEventType(Other);
+            newEvent->setEventType(Other);
     }
 
     //event length
@@ -317,9 +329,12 @@ const char MainMenu::eventPrompt(){
         cin >> eventLength;
         cout << endl << endl;
     }
-    newEvent.setLength(eventLength);
+    newEvent->setLength(eventLength);
 
-    newEvent.setItemCompletion(false);
+    newEvent->setItemCompletion(false);
+
+    // add the event to the todolist 
+    toDoList->add(newEvent);
 
     cout << "--------------------------------------------------" << endl;
     cout << "         New Event has been created!" << endl;
@@ -482,22 +497,33 @@ bool MainMenu::isValidDateFormat(const string& date) {
 
 int main(){
     MainMenu mainMenu = MainMenu();
-    char userInput = ' ';
+    char userInput = 'H';
 
-    mainMenu.homePrompt();
-    cin >> userInput;
+    // mainMenu.homePrompt();
+    mainMenu.setPrevPrompt('H');
+    mainMenu.setCurrPrompt('H');
 
     while(userInput != 'Q'){
         if (userInput == 'M') {
             // Calendar 
+            userInput = mainMenu.manageCalendar(cout);
         } else if (userInput == 'S') {
             // Course Lists
+            userInput = mainMenu.manageCalendar(cout);
         } else if (userInput == 'L') {
             // To Do List
             userInput = mainMenu.manageToDoList(cout);
-        } else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'C'){
+        } else if (userInput == 'B') {
+            // Back 
+            userInput = mainMenu.back();
+        } else if(userInput == 'H'){
+            // Home
+            userInput = mainMenu.homePrompt();
+        }
+        else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'C'){
             if (userInput == 'E') {
                 // Event
+                userInput = mainMenu.eventPrompt();
             } else if (userInput == 'T') {
                 // Task
                 userInput = mainMenu.taskPrompt();
@@ -507,18 +533,11 @@ int main(){
             } else if (userInput == 'D') {
                 // Day
             } 
-        } else if (userInput == 'B') {
-            // Back 
-            userInput = mainMenu.back();
-        } else if(userInput == 'H'){
-            // Home
-            userInput = mainMenu.homePrompt(cout);
-        }
-        else{
+        } else{
             cout << "Invalid option please enter a invalid choice: ";
             cin >> userInput;
             cout << endl;
-        }
+        } 
     }
 
     return 0;
