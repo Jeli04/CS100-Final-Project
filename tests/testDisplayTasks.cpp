@@ -19,6 +19,6 @@ TEST(DisplayTests, testTaskDisplay) {
     newTask.displayItemInfo(ss);
 
     EXPECT_EQ(
-        "\t  Task: Go grocery shopping\n--------------------------------------------------\n\t  Task Description: \n\t I need milk and some bread for french toast!\n\t  Finish By: Today\n\t  Task Priority: 3\n\t  Status of Completion: 1\n", ss.str()
+        "\t Task: Go grocery shopping\n--------------------------------------------------\n\t Task Description: \n\t I need milk and some bread for french toast!\n\t Finish By: Today\n\t Task Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n", ss.str()
     );
 }

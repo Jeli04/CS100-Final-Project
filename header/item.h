@@ -20,7 +20,8 @@ class Item {
         int itemPriority;
         bool itemCompletion;
 
-    
+        // helper function
+        
     public:
     
         Item(string, string, string, string, int, bool);
