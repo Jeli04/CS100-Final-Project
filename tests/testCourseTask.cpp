@@ -6,13 +6,16 @@
 #include <iostream>
 
 
-int main() {
-    mainMenu newMenu = mainMenu();
+// int main() {
+//     mainMenu newMenu = mainMenu();
 
-    char k = newMenu.addCourse();
 
-    char s = newMenu.addTask();
+//     char k = newMenu.addCourse();
 
-    cout << k << endl;
-    cout << s << endl;
-}
+//     char s = newMenu.addTask();
+
+//     cout << s << endl;
+// }
+//     cout << k << endl;
+//     cout << s << endl;
+// }

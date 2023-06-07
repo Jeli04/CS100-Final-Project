@@ -18,20 +18,10 @@ add_executable(Tests
   testDisplayTasks.cpp
   testTask.cpp
   testCourseTask.cpp
+  testDate.cpp
  )
 
-add_executable(PriorityFlow
-  toDoListTest.cpp 
-  dayTest.cpp
-  calendarTest.cpp
-  courseListTest.cpp
-  testDisplayEvents.cpp
-  testCourse.cpp
-  testEvent.cpp
-  testDisplayCourse.cpp
-  testDisplayTasks.cpp
-  testTask.cpp
-)
+
 
 target_link_libraries(Tests gmock gtest gtest_main)
 target_link_libraries(Tests simpleLibrary)
