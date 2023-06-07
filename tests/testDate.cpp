@@ -6,7 +6,7 @@
 #include <iostream>
 
 TEST(DateTests, testValidInput1) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "10/20/2030";
 
@@ -14,7 +14,7 @@ TEST(DateTests, testValidInput1) {
 }
 
 TEST(DateTests, testValidInput2) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "05/01/2000";
 
@@ -22,7 +22,7 @@ TEST(DateTests, testValidInput2) {
 }
 
 TEST(DateTests, testValidInput3) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "10/99/2010";
 
@@ -30,7 +30,7 @@ TEST(DateTests, testValidInput3) {
 }
 
 TEST(DateTests, testInvalidInput1) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "99/01/1998";
 
@@ -38,7 +38,7 @@ TEST(DateTests, testInvalidInput1) {
 }
 
 TEST(DateTests, testInvalidInput2) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "01/01/00000";
 
@@ -46,7 +46,7 @@ TEST(DateTests, testInvalidInput2) {
 }
 
 TEST(DateTests, testInvalidInput3) {
-    mainMenu newMenu = mainMenu();
+    MainMenu newMenu = MainMenu();
 
     const string date = "0101/5000";
 

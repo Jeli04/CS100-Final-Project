@@ -8,8 +8,9 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#include <cctype>
+#include <limits>
 #include <regex>
-
 
 using namespace std;
 
@@ -21,16 +22,43 @@ MainMenu::MainMenu(){
     itemToAccess = "";
 }
 
-const char MainMenu::homePrompt(ostream& ss){
-    ss << "Welcome to Priority Flow" << endl;
-    ss << "Please enter 'L' to view your To-Do-List" << endl;
-    ss << "Please enter 'S' to view your Course List" << endl;
-    ss << "Please enter 'M' to view your Calendar" << endl;
-    ss << "Please enter 'Q' to quit the program" << endl;
+const char MainMenu::homePrompt(){
+    int userChoice;
+    cout << "           Welcome to Priority Flow!" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << "1. Add a Task" << endl;
+    cout << "2. Add an Event" << endl;
+    cout << "3. Add a Course" << endl;
+    cout << "4. View Calendar" << endl;
+    cout << "5. View ToDoList" << endl;
+    cout << "6. View CourseList" << endl;
+    cout << "Please enter your option[1-6]: " << endl;
 
-    // manageToDoList(cout);
+    cin >> userChoice;
+    while (cin.fail() || (userChoice < 1) || (userChoice > 6)){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter Number[1-6]----" << endl;
+        cout << "Please enter your option[1-6]: ";
+        cin >> userChoice;
+        cout << endl << endl;
+    }
 
-    return 'H';
+    // switch(userChoice){
+    //     case 1:
+    //         taskPrompt();
+    //     case 2:
+    //         eventPrompt()
+    //     case 3:
+    //         coursePrompt();
+    //     case 4: 
+    //         calendar->displayAll();
+    //     case 5: 
+    //         toDoList->displayAll();
+    //     case 6: 
+    //         courseList->displayAll();
+    // }
+    return ' ';
 }
 
 // const char MainMenu::coursePrompt(ostream& ss){
@@ -190,33 +218,133 @@ const char MainMenu::taskPrompt() {
     cout << "\tEnter Your Choice: ";
 
 
-    while(true){
-        cin >> userChoice;
-        switch(userChoice) {
-            case 'H':
-                return 'H';
-            case 'B':
-                return 'B';
-            case 'Q':
-                return 'Q';
-            default:
-                cout << "Invalid option please enter a invalid choice" << endl;
-                break;
-        }
-    }
+    // while(true){
+    //     cin >> userChoice;
+    //     switch(userChoice) {
+    //         case 'H':
+    //             return 'H';
+    //         case 'B':
+    //             return 'B';
+    //         case 'Q':
+    //             return 'Q';
+    //         default:
+    //             cout << "Invalid option please enter a invalid choice" << endl;
+    //             break;
+    //     }
+    // }
     return ' ';
 
 }
     
-const char MainMenu::eventPrompt(ostream& ss){
+const char MainMenu::eventPrompt(){
     // prompt the user to enter the event name
+    char userChoice = '\0';
+    Event newEvent = Event();
+    string eventName = "";
+    string eventDesc = "";
+    string eventDate = "";
+    int eventType = 0;
+    int eventPriority = 0;
+    int eventLength = 0;
 
     // prompt the user for the event information to manage (add/delete/edit) and validate user input 
+    cin.ignore();
+    cout << endl;
+    cout << "                 Add an Event" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
+
+    cout << "Enter Event Name: ";
+    getline(cin, eventName);
+    newEvent.setName(eventName);
+    cout << endl << endl;
+
+    cout << "Enter Event Description: \n";
+    getline(cin, eventDesc);
+    newEvent.setDescription(eventDesc);
+    cout << endl << endl;
+
+    cout << "Enter Event Date: ";
+    getline(cin, eventDate);
+    newEvent.setDate(eventDate);
+    cout << endl << endl;
+
+    cout << "Enter Event Priority: ";
+    cin >> eventPriority;
+    newEvent.setPriority(eventPriority);
+    cout << endl << endl;
+
+    //event type
+    cout << "1. Birthday" << endl;
+    cout << "2. Meeting" << endl;
+    cout << "3. Appointment" << endl;
+    cout << "4. Other" << endl;
+    cout << "Enter the type of Event[1-4]: ";
+    cin >> eventType;
+    cout << endl << endl;
+
+    //input validation
+    while(cin.fail() || eventType < 1 || eventType > 4){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter a number[1-4]----" << endl;
+        cout << "Enter the type of Event[1-4]: ";
+        cin >> eventType;
+        cout << endl << endl;
+    }
+    
+    switch(eventType){
+        case 1:
+            newEvent.setEventType(Birthday);
+        case 2:
+            newEvent.setEventType(Meeting);
+        case 3:
+            newEvent.setEventType(Appointment);
+        case 4:
+            newEvent.setEventType(Other);
+    }
+
+    //event length
+    cout << "Enter Event Length: ";
+    cin >> eventLength;
+    cout << endl << endl;
+    //input validation
+    while (cin.fail()){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter Number----" << endl;
+        cout << "Enter Event Length: ";
+        cin >> eventLength;
+        cout << endl << endl;
+    }
+    newEvent.setLength(eventLength);
+
+    newEvent.setItemCompletion(false);
+
+    cout << "--------------------------------------------------" << endl;
+    cout << "         New Event has been created!" << endl;
+    cout << "--------------------------------------------------" << endl;
+    cout << endl;
 
     // prompt the user to go home, quit, or back (return value)
+    cout << "H) Home Q) Quit B) Back\t" << endl;
+    cout << "Enter Your Choice[H,Q,B]: ";
+    cin >> userChoice;
+    cout << endl;
+
+    while (cin.fail() || (tolower(userChoice) != 'h' && tolower(userChoice) != 'q' && tolower(userChoice) != 'b')){
+        if (cin.fail()){
+            cin.clear();
+        }
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "----Invalid Input: Enter H, Q, or B----" << endl;
+        cout << "H) Home Q) Quit B) Back" << endl;
+        cout << "Enter Your Choice[H,Q,B]: ";
+        cin >> userChoice;
+        cout << endl << endl;
+    }
 
     return ' ';
-
 }
 
 const char MainMenu::manageCalendar(ostream& ss){
@@ -343,7 +471,7 @@ const char MainMenu::back(){
     return ' ';
 }
 
-bool mainMenu::isValidDateFormat(const string& date) {
+bool MainMenu::isValidDateFormat(const string& date) {
     // Regular expression to match MM/DD/YYYY format
     regex pattern(R"(^(0[1-9]|1[0-2])/(0[1-9]|1\d|2\d|3[01])/\d{4}$)");
 
@@ -356,7 +484,7 @@ int main(){
     MainMenu mainMenu = MainMenu();
     char userInput = ' ';
 
-    mainMenu.homePrompt(cout);
+    mainMenu.homePrompt();
     cin >> userInput;
 
     while(userInput != 'Q'){
