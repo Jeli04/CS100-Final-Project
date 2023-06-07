@@ -44,20 +44,20 @@ const char MainMenu::homePrompt(){
         cout << endl << endl;
     }
 
-    switch(userChoice){
-        case 1:
-            taskPrompt();
-        case 2:
-            eventPrompt()
-        case 3:
-            coursePrompt();
-        case 4: 
-            calendar->displayAll();
-        case 5: 
-            toDoList->displayAll();
-        case 6: 
-            courseList->displayAll();
-    }
+    // switch(userChoice){
+    //     case 1:
+    //         taskPrompt();
+    //     case 2:
+    //         eventPrompt()
+    //     case 3:
+    //         coursePrompt();
+    //     case 4: 
+    //         calendar->displayAll();
+    //     case 5: 
+    //         toDoList->displayAll();
+    //     case 6: 
+    //         courseList->displayAll();
+    // }
     return ' ';
 }
 
@@ -216,20 +216,20 @@ const char MainMenu::taskPrompt() {
     cout << "\tEnter Your Choice: ";
 
 
-    while(true){
-        cin >> userChoice;
-        switch(userChoice) {
-            case 'H':
-                return 'H';
-            case 'B':
-                return 'B';
-            case 'Q':
-                return 'Q';
-            default:
-                cout << "Invalid option please enter a invalid choice" << endl;
-                break;
-        }
-    }
+    // while(true){
+    //     cin >> userChoice;
+    //     switch(userChoice) {
+    //         case 'H':
+    //             return 'H';
+    //         case 'B':
+    //             return 'B';
+    //         case 'Q':
+    //             return 'Q';
+    //         default:
+    //             cout << "Invalid option please enter a invalid choice" << endl;
+    //             break;
+    //     }
+    // }
     return ' ';
 
 }
@@ -441,7 +441,7 @@ const char MainMenu::manageToDoList(ostream& ss){
     return ' ';
 }
 
-bool mainMenu::isValidDateFormat(const string& date) {
+bool MainMenu::isValidDateFormat(const string& date) {
     // Regular expression to match MM/DD/YYYY format
     regex pattern(R"(^(0[1-9]|1[0-2])/(0[1-9]|1\d|2\d|3[01])/\d{4}$)");
 
@@ -454,7 +454,7 @@ int main(){
     MainMenu mainMenu = MainMenu();
     char userInput = ' ';
 
-    mainMenu.homePrompt(cout);
+    mainMenu.homePrompt();
     cin >> userInput;
 
     while(userInput != 'Q'){

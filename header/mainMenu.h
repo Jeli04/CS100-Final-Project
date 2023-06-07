@@ -26,10 +26,10 @@ private:
     const char back(const char prev, const char curr);
 public:
     MainMenu();
-    const char homePrompt(ostream& ss);
+    const char homePrompt();
     const char coursePrompt();
     const char taskPrompt();
-    const char eventPrompt(ostream& ss);
+    const char eventPrompt();
     const char manageCalendar(ostream& ss);
     const char dayPrompt(ostream& ss);
     const char manageCourseList(ostream& ss);
