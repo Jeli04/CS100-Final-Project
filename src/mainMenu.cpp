@@ -302,7 +302,6 @@ const char MainMenu::manageToDoList(ostream& ss){
 }
 
 
-
 int main(){
     MainMenu mainMenu = MainMenu();
     char userInput = ' ';
