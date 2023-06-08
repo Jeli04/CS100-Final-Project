@@ -35,7 +35,11 @@ void CourseList::printBody(ostream& ss, const list<Item*>& toDoListType) const
 
         ss << "| ";
 
-        ss << listItem->getDate() << endl;
+        const vector<string>& dates = listItem->getOccuringDays();
+        for (const string& date : dates) {
+            ss << date << " ";
+        }
+        ss << endl;
     }
 }
 

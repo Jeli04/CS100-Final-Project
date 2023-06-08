@@ -231,3 +231,9 @@ string Event::to_string(Events newEvent) {
         }
 
 }
+
+
+
+vector<string> Event::getOccuringDays() const{
+   return this->occuringDays;
+}
