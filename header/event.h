@@ -12,6 +12,7 @@ class Event : public Item {
     private:
         Events eventType;
         int length;
+        vector<string> occuringDays;
     public:
         Event();
         Event(Events);
@@ -26,6 +27,7 @@ class Event : public Item {
         void edit() override;
         void displayItemInfo(ostream&);
         string to_string(Events);
+        vector<string> getOccuringDays() const override;
 };
 
 #endif

@@ -17,8 +17,8 @@ TEST(DisplayTests, testDisplay) {
     Course* newCourse = new Course();
     
     newCourse->setName("Applied Linear Algebra");
-    newCourse->SetInstructorName("Mr. Kalley");
-    newCourse->SetOccuringDays(days);
+    newCourse->setInstructorName("Mr. Kalley");
+    newCourse->setOccuringDays(days);
     newCourse->setDate("10/23/2003");
     newCourse->setLocation("Winston Chung");
     newCourse->setPriority(1);
@@ -40,8 +40,8 @@ TEST(DisplayTests, testDisplayOneAssignment) {
     Task* newTask = new Task();
 
     newCourse->setName("English 10C");
-    newCourse->SetInstructorName("Mrs. Melley");
-    newCourse->SetOccuringDays(days);
+    newCourse->setInstructorName("Mrs. Melley");
+    newCourse->setOccuringDays(days);
     newCourse->setDate("10/23/2003");
     newCourse->setLocation("Sproul Hall");
     newCourse->setPriority(1);
@@ -69,8 +69,8 @@ TEST(DisplayTests, testDisplayTwoAssignments) {
     Task* newTask2 = new Task();
 
     newCourse->setName("Differential Equations");
-    newCourse->SetInstructorName("FNU Ishan");
-    newCourse->SetOccuringDays(days);
+    newCourse->setInstructorName("FNU Ishan");
+    newCourse->setOccuringDays(days);
     newCourse->setDate("10/23/2003");
     newCourse->setLocation("Sproul Hall");
     newCourse->setPriority(2);

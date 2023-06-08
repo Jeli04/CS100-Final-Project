@@ -30,7 +30,7 @@ void Day::displayDayInfo(ostream& ss) const{
 void Day::updateItems(const string& date){
     for(Item* listItem : courseList->getAllItems()){
         if(Course* courseItem = dynamic_cast<Course*>(listItem)){
-            for(string day : courseItem->GetOccuringDays()){
+            for(string day : courseItem->getOccuringDays()){
                 if(dayName == day){
                     listOfItems.push_back(courseItem);
                     break;

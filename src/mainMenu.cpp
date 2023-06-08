@@ -105,7 +105,7 @@ const char MainMenu::coursePrompt() {
 
     cout << "\tEnter Instructor Name: ";
     getline(cin, courseInstructor);
-    newCourse->SetInstructorName(courseInstructor);
+    newCourse->setInstructorName(courseInstructor);
     cout << endl;
     
     cout << "\tEnter number of days a week: ";
@@ -121,7 +121,7 @@ const char MainMenu::coursePrompt() {
         x++;
     }
 
-    newCourse->SetOccuringDays(days);
+    newCourse->setOccuringDays(days);
     cin.ignore();
 
     
@@ -399,8 +399,82 @@ const char MainMenu::dayPrompt(ostream& ss){
 
 const char MainMenu::manageCourseList(ostream& ss){
     currentPrompt = 'S';
+    currentPrompt = 'L';
 
-    return 'H';
+    cout << "Please enter school name: " << endl;
+    string schoolName;
+    cin >> schoolName;
+    if(courseList == nullptr){courseList = new CourseList(schoolName);}
+ 
+    courseList->displayAll(ss);
+    ss << endl;
+
+    cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
+    cout << "Enter Your Choice: ";
+
+    string itemType; 
+    while(true){
+        cin >> userChoice;
+        switch(userChoice){
+            Item* course;
+            case 'V':
+                ss << "Enter the name of the item to view: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    course->displayItemInfo(ss);
+                }
+                return 'L';
+            case 'A':
+                previousPrompt = 'L';   // updates the previous prompt 
+                return 'C';
+                break;
+            case 'D':
+                ss << "Enter the name of the item to delete: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    courseList->deleteItem(itemToAccess);
+                }
+                return 'L';
+            case 'E':
+                previousPrompt = 'L';
+                currentPrompt = 'E';
+
+                ss << "Enter the name of the item to edit: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                    return 'B';
+                }
+                else{
+                    course->edit();
+                    previousPrompt = 'H';   // resets previous prompt if edit is successful 
+                    currentPrompt = 'L';
+                }
+                return 'L';
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                ss << "Invalid option please enter a invalid choice: ";
+                break;
+        }
+    }
+    return ' ';
 }
 
 
@@ -411,7 +485,7 @@ const char MainMenu::manageToDoList(ostream& ss){
     toDoList->displayAll(ss);
     ss << endl;
 
-    cout << "V) View A) Add E) Edit H) Home Q) Quit B) Back\t" << endl;
+    cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
     cout << "Enter Your Choice: ";
 
     string itemType; 
@@ -533,7 +607,7 @@ int main(){
             userInput = mainMenu.manageCalendar(cout);
         } else if (userInput == 'S') {
             // Course Lists
-            userInput = mainMenu.manageCalendar(cout);
+            userInput = mainMenu.manageCourseList(cout);
         } else if (userInput == 'L') {
             // To Do List
             userInput = mainMenu.manageToDoList(cout);
