@@ -18,8 +18,8 @@ using namespace std;
 
 
 MainMenu::MainMenu(){
-    ToDoList* toDoList = new ToDoList();
-    CourseList* courseList = nullptr;
+    toDoList = new ToDoList();
+    courseList = new CourseList("");
     Calendar* calendar = nullptr;
     itemToAccess = "";
 }
@@ -385,7 +385,19 @@ const char MainMenu::manageCalendar(ostream& ss){
                                   "Invalid month";
     int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
 
-    if(calendar == nullptr){calendar = new Calendar(currYearString, currMonthString, dayCount);}
+    if(calendar == nullptr){
+        calendar = new Calendar(currYearString, currMonthString, dayCount);
+        for(int i = 1; i <= dayCount; i++){
+            string date = "";
+            if(currentMonth < 10){date += "0" + to_string(currentMonth) + "/";}
+            else{date += currentMonth + "/";}
+            if(i < 10){date+= "0" + to_string(i) + "/";}
+            else{date += to_string(i) + "/";}
+            date += to_string(currentYear);
+            cout << date << endl;
+            calendar->addDay(new Day(toDoList, courseList, date));
+        }
+    }
 
 
     calendar->displayAll(ss);
@@ -434,16 +446,23 @@ const char MainMenu::dayPrompt(ostream& ss){
         cin >> itemToAccess;
     }
     ss << endl;
-    if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works 
-    // ********
-    // needs to check if todoList and courselist for specific days is empty not just the whole list
-    // ********
-    {
-        ss << "Day is empty!" << endl;
-        return 'H';
+    // if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works 
+    // // ********
+    // // needs to check if todoList and courselist for specific days is empty not just the whole list
+    // // ********
+    // {
+    //     ss << "Day is empty!" << endl;
+    //     return 'H';
+    // }
+
+    bool dayFound = false;
+    for(Day* day : calendar->getDayList()){
+        if(day->getDate() == itemToAccess){
+            day->displayDayInfo(ss);
+            dayFound = true;
+        }
     }
-    date = new Day(toDoList, courseList, itemToAccess);
-    date->displayDayInfo(ss);
+    if(dayFound == false){cout << "This date is not in the calendar!" << endl;}
 
     // prompt the user if they want to add, edit, delete an item from the day, or return home/quit
     cout << "\tH) Home Q) Quit B) Back\t" << endl;

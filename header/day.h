@@ -15,6 +15,7 @@ private:
     string dayName;
     string monthName;
     int dayNumber;
+    string date;
     list<Item*> listOfItems;
     ToDoList* toDoList;
     CourseList* courseList;
@@ -23,7 +24,8 @@ private:
     void updateItems(const string& date);
 public:
     Day(ToDoList* _toDoList, CourseList* _courseList, const string& date); 
-    void displayDayInfo(ostream& ss) const;
+    void displayDayInfo(ostream& ss);
+    string getDate() const {return date;}
 };
 
 #endif
