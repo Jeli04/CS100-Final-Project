@@ -11,6 +11,8 @@
 #include <cctype>
 #include <limits>
 #include <regex>
+#include <ctime>
+#include <chrono>
 
 using namespace std;
 
@@ -372,10 +374,73 @@ const char MainMenu::eventPrompt(){
 const char MainMenu::manageCalendar(ostream& ss){
     currentPrompt = 'M';
     // call the calendar display function here
-    ss << "Please enter 'D' to view a specific day" << endl;
-    ss << "Please enter 'B' to go back" << endl;
+    auto now = chrono::system_clock::now();
+    time_t currentTime = chrono::system_clock::to_time_t(now);
+    tm* currentTM = localtime(&currentTime);
+    int currentYear = currentTM->tm_year + 1900; // Years since 1900
+    string currYearString = to_string(currentYear);
+    int currentMonth = currentTM->tm_mon + 1; // Months since January (0-11)
+    string currMonthString = currentMonth >= 1 && currentMonth <= 12 ? 
+                                  std::array<std::string, 12>{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}[currentMonth - 1] : 
+                                  "Invalid month";
+    int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
+
+    if(calendar == nullptr){calendar = new Calendar(currYearString, currMonthString, dayCount);}
+
+
+    calendar->displayAll(ss);
+
+    cout << "D) DayView Q) Quit B) Back\t" << endl;
 
     // ask the user to select a day, go home, or quit
+    while(true){
+        cin >> userChoice;
+        switch(userChoice){
+            Item* course;
+            case 'D':
+                ss << "Enter a specific date (format MM/DD/YYYY): ";
+                cin >> itemToAccess;
+                ss << endl;
+                date = new Day(toDoList, courseList, itemToAccess);
+                date->displayDayInfo(ss);
+
+                // if(course == nullptr){
+                //     ss << "This item does not exist" << endl;
+                // }
+                // else{
+                //     course->displayItemInfo(ss);
+                // }
+                return 'L';
+            // case 'E':
+            //     previousPrompt = 'L';
+            //     currentPrompt = 'E';
+
+            //     ss << "Enter the date  to edit: ";
+            //     cin >> itemToAccess;
+            //     ss << endl;
+            //     course = courseList->getItem(itemToAccess);
+            //     if(course == nullptr){
+            //         ss << "This item does not exist" << endl;
+            //         return 'B';
+            //     }
+            //     else{
+            //         course->edit();
+            //         previousPrompt = 'H';   // resets previous prompt if edit is successful 
+            //         currentPrompt = 'L';
+            //     }
+            //     return 'L';
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                ss << "Invalid option please enter a invalid choice: ";
+                break;
+        }
+    }    
+
 
     // if the user selects day return 'D' (implement the day function as well)
 
