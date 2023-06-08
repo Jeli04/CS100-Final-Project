@@ -12,19 +12,120 @@
 #include <cctype>
 #include <limits>
 #include <regex>
-// #include <json/json.h>
+#include <../nlohmann/json.hpp>
 
-
+using json = nlohmann::json;
 using namespace std;
 
 
 MainMenu::MainMenu(){
-    ToDoList* toDoList = new ToDoList();
-    CourseList* courseList = nullptr;
-    Calendar* calendar = nullptr;
+    toDoList = new ToDoList();
+    courseList = nullptr;
+    calendar = nullptr;
     itemToAccess = "";
 
     // checks if there exists a previous history
+    if(!isJSONEmpty("UserHistory/history.json")){
+        cout << "Not empty" << endl;
+        json jsonData;
+        ifstream inputFile("UserHistory/history.json");
+        inputFile >> jsonData;
+
+        courseList = new CourseList("");
+
+        for(const auto& data : jsonData){
+            if(data["type"] == "Task") {
+                Task* newTask = new Task();
+                newTask->setName(data["name"]);
+                newTask->setDate(data["date"]);
+                newTask->setLocation(data["location"]);
+                newTask->setDescription(data["description"]);
+                newTask->setPriority(data["priority"]);
+                newTask->setItemCompletion(data["completion"]);
+                newTask->setSubject(data["subject"]);
+                toDoList->add(newTask);
+            }
+            else if(data["type"] == "Course"){
+
+            } 
+            else if(data["type"] == "Event"){
+
+            }
+        }
+    }
+}
+
+MainMenu::~MainMenu(){
+    cout << "Calling the destructor" << endl;
+    json jsonData;
+    ofstream outputFile("UserHistory/history.json");
+    outputFile << jsonData.dump(4); // erases the previous data
+
+    if(toDoList!=nullptr){
+        for(Item* item : toDoList->getAllItems()){
+            json itemData;
+            itemData["name"] = item->getName();
+            itemData["type"] = item->getType();
+            itemData["date"] = item->getDate();
+            itemData["location"] = item->getLocation();
+            itemData["description"] = item->getDescription();
+            itemData["priority"] = item->getPriority();
+            itemData["completion"] = item->getStatus();
+            if(Task* taskItem = dynamic_cast<Task*>(item)){
+                itemData["subject"] = taskItem->getSubject();
+            }
+            if(Event* eventItem = dynamic_cast<Event*>(item)){
+                itemData["eventType"] = eventItem->getEventType();
+                itemData["length"] = eventItem->getLength();
+            }
+            jsonData.push_back(itemData);
+        }
+    }
+    if(courseList!=nullptr){
+        for(Item* course : courseList->getAllItems()){
+            json courseData;
+            json occuringDays;
+            json assignments;
+
+            courseData["name"] = course->getName();
+            courseData["type"] = course->getType();
+            courseData["date"] = course->getDate();
+            courseData["location"] = course->getLocation();
+            courseData["description"] = course->getDescription();
+            courseData["priority"] = course->getPriority();
+            courseData["completion"] = course->getStatus();
+
+            if(Course* courseItem = dynamic_cast<Course*>(course)){
+                courseData["instructor"] = courseItem->GetInstructorName();
+
+                for(string day : courseItem->GetOccuringDays()){
+                    occuringDays.push_back(day);
+                }
+                courseData["occuringDays"] = occuringDays;
+
+                for(Item* task : courseItem->getListOfAssignments()){
+                    assignments.push_back(task->getName());
+                }
+                courseData["assignments"] = assignments;
+            }
+
+            jsonData.push_back(courseData);
+        }
+
+        delete courseList;
+    }
+    if(calendar!=nullptr){
+        for(Item* day : calendar->getAllItems()){
+            delete day;
+        }
+        delete calendar;
+    }
+    delete toDoList;    // delete toDoList at the end because courselist has assignments that are in it 
+
+    if(outputFile.is_open()){
+        outputFile << jsonData.dump(4); // dump loads the data into the json file, 4 reprsents the spacing used 
+    }
+    outputFile.close();
 
 }
 
@@ -33,6 +134,13 @@ bool MainMenu::isJSONEmpty(const string& filename) const{
     if(!file.is_open()){
         return true;    // if file is unable to be opened it should be empty
     }
+    nlohmann::json data;
+    file >> data;
+
+    if(data.empty()){
+        return true;
+    }
+    
     return false;
 }
 

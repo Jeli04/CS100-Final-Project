@@ -28,6 +28,7 @@ private:
 
 public:
     MainMenu();
+    ~MainMenu();
     const char back();
     const char homePrompt();
     const char coursePrompt();
