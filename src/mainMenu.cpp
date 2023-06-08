@@ -183,6 +183,13 @@ const char MainMenu::taskPrompt() {
     cout << "\tEnter Task Name: ";
     cin.ignore();
     getline(cin, taskName);
+    // checks if the item already exists
+    Item* item = toDoList->getItem(taskName);
+    if(item != nullptr){
+        cout << "\tThis item already exists!" << endl;
+        return 'L';
+    }
+
     newTask->setName(taskName);
     cout << endl;
 
@@ -363,6 +370,7 @@ const char MainMenu::eventPrompt(){
 }
 
 const char MainMenu::manageCalendar(ostream& ss){
+    currentPrompt = 'M';
     // call the calendar display function here
     ss << "Please enter 'D' to view a specific day" << endl;
     ss << "Please enter 'B' to go back" << endl;
@@ -373,11 +381,12 @@ const char MainMenu::manageCalendar(ostream& ss){
 
     // prompt the user to go home, quit, or back (return value)
 
-    return ' ';
+    return 'H';
 
 }
 
 const char MainMenu::dayPrompt(ostream& ss){
+    currentPrompt = 'D';
     // Ask the user to enter a date in 00/00/2000 format
     // call the display day function
 
@@ -385,9 +394,14 @@ const char MainMenu::dayPrompt(ostream& ss){
 
     // prompt the user to go home, quit, or back (return value)
 
-    return ' ';
+    return 'H';
 }
 
+const char MainMenu::manageCourseList(ostream& ss){
+    currentPrompt = 'S';
+
+    return 'H';
+}
 
 
 const char MainMenu::manageToDoList(ostream& ss){
@@ -432,7 +446,17 @@ const char MainMenu::manageToDoList(ostream& ss){
                 if(itemType == "Event"){return 'E';}
                 break;
             case 'D':
-                return 'B';
+                ss << "Enter the name of the item to delete: ";
+                cin >> itemToAccess;
+                ss << endl;
+                item = toDoList->getItem(itemToAccess);
+                if(item == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    toDoList->deleteItem(itemToAccess);
+                }
+                return 'L';
             case 'E':
                 previousPrompt = 'L';
                 currentPrompt = 'E';
