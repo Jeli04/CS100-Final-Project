@@ -17,6 +17,11 @@ Day::Day(ToDoList* _toDoList, CourseList* _courseList, const string& date){
 }
 
 void Day::displayDayInfo(ostream& ss) const{
+    // if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works
+    // {
+    //     ss << "Day is empty!" << endl;
+    //     return;
+    // }
     toDoList->printDashes(ss, 50);
     toDoList->printSpaces(ss, 18);
     ss << dayName <<  ", " << monthName << " " << dayNumber << endl;

@@ -396,39 +396,10 @@ const char MainMenu::manageCalendar(ostream& ss){
     while(true){
         cin >> userChoice;
         switch(userChoice){
-            Item* course;
+            // Item* course;
             case 'D':
-                ss << "Enter a specific date (format MM/DD/YYYY): ";
-                cin >> itemToAccess;
-                ss << endl;
-                date = new Day(toDoList, courseList, itemToAccess);
-                date->displayDayInfo(ss);
-
-                // if(course == nullptr){
-                //     ss << "This item does not exist" << endl;
-                // }
-                // else{
-                //     course->displayItemInfo(ss);
-                // }
-                return 'L';
-            // case 'E':
-            //     previousPrompt = 'L';
-            //     currentPrompt = 'E';
-
-            //     ss << "Enter the date  to edit: ";
-            //     cin >> itemToAccess;
-            //     ss << endl;
-            //     course = courseList->getItem(itemToAccess);
-            //     if(course == nullptr){
-            //         ss << "This item does not exist" << endl;
-            //         return 'B';
-            //     }
-            //     else{
-            //         course->edit();
-            //         previousPrompt = 'H';   // resets previous prompt if edit is successful 
-            //         currentPrompt = 'L';
-            //     }
-            //     return 'L';
+                previousPrompt = 'M';
+                return 'D';
             case 'H':
                 return 'H';
             case 'B':
@@ -444,6 +415,7 @@ const char MainMenu::manageCalendar(ostream& ss){
 
     // if the user selects day return 'D' (implement the day function as well)
 
+
     // prompt the user to go home, quit, or back (return value)
 
     return 'H';
@@ -453,9 +425,46 @@ const char MainMenu::manageCalendar(ostream& ss){
 const char MainMenu::dayPrompt(ostream& ss){
     currentPrompt = 'D';
     // Ask the user to enter a date in 00/00/2000 format
+    cout << "Please enter a specific date (format MM/DD/YYYY): " << endl;
     // call the display day function
+    cin >> itemToAccess;
+    while (!isValidDateFormat(itemToAccess))
+    {
+        cout << "Incorrect date format, try again (format MM/DD/YYYY): " << endl;
+        cin >> itemToAccess;
+    }
+    ss << endl;
+    if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works 
+    // ********
+    // needs to check if todoList and courselist for specific days is empty not just the whole list
+    // ********
+    {
+        ss << "Day is empty!" << endl;
+        return 'H';
+    }
+    date = new Day(toDoList, courseList, itemToAccess);
+    date->displayDayInfo(ss);
 
     // prompt the user if they want to add, edit, delete an item from the day, or return home/quit
+    cout << "\tH) Home Q) Quit B) Back\t" << endl;
+    cout << "\tEnter Your Choice[H,Q,B]: ";
+
+
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
+    }
+    return ' ';
 
     // prompt the user to go home, quit, or back (return value)
 
@@ -464,7 +473,6 @@ const char MainMenu::dayPrompt(ostream& ss){
 
 const char MainMenu::manageCourseList(ostream& ss){
     currentPrompt = 'S';
-    currentPrompt = 'L';
 
     cout << "Please enter school name: " << endl;
     string schoolName;
@@ -495,7 +503,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 }
                 return 'L';
             case 'A':
-                previousPrompt = 'L';   // updates the previous prompt 
+                previousPrompt = 'S';   // updates the previous prompt 
                 return 'C';
                 break;
             case 'D':
@@ -509,7 +517,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 else{
                     courseList->deleteItem(itemToAccess);
                 }
-                return 'L';
+                return 'S';
             case 'E':
                 previousPrompt = 'L';
                 currentPrompt = 'E';
@@ -527,7 +535,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                     previousPrompt = 'H';   // resets previous prompt if edit is successful 
                     currentPrompt = 'L';
                 }
-                return 'L';
+                return 'S';
             case 'H':
                 return 'H';
             case 'B':
@@ -683,7 +691,7 @@ int main(){
             // Home
             userInput = mainMenu.homePrompt();
         }
-        else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'C'){
+        else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'M'){
             if (userInput == 'E') {
                 // Event
                 userInput = mainMenu.eventPrompt();
@@ -695,6 +703,7 @@ int main(){
                 userInput = mainMenu.coursePrompt();
             } else if (userInput == 'D') {
                 // Day
+                userInput = mainMenu.dayPrompt(cout);
             } 
         } else{
             cout << "Invalid option please enter a invalid choice: ";
