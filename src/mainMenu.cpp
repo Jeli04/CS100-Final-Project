@@ -5,12 +5,15 @@
 #include "../header/task.h"
 #include "../header/course.h"
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <sstream>
 #include <string>
 #include <cctype>
 #include <limits>
 #include <regex>
+// #include <json/json.h>
+
 
 using namespace std;
 
@@ -20,6 +23,17 @@ MainMenu::MainMenu(){
     CourseList* courseList = nullptr;
     Calendar* calendar = nullptr;
     itemToAccess = "";
+
+    // checks if there exists a previous history
+
+}
+
+bool MainMenu::isJSONEmpty(const string& filename) const{
+    ifstream file(filename);
+    if(!file.is_open()){
+        return true;    // if file is unable to be opened it should be empty
+    }
+    return false;
 }
 
 const char MainMenu::homePrompt(){
@@ -249,6 +263,7 @@ const char MainMenu::taskPrompt() {
 }
     
 const char MainMenu::eventPrompt(){
+    currentPrompt = 'E';
     // prompt the user to enter the event name
     char userChoice = '\0';
     Event* newEvent = new Event();
