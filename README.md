@@ -28,7 +28,7 @@ This is the home menu selection screen which allows users to go into the calenda
 
 
 
-![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen layouts (1).png?raw=true)
+![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreenLayout1.png?raw=true)
 If a user chooses to open the calendar screen this is the calendar that appear. The user will also be given the option to go to a specific day.
 
 
