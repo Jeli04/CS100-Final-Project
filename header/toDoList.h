@@ -19,6 +19,7 @@ private:
     void printBody(ostream& ss, const list<Item*>& toDoListType) const override;
 public:
     ToDoList();
+    ~ToDoList();
     void displayAll(ostream& ss) const override;
     void displayCompleted(ostream& ss);
     void displayIncompleted(ostream& ss);

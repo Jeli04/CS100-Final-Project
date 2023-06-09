@@ -11,8 +11,11 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
 }
 
 Calendar::~Calendar(){
-    for(Day* day : dayList){
-        delete day;
+    auto itr = dayList.begin();
+    while (itr != dayList.end()) 
+    {
+        delete *itr;
+        ++itr;
     }
 }
 
