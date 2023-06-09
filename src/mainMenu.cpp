@@ -23,7 +23,7 @@ using namespace std;
 MainMenu::MainMenu(){
     toDoList = nullptr;
     courseList = nullptr;
-    calendar = nullptr;
+    Calendar* calendar = nullptr;
     itemToAccess = "";
 
     // checks if there exists a previous history
@@ -235,7 +235,7 @@ const char MainMenu::coursePrompt() {
     cout << endl;
 
     cout << "\tEnter Name of Course: ";
-    cin.ignore();
+    // cin.ignore();
     getline(cin, courseName);
     newCourse->setName(courseName);
     cout << endl;
@@ -346,7 +346,6 @@ const char MainMenu::taskPrompt() {
     Item* item = toDoList->getItem(taskName);
     if(item != nullptr){
         cout << "\tThis item already exists!" << endl;
-        delete newTask;
         return 'L';
     }
 
@@ -356,6 +355,17 @@ const char MainMenu::taskPrompt() {
     cout << "\tEnter Task School Subject (Enter if none): ";
     getline(cin, taskSubject);
     newTask->setSubject(taskSubject);
+
+    // checks if courseList is nullptr
+    if(courseList!=nullptr){
+        Item* courseItem = courseList->getItem(taskSubject);
+        if(courseItem != nullptr){
+            if(Course* course = dynamic_cast<Course*>(courseItem)){
+                course->createAssignment(newTask);
+            }
+        }
+    }
+
     cout << endl;
 
     cout << "\tEnter Task Description: \n";
@@ -590,6 +600,7 @@ const char MainMenu::manageCalendar(ostream& ss){
                                   "Invalid month";
     int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
 
+    if(toDoList == nullptr){toDoList = new ToDoList();}
     if(courseList == nullptr){courseList = new CourseList("");}
     if(calendar == nullptr){
         calendar = new Calendar(currYearString, currMonthString, dayCount);
@@ -727,9 +738,10 @@ const char MainMenu::manageCourseList(ostream& ss){
             Item* course;
             case 'V':
                 ss << "Enter the name of the item to view: ";
-                cin.ignore();
+                // cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
+
                 course = courseList->getItem(itemToAccess);
                 if(course == nullptr){
                     ss << "This item does not exist" << endl;
@@ -737,14 +749,14 @@ const char MainMenu::manageCourseList(ostream& ss){
                 else{
                     course->displayItemInfo(ss);
                 }
-                return 'L';
+                return 'S';
             case 'A':
                 previousPrompt = 'S';   // updates the previous prompt 
                 return 'C';
                 break;
             case 'D':
+                // cin.ignore();
                 ss << "Enter the name of the item to delete: ";
-                cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
                 course = courseList->getItem(itemToAccess);
@@ -756,11 +768,11 @@ const char MainMenu::manageCourseList(ostream& ss){
                 }
                 return 'S';
             case 'E':
-                previousPrompt = 'L';
+                previousPrompt = 'S';
                 currentPrompt = 'E';
 
                 ss << "Enter the name of the item to edit: ";
-                cin.ignore();
+                // cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
                 course = courseList->getItem(itemToAccess);
@@ -771,7 +783,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 else{
                     course->edit();
                     previousPrompt = 'H';   // resets previous prompt if edit is successful 
-                    currentPrompt = 'L';
+                    currentPrompt = 'S';
                 }
                 return 'S';
             case 'H':
@@ -802,18 +814,21 @@ const char MainMenu::manageToDoList(ostream& ss){
     string itemType; 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << endl;
         cout << endl;
         switch(userChoice){
             Item* item;
             case 'V':
+                // cin.ignore();
                 ss << "Enter the name of the item to view: ";
-                cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
                     ss << "\tThis item does not exist" << endl;
+                    cout << endl;
                 }
                 else{
                     item->displayItemInfo(ss);
@@ -835,7 +850,7 @@ const char MainMenu::manageToDoList(ostream& ss){
                 break;
             case 'D':
                 ss << "Enter the name of the item to delete: ";
-                cin.ignore();
+                // cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
@@ -850,8 +865,8 @@ const char MainMenu::manageToDoList(ostream& ss){
                 previousPrompt = 'L';
                 currentPrompt = 'E';
 
+                // cin.ignore();
                 ss << "Enter the name of the item to edit: ";
-                cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
@@ -861,6 +876,7 @@ const char MainMenu::manageToDoList(ostream& ss){
                 }
                 else{
                     item->edit();
+                    toDoList->updateAllItems();
                     previousPrompt = 'H';   // resets previous prompt if edit is successful 
                     currentPrompt = 'L';
                 }

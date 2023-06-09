@@ -14,6 +14,7 @@ class Course : public Item {
    public:
        Course(vector<string> days, string instructor);
        Course();
+       ~Course();
        void edit();
        void displayItemInfo(ostream&);
        vector<string> getOccuringDays() const;

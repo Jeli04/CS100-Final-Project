@@ -11,10 +11,16 @@ Course::Course(vector<string> days, string instructor) {
    itemType = "Course";
 }
 
+Course::~Course(){
+    if(ListOfAssignments.size() != 0){
+        for(Task* task : ListOfAssignments){
+            delete task;
+        }
+    }
+}
 
 Course::Course() {
     occuringDays = {};
-    ListOfAssignments = {};
    this->instructorName = "";
    this->itemType = "Course";
 }
@@ -183,32 +189,32 @@ void Course::edit() {
 
         if (userInput == 1){
             string newName;
-            cout << "Enter new name: ";
             cin.ignore();
+            cout << "Enter new name: ";
             getline(cin, newName);
             cout << endl;
             this->itemName = newName;
         }
         else if (userInput == 2){
             string newDate;
-            cout << "Enter new date: ";
             cin.ignore();
+            cout << "Enter new date: ";
             getline(cin, newDate);
             cout << endl;
             this->itemDate = newDate;
         }
         else if (userInput == 3){
             string newLocation;
-            cout << "Enter new location: ";
             cin.ignore();
+            cout << "Enter new location: ";
             getline(cin, newLocation);
             cout << endl;
             this->itemLocation = newLocation;
         }
         else if (userInput == 4){
             string newDescription;
-            cout << "Enter new description: ";
             cin.ignore();
+            cout << "Enter new description: ";
             getline(cin, newDescription);
             cout << endl;
             this->itemDescription = newDescription;
@@ -221,6 +227,7 @@ void Course::edit() {
         }
         else if (userInput == 7){
             string newInstructorName;
+            cin.ignore();
             cout << "Enter new instructor name: ";
             getline(cin, newInstructorName);
             cout << endl;

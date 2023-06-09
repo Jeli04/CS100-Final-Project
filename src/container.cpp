@@ -21,7 +21,6 @@ Item* Container::getItem(const string& itemName){
     {
         if (item->getName() == itemName)
         {
-            cout << item->getName() << endl;
             return item;
         }
     }
@@ -65,6 +64,8 @@ void Container::deleteItem(const string& itemName)
         {
             // need to call delete???
             allItems.erase(itr);
+            Item* itemToDelete = getItem(itemName);
+            delete itemToDelete;
             break;
         }
         ++itr;
@@ -94,4 +95,10 @@ void Container::printDashes(ostream& ss, int numDashes) const{
 
 void Container::printPadding(ostream& ss, const string& itemName) const{
     for (unsigned i = 0; i < 20-itemName.size(); i++){ss<<" ";}
+}
+
+void Container::updateAllItems(){
+    allItems.sort([](const Item* item1, const Item* item2) {
+        return item1->getPriority() < item2->getPriority();
+    });
 }

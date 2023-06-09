@@ -7,10 +7,14 @@
 #include <sstream>
 #include <iterator>
 #include <list>
+#include <algorithm>
 
 using namespace std;
 
 class Container{
+private:
+    bool comapreByPriority(const Item* item1, const Item* item2){return item1->getPriority() < item2->getPriority();}
+
 protected:
     list<Item*> allItems;
     int itemCount = 0; 
@@ -31,6 +35,7 @@ public:
     int getItemCount() const {return itemCount;}
     list<Item*> getAllItems() const;
     Item* getItem(const string& itemName);
+    void updateAllItems();
 };
 
 #endif

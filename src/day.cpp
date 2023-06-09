@@ -38,13 +38,14 @@ void Day::displayDayInfo(ostream& ss) {
             }
         }
     }
-
+    
     for(Item* item : listOfItems){
         item->displayItemInfo(ss);   
     }
 }
 
 void Day::updateItems(const string& date){
+    listOfItems.clear();
     for(Item* listItem : courseList->getAllItems()){
         if(Course* courseItem = dynamic_cast<Course*>(listItem)){
             for(string day : courseItem->getOccuringDays()){

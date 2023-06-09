@@ -11,9 +11,7 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
 }
 
 Calendar::~Calendar(){
-    cout << allItems.size() << endl;
-    for(auto item : allItems){
-        cout << item->getName() << endl;
+    for(auto item : dayList){
         delete item;
     }
 }

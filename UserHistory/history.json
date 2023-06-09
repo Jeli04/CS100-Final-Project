@@ -1,57 +1,56 @@
 [
     {
-        "completion": true,
-        "date": "06/09/2023",
-        "description": "finish the project",
+        "completion": false,
+        "date": "06/10/2023",
+        "description": "event",
+        "eventType": 3,
+        "length": 2,
         "location": "",
-        "name": "cs100 project",
+        "name": "Test Event",
         "priority": 1,
-        "subject": "CS100",
-        "type": "Task"
+        "type": "Event"
     },
     {
         "completion": false,
-        "date": "06/10/2023",
-        "description": "",
+        "date": "06/09/2023",
+        "description": "STUDY",
         "location": "",
-        "name": "homeowrk",
+        "name": "Study CS061 Final",
         "priority": 1,
         "subject": "CS061",
         "type": "Task"
     },
     {
         "completion": false,
-        "date": "10/21/2023",
-        "description": "birthday",
+        "date": "06/09/2023",
+        "description": "FINISH",
+        "location": "",
+        "name": "CS100 Project",
+        "priority": 1,
+        "subject": "CS100",
+        "type": "Task"
+    },
+    {
+        "completion": false,
+        "date": "06/09/2023",
+        "description": "finsih",
         "eventType": 3,
         "length": 2,
         "location": "",
-        "name": "birthday",
-        "priority": 1,
+        "name": "test",
+        "priority": 2,
         "type": "Event"
     },
     {
-        "assignments": null,
+        "assignments": [
+            "CS100 Project"
+        ],
         "completion": false,
         "date": "",
         "description": "",
         "instructor": "Ali Reem",
-        "location": "ucr",
+        "location": "UCR",
         "name": "CS100",
-        "occuringDays": [
-            "Monday"
-        ],
-        "priority": 1,
-        "type": "Course"
-    },
-    {
-        "assignments": null,
-        "completion": false,
-        "date": "",
-        "description": "",
-        "instructor": "",
-        "location": "ucr",
-        "name": "CS061",
         "occuringDays": [
             "Monday"
         ],
