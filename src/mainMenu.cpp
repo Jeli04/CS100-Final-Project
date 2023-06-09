@@ -595,7 +595,9 @@ const char MainMenu::manageCalendar(ostream& ss){
     // ask the user to select a day, go home, or quit
     while(true){
         cin >> userChoice;
-        cout << endl;
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             // Item* course;
             case 'D':

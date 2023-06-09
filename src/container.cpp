@@ -21,6 +21,7 @@ Item* Container::getItem(const string& itemName){
     {
         if (item->getName() == itemName)
         {
+            cout << item->getName() << endl;
             return item;
         }
     }
