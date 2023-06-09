@@ -22,7 +22,7 @@ This application will enable users to create a schedule of their day and layout 
 This navigation diagram depicts how a user would navigate through the terminal to use our program. Our project is divided into four main sections for the user to navigate through: the home screen, course list, calendar, and task list. 
 
 ### Screen Layouts
-![alt text]([https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen layouts.png](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/e28f9360511cd830e7c2f3ede6bb41b5b4924056/images/screen%20layouts.png)?raw=true)<br/>
+
 This is the home menu selection screen which allows users to go into the calendar, task list, or course list.
 
 
@@ -34,7 +34,7 @@ If a user chooses to open the calendar screen this is the calendar that appear. 
 
 
 
-![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-3.png?raw=true)
+![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreen2.png?raw=true)
 If a user chooses to open the course list this is what is displayed. Each item that is a couse type is only displayed with the name of the course, the date, and its prioirty compared to other classes.
 
 
