@@ -18,7 +18,7 @@ Course::Course() {
    this->itemType = "Course";
 }
 
-string Course::getInstructorName() const{
+string Course::getInstructorName() const {
    return this->instructorName;
 }
 
