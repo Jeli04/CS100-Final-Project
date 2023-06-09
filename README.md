@@ -65,6 +65,13 @@ If a user chooses to open the task list this is the task list that appears. The 
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+ ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreenLayout1.png?raw=true)
+ ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenAddTask.png?raw=true)
+ ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenTaskAdded.png?raw=true)
+ ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreen2.png?raw=true)
+ ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/dayView.png?raw=true)
+ 
+ 
  ## Installation/Usage
  
 Here are the instructions for installing or running our application:
