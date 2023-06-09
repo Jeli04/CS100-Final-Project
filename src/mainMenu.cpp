@@ -54,13 +54,13 @@ MainMenu::MainMenu(){
                 newCourse->setDescription(data["description"]);
                 newCourse->setPriority(data["priority"]);
                 newCourse->setItemCompletion(data["completion"]);
-                newCourse->SetInstructorName(data["instructor"]);
+                newCourse->setInstructorName(data["instructor"]);
 
                 vector<string> occuringDays;
                 for(auto days : data["occuringDays"]){
                     occuringDays.push_back(days);
                 }
-                newCourse->SetOccuringDays(occuringDays);
+                newCourse->setOccuringDays(occuringDays);
 
                 for(auto assignment : data["assignments"]){
                     Item* item = toDoList->getItem(assignment);
@@ -127,9 +127,9 @@ MainMenu::~MainMenu(){
             courseData["completion"] = course->getStatus();
 
             if(Course* courseItem = dynamic_cast<Course*>(course)){
-                courseData["instructor"] = courseItem->GetInstructorName();
+                courseData["instructor"] = courseItem->getInstructorName();
 
-                for(string day : courseItem->GetOccuringDays()){
+                for(string day : courseItem->getOccuringDays()){
                     occuringDays.push_back(day);
                 }
                 courseData["occuringDays"] = occuringDays;
@@ -537,6 +537,7 @@ const char MainMenu::manageCalendar(ostream& ss){
                                   "Invalid month";
     int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
 
+    if(courseList == nullptr){courseList = new CourseList("");}
     if(calendar == nullptr){
         calendar = new Calendar(currYearString, currMonthString, dayCount);
         for(int i = 1; i <= dayCount; i++){
@@ -546,7 +547,6 @@ const char MainMenu::manageCalendar(ostream& ss){
             if(i < 10){date+= "0" + to_string(i) + "/";}
             else{date += to_string(i) + "/";}
             date += to_string(currentYear);
-            cout << date << endl;
             calendar->addDay(new Day(toDoList, courseList, date));
         }
     }
