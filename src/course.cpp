@@ -6,12 +6,18 @@
 
 
 Course::Course(vector<string> days, string instructor) {
-
    occuringDays = days;
    instructorName = instructor;
    itemType = "Course";
 }
 
+Course::~Course(){
+    if(ListOfAssignments.size() != 0){
+        for(Task* task : ListOfAssignments){
+            delete task;
+        }
+    }
+}
 
 Course::Course() {
     occuringDays = {};
@@ -19,20 +25,20 @@ Course::Course() {
    this->itemType = "Course";
 }
 
-string Course::GetInstructorName() const{
+string Course::getInstructorName() const {
    return this->instructorName;
 }
 
-vector<string> Course::GetOccuringDays() const{
+vector<string> Course::getOccuringDays() const{
    return this->occuringDays;
 }
 
-void Course::SetInstructorName(const string& name){
+void Course::setInstructorName(const string& name){
    this->instructorName = name;
 }
 
 
-void Course::SetOccuringDays(vector<string> days){
+void Course::setOccuringDays(vector<string> days){
    this->occuringDays = days;
 }
 
@@ -45,13 +51,13 @@ void Course::editOccuringDays(){
 
     cout << "----Editing Occuring Days----" << endl;
     while (inputAgain != 'n'){
-        cout << "1. Sunday" << endl;
-        cout << "2. Monday" << endl;
-        cout << "3. Tuesday" << endl;
-        cout << "4. Wednesday" << endl;
-        cout << "5. Thursday" << endl;
-        cout << "6. Friday" << endl;
-        cout << "7. Saturday" << endl;
+        cout << "\t1. Sunday" << endl;
+        cout << "\t2. Monday" << endl;
+        cout << "\t3. Tuesday" << endl;
+        cout << "\t4. Wednesday" << endl;
+        cout << "\t5. Thursday" << endl;
+        cout << "\t6. Friday" << endl;
+        cout << "\t7. Saturday" << endl;
         cout << "Enter the number of the day this course is on[1-7]: ";
         cin >> inputEditDays;
         cout << endl;
@@ -183,29 +189,33 @@ void Course::edit() {
 
         if (userInput == 1){
             string newName;
+            cin.ignore();
             cout << "Enter new name: ";
-            cin >> newName;
+            getline(cin, newName);
             cout << endl;
             this->itemName = newName;
         }
         else if (userInput == 2){
             string newDate;
+            cin.ignore();
             cout << "Enter new date: ";
-            cin >> newDate;
+            getline(cin, newDate);
             cout << endl;
             this->itemDate = newDate;
         }
         else if (userInput == 3){
             string newLocation;
+            cin.ignore();
             cout << "Enter new location: ";
-            cin >> newLocation;
+            getline(cin, newLocation);
             cout << endl;
             this->itemLocation = newLocation;
         }
         else if (userInput == 4){
             string newDescription;
+            cin.ignore();
             cout << "Enter new description: ";
-            cin >> newDescription;
+            getline(cin, newDescription);
             cout << endl;
             this->itemDescription = newDescription;
         }
@@ -217,8 +227,9 @@ void Course::edit() {
         }
         else if (userInput == 7){
             string newInstructorName;
+            cin.ignore();
             cout << "Enter new instructor name: ";
-            cin >> newInstructorName;
+            getline(cin, newInstructorName);
             cout << endl;
             this->instructorName = newInstructorName;
         }
@@ -249,11 +260,11 @@ void Course::edit() {
 
 
 void Course::displayItemInfo(ostream& ss) {
-    vector<string> days = GetOccuringDays();
+    vector<string> days = getOccuringDays();
     list<Task*>::iterator it;
     ss << "\t Course Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
-    ss << "\t Instructor: " << GetInstructorName() << endl;
+    ss << "\t Instructor: " << getInstructorName() << endl;
     ss << "\t Meeting Times: ";
     /*for (int i = 0; i < days.size() - 1; i++) {
         cout << days.at(i) << ", ";

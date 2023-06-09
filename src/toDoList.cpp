@@ -4,9 +4,18 @@
 #include <iostream>
 #include <ostream>
 
-ToDoList::ToDoList(){
+ToDoList::ToDoList() {
     itemCount = 0;
 }
+
+ToDoList::~ToDoList() {
+    // cout << allItems.size() << endl;
+    for(auto item : allItems){
+        // cout << item->getName() << endl;
+        delete item;
+    }
+}
+
 
 void ToDoList::displayAll(ostream& ss) const  {
     printTitle(ss);
@@ -17,14 +26,14 @@ void ToDoList::displayCompleted(ostream& ss)  {
     printTitle(ss);
     list<Item*> completedItems;
     auto itr = allItems.begin();
-        while (itr != allItems.end()) 
+    while (itr != allItems.end()) 
+    {
+        if ((*itr)->getStatus() == true) 
         {
-            if ((*itr)->getStatus() == true) 
-            {
-                completedItems.push_back(*itr);
-            }
-            ++itr;
+            completedItems.push_back(*itr);
         }
+        ++itr;
+    }
     printBody(ss, completedItems);
 }
 

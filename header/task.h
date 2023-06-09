@@ -12,6 +12,7 @@ using namespace std;
 class Task : public Item {
     private: 
         string subject;
+        vector<string> occuringDays;
 
     public: 
         Task();
@@ -21,6 +22,9 @@ class Task : public Item {
         void editCompletion();
         void editPriority();
         void printMenu() const;
+        void setSubject(const string& subjectName){subject = subjectName;}
+        string getSubject() const{return subject;}
+        vector<string> getOccuringDays() const override;
 };
 
 #endif

@@ -26,6 +26,7 @@ class Item {
     
         Item(string, string, string, string, int, bool);
         Item();
+        ~Item();
 
         //Setters of Item    
         void setName(const string&);
@@ -48,6 +49,7 @@ class Item {
         //Making class abstract
         virtual void displayItemInfo(ostream&) = 0;
         virtual void edit() = 0;
+        virtual vector<string> getOccuringDays() const = 0;
 };
 
 #endif

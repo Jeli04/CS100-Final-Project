@@ -14,12 +14,14 @@ class Course : public Item {
    public:
        Course(vector<string> days, string instructor);
        Course();
+       ~Course();
        void edit();
        void displayItemInfo(ostream&);
-       vector<string> GetOccuringDays() const;
-       string GetInstructorName() const;
-       void SetInstructorName(const string&);
-       void SetOccuringDays(vector<string>);
+       vector<string> getOccuringDays() const;
+       string getInstructorName() const;
+       list<Task*> getListOfAssignments() const {return this->ListOfAssignments;}
+       void setInstructorName(const string&);
+       void setOccuringDays(vector<string>);
        void editOccuringDays();
        void editPriority();
        void editCompletion();

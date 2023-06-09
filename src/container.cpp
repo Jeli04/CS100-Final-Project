@@ -5,10 +5,10 @@
 #include <ostream>
 
 Container::~Container(){
-    for(auto item : allItems){
-        delete item;
-        item = nullptr;
-    }    
+    // for(auto item : allItems){
+    //     delete item;
+    //     item = nullptr;
+    // }    
 }
 
 list<Item*> Container::getAllItems() const
@@ -16,7 +16,23 @@ list<Item*> Container::getAllItems() const
     return allItems;
 }
 
+Item* Container::getItem(const string& itemName){
+    for(Item* item : allItems)
+    {
+        if (item->getName() == itemName)
+        {
+            return item;
+        }
+    }
+    return nullptr;
+}
+
+
 void Container::add(Item* newItem) {
+    if(getItem(newItem->getName()) != nullptr){
+        cout << "Item alreay exists!" << endl;
+        return;
+    }
     ++itemCount;
 
     if (allItems.empty()) 
@@ -39,7 +55,7 @@ void Container::add(Item* newItem) {
     }
 }
 
-void Container::deleteItem(string itemName)
+void Container::deleteItem(const string& itemName)
 {
     auto itr = allItems.begin();
     while (itr != allItems.end())
@@ -48,6 +64,8 @@ void Container::deleteItem(string itemName)
         {
             // need to call delete???
             allItems.erase(itr);
+            Item* itemToDelete = getItem(itemName);
+            delete itemToDelete;
             break;
         }
         ++itr;
@@ -77,4 +95,10 @@ void Container::printDashes(ostream& ss, int numDashes) const{
 
 void Container::printPadding(ostream& ss, const string& itemName) const{
     for (unsigned i = 0; i < 20-itemName.size(); i++){ss<<" ";}
+}
+
+void Container::updateAllItems(){
+    allItems.sort([](const Item* item1, const Item* item2) {
+        return item1->getPriority() < item2->getPriority();
+    });
 }

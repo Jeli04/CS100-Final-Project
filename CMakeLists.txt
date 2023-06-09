@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(PrioirtyFlow)
+project(PriorityFlow)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
@@ -15,9 +15,8 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tests/googletest/include/
 )
 
-# add_executable (test
-#   tests/toDoListTest.cpp
-#   src/item.cpp
+# add_executable (PrioirtyFlow
+#   src/mainMenu.cpp
 # )
 
 add_subdirectory(src)

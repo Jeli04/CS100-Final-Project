@@ -10,7 +10,7 @@ using namespace std;
 TEST(CourseTests, testInstructor){
    vector<string> days = {"Monday", "Wednesday"};
    Course math(days, "Mrs. Brown");
-   EXPECT_EQ(math.GetInstructorName(), "Mrs. Brown");
+   EXPECT_EQ(math.getInstructorName(), "Mrs. Brown");
 }
 
 
@@ -39,7 +39,7 @@ TEST(CourseTests, testDescription){
 TEST(CourseTests, testOccuringDays){
    Course math;
    vector<string> days = {"Monday", "Wednesday"};
-   math.SetOccuringDays(days);
-   EXPECT_TRUE(math.GetOccuringDays() == days);
+   math.setOccuringDays(days);
+   EXPECT_TRUE(math.getOccuringDays() == days);
 }
 

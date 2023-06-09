@@ -1,0 +1,60 @@
+[
+    {
+        "completion": false,
+        "date": "06/10/2023",
+        "description": "event",
+        "eventType": 3,
+        "length": 2,
+        "location": "",
+        "name": "Test Event",
+        "priority": 1,
+        "type": "Event"
+    },
+    {
+        "completion": false,
+        "date": "06/09/2023",
+        "description": "STUDY",
+        "location": "",
+        "name": "Study CS061 Final",
+        "priority": 1,
+        "subject": "CS061",
+        "type": "Task"
+    },
+    {
+        "completion": false,
+        "date": "06/09/2023",
+        "description": "FINISH",
+        "location": "",
+        "name": "CS100 Project",
+        "priority": 1,
+        "subject": "CS100",
+        "type": "Task"
+    },
+    {
+        "completion": false,
+        "date": "06/09/2023",
+        "description": "finsih",
+        "eventType": 3,
+        "length": 2,
+        "location": "",
+        "name": "test",
+        "priority": 2,
+        "type": "Event"
+    },
+    {
+        "assignments": [
+            "CS100 Project"
+        ],
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "Ali Reem",
+        "location": "UCR",
+        "name": "CS100",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
+    }
+]

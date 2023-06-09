@@ -120,14 +120,19 @@ TEST(CourseListTest, DisplayAll1){
 TEST(CourseListTest, DisplayAll2){
     CourseList testList = CourseList("UCR");
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(false);
+    testList.getAllItems().front()->setName("Item1");
+    testList.getAllItems().front()->setItemCompletion(false);
+
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(false);
+    testList.getAllItems().front()->setName("Item2");
+    testList.getAllItems().front()->setItemCompletion(false);
+
     testList.add(new Task());
-    testList.getAllItems().back()->setItemCompletion(true);
+    testList.getAllItems().front()->setName("Item3");
+    testList.getAllItems().front()->setItemCompletion(true);
 
     // Test displayAll function 
     stringstream ss;
     testList.displayAll(ss);
-    EXPECT_EQ("                    UCR\n    Course Name         | Priority | Time\n----------------------------------------------------\n                        |     0    | \n                        |     0    | \n                        |     0    | \n", ss.str());
+    EXPECT_EQ("                    UCR\n    Course Name         | Priority | Time\n----------------------------------------------------\n    Item3               |     0    | \n    Item2               |     0    | \n    Item1               |     0    | \n", ss.str());
 }

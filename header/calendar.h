@@ -26,9 +26,12 @@ private:
 
 public:
     Calendar(const string& _year, const string& _month, const int _dayCount);
+    ~Calendar();
     void displayAll(ostream& ss) const override;
     void addDay(Day* day);
     int dayListSize() const;
+    list<Day*> getDayList() const{return dayList;}
 };
+
 
 #endif

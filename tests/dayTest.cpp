@@ -7,6 +7,7 @@
 
 TEST(Day, displayDayInfoTest1){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
   testList->add(new Course({"Monday"}, "Instructor"));
   testList->getAllItems().back()->setName("Course");
   testList->getAllItems().back()->setDate("05/24/2023");
@@ -27,7 +28,7 @@ TEST(Day, displayDayInfoTest1){
 
   // cout << testList->getAllItems().front()->getType() << endl;
 
-  Day day = Day(testList, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);
@@ -38,6 +39,7 @@ TEST(Day, displayDayInfoTest1){
 
 TEST(Day, displayDayInfoTest2){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
   testList->add(new Course({"Monday"}, "Instructor"));
   testList->getAllItems().back()->setName("Course");
   testList->getAllItems().back()->setDate("05/24/2023");
@@ -45,7 +47,7 @@ TEST(Day, displayDayInfoTest2){
   testList->getAllItems().back()->setPriority(3);
   testList->getAllItems().back()->setItemCompletion(true);
 
-  Day day = Day(testList, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);
@@ -56,8 +58,9 @@ TEST(Day, displayDayInfoTest2){
 
 TEST(Day, displayDayInfoTest3){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
 
-  Day day = Day(testList, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);

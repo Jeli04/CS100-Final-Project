@@ -13,3 +13,4 @@ tests/CMakeFiles/
 build/
 src/a.out
 a.out
+UserHistory/history.json
