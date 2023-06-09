@@ -227,9 +227,9 @@ const char MainMenu::homePrompt(){
 const char MainMenu::coursePrompt() {
     currentPrompt = 'C';
     Course* newCourse = new Course();
-    string courseName = "";
-    string courseInstructor = "";
-    string courseLoc = "";
+    string courseName;
+    string courseInstructor;
+    string courseLoc;
     int coursePriority;
     string status;
 
@@ -262,19 +262,9 @@ const char MainMenu::coursePrompt() {
     newCourse->setInstructorName(courseInstructor);
     cout << endl;
     
-    cout << "\tEnter number of days a week[1-7]: ";
+    cout << "\tEnter number of days a week: ";
     cin >> count;
     cout << endl;
-
-    //validating user input
-    while(cin.fail() || count < 1 || count > 7){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "--------Invalid Input: Enter Number[1-7]--------------" << endl << endl;
-        cout << "\tEnter number of days a week[1-7]: ";
-        cin >> count;
-        cout << endl;
-    }
 
     while (x < count) {
         cout << "\tEnter Day " << x + 1 << ": ";
@@ -296,18 +286,6 @@ const char MainMenu::coursePrompt() {
 
     cout << "\tEnter Priority (Urgency): ";
     cin >> coursePriority;
-    cout << endl;
-
-    //validating user input
-    while(cin.fail()){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "------------Invalid Input: Enter Number-----------" << endl << endl;
-        cout << "\tEnter Priority (Urgency): ";
-        cin >> coursePriority;
-        cout << endl;
-    }
-
     newCourse->setPriority(coursePriority);
     cout << endl;
 
@@ -397,17 +375,6 @@ const char MainMenu::taskPrompt() {
 
     cout << "\tEnter Task Priority: ";
     cin >> taskPriority;
-    cout << endl;
-    //validating user input
-    while(cin.fail()){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "------------Invalid Input: Enter Number-----------" << endl << endl;
-        cout << "\tEnter Priority (Urgency): ";
-        cin >> taskPriority;
-        cout << endl;
-    }
-
     newTask->setPriority(taskPriority);
     cout << endl;
 
@@ -452,7 +419,7 @@ const char MainMenu::eventPrompt(){
     string eventDate = "";
     int eventType = 0;
     int eventPriority = 0;
-    double eventLength = 0;
+    int eventLength = 0;
 
     // prompt the user for the event information to manage (add/delete/edit) and validate user input 
     cin.ignore();
@@ -503,7 +470,7 @@ const char MainMenu::eventPrompt(){
     while(cin.fail() || eventType < 1 || eventType > 4){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "--------Invalid Input: Enter a number[1-4]--------" << endl << endl;
+        cout << "----Invalid Input: Enter a number[1-4]----" << endl;
         cout << "Enter the type of Event[1-4]: ";
         cin >> eventType;
         cout << endl << endl;
@@ -521,15 +488,15 @@ const char MainMenu::eventPrompt(){
     }
 
     //event length
-    cout << "Enter Event Length[hrs]: ";
+    cout << "Enter Event Length: ";
     cin >> eventLength;
     cout << endl << endl;
     //input validation
     while (cin.fail()){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "------------Invalid Input: Enter Number-----------" << endl << endl;
-        cout << "Enter Event Length[hrs]: ";
+        cout << "----Invalid Input: Enter Number----" << endl;
+        cout << "Enter Event Length: ";
         cin >> eventLength;
         cout << endl << endl;
     }
