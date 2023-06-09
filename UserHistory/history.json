@@ -2,16 +2,6 @@
     {
         "completion": false,
         "date": "10/21/2023",
-        "description": "hw",
-        "location": "",
-        "name": "homework",
-        "priority": 1,
-        "subject": "",
-        "type": "Task"
-    },
-    {
-        "completion": false,
-        "date": "10/21/2023",
         "description": "brtidhay",
         "eventType": 3,
         "length": 2,
@@ -21,13 +11,23 @@
         "type": "Event"
     },
     {
+        "completion": false,
+        "date": "10/21/2023",
+        "description": "hw",
+        "location": "",
+        "name": "homework",
+        "priority": 1,
+        "subject": "",
+        "type": "Task"
+    },
+    {
         "assignments": null,
         "completion": false,
         "date": "",
         "description": "",
-        "instructor": "Ali Reem",
+        "instructor": "sdkflskf",
         "location": "UCR",
-        "name": "cs100",
+        "name": "slkfskdlf",
         "occuringDays": [
             "Monday"
         ],
@@ -39,9 +39,9 @@
         "completion": false,
         "date": "",
         "description": "",
-        "instructor": "sdkflskf",
+        "instructor": "Ali Reem",
         "location": "UCR",
-        "name": "slkfskdlf",
+        "name": "cs100",
         "occuringDays": [
             "Monday"
         ],
