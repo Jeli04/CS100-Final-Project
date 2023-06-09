@@ -5,7 +5,7 @@
 
 ## Project Description
 
-The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
+The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The goal of our task manager is to provide users with an efficent way to list their tasks in a prioritized manner, store a student's courses and their respective assignments, and keep track of the events they need to attend. Another thing to note about our project is that it is a free and open source project, which isn’t very common amongst many productivity applications.
 
 We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams. 
 
@@ -13,7 +13,7 @@ The input of our project include user input prompts that allow the user to speci
 
 The output of our project is a full display of the to-do list which includes all tasks, events, and courses. It can also display a list of all the users courses and the tasks assigned for that specific course. There is also an option to display the monthly calendar and the user can choose a day in that month to add tasks or view the to-do list for that day.
 
-This application will enable users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows user to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. When they input tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application also stores all the tasks in a json file to save the tasks once the program ends.
+This application enables users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows students to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. When they input tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application also stores all the tasks in a json file to save the tasks once the program ends.
 
 ## User Interface Specification
 
@@ -56,13 +56,6 @@ If a user chooses to open the task list this is the task list that appears. The 
 **I:** We create different friend or derived classes for different needs. Each class focuses on specific actions and does not share unnecessary functions with others.<br>
 **D:** Our abstract "item" class forms the foundation for constructing various data sets and classes. Child and friend classes implement specific behaviors based on the described behavior in the item class.<br>
 
- 
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
 <!--  > Screenshots of the input/output after running your application -->
