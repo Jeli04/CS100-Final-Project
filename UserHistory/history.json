@@ -2,16 +2,6 @@
     {
         "completion": false,
         "date": "10/21/2023",
-        "description": "",
-        "location": "",
-        "name": "Homework",
-        "priority": 1,
-        "subject": "",
-        "type": "Task"
-    },
-    {
-        "completion": false,
-        "date": "10/21/2023",
         "description": "Birthday Party",
         "eventType": 3,
         "length": 2,
