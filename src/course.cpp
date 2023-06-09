@@ -18,20 +18,20 @@ Course::Course() {
    this->itemType = "Course";
 }
 
-string Course::GetInstructorName() const{
+string Course::getInstructorName() const{
    return this->instructorName;
 }
 
-vector<string> Course::GetOccuringDays() const{
+vector<string> Course::getOccuringDays() const{
    return this->occuringDays;
 }
 
-void Course::SetInstructorName(const string& name){
+void Course::setInstructorName(const string& name){
    this->instructorName = name;
 }
 
 
-void Course::SetOccuringDays(vector<string> days){
+void Course::setOccuringDays(vector<string> days){
    this->occuringDays = days;
 }
 
@@ -248,11 +248,11 @@ void Course::edit() {
 
 
 void Course::displayItemInfo(ostream& ss) {
-    vector<string> days = GetOccuringDays();
+    vector<string> days = getOccuringDays();
     list<Task*>::iterator it;
     ss << "\t Course Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
-    ss << "\t Instructor: " << GetInstructorName() << endl;
+    ss << "\t Instructor: " << getInstructorName() << endl;
     ss << "\t Meeting Times: ";
     /*for (int i = 0; i < days.size() - 1; i++) {
         cout << days.at(i) << ", ";

@@ -18,8 +18,10 @@ private:
     ToDoList* toDoList = nullptr;
     CourseList* courseList = nullptr;
     Calendar* calendar = nullptr;
+    Day* date = nullptr;
     char userChoice = ' ';
     string itemToAccess = "";
+    // int dateToAccess = 0;
     char previousPrompt;    // used in the back function
     char currentPrompt;    // used in the back function
 

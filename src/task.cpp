@@ -159,3 +159,9 @@ void Task::displayItemInfo(ostream& ss) {
     ss << "--------------------------------------------------" << endl;
     ss << endl;
 }
+
+
+
+vector<string> Task::getOccuringDays() const{
+   return this->occuringDays;
+}

@@ -13,6 +13,8 @@
 #include <limits>
 #include <regex>
 #include <../nlohmann/json.hpp>
+#include <ctime>
+#include <chrono>
 
 using json = nlohmann::json;
 using namespace std;
@@ -256,7 +258,7 @@ const char MainMenu::coursePrompt() {
 
     cout << "\tEnter Instructor Name: ";
     getline(cin, courseInstructor);
-    newCourse->SetInstructorName(courseInstructor);
+    newCourse->setInstructorName(courseInstructor);
     cout << endl;
     
     cout << "\tEnter number of days a week: ";
@@ -272,7 +274,7 @@ const char MainMenu::coursePrompt() {
         x++;
     }
 
-    newCourse->SetOccuringDays(days);
+    newCourse->setOccuringDays(days);
     cin.ignore();
 
     
@@ -334,6 +336,13 @@ const char MainMenu::taskPrompt() {
     cout << "\tEnter Task Name: ";
     cin.ignore();
     getline(cin, taskName);
+    // checks if the item already exists
+    Item* item = toDoList->getItem(taskName);
+    if(item != nullptr){
+        cout << "\tThis item already exists!" << endl;
+        return 'L';
+    }
+
     newTask->setName(taskName);
     cout << endl;
 
@@ -515,31 +524,202 @@ const char MainMenu::eventPrompt(){
 }
 
 const char MainMenu::manageCalendar(ostream& ss){
+    currentPrompt = 'M';
     // call the calendar display function here
-    ss << "Please enter 'D' to view a specific day" << endl;
-    ss << "Please enter 'B' to go back" << endl;
+    auto now = chrono::system_clock::now();
+    time_t currentTime = chrono::system_clock::to_time_t(now);
+    tm* currentTM = localtime(&currentTime);
+    int currentYear = currentTM->tm_year + 1900; // Years since 1900
+    string currYearString = to_string(currentYear);
+    int currentMonth = currentTM->tm_mon + 1; // Months since January (0-11)
+    string currMonthString = currentMonth >= 1 && currentMonth <= 12 ? 
+                                  std::array<std::string, 12>{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}[currentMonth - 1] : 
+                                  "Invalid month";
+    int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
+
+    if(calendar == nullptr){
+        calendar = new Calendar(currYearString, currMonthString, dayCount);
+        for(int i = 1; i <= dayCount; i++){
+            string date = "";
+            if(currentMonth < 10){date += "0" + to_string(currentMonth) + "/";}
+            else{date += currentMonth + "/";}
+            if(i < 10){date+= "0" + to_string(i) + "/";}
+            else{date += to_string(i) + "/";}
+            date += to_string(currentYear);
+            cout << date << endl;
+            calendar->addDay(new Day(toDoList, courseList, date));
+        }
+    }
+
+
+    calendar->displayAll(ss);
+
+    cout << "D) DayView Q) Quit B) Back\t" << endl;
 
     // ask the user to select a day, go home, or quit
+    while(true){
+        cin >> userChoice;
+        switch(userChoice){
+            // Item* course;
+            case 'D':
+                previousPrompt = 'M';
+                return 'D';
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                ss << "Invalid option please enter a invalid choice: ";
+                break;
+        }
+    }    
+
 
     // if the user selects day return 'D' (implement the day function as well)
 
+
     // prompt the user to go home, quit, or back (return value)
 
-    return ' ';
+    return 'H';
 
 }
 
 const char MainMenu::dayPrompt(ostream& ss){
+    currentPrompt = 'D';
     // Ask the user to enter a date in 00/00/2000 format
+    cout << "Please enter a specific date (format MM/DD/YYYY): " << endl;
     // call the display day function
+    cin >> itemToAccess;
+    while (!isValidDateFormat(itemToAccess))
+    {
+        cout << "Incorrect date format, try again (format MM/DD/YYYY): " << endl;
+        cin >> itemToAccess;
+    }
+    ss << endl;
+    // if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works 
+    // // ********
+    // // needs to check if todoList and courselist for specific days is empty not just the whole list
+    // // ********
+    // {
+    //     ss << "Day is empty!" << endl;
+    //     return 'H';
+    // }
+
+    bool dayFound = false;
+    for(Day* day : calendar->getDayList()){
+        if(day->getDate() == itemToAccess){
+            day->displayDayInfo(ss);
+            dayFound = true;
+        }
+    }
+    if(dayFound == false){cout << "This date is not in the calendar!" << endl;}
 
     // prompt the user if they want to add, edit, delete an item from the day, or return home/quit
+    cout << "\tH) Home Q) Quit B) Back\t" << endl;
+    cout << "\tEnter Your Choice[H,Q,B]: ";
+
+
+    while(true){
+        cin >> userChoice;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
+    }
+    return ' ';
 
     // prompt the user to go home, quit, or back (return value)
 
-    return ' ';
+    return 'H';
 }
 
+const char MainMenu::manageCourseList(ostream& ss){
+    currentPrompt = 'S';
+
+    cout << "Please enter school name: " << endl;
+    string schoolName;
+    cin >> schoolName;
+    if(courseList == nullptr){courseList = new CourseList(schoolName);}
+ 
+    courseList->displayAll(ss);
+    ss << endl;
+
+    cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
+    cout << "Enter Your Choice: ";
+
+    string itemType; 
+    while(true){
+        cin >> userChoice;
+        switch(userChoice){
+            Item* course;
+            case 'V':
+                ss << "Enter the name of the item to view: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    course->displayItemInfo(ss);
+                }
+                return 'L';
+            case 'A':
+                previousPrompt = 'S';   // updates the previous prompt 
+                return 'C';
+                break;
+            case 'D':
+                ss << "Enter the name of the item to delete: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    courseList->deleteItem(itemToAccess);
+                }
+                return 'S';
+            case 'E':
+                previousPrompt = 'L';
+                currentPrompt = 'E';
+
+                ss << "Enter the name of the item to edit: ";
+                cin >> itemToAccess;
+                ss << endl;
+                course = courseList->getItem(itemToAccess);
+                if(course == nullptr){
+                    ss << "This item does not exist" << endl;
+                    return 'B';
+                }
+                else{
+                    course->edit();
+                    previousPrompt = 'H';   // resets previous prompt if edit is successful 
+                    currentPrompt = 'L';
+                }
+                return 'S';
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                ss << "Invalid option please enter a invalid choice: ";
+                break;
+        }
+    }
+    return ' ';
+}
 
 
 const char MainMenu::manageToDoList(ostream& ss){
@@ -549,7 +729,7 @@ const char MainMenu::manageToDoList(ostream& ss){
     toDoList->displayAll(ss);
     ss << endl;
 
-    cout << "V) View A) Add E) Edit H) Home Q) Quit B) Back\t" << endl;
+    cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
     cout << "Enter Your Choice: ";
 
     string itemType; 
@@ -671,7 +851,7 @@ int main(){
             userInput = mainMenu.manageCalendar(cout);
         } else if (userInput == 'S') {
             // Course Lists
-            userInput = mainMenu.manageCalendar(cout);
+            userInput = mainMenu.manageCourseList(cout);
         } else if (userInput == 'L') {
             // To Do List
             userInput = mainMenu.manageToDoList(cout);
@@ -682,7 +862,7 @@ int main(){
             // Home
             userInput = mainMenu.homePrompt();
         }
-        else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'C'){
+        else if (mainMenu.getCurrentPrompt() == 'S' || mainMenu.getCurrentPrompt() == 'L' || mainMenu.getCurrentPrompt() == 'M'){
             if (userInput == 'E') {
                 // Event
                 userInput = mainMenu.eventPrompt();
@@ -694,6 +874,7 @@ int main(){
                 userInput = mainMenu.coursePrompt();
             } else if (userInput == 'D') {
                 // Day
+                userInput = mainMenu.dayPrompt(cout);
             } 
         } else{
             cout << "Invalid option please enter a invalid choice: ";
