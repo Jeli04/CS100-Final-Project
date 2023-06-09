@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
+CMAKE_SOURCE_DIR = /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003
+CMAKE_BINARY_DIR = /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jdari003/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
