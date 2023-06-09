@@ -17,9 +17,7 @@ CourseList::CourseList(const string& _schoolName) {
 }
 
 CourseList::~CourseList() {
-    cout << allItems.size() << endl;
     for(auto item : allItems){
-        cout << item->getName() << endl;
         delete item;
     }
 }
