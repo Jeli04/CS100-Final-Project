@@ -673,7 +673,8 @@ const char MainMenu::manageCourseList(ostream& ss){
             Item* course;
             case 'V':
                 ss << "Enter the name of the item to view: ";
-                cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
                 ss << endl;
                 course = courseList->getItem(itemToAccess);
                 if(course == nullptr){
@@ -689,7 +690,8 @@ const char MainMenu::manageCourseList(ostream& ss){
                 break;
             case 'D':
                 ss << "Enter the name of the item to delete: ";
-                cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
                 ss << endl;
                 course = courseList->getItem(itemToAccess);
                 if(course == nullptr){
@@ -749,7 +751,9 @@ const char MainMenu::manageToDoList(ostream& ss){
             Item* item;
             case 'V':
                 ss << "Enter the name of the item to view: ";
-                cin >> itemToAccess;
+                // cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
@@ -775,7 +779,9 @@ const char MainMenu::manageToDoList(ostream& ss){
                 break;
             case 'D':
                 ss << "Enter the name of the item to delete: ";
-                cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
+                // cin >> itemToAccess;
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
@@ -847,6 +853,7 @@ bool MainMenu::isValidDateFormat(const string& date) {
 }
 
 
+
 int main(){
     MainMenu mainMenu = MainMenu();
     char userInput = 'H';
@@ -895,6 +902,24 @@ int main(){
 
     return 0;
 }
+
+
+// int main()
+// {
+//     ToDoList *toDoList = new ToDoList();
+//     Task *anotherItem = new Task();
+//     anotherItem->setName("homework 3");
+//     anotherItem->setDate("06/04/2023");
+//     anotherItem->setLocation("here");
+//     anotherItem->setDescription("finish on canvas");
+//     anotherItem->setPriority(3);
+//     anotherItem->setItemCompletion(false);
+//     toDoList->add(anotherItem);
+//     toDoList->displayAll(cout);
+//     toDoList->deleteItem("homework 3");
+//     toDoList->displayAll(cout);
+//     return 0;
+// }
 
 // prompt the user to enter a choice
 // that function will return the choice as a char 
