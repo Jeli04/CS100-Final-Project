@@ -237,8 +237,9 @@ const char MainMenu::coursePrompt() {
         string schoolName;
         cout << "--------------------------------------------------" << endl;
         cout << "\tEnter your school name: ";
-        cin >> schoolName;
+        getline(cin, schoolName);
         courseList = new CourseList(schoolName);
+        cin.ignore();
     }
 
     int count;
@@ -440,6 +441,15 @@ const char MainMenu::eventPrompt(){
     cout << "Enter Event Date: ";
     getline(cin, eventDate);
     newEvent->setDate(eventDate);
+    while (!isValidDateFormat(eventDate)){
+        cout << endl;
+        cout << "\tPlease re-enter valid date..." << endl;
+        cout << "\t";
+        getline(cin, eventDate);
+        if (isValidDateFormat(eventDate)) {
+            break;
+        }
+    }
     cout << endl << endl;
 
     cout << "Enter Event Priority: ";
@@ -505,20 +515,24 @@ const char MainMenu::eventPrompt(){
     // prompt the user to go home, quit, or back (return value)
     cout << "H) Home Q) Quit B) Back\t" << endl;
     cout << "Enter Your Choice[H,Q,B]: ";
-    cin >> userChoice;
     cout << endl;
 
-    while (cin.fail() || (tolower(userChoice) != 'h' && tolower(userChoice) != 'q' && tolower(userChoice) != 'b')){
-        if (cin.fail()){
-            cin.clear();
-        }
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "----Invalid Input: Enter H, Q, or B----" << endl;
-        cout << "H) Home Q) Quit B) Back" << endl;
-        cout << "Enter Your Choice[H,Q,B]: ";
+    while(true){
         cin >> userChoice;
-        cout << endl << endl;
+        cout << endl;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
     }
+
 
     return ' ';
 }
