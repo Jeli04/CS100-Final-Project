@@ -132,15 +132,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/rdutt010/github-classroom/cs100/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
->>>>>>> 71985c3ae41c1d3b2607038b7742841ad399ed72
 .PHONY : all
 
 # The main clean target
