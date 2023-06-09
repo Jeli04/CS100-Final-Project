@@ -551,6 +551,7 @@ const char MainMenu::manageCalendar(ostream& ss){
                                   "Invalid month";
     int dayCount = (currentMonth == 2) ? 28 : (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) ? 30 : 31;
 
+    if(courseList == nullptr){courseList = new CourseList("");}
     if(calendar == nullptr){
         calendar = new Calendar(currYearString, currMonthString, dayCount);
         for(int i = 1; i <= dayCount; i++){
@@ -560,7 +561,6 @@ const char MainMenu::manageCalendar(ostream& ss){
             if(i < 10){date+= "0" + to_string(i) + "/";}
             else{date += to_string(i) + "/";}
             date += to_string(currentYear);
-            // cout << date << endl;
             calendar->addDay(new Day(toDoList, courseList, date));
         }
     }

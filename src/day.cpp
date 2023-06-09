@@ -30,6 +30,10 @@ void Day::displayDayInfo(ostream& ss) {
     ss << dayName <<  ", " << monthName << " " << dayNumber << endl;
     toDoList->printDashes(ss, 50);
 
+    for(Item* course : courseList->getAllItems()){
+        course->displayItemInfo(ss);
+    }
+
     for(Item* item : listOfItems){
         item->displayItemInfo(ss);   
     }
