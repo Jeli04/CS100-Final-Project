@@ -50,14 +50,14 @@ void Event::editCompletion(){
 
 void Event::editPriority(){
     int newPriority;
-    cout << "Enter new priority: ";
+    cout << "\tEnter new priority: ";
     cin >> newPriority;
     cout << endl;
     while (cin.fail()){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "----Invalid Input: Enter Number----" << endl;
-        cout << "Enter new priority: ";
+        cout << "\tEnter new priority: ";
         cin >> newPriority;
         cout << endl;
     }
@@ -67,10 +67,10 @@ void Event::editPriority(){
 
 void Event::editEventType(){
     int newEventType;
-    cout << "1. Birthday" << endl;
-    cout << "2. Meeting " << endl;
-    cout << "3. Appointment " << endl;
-    cout << "4. Other" << endl;
+    cout << "\t1. Birthday" << endl;
+    cout << "\t2. Meeting " << endl;
+    cout << "\t3. Appointment " << endl;
+    cout << "\t4. Other" << endl;
     cout << "What would you like to change the event type too? Enter Number[1-4]: " << endl;
     cin >> newEventType;
     //validating user input
@@ -100,13 +100,13 @@ void Event::editEventType(){
 }
 
 void Event::printMenu() const{
-    cout << "1. Name" << endl;
-    cout << "2. Date" << endl;
-    cout << "3. Location" << endl;
-    cout << "4. Description" << endl;
-    cout << "5. Priority" << endl; 
-    cout << "6. Completion" << endl;
-    cout << "7. Event Type" << endl;
+    cout << "\t1. Name" << endl;
+    cout << "\t2. Date" << endl;
+    cout << "\t3. Location" << endl;
+    cout << "\t4. Description" << endl;
+    cout << "\t5. Priority" << endl; 
+    cout << "\t6. Completion" << endl;
+    cout << "\t7. Event Type" << endl;
 }
 
 void Event::edit(){
