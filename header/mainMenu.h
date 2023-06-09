@@ -25,8 +25,12 @@ private:
     char previousPrompt;    // used in the back function
     char currentPrompt;    // used in the back function
 
+    // helpers
+    bool isJSONEmpty(const string& filename) const;
+
 public:
     MainMenu();
+    ~MainMenu();
     const char back();
     const char homePrompt();
     const char coursePrompt();

@@ -22,7 +22,7 @@ class Task : public Item {
         void editCompletion();
         void editPriority();
         void printMenu() const;
-        void setSubject(string& subjectName){subject = subjectName;}
+        void setSubject(const string& subjectName){subject = subjectName;}
         string getSubject() const{return subject;}
         vector<string> getOccuringDays() const override;
 };

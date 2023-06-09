@@ -16,10 +16,11 @@ class Course : public Item {
        Course();
        void edit();
        void displayItemInfo(ostream&);
-       vector<string> getOccuringDays() const override;
-       string getInstructorName() const;
-       void setInstructorName(const string&);
-       void setOccuringDays(vector<string>);
+       vector<string> GetOccuringDays() const;
+       string GetInstructorName() const;
+       list<Task*> getListOfAssignments() const {return this->ListOfAssignments;}
+       void SetInstructorName(const string&);
+       void SetOccuringDays(vector<string>);
        void editOccuringDays();
        void editPriority();
        void editCompletion();
