@@ -26,7 +26,6 @@ MainMenu::MainMenu(){
 
     // checks if there exists a previous history
     if(!isJSONEmpty("UserHistory/history.json")){
-        cout << "Not empty" << endl;
         json jsonData;
         ifstream inputFile("UserHistory/history.json");
         inputFile >> jsonData;
@@ -46,20 +45,50 @@ MainMenu::MainMenu(){
                 toDoList->add(newTask);
             }
             else if(data["type"] == "Course"){
+                Course* newCourse = new Course();
+                newCourse->setName(data["name"]);
+                newCourse->setDate(data["date"]);
+                newCourse->setLocation(data["location"]);
+                newCourse->setDescription(data["description"]);
+                newCourse->setPriority(data["priority"]);
+                newCourse->setItemCompletion(data["completion"]);
+                newCourse->SetInstructorName(data["instructor"]);
 
+                vector<string> occuringDays;
+                for(auto days : data["occuringDays"]){
+                    occuringDays.push_back(days);
+                }
+                newCourse->SetOccuringDays(occuringDays);
+
+                for(auto assignment : data["assignments"]){
+                    Item* item = toDoList->getItem(assignment);
+                    if(Task* newAssignment = dynamic_cast<Task*>(item)){
+                        newCourse->createAssignment(newAssignment);
+                    }
+                }
+
+                courseList->add(newCourse);
             } 
             else if(data["type"] == "Event"){
-
+                Event* newEvent = new Event();
+                newEvent->setName(data["name"]);
+                newEvent->setDate(data["date"]);
+                newEvent->setLocation(data["location"]);
+                newEvent->setDescription(data["description"]);
+                newEvent->setPriority(data["priority"]);
+                newEvent->setItemCompletion(data["completion"]);
+                newEvent->setEventType(data["eventType"]);
+                newEvent->setLength(data["length"]);
+                toDoList->add(newEvent);
             }
         }
     }
 }
 
 MainMenu::~MainMenu(){
-    cout << "Calling the destructor" << endl;
     json jsonData;
     ofstream outputFile("UserHistory/history.json");
-    outputFile << jsonData.dump(4); // erases the previous data
+    outputFile << ""; // erases the previous data
 
     if(toDoList!=nullptr){
         for(Item* item : toDoList->getAllItems()){
@@ -124,8 +153,8 @@ MainMenu::~MainMenu(){
 
     if(outputFile.is_open()){
         outputFile << jsonData.dump(4); // dump loads the data into the json file, 4 reprsents the spacing used 
+        outputFile.close();
     }
-    outputFile.close();
 
 }
 
@@ -555,7 +584,17 @@ const char MainMenu::manageToDoList(ostream& ss){
                 if(itemType == "Event"){return 'E';}
                 break;
             case 'D':
-                return 'B';
+                ss << "Enter the name of the item to delete: ";
+                cin >> itemToAccess;
+                ss << endl;
+                item = toDoList->getItem(itemToAccess);
+                if(item == nullptr){
+                    ss << "This item does not exist" << endl;
+                }
+                else{
+                    toDoList->deleteItem(itemToAccess);
+                }
+                return 'L';
             case 'E':
                 previousPrompt = 'L';
                 currentPrompt = 'E';
