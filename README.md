@@ -40,7 +40,7 @@ If a user chooses to open the course list this is what is displayed. Each item t
 
 
 
-![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-4.png?raw=true)
+<!-- ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screen-layout-4.png?raw=true) -->
 If a user chooses to open the task list this is the task list that appears. The list shows what tasks they have including its date, description, and prioirty, and if its finished or not.
 ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/todoListLayout.png?raw=true)
 
