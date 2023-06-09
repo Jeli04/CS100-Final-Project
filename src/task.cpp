@@ -23,7 +23,8 @@ void Task::editCompletion(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         cout << "----Invalid Input: Enter 'y' or 'n'----" << endl;
-        cout << "Is this completed[y/n]? ";
+        cout << endl;
+        cout << "\tIs this completed[y/n]? ";
         cin >> userInputCompleted;
         cout << endl;
     }
@@ -44,6 +45,7 @@ void Task::editPriority(){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "----Invalid Input: Enter Number----" << endl;
+        cout << endl;
         cout << "Enter new priority: ";
         cin >> newPriority;
         cout << endl;
@@ -52,17 +54,24 @@ void Task::editPriority(){
 }
 
 void Task::printMenu() const{
-   cout << "1. Name" << endl;
-   cout << "2. Date" << endl;
-   cout << "3. Location" << endl;
-   cout << "4. Description" << endl;
-   cout << "5. Priority" << endl;
-   cout << "6. Completion" << endl;
-   cout << "7. Subject" << endl;
+   cout << "\t1. Name" << endl;
+   cout << endl;
+   cout << "\t2. Date" << endl;
+   cout << endl;
+   cout << "\t3. Location" << endl;
+   cout << endl;
+   cout << "\t4. Description" << endl;
+   cout << endl;
+   cout << "\t5. Priority" << endl;
+   cout << endl;
+   cout << "\t6. Completion" << endl;
+   cout << endl;
+   cout << "\t7. Subject" << endl;
+   cout << endl;
 }
 
 void Task::edit(){
-    cout << "----Editing Task: " << this->itemName << "----" << endl << endl;
+    cout << "\t`----Editing Task: " << this->itemName << "----" << endl << endl;
 
     int userInput = 0;
     string continueEditInput = "";

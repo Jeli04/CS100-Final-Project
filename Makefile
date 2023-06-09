@@ -57,6 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+
 CMAKE_SOURCE_DIR = /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003
 
 # The top-level build directory on which CMake was run.
@@ -132,6 +133,7 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
+
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/CMakeFiles 0
