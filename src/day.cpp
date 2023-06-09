@@ -31,7 +31,12 @@ void Day::displayDayInfo(ostream& ss) {
     toDoList->printDashes(ss, 50);
 
     for(Item* course : courseList->getAllItems()){
-        course->displayItemInfo(ss);
+        for(auto day : course->getOccuringDays()){
+            if(monthName == day){
+                course->displayItemInfo(ss);
+                break;
+            }
+        }
     }
 
     for(Item* item : listOfItems){

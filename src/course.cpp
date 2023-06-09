@@ -14,6 +14,7 @@ Course::Course(vector<string> days, string instructor) {
 
 Course::Course() {
     occuringDays = {};
+    ListOfAssignments = {};
    this->instructorName = "";
    this->itemType = "Course";
 }
