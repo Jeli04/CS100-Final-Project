@@ -10,6 +10,12 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
     mktime(&tmCalendar);    // normalizes the tm object 
 }
 
+Calendar::~Calendar(){
+    for(Day* day : dayList){
+        delete day;
+    }
+}
+
 void Calendar::addDay(Day* day){
     // error message should not occur since the days should correctly be handeled in main menu
     if(dayCount == dayListSize()){
