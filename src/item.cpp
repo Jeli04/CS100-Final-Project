@@ -20,6 +20,8 @@ Item::Item(string name, string time, string loc, string desc, int priority, bool
     this->itemCompletion = status;
 }
 
+Item::~Item() {}
+
 string Item::getName() const {
     return this->itemName;
 }

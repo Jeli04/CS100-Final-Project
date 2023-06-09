@@ -26,6 +26,7 @@ class Item {
     
         Item(string, string, string, string, int, bool);
         Item();
+        ~Item();
 
         //Setters of Item    
         void setName(const string&);

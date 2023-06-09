@@ -11,9 +11,15 @@
 #include <iterator>
 #include <list>
 
-CourseList::CourseList(const string& _schoolName){
+CourseList::CourseList(const string& _schoolName) {
     schoolName = _schoolName;
     itemCount = 0;
+}
+
+CourseList::~CourseList() {
+    for(auto item : allItems){
+        delete item;
+    }
 }
 
 void CourseList::printBody(ostream& ss, const list<Item*>& toDoListType) const 

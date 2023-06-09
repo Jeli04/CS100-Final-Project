@@ -21,6 +21,7 @@ class CourseList : public Container {
 
     public: 
         CourseList(const string& _schoolName);
+        ~CourseList();
         string getSchoolName() const {return schoolName;}
         void printBody(ostream& ss, const list<Item*>& toDoListType) const override;
         void displayAll(ostream& ss) const override;

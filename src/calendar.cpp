@@ -11,8 +11,8 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
 }
 
 Calendar::~Calendar(){
-    for(Day* day : dayList){
-        delete day;
+    for(auto item : allItems){
+        delete item;
     }
 }
 
