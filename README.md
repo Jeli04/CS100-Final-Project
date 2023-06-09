@@ -18,7 +18,7 @@ This application enables users to organize and document their tasks, courses, an
 ## User Interface Specification
 
 ### Navigation Diagram
-![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/class-diagram.drawio-3.png?raw=true)
+![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/updatedClassDiagram.png?raw=true)
 
 This navigation diagram depicts how a user would navigate through the terminal to use our program. Our project is divided into four main sections for the user to navigate through: the home screen, course list, calendar, and task list. 
 
@@ -47,7 +47,7 @@ If a user chooses to open the task list this is the task list that appears. The 
 
 
 ## Class Diagram
-![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/updatedClassDiagram.png?raw=true)
+![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/class-diagram.drawio-3.png?raw=true)
 
 **S:** We separate our classes based on responsibilities. For example, we have distinct classes for tasks, courses, and events. We also have separate classes for data management, user interaction, and data display. <br>
 **O:** We establish friend relationships instead of inheritance to access the data stored in inherited variables. We also made the item class into a pure virtual class, so that we can create new instances of the Item class and add additional functions of that instance without modifying the functions of the item class, ensuring the open closed principle.
