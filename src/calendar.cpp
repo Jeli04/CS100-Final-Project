@@ -11,7 +11,10 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
 }
 
 Calendar::~Calendar(){
-    for(auto item : allItems){
+    int count = 1;
+    for(auto item : dayList){
+        cout << count << endl;
+        count ++;
         delete item;
     }
 }

@@ -21,9 +21,9 @@ using namespace std;
 
 
 MainMenu::MainMenu(){
-    toDoList = new ToDoList();
+    toDoList = nullptr;
     courseList = nullptr;
-    Calendar* calendar = nullptr;
+    calendar = nullptr;
     itemToAccess = "";
 
     // checks if there exists a previous history
@@ -32,6 +32,7 @@ MainMenu::MainMenu(){
         ifstream inputFile("UserHistory/history.json");
         inputFile >> jsonData;
 
+        toDoList = new ToDoList();
         courseList = new CourseList("");
 
         for(const auto& data : jsonData){
@@ -146,9 +147,9 @@ MainMenu::~MainMenu(){
         delete courseList;
     }
     if(calendar!=nullptr){
-        for(Item* day : calendar->getAllItems()){
-            delete day;
-        }
+        // for(Item* day : calendar->getAllItems()){
+        //     delete day;
+        // }
         delete calendar;
     }
     delete toDoList;    // delete toDoList at the end because courselist has assignments that are in it 
@@ -347,6 +348,7 @@ const char MainMenu::taskPrompt() {
     Item* item = toDoList->getItem(taskName);
     if(item != nullptr){
         cout << "\tThis item already exists!" << endl;
+        delete newTask;
         return 'L';
     }
 
