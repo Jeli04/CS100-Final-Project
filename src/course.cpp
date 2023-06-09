@@ -183,28 +183,28 @@ void Course::edit() {
         if (userInput == 1){
             string newName;
             cout << "Enter new name: ";
-            cin >> newName;
+            getline(cin, newName);
             cout << endl;
             this->itemName = newName;
         }
         else if (userInput == 2){
             string newDate;
             cout << "Enter new date: ";
-            cin >> newDate;
+            getline(cin, newDate);
             cout << endl;
             this->itemDate = newDate;
         }
         else if (userInput == 3){
             string newLocation;
             cout << "Enter new location: ";
-            cin >> newLocation;
+            getline(cin, newLocation);
             cout << endl;
             this->itemLocation = newLocation;
         }
         else if (userInput == 4){
             string newDescription;
             cout << "Enter new description: ";
-            cin >> newDescription;
+            getline(cin, newDescription);
             cout << endl;
             this->itemDescription = newDescription;
         }
@@ -217,7 +217,7 @@ void Course::edit() {
         else if (userInput == 7){
             string newInstructorName;
             cout << "Enter new instructor name: ";
-            cin >> newInstructorName;
+            getline(cin, newInstructorName);
             cout << endl;
             this->instructorName = newInstructorName;
         }
