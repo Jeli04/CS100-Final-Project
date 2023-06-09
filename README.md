@@ -7,7 +7,7 @@
 
 The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
 
-We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams.
+We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams. 
 
 The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
 
@@ -77,12 +77,13 @@ If a user chooses to open the task list this is the task list that appears. The 
  ## Installation/Usage
  
 Here are the instructions for installing or running our application:
-1. First when you have the files from the repository, your going to want to run cmake .
-2. After running that command, your program should be ready to fully compile, so then run make
-3. After you've run make, you should be in the root directory (project repository)
-4. While in the project repository move into the (project repository/bin)
-5. The bin file contains all of the runnable executables for Priority Flow and once your in the bin folder run this command: ./PriorityFlow
-6. After that your program should work!
+1. Open a terminal on your local machine
+2. Navigate to a directory where you would like to clone the repository using cd.
+3. To recursively clone the repo, run the command: git clone --recursive https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003.git
+4. Once you have the cloned repository on local machine run cmake .
+5. Then run make
+6. The bin file contains all of the runnable executables for Priority Flow. Run the command: ./bin/PriorityFlow
+7. The program should now be running and the user should prompted with the Main Menu!
 
  ## Testing
  Our project was tested through the google test suite by testing each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project.
