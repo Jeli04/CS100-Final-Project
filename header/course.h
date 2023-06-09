@@ -3,6 +3,7 @@
 
 #include "item.h"
 #include "task.h"
+#include <vector>
 
 using namespace std;
 
@@ -14,14 +15,14 @@ class Course : public Item {
    public:
        Course(vector<string> days, string instructor);
        Course();
-       ~Course();
+       ~Course();       
        void edit();
        void displayItemInfo(ostream&);
        vector<string> getOccuringDays() const;
        string getInstructorName() const;
        list<Task*> getListOfAssignments() const {return this->ListOfAssignments;}
        void setInstructorName(const string&);
-       void setOccuringDays(vector<string>);
+       void setOccuringDays(vector<string>&);
        void editOccuringDays();
        void editPriority();
        void editCompletion();
@@ -29,4 +30,5 @@ class Course : public Item {
        void PrintOccuringDays(ostream&, vector<string>&);
        void createAssignment(Task*);
 };
+
 #endif

@@ -32,13 +32,13 @@
     },
     {
         "completion": false,
-        "date": "06/09/2023",
-        "description": "finsih",
+        "date": "10/21/2023",
+        "description": "event",
         "eventType": 3,
         "length": 2,
         "location": "",
-        "name": "test",
-        "priority": 2,
+        "name": "Event",
+        "priority": 1,
         "type": "Event"
     },
     {

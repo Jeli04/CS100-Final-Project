@@ -1,10 +1,6 @@
 #include "../header/course.h"
 #include <limits>
 
-#ifndef COURSES_H
-#define COURSES_H
-
-
 Course::Course(vector<string> days, string instructor) {
    occuringDays = days;
    instructorName = instructor;
@@ -38,7 +34,7 @@ void Course::setInstructorName(const string& name){
 }
 
 
-void Course::setOccuringDays(vector<string> days){
+void Course::setOccuringDays(vector<string>& days){
    this->occuringDays = days;
 }
 
@@ -303,7 +299,3 @@ void Course::PrintOccuringDays(ostream& ss, vector<string>& days) {
 
 
 
-
-
-
-#endif
