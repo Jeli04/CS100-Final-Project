@@ -252,7 +252,7 @@ void Course::displayItemInfo(ostream& ss) {
     list<Task*>::iterator it;
     ss << "\t Course Name: " << getName() << endl;
     ss << "--------------------------------------------------" << endl;
-    ss << "\t Instructor: " << GetInstructorName() << endl;
+    ss << "\t Instructor: " << getInstructorName() << endl;
     ss << "\t Meeting Times: ";
     /*for (int i = 0; i < days.size() - 1; i++) {
         cout << days.at(i) << ", ";
