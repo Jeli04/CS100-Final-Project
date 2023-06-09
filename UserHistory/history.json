@@ -1,1 +1,62 @@
-null
+[
+    {
+        "completion": false,
+        "date": "06/10/2023",
+        "description": "finish",
+        "eventType": 3,
+        "length": 2,
+        "location": "",
+        "name": "finish",
+        "priority": 1,
+        "type": "Event"
+    },
+    {
+        "completion": false,
+        "date": "10/21/2023",
+        "description": "birthday",
+        "eventType": 3,
+        "length": 2,
+        "location": "",
+        "name": "birthday",
+        "priority": 1,
+        "type": "Event"
+    },
+    {
+        "completion": false,
+        "date": "06/10/2023",
+        "description": "",
+        "location": "",
+        "name": "homeowrk",
+        "priority": 1,
+        "subject": "CS061",
+        "type": "Task"
+    },
+    {
+        "assignments": null,
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "",
+        "location": "ucr",
+        "name": "CS061",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
+    },
+    {
+        "assignments": null,
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "Ali Reem",
+        "location": "ucr",
+        "name": "CS100",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
+    }
+]

@@ -5,10 +5,10 @@
 #include <ostream>
 
 Container::~Container(){
-    for(auto item : allItems){
-        delete item;
-        item = nullptr;
-    }    
+    // for(auto item : allItems){
+    //     delete item;
+    //     item = nullptr;
+    // }    
 }
 
 list<Item*> Container::getAllItems() const

@@ -1,5 +1,4 @@
 # CMake generated Testfile for 
-
 # Source directory: /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest
 # Build directory: /home/csmajs/jli793/final-project-sghos026-jli793-rdutt010-jdari003/tests/googletest/googletest
 # 

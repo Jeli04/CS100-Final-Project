@@ -18,7 +18,6 @@ private:
     ToDoList* toDoList = nullptr;
     CourseList* courseList = nullptr;
     Calendar* calendar = nullptr;
-    Day* date = nullptr;
     char userChoice = ' ';
     string itemToAccess = "";
     // int dateToAccess = 0;
