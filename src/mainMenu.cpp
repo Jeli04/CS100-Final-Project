@@ -677,6 +677,8 @@ const char MainMenu::dayPrompt(ostream& ss){
 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice) {
             case 'H':
                 return 'H';
@@ -719,6 +721,8 @@ const char MainMenu::manageCourseList(ostream& ss){
     string itemType; 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             Item* course;
             case 'V':

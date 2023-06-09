@@ -31,17 +31,6 @@
         "type": "Event"
     },
     {
-        "completion": false,
-        "date": "06/10/2023",
-        "description": "finish",
-        "eventType": 3,
-        "length": 2,
-        "location": "",
-        "name": "finish",
-        "priority": 1,
-        "type": "Event"
-    },
-    {
         "assignments": null,
         "completion": false,
         "date": "",
