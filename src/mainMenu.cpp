@@ -23,7 +23,7 @@ using namespace std;
 MainMenu::MainMenu(){
     toDoList = new ToDoList();
     courseList = nullptr;
-    calendar = nullptr;
+    Calendar* calendar = nullptr;
     itemToAccess = "";
 
     // checks if there exists a previous history
@@ -560,7 +560,7 @@ const char MainMenu::manageCalendar(ostream& ss){
             if(i < 10){date+= "0" + to_string(i) + "/";}
             else{date += to_string(i) + "/";}
             date += to_string(currentYear);
-            cout << date << endl;
+            // cout << date << endl;
             calendar->addDay(new Day(toDoList, courseList, date));
         }
     }
@@ -602,9 +602,9 @@ const char MainMenu::manageCalendar(ostream& ss){
 
 const char MainMenu::dayPrompt(ostream& ss){
     currentPrompt = 'D';
-    // Ask the user to enter a date in 00/00/2000 format
+
     cout << "Please enter a specific date (format MM/DD/YYYY): " << endl;
-    // call the display day function
+
     cin >> itemToAccess;
     while (!isValidDateFormat(itemToAccess))
     {
@@ -612,14 +612,6 @@ const char MainMenu::dayPrompt(ostream& ss){
         cin >> itemToAccess;
     }
     ss << endl;
-    // if (toDoList == nullptr /* && courseList == nullptr */) // commented part needs to be added but idk how this function works 
-    // // ********
-    // // needs to check if todoList and courselist for specific days is empty not just the whole list
-    // // ********
-    // {
-    //     ss << "Day is empty!" << endl;
-    //     return 'H';
-    // }
 
     bool dayFound = false;
     for(Day* day : calendar->getDayList()){
@@ -633,7 +625,6 @@ const char MainMenu::dayPrompt(ostream& ss){
     // prompt the user if they want to add, edit, delete an item from the day, or return home/quit
     cout << "\tH) Home Q) Quit B) Back\t" << endl;
     cout << "\tEnter Your Choice[H,Q,B]: ";
-
 
     while(true){
         cin >> userChoice;
@@ -659,10 +650,15 @@ const char MainMenu::dayPrompt(ostream& ss){
 const char MainMenu::manageCourseList(ostream& ss){
     currentPrompt = 'S';
 
-    cout << "Please enter school name: " << endl;
-    string schoolName;
-    cin >> schoolName;
-    if(courseList == nullptr){courseList = new CourseList(schoolName);}
+    
+    if(courseList == nullptr)
+    {
+        cout << "Please enter school name: " << endl;
+        string schoolName;
+        cin.ignore();
+        getline(cin, schoolName);
+        courseList = new CourseList(schoolName);
+    }
  
     courseList->displayAll(ss);
     ss << endl;
