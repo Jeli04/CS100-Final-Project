@@ -303,6 +303,8 @@ const char MainMenu::coursePrompt() {
 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice) {
             case 'H':
                 return 'H';
@@ -393,6 +395,8 @@ const char MainMenu::taskPrompt() {
 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice) {
             case 'H':
                 return 'H';
@@ -519,6 +523,8 @@ const char MainMenu::eventPrompt(){
 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << endl;
         switch(userChoice) {
             case 'H':
@@ -573,6 +579,8 @@ const char MainMenu::manageCalendar(ostream& ss){
     // ask the user to select a day, go home, or quit
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             // Item* course;
             case 'D':
@@ -628,6 +636,8 @@ const char MainMenu::dayPrompt(ostream& ss){
 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice) {
             case 'H':
                 return 'H';
@@ -669,6 +679,8 @@ const char MainMenu::manageCourseList(ostream& ss){
     string itemType; 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             Item* course;
             case 'V':
@@ -683,7 +695,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 else{
                     course->displayItemInfo(ss);
                 }
-                return 'L';
+                return 'S';
             case 'A':
                 previousPrompt = 'S';   // updates the previous prompt 
                 return 'C';
@@ -702,7 +714,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 }
                 return 'S';
             case 'E':
-                previousPrompt = 'L';
+                previousPrompt = 'S';
                 currentPrompt = 'E';
 
                 ss << "Enter the name of the item to edit: ";
@@ -717,7 +729,7 @@ const char MainMenu::manageCourseList(ostream& ss){
                 else{
                     course->edit();
                     previousPrompt = 'H';   // resets previous prompt if edit is successful 
-                    currentPrompt = 'L';
+                    currentPrompt = 'S';
                 }
                 return 'S';
             case 'H':
@@ -748,6 +760,8 @@ const char MainMenu::manageToDoList(ostream& ss){
     string itemType; 
     while(true){
         cin >> userChoice;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             Item* item;
             case 'V':
@@ -896,6 +910,8 @@ int main(){
         } else{
             cout << "Invalid option please enter a invalid choice: ";
             cin >> userInput;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << endl;
         } 
     }

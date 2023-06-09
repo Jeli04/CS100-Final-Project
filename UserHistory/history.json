@@ -2,6 +2,16 @@
     {
         "completion": false,
         "date": "10/21/2023",
+        "description": "hw",
+        "location": "",
+        "name": "homework",
+        "priority": 1,
+        "subject": "",
+        "type": "Task"
+    },
+    {
+        "completion": false,
+        "date": "10/21/2023",
         "description": "brtidhay",
         "eventType": 3,
         "length": 2,
@@ -18,6 +28,20 @@
         "instructor": "Ali Reem",
         "location": "UCR",
         "name": "cs100",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
+    },
+    {
+        "assignments": null,
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "sdkflskf",
+        "location": "UCR",
+        "name": "slkfskdlf",
         "occuringDays": [
             "Monday"
         ],
