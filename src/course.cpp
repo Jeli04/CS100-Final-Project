@@ -44,13 +44,13 @@ void Course::editOccuringDays(){
 
     cout << "----Editing Occuring Days----" << endl;
     while (inputAgain != 'n'){
-        cout << "1. Sunday" << endl;
-        cout << "2. Monday" << endl;
-        cout << "3. Tuesday" << endl;
-        cout << "4. Wednesday" << endl;
-        cout << "5. Thursday" << endl;
-        cout << "6. Friday" << endl;
-        cout << "7. Saturday" << endl;
+        cout << "\t1. Sunday" << endl;
+        cout << "\t2. Monday" << endl;
+        cout << "\t3. Tuesday" << endl;
+        cout << "\t4. Wednesday" << endl;
+        cout << "\t5. Thursday" << endl;
+        cout << "\t6. Friday" << endl;
+        cout << "\t7. Saturday" << endl;
         cout << "Enter the number of the day this course is on[1-7]: ";
         cin >> inputEditDays;
         cout << endl;

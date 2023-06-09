@@ -180,18 +180,23 @@ const char MainMenu::homePrompt(){
 
     if(previousPrompt == 'H' && currentPrompt == 'H'){cout << "           Welcome to Priority Flow!" << endl;}
     cout << "--------------------------------------------------" << endl;
-    cout << "M. View Monthly Calendar" << endl;
-    cout << "L. View your To-Do-List" << endl;
-    cout << "S. View your Course List" << endl;
-    cout << "Q. Quit the program" << endl;
+    cout << "\tM. View Monthly Calendar" << endl;
+    cout << endl;
+    cout << "\tL. View your To-Do-List" << endl;
+    cout << endl;
+    cout << "\tS. View your Course List" << endl;
+    cout << endl;
+    cout << "\tQ. Quit the program" << endl;
+    cout << endl;
     cout << "Please enter your option[M/L/S/Q]: ";
 
     cin >> userChoice;
+    cout << endl;
     while (cin.fail() || (userChoice != 'M' && userChoice != 'L' && userChoice != 'S' && userChoice != 'Q')){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << "----Invalid Input: Enter Choices[M/L/S/Q]----" << endl;
-        cout << "Please enter your option[M/L/S/Q]: ";
+        cout << "\tPlease enter your option[M/L/S/Q]: ";
         cin >> userChoice;
         cout << endl << endl;
     }
@@ -240,6 +245,7 @@ const char MainMenu::coursePrompt() {
         getline(cin, schoolName);
         courseList = new CourseList(schoolName);
         cin.ignore();
+        cout << endl;
     }
 
     int count;
@@ -416,16 +422,19 @@ const char MainMenu::taskPrompt() {
     toDoList->add(newTask); 
 
     cout << "--------------------------------------------------" << endl;
-    cout << "\tNew Task has been created!" << endl;
+    cout << "\t\tNew Task has been created!" << endl;
     cout << "--------------------------------------------------" << endl;
     cout << endl;
 
     cout << "\tH) Home Q) Quit B) Back\t" << endl;
+    cout << endl;
     cout << "\tEnter Your Choice[H,Q,B]: ";
 
 
     while(true){
+        cout << "\t ";
         cin >> userChoice;
+        cout << endl;
         switch(userChoice) {
             case 'H':
                 return 'H';
@@ -461,17 +470,17 @@ const char MainMenu::eventPrompt(){
     cout << "--------------------------------------------------" << endl;
     cout << endl;
 
-    cout << "Enter Event Name: ";
+    cout << "\tEnter Event Name: ";
     getline(cin, eventName);
     newEvent->setName(eventName);
     cout << endl << endl;
 
-    cout << "Enter Event Description: \n";
+    cout << "\tEnter Event Description: \n";
     getline(cin, eventDesc);
     newEvent->setDescription(eventDesc);
     cout << endl << endl;
 
-    cout << "Enter Event Date: ";
+    cout << "\tEnter Event Date: ";
     getline(cin, eventDate);
     newEvent->setDate(eventDate);
     while (!isValidDateFormat(eventDate)){
@@ -485,17 +494,22 @@ const char MainMenu::eventPrompt(){
     }
     cout << endl << endl;
 
-    cout << "Enter Event Priority: ";
+    cout << "\tEnter Event Priority: ";
     cin >> eventPriority;
     newEvent->setPriority(eventPriority);
-    cout << endl << endl;
+    cout << endl;
+    cout << endl;
 
     //event type
-    cout << "1. Birthday" << endl;
-    cout << "2. Meeting" << endl;
-    cout << "3. Appointment" << endl;
-    cout << "4. Other" << endl;
-    cout << "Enter the type of Event[1-4]: ";
+    cout << "\t1. Birthday" << endl;
+    cout << endl;
+    cout << "\t2. Meeting" << endl;
+    cout << endl;
+    cout << "\t3. Appointment" << endl;
+    cout << endl;
+    cout << "\t4. Other" << endl;
+    cout << endl;
+    cout << "\tEnter the type of Event[1-4]: ";
     cin >> eventType;
     cout << endl << endl;
 
@@ -546,12 +560,15 @@ const char MainMenu::eventPrompt(){
     cout << endl;
 
     // prompt the user to go home, quit, or back (return value)
-    cout << "H) Home Q) Quit B) Back\t" << endl;
-    cout << "Enter Your Choice[H,Q,B]: ";
+    cout << "\t  H) Home Q) Quit B) Back\t" << endl;
+    cout << endl;
+    cout << "\tEnter Your Choice[H,Q,B]: ";
+    cout << endl;
     cout << endl;
 
     while(true){
         cin >> userChoice;
+        cout << endl;
         cout << endl;
         switch(userChoice) {
             case 'H':
@@ -601,11 +618,19 @@ const char MainMenu::manageCalendar(ostream& ss){
 
     calendar->displayAll(ss);
 
-    cout << "D) DayView Q) Quit B) Back\t" << endl;
+    cout << "D) Day View Q) Quit B) Back\t" << endl;
+
+    cout << endl;
+    
+    cout << "Enter your Choice[D, Q, B]: ";
+
 
     // ask the user to select a day, go home, or quit
     while(true){
         cin >> userChoice;
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(userChoice){
             // Item* course;
             case 'D':
@@ -636,12 +661,13 @@ const char MainMenu::manageCalendar(ostream& ss){
 const char MainMenu::dayPrompt(ostream& ss){
     currentPrompt = 'D';
 
-    cout << "Please enter a specific date (format MM/DD/YYYY): " << endl;
-
+    cout << "Please enter a specific date (format MM/DD/YYYY): ";
     cin >> itemToAccess;
+    cout << endl;
+    cout << endl;
     while (!isValidDateFormat(itemToAccess))
     {
-        cout << "Incorrect date format, try again (format MM/DD/YYYY): " << endl;
+        cout << "Incorrect date format, try again (format MM/DD/YYYY): ";
         cin >> itemToAccess;
     }
     ss << endl;
@@ -653,10 +679,11 @@ const char MainMenu::dayPrompt(ostream& ss){
             dayFound = true;
         }
     }
-    if(dayFound == false){cout << "This date is not in the calendar!" << endl;}
+    if(dayFound == false){cout << "\tThis date is not in the calendar!" << endl;
+        cout << endl;}
 
     // prompt the user if they want to add, edit, delete an item from the day, or return home/quit
-    cout << "\tH) Home Q) Quit B) Back\t" << endl;
+    cout << "\t   H) Home Q) Quit B) Back\t" << endl;
     cout << "\tEnter Your Choice[H,Q,B]: ";
 
     while(true){
@@ -686,7 +713,7 @@ const char MainMenu::manageCourseList(ostream& ss){
     
     if(courseList == nullptr)
     {
-        cout << "Please enter school name: " << endl;
+        cout << "\tPlease enter school name: " << endl;
         string schoolName;
         cin.ignore();
         getline(cin, schoolName);
@@ -697,7 +724,8 @@ const char MainMenu::manageCourseList(ostream& ss){
     ss << endl;
 
     cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
-    cout << "Enter Your Choice: ";
+    cout << endl;
+    cout << "\tEnter Your Choice: ";
 
     string itemType; 
     while(true){
@@ -776,11 +804,13 @@ const char MainMenu::manageToDoList(ostream& ss){
     ss << endl;
 
     cout << "V) View A) Add D) Delete E) Edit H) Home Q) Quit B) Back\t" << endl;
-    cout << "Enter Your Choice: ";
+    cout << "\tEnter Your Choice[V, A, D, E, H, Q, B]: ";
 
     string itemType; 
     while(true){
         cin >> userChoice;
+        cout << endl;
+        cout << endl;
         switch(userChoice){
             Item* item;
             case 'V':
@@ -790,7 +820,7 @@ const char MainMenu::manageToDoList(ostream& ss){
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
-                    ss << "This item does not exist" << endl;
+                    ss << "\tThis item does not exist" << endl;
                 }
                 else{
                     item->displayItemInfo(ss);
