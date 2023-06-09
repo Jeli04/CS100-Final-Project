@@ -13,7 +13,7 @@ The input of our project include user input prompts that allow the user to speci
 
 The output of our project is a full display of the to-do list which includes all tasks, events, and courses. It can also display a list of all the users courses and the tasks assigned for that specific course. There is also an option to display the monthly calendar and the user can choose a day in that month to add tasks or view the to-do list for that day.
 
-This application enables users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows students to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. When they input tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application also stores all the tasks in a json file to save the tasks once the program ends.
+This application enables users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows students to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. Another important feature is that they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. Our project also stores all the tasks in a json file to save the tasks once the applications stop executing.
 
 ## User Interface Specification
 
