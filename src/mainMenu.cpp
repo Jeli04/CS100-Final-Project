@@ -182,7 +182,7 @@ const char MainMenu::homePrompt(){
     cout << "--------------------------------------------------" << endl;
     cout << "M. View Monthly Calendar" << endl;
     cout << "L. View your To-Do-List" << endl;
-    cout << "S. View your Couse List" << endl;
+    cout << "S. View your Course List" << endl;
     cout << "Q. Quit the program" << endl;
     cout << "Please enter your option[M/L/S/Q]: ";
 
