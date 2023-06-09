@@ -212,7 +212,7 @@ const char MainMenu::coursePrompt() {
     string courseName = "";
     string courseInstructor = "";
     string courseLoc = "";
-    int coursePriority;
+    int coursePriority = 0;
     string status;
 
     if(courseList == nullptr){
@@ -325,13 +325,13 @@ const char MainMenu::coursePrompt() {
     
 const char MainMenu::taskPrompt() {
     currentPrompt = 'T';
-    int choice;
+    int choice = 0;
     Task* newTask = new Task();
-    string taskName;
-    string taskSubject;
-    string taskDesc;
-    string taskDate;
-    int taskPriority;
+    string taskName = "";
+    string taskSubject = "";
+    string taskDesc = "";
+    string taskDate = "";
+    int taskPriority = 0;
 
     
     cout << endl;
@@ -474,6 +474,17 @@ const char MainMenu::eventPrompt(){
 
     cout << "\tEnter Event Priority: ";
     cin >> eventPriority;
+    cout << endl;
+    //validating user input
+    while(cin.fail()){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "------------Invalid Input: Enter Number-----------" << endl << endl;
+        cout << "\tEnter Priority (Urgency): ";
+        cin >> eventPriority;
+        cout << endl << endl;
+    }
+
     newEvent->setPriority(eventPriority);
     cout << endl;
     cout << endl;
