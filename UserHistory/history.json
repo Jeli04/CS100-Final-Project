@@ -2,13 +2,12 @@
     {
         "completion": false,
         "date": "06/10/2023",
-        "description": "finish",
-        "eventType": 3,
-        "length": 2,
+        "description": "",
         "location": "",
-        "name": "finish",
+        "name": "homeowrk",
         "priority": 1,
-        "type": "Event"
+        "subject": "CS061",
+        "type": "Task"
     },
     {
         "completion": false,
@@ -24,21 +23,22 @@
     {
         "completion": false,
         "date": "06/10/2023",
-        "description": "",
+        "description": "finish",
+        "eventType": 3,
+        "length": 2,
         "location": "",
-        "name": "homeowrk",
+        "name": "finish",
         "priority": 1,
-        "subject": "CS061",
-        "type": "Task"
+        "type": "Event"
     },
     {
         "assignments": null,
         "completion": false,
         "date": "",
         "description": "",
-        "instructor": "",
+        "instructor": "Ali Reem",
         "location": "ucr",
-        "name": "CS061",
+        "name": "CS100",
         "occuringDays": [
             "Monday"
         ],
@@ -50,9 +50,9 @@
         "completion": false,
         "date": "",
         "description": "",
-        "instructor": "Ali Reem",
+        "instructor": "",
         "location": "ucr",
-        "name": "CS100",
+        "name": "CS061",
         "occuringDays": [
             "Monday"
         ],
