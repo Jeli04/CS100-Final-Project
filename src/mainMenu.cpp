@@ -560,7 +560,7 @@ const char MainMenu::manageCalendar(ostream& ss){
             if(i < 10){date+= "0" + to_string(i) + "/";}
             else{date += to_string(i) + "/";}
             date += to_string(currentYear);
-            cout << date << endl;
+            // cout << date << endl;
             calendar->addDay(new Day(toDoList, courseList, date));
         }
     }

@@ -21,8 +21,7 @@ void CourseList::printBody(ostream& ss, const list<Item*>& toDoListType) const
     for(Item* listItem : toDoListType){
         printSpaces(ss, 4);
 
-        // ss << listItem->getName();
-        ss << "oonga boonga";
+        ss << listItem->getName();
         
         printPadding(ss, listItem->getName());
 
