@@ -2,12 +2,26 @@
     {
         "completion": false,
         "date": "10/21/2023",
-        "description": "Birthday Party",
+        "description": "brtidhay",
         "eventType": 3,
         "length": 2,
         "location": "",
-        "name": "Birthday Party",
-        "priority": 3,
+        "name": "prebhasbirthday",
+        "priority": 1,
         "type": "Event"
+    },
+    {
+        "assignments": null,
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "Ali Reem",
+        "location": "UCR",
+        "name": "cs100",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
     }
 ]
