@@ -1,14 +1,13 @@
 [
     {
-        "completion": false,
+        "completion": true,
         "date": "06/10/2023",
-        "description": "finish",
-        "eventType": 3,
-        "length": 2,
+        "description": "",
         "location": "",
-        "name": "finish",
+        "name": "homeowrk",
         "priority": 1,
-        "type": "Event"
+        "subject": "CS061",
+        "type": "Task"
     },
     {
         "completion": false,
@@ -24,12 +23,37 @@
     {
         "completion": false,
         "date": "06/10/2023",
+        "description": "finish",
+        "eventType": 3,
+        "length": 2,
+        "location": "",
+        "name": "finish",
+        "priority": 1,
+        "type": "Event"
+    },
+    {
+        "completion": false,
+        "date": "06/12/2023",
         "description": "",
         "location": "",
-        "name": "homeowrk",
+        "name": "project",
         "priority": 1,
-        "subject": "CS061",
+        "subject": "",
         "type": "Task"
+    },
+    {
+        "assignments": null,
+        "completion": false,
+        "date": "",
+        "description": "",
+        "instructor": "Ali Reem",
+        "location": "ucr",
+        "name": "CS100",
+        "occuringDays": [
+            "Monday"
+        ],
+        "priority": 1,
+        "type": "Course"
     },
     {
         "assignments": null,
@@ -50,11 +74,12 @@
         "completion": false,
         "date": "",
         "description": "",
-        "instructor": "Ali Reem",
-        "location": "ucr",
-        "name": "CS100",
+        "instructor": "Joe",
+        "location": "WCH",
+        "name": "HIST108",
         "occuringDays": [
-            "Monday"
+            "Tues",
+            "Thurs"
         ],
         "priority": 1,
         "type": "Course"
