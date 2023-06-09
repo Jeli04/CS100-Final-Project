@@ -153,6 +153,7 @@ MainMenu::~MainMenu(){
         delete calendar;
     }
     delete toDoList;    // delete toDoList at the end because courselist has assignments that are in it 
+    // delete courseList;
 
     if(outputFile.is_open()){
         outputFile << jsonData.dump(4); // dump loads the data into the json file, 4 reprsents the spacing used 
@@ -202,33 +203,8 @@ const char MainMenu::homePrompt(){
         cout << endl << endl;
     }
 
-    // switch(userChoice){
-    //     case 1:
-    //         taskPrompt();
-    //     case 2:
-    //         eventPrompt()
-    //     case 3:
-    //         coursePrompt();
-    //     case 4: 
-    //         calendar->displayAll();
-    //     case 5: 
-    //         toDoList->displayAll();
-    //     case 6: 
-    //         courseList->displayAll();
-    // }
-
     return userChoice;
 }
-
-// const char MainMenu::coursePrompt(ostream& ss){
-//     // prompt the user to enter the name of the course 
-
-//     // prompt the user for the course information to manage (add/delete/edit) and validate user input
-
-//     // prompt the user to go home, quit, or back (return value)
-
-//     return ' ';
-// }
 
 const char MainMenu::coursePrompt() {
     currentPrompt = 'C';
