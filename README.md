@@ -9,9 +9,9 @@ The idea of having an efficient way to track your tasks is for some people the c
 
 We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams. 
 
-The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
+The input of our project include user input prompts that allow the user to specify and edit details regarding their tasks, courses, and events. This includes the date, location, description, and priority of an item. Additional input includes the duration of an event, course instructor and the occuring days of a course.
 
-The output of our project will be a calendar that displays upcoming or current tasks, reminders, and events in a month/week/day format. 
+The output of our project is a full display of the to-do list which includes all tasks, events, and courses. It can also display a list of all the users courses and the tasks assigned for that specific course. There is also an option to display the monthly calendar and the user can choose a day in that month to add tasks or view the to-do list for that day.
 
 This application will enable users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows user to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. When they input tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application also stores all the tasks in a json file to save the tasks once the program ends.
 
@@ -92,4 +92,4 @@ Here are the instructions for installing or running our application:
 7. The program should now be running and the user should prompted with the Main Menu!
 
  ## Testing
- Our project utilized the Google Test framework to test each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project. We also utilized Valgrind to check for  memory leaks.
+ Our project utilized the Google Test framework to test each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project. 
