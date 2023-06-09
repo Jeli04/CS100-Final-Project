@@ -65,7 +65,7 @@ If a user chooses to open the task list this is the task list that appears. The 
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+<!--  > Screenshots of the input/output after running your application -->
  Opening prompt of PriorityFlow!
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreenLayout1.png?raw=true)
  We can interact with our primary to do list.
