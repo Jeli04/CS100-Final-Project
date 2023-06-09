@@ -5,15 +5,15 @@
 
 ## Project Description
 
-The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
+The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The goal of our task manager is to provide users with an efficent way to list their tasks in a prioritized manner, store a student's courses and their respective assignments, and keep track of the events they need to attend. Another thing to note about our project is that it is a free and open source project, which isn’t very common amongst many productivity applications.
 
-We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams.
+We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through input streams. 
 
-The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
+The input of our project include user input prompts that allow the user to specify and edit details regarding their tasks, courses, and events. This includes the date, location, description, and priority of an item. Additional input includes the duration of an event, course instructor and the occuring days of a course.
 
-The output of our project will be a calendar that displays upcoming or current tasks, reminders, and events in a month/week/day format. 
+The output of our project is a full display of the to-do list which includes all tasks, events, and courses. It can also display a list of all the users courses and the tasks assigned for that specific course. There is also an option to display the monthly calendar and the user can choose a day in that month to add tasks or view the to-do list for that day.
 
-This application will enable users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows user to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. When they input tasks they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. The application also stores all the tasks in a json file to save the tasks once the program ends.
+This application enables users to organize and document their tasks, courses, and events in a way that is efficient to them. The course list feature allows students to add all their courses to their schedule and input assignments for that specific course. When they view the course, it display all the tasks for that specific course. Another important feature is that they can pick the time of the day and priority they would like to allocate on the specific tasks and it will show up on their calendar and to-do list. Our project also stores all the tasks in a json file to save the tasks once the applications stop executing.
 
 ## User Interface Specification
 
@@ -57,33 +57,32 @@ If a user chooses to open the task list this is the task list that appears. The 
 **D:** Our abstract "item" class forms the foundation for constructing various data sets and classes. Child and friend classes implement specific behaviors based on the described behavior in the item class.<br>
 
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
- > Screenshots of the input/output after running your application
+<!--  > Screenshots of the input/output after running your application -->
+ Opening prompt of PriorityFlow!
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreenLayout1.png?raw=true)
+ We can interact with our primary to do list.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenAddTask.png?raw=true)
+ Here is how we add tasks.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenTaskAdded.png?raw=true)
+ We can go back to our monthly view.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreen2.png?raw=true)
+ We can view what assignments and courses we have on specific days within the current month.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/dayView.png?raw=true)
+ This is how we mark our to do items as complete.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/markComplete.png?raw=true)
  
  
  ## Installation/Usage
  
 Here are the instructions for installing or running our application:
-1. First when you have the files from the repository, your going to want to run cmake .
-2. After running that command, your program should be ready to fully compile, so then run make
-3. After you've run make, you should be in the root directory (project repository)
-4. While in the project repository move into the (project repository/bin)
-5. The bin file contains all of the runnable executables for Priority Flow and once your in the bin folder run this command: ./PriorityFlow
-6. After that your program should work!
+1. Open a terminal on your local machine
+2. Navigate to a directory where you would like to clone the repository using cd.
+3. To recursively clone the repo, run the command: git clone --recursive https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003.git
+4. Once you have the cloned repository on local machine run cmake .
+5. Then run make
+6. The bin file contains all of the runnable executables for Priority Flow. Run the command: ./bin/PriorityFlow
+7. The program should now be running and the user should prompted with the Main Menu!
 
  ## Testing
- Our project was tested through the google test suite by testing each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project.
- 
+ Our project utilized the Google Test framework to test each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project. 
