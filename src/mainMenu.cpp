@@ -5,15 +5,18 @@
 #include "../header/task.h"
 #include "../header/course.h"
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <sstream>
 #include <string>
 #include <cctype>
 #include <limits>
 #include <regex>
+#include <../nlohmann/json.hpp>
 #include <ctime>
 #include <chrono>
 
+using json = nlohmann::json;
 using namespace std;
 
 
@@ -22,6 +25,154 @@ MainMenu::MainMenu(){
     courseList = nullptr;
     Calendar* calendar = nullptr;
     itemToAccess = "";
+
+    // checks if there exists a previous history
+    if(!isJSONEmpty("UserHistory/history.json")){
+        json jsonData;
+        ifstream inputFile("UserHistory/history.json");
+        inputFile >> jsonData;
+
+        courseList = new CourseList("");
+
+        for(const auto& data : jsonData){
+            if(data["type"] == "Task") {
+                Task* newTask = new Task();
+                newTask->setName(data["name"]);
+                newTask->setDate(data["date"]);
+                newTask->setLocation(data["location"]);
+                newTask->setDescription(data["description"]);
+                newTask->setPriority(data["priority"]);
+                newTask->setItemCompletion(data["completion"]);
+                newTask->setSubject(data["subject"]);
+                toDoList->add(newTask);
+            }
+            else if(data["type"] == "Course"){
+                Course* newCourse = new Course();
+                newCourse->setName(data["name"]);
+                newCourse->setDate(data["date"]);
+                newCourse->setLocation(data["location"]);
+                newCourse->setDescription(data["description"]);
+                newCourse->setPriority(data["priority"]);
+                newCourse->setItemCompletion(data["completion"]);
+                newCourse->SetInstructorName(data["instructor"]);
+
+                vector<string> occuringDays;
+                for(auto days : data["occuringDays"]){
+                    occuringDays.push_back(days);
+                }
+                newCourse->SetOccuringDays(occuringDays);
+
+                for(auto assignment : data["assignments"]){
+                    Item* item = toDoList->getItem(assignment);
+                    if(Task* newAssignment = dynamic_cast<Task*>(item)){
+                        newCourse->createAssignment(newAssignment);
+                    }
+                }
+
+                courseList->add(newCourse);
+            } 
+            else if(data["type"] == "Event"){
+                Event* newEvent = new Event();
+                newEvent->setName(data["name"]);
+                newEvent->setDate(data["date"]);
+                newEvent->setLocation(data["location"]);
+                newEvent->setDescription(data["description"]);
+                newEvent->setPriority(data["priority"]);
+                newEvent->setItemCompletion(data["completion"]);
+                newEvent->setEventType(data["eventType"]);
+                newEvent->setLength(data["length"]);
+                toDoList->add(newEvent);
+            }
+        }
+    }
+}
+
+MainMenu::~MainMenu(){
+    json jsonData;
+    ofstream outputFile("UserHistory/history.json");
+    outputFile << ""; // erases the previous data
+
+    if(toDoList!=nullptr){
+        for(Item* item : toDoList->getAllItems()){
+            json itemData;
+            itemData["name"] = item->getName();
+            itemData["type"] = item->getType();
+            itemData["date"] = item->getDate();
+            itemData["location"] = item->getLocation();
+            itemData["description"] = item->getDescription();
+            itemData["priority"] = item->getPriority();
+            itemData["completion"] = item->getStatus();
+            if(Task* taskItem = dynamic_cast<Task*>(item)){
+                itemData["subject"] = taskItem->getSubject();
+            }
+            if(Event* eventItem = dynamic_cast<Event*>(item)){
+                itemData["eventType"] = eventItem->getEventType();
+                itemData["length"] = eventItem->getLength();
+            }
+            jsonData.push_back(itemData);
+        }
+    }
+    if(courseList!=nullptr){
+        for(Item* course : courseList->getAllItems()){
+            json courseData;
+            json occuringDays;
+            json assignments;
+
+            courseData["name"] = course->getName();
+            courseData["type"] = course->getType();
+            courseData["date"] = course->getDate();
+            courseData["location"] = course->getLocation();
+            courseData["description"] = course->getDescription();
+            courseData["priority"] = course->getPriority();
+            courseData["completion"] = course->getStatus();
+
+            if(Course* courseItem = dynamic_cast<Course*>(course)){
+                courseData["instructor"] = courseItem->GetInstructorName();
+
+                for(string day : courseItem->GetOccuringDays()){
+                    occuringDays.push_back(day);
+                }
+                courseData["occuringDays"] = occuringDays;
+
+                for(Item* task : courseItem->getListOfAssignments()){
+                    assignments.push_back(task->getName());
+                }
+                courseData["assignments"] = assignments;
+            }
+
+            jsonData.push_back(courseData);
+        }
+
+        delete courseList;
+    }
+    if(calendar!=nullptr){
+        for(Item* day : calendar->getAllItems()){
+            delete day;
+        }
+        delete calendar;
+    }
+    delete toDoList;    // delete toDoList at the end because courselist has assignments that are in it 
+
+    if(outputFile.is_open()){
+        outputFile << jsonData.dump(4); // dump loads the data into the json file, 4 reprsents the spacing used 
+        outputFile.close();
+    }
+
+}
+
+bool MainMenu::isJSONEmpty(const string& filename) const{
+    ifstream file(filename);
+    if(!file.is_open()){
+        return true;    // if file is unable to be opened it should be empty
+    }
+    nlohmann::json data;
+    file >> data;
+
+    if(data.empty()){
+        return true;
+    }
+    
+    return false;
 }
 
 const char MainMenu::homePrompt(){
@@ -86,8 +237,9 @@ const char MainMenu::coursePrompt() {
         string schoolName;
         cout << "--------------------------------------------------" << endl;
         cout << "\tEnter your school name: ";
-        cin >> schoolName;
+        getline(cin, schoolName);
         courseList = new CourseList(schoolName);
+        cin.ignore();
     }
 
     int count;
@@ -258,6 +410,7 @@ const char MainMenu::taskPrompt() {
 }
     
 const char MainMenu::eventPrompt(){
+    currentPrompt = 'E';
     // prompt the user to enter the event name
     char userChoice = '\0';
     Event* newEvent = new Event();
@@ -288,6 +441,15 @@ const char MainMenu::eventPrompt(){
     cout << "Enter Event Date: ";
     getline(cin, eventDate);
     newEvent->setDate(eventDate);
+    while (!isValidDateFormat(eventDate)){
+        cout << endl;
+        cout << "\tPlease re-enter valid date..." << endl;
+        cout << "\t";
+        getline(cin, eventDate);
+        if (isValidDateFormat(eventDate)) {
+            break;
+        }
+    }
     cout << endl << endl;
 
     cout << "Enter Event Priority: ";
@@ -353,20 +515,24 @@ const char MainMenu::eventPrompt(){
     // prompt the user to go home, quit, or back (return value)
     cout << "H) Home Q) Quit B) Back\t" << endl;
     cout << "Enter Your Choice[H,Q,B]: ";
-    cin >> userChoice;
     cout << endl;
 
-    while (cin.fail() || (tolower(userChoice) != 'h' && tolower(userChoice) != 'q' && tolower(userChoice) != 'b')){
-        if (cin.fail()){
-            cin.clear();
-        }
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "----Invalid Input: Enter H, Q, or B----" << endl;
-        cout << "H) Home Q) Quit B) Back" << endl;
-        cout << "Enter Your Choice[H,Q,B]: ";
+    while(true){
         cin >> userChoice;
-        cout << endl << endl;
+        cout << endl;
+        switch(userChoice) {
+            case 'H':
+                return 'H';
+            case 'B':
+                return 'B';
+            case 'Q':
+                return 'Q';
+            default:
+                cout << "Invalid option please enter a invalid choice" << endl;
+                break;
+        }
     }
+
 
     return ' ';
 }
