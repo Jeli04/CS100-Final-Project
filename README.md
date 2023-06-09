@@ -66,7 +66,15 @@ If a user chooses to open the task list this is the task list that appears. The 
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ 
+Here are the instructions for installing or running our application:
+1. First when you have the files from the repository, your going to want to run cmake .
+2. After running that command, your program should be ready to fully compile, so then run make
+3. After you've run make, you should be in the root directory (project repository)
+4. While in the project repository move into the (project repository/bin)
+5. The bin file contains all of the runnable executables for Priority Flow and once your in the bin folder run this command: ./PriorityFlow
+6. After that your program should work!
+
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ Our project was tested through the google test suite by testing each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project.
  
