@@ -66,17 +66,17 @@ If a user chooses to open the task list this is the task list that appears. The 
  
  ## Screenshots
  > Screenshots of the input/output after running your application
- > Opening prompt of PriorityFlow!
+ Opening prompt of PriorityFlow!
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreenLayout1.png?raw=true)
- > We can interact with our primary to do list.
+ We can interact with our primary to do list.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenAddTask.png?raw=true)
- > Here is how we add tasks.
+ Here is how we add tasks.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/screenTaskAdded.png?raw=true)
- > We can go back to our monthly view.
+ We can go back to our monthly view.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/currScreen2.png?raw=true)
- > We can view what assignments and courses we have on specific days within the current month.
+ We can view what assignments and courses we have on specific days within the current month.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/dayView.png?raw=true)
- > This is how we mark our to do items as complete.
+ This is how we mark our to do items as complete.
  ![alt text](https://github.com/cs100/final-project-sghos026-jli793-rdutt010-jdari003/blob/master/images/markComplete.png?raw=true)
  
  
