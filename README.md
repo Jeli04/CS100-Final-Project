@@ -86,5 +86,4 @@ Here are the instructions for installing or running our application:
 7. The program should now be running and the user should prompted with the Main Menu!
 
  ## Testing
- Our project was tested through the google test suite by testing each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project.
- 
+ Our project utilized the Google Test framework to test each of our .cpp files from src folder. We had tested the functionality and the non-functionality part of our program to get a wide range of testing throughout our project. We also utilized Valgrind to check for  memory leaks.
