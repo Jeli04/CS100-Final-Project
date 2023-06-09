@@ -195,7 +195,7 @@ const char MainMenu::homePrompt(){
     while (cin.fail() || (userChoice != 'M' && userChoice != 'L' && userChoice != 'S' && userChoice != 'Q')){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "----Invalid Input: Enter Choices[M/L/S/Q]----" << endl;
+        cout << "-------Invalid Input: Enter Choices[M/L/S/Q]------" << endl << endl;
         cout << "\tPlease enter your option[M/L/S/Q]: ";
         cin >> userChoice;
         cout << endl << endl;
