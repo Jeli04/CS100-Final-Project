@@ -7,6 +7,7 @@
 
 TEST(Day, displayDayInfoTest1){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
   testList->add(new Course({"Monday"}, "Instructor"));
   testList->getAllItems().back()->setName("Course");
   testList->getAllItems().back()->setDate("05/24/2023");
@@ -27,17 +28,18 @@ TEST(Day, displayDayInfoTest1){
 
   // cout << testList->getAllItems().front()->getType() << endl;
 
-  Day day = Day(testList, nullptr, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);
 
-  EXPECT_EQ("--------------------------------------------------\n                  Wed, May 24\n--------------------------------------------------\n\t Event: Event\n--------------------------------------------------\n\t Event Type: Other\n\t Event Description: \n\t \n\t Event Location: \n\t Event Date: 05/24/2023\n\t Event Completed: 1\n--------------------------------------------------\n\n\t Task: Task\n--------------------------------------------------\n\t Task Description: \n\t \n\t Finish By: 05/24/2023\n\t Task Priority: 0\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n", ss.str());
+  EXPECT_EQ("--------------------------------------------------\n                  Wed, May 24\n--------------------------------------------------\n\t Event: Event\n--------------------------------------------------\n\t Event Type: Other\n\t Event Description: \n\t \n\t Event Location: \n\t Event Date: 05/24/2023\n\t Event Completed: 1\n--------------------------------------------------\n\n\t Task: Task\n--------------------------------------------------\n\t Task Description: \n\t \n\t Finish By: 05/24/2023\n\t Task Priority: 0\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n\t Event: Event\n--------------------------------------------------\n\t Event Type: Other\n\t Event Description: \n\t \n\t Event Location: \n\t Event Date: 05/24/2023\n\t Event Completed: 1\n--------------------------------------------------\n\n\t Task: Task\n--------------------------------------------------\n\t Task Description: \n\t \n\t Finish By: 05/24/2023\n\t Task Priority: 0\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n", ss.str());
 
 }
 
 TEST(Day, displayDayInfoTest2){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
   testList->add(new Course({"Monday"}, "Instructor"));
   testList->getAllItems().back()->setName("Course");
   testList->getAllItems().back()->setDate("05/24/2023");
@@ -45,19 +47,20 @@ TEST(Day, displayDayInfoTest2){
   testList->getAllItems().back()->setPriority(3);
   testList->getAllItems().back()->setItemCompletion(true);
 
-  Day day = Day(testList, nullptr, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);
 
-  EXPECT_EQ("--------------------------------------------------\n                  Wed, May 24\n--------------------------------------------------\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n", ss.str());
+  EXPECT_EQ("--------------------------------------------------\n                  Wed, May 24\n--------------------------------------------------\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n\t Course Name: Course\n--------------------------------------------------\n\t Instructor: Instructor\n\t Meeting Times: Monday\n\t Class Location: UCR\n\t Class Priority: 3\n\t Status of Completion: 1\n--------------------------------------------------\n\n\t List of Assignments\n--------------------------------------------------\n", ss.str());
 
 }
 
 TEST(Day, displayDayInfoTest3){
   ToDoList* testList = new ToDoList();
+  CourseList *courseList = new CourseList("");
 
-  Day day = Day(testList, nullptr, "05/24/2023");
+  Day day = Day(testList, courseList, "05/24/2023");
   stringstream ss;
 
   day.displayDayInfo(ss);

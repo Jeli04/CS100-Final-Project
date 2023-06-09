@@ -706,7 +706,8 @@ const char MainMenu::manageCourseList(ostream& ss){
                 currentPrompt = 'E';
 
                 ss << "Enter the name of the item to edit: ";
-                cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
                 ss << endl;
                 course = courseList->getItem(itemToAccess);
                 if(course == nullptr){
@@ -751,7 +752,6 @@ const char MainMenu::manageToDoList(ostream& ss){
             Item* item;
             case 'V':
                 ss << "Enter the name of the item to view: ";
-                // cin >> itemToAccess;
                 cin.ignore();
                 getline(cin, itemToAccess);
                 ss << endl;
@@ -781,7 +781,6 @@ const char MainMenu::manageToDoList(ostream& ss){
                 ss << "Enter the name of the item to delete: ";
                 cin.ignore();
                 getline(cin, itemToAccess);
-                // cin >> itemToAccess;
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
@@ -796,7 +795,8 @@ const char MainMenu::manageToDoList(ostream& ss){
                 currentPrompt = 'E';
 
                 ss << "Enter the name of the item to edit: ";
-                cin >> itemToAccess;
+                cin.ignore();
+                getline(cin, itemToAccess);
                 ss << endl;
                 item = toDoList->getItem(itemToAccess);
                 if(item == nullptr){
