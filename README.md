@@ -7,7 +7,7 @@
 
 The idea of having an efficient way to track your tasks is for some people the cornerstone of their productivity, that’s why we see this project as an important contribution. The interesting aspects of this project is ultimately going to come from learning about how to interact with users in an efficient way. Keeping in mind how users interact with our software is something that we will have to learn very quickly, and that experience within itself is an interesting goal. Another thing to note about our project is that it will be a free and open source project, which isn’t very common amongst many productivity applications.
 
-We plan on developing our project in the terminal using C++. Our project will first have a terminal interface and than after we develop all the neccessary classes we will create a new branch to migrate our main code into a desktop application using the GTK+ library which allows us to design a Graphical User Interface using C++.
+We plan on developing our project in the terminal using C++. Our project will have a terminal interface that allows the user to input their choices through file streams and cin/getline statements.
 
 The input of our project will be user inputted text into different boxes/sections that can create new tasks, reminders, or events in a calendar. The user should also have the ability to upload calendar files and also have the ability to edit multiple existing tasks, reminders, and events. 
 The output of our project will be a calendar that displays upcoming or current tasks, reminders, and events in a month/week/day format. 
