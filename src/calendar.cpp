@@ -11,15 +11,15 @@ Calendar::Calendar(const string& _year, const string& _month, const int _dayCoun
 }
 
 Calendar::~Calendar(){
-    for(Day* day : dayList){
-        delete day;
+    for(auto item : allItems){
+        delete item;
     }
 }
 
 void Calendar::addDay(Day* day){
     // error message should not occur since the days should correctly be handeled in main menu
     if(dayCount == dayListSize()){
-        cout << "Month is full" << endl;
+        cout << "\tMonth is full" << endl;
         return;
     }
 
@@ -40,7 +40,7 @@ void Calendar::displayAll(ostream& ss) const  {
 
     // displays the first week 
     for(unsigned i = 0; i < weekday; i++){
-        ss << "    ";
+        ss <<  "    ";
     }
 
     for(int i = 1; i <= dayCount; i++){
@@ -50,6 +50,7 @@ void Calendar::displayAll(ostream& ss) const  {
             ss << endl;
         }
     }
+    ss << endl;
     ss << endl;
 }
 
