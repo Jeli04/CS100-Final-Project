@@ -9,7 +9,9 @@ ToDoList::ToDoList() {
 }
 
 ToDoList::~ToDoList() {
+    cout << allItems.size() << endl;
     for(auto item : allItems){
+        cout << item->getName() << endl;
         delete item;
     }
 }
